@@ -188,7 +188,15 @@ li a:hover {
 }
 
 /* Section 1 End */
-
+/* Section 2 start*/
+.acerca h3 {
+    font-size: 4rem;
+    font-weight: 600;
+    opacity: 0;
+    animation: leftSideAni 1s ease forwards;
+    animation-delay: 1s;
+}
+/* Section 2 end*/
 /* Dark Mode */
 
 .dark-mode {
