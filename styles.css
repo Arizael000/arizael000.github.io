@@ -373,3 +373,11 @@ li a:hover {
         margin-top: 2rem;
     }
 }
+
+/* out of base */
+
+.myown {
+    border:2px solid;
+    /* border-width: thick; */
+    border-color: forestgreen;
+}
