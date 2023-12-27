@@ -10,12 +10,19 @@
 
 .social-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
     padding: 0;
     margin: 0;
+    width: 380px;
 }
 
+.social{
+    height: 85px;
+    width: 380px;
+   
+}
+/* border: 3px solid #cc2366;*/
 .item {
     width: 40px;
     height: 40px;
@@ -24,6 +31,7 @@
     position: relative;
     transition: all .3s;
     list-style: none;
+    margin-right: 20px;
 }
 
 .fab {
@@ -59,8 +67,8 @@
     background: #15a54a;
 }
 
-.pint-bg {
-    background: #E60023;
+.tele-bg {
+    background: #229ED9;
 }
 
 .face-bg {
@@ -77,7 +85,7 @@
 }
 
 .social-container .item:hover span:last-child {
-    transform: translateX(60px);
+    transform: translateY(60px);
     width: 100px;
 }
 
@@ -89,6 +97,6 @@
     overflow: hidden;
     z-index: -1;
     top: 10%;
-    transform: translateX(20px);
+    transform: translateY(20px);
     transition: .3s;
 }

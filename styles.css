@@ -172,8 +172,10 @@ li a:hover {
 
 .images::before {
     background: linear-gradient(145deg, #e2e8ec, #ffffff);
-    box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;
+    /*box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;*/
+    
 }
+
 
 .images {
     width: 80%;
