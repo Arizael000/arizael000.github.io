@@ -1,15 +1,18 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="SocialMedia.css " rel='stylesheet'> 
-    <link rel="stylesheet" href="styles.css">
-    <script src="enlaces.js"></script>
+    <link href="css/SocialMedia.css " rel='stylesheet'> 
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/enlaces.js"></script>
+    <script src="js/darkmode.js"></script>
     <title>Portfolio</title>
 </head>
 
@@ -78,47 +81,26 @@
 
                          <li class="item">
                                 <span id="facebook" class="fab fa-facebook"></span>
-                             <span class="bg face-bg"></span>
+                                <span class="bg face-bg"></span>
                                 <span>Facebook</span>
                             </li>
+                        <li class="item">
+                                <span id="github" class="fab fa-github"></span>
+                                <span class="bg git-bg"></span>
+                                <span>GitHub</span>
+                            </li>
+                            
                          </ul>
                 </div>
             </div>
             <div class="img-sec">
                 <div class="images" id="divBorde" >
-                    <img id=cuadro src="last.png" alt="" class="img-w">
+                    <img id=cuadro src="media/last.png" alt="" class="img-w">
                 </div>
             </div>
         </div>
     </section> 
-    <script>
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
-        const cuadro=document.getElementById('cuadro');
-        const divBorde=document.getElementById('divBorde');
-        if (isDarkMode) {
-            body.classList.add('dark-mode');
-            darkModeToggle.checked = true;
-            /*divBorde.style.boxShadow: "none";*/
-            cuadro.classList.add('dark-mode');
-        }
-        darkModeToggle.addEventListener('change', () => {
-            if (darkModeToggle.checked) {
-                body.classList.add('dark-mode');
-                cuadro.classList.add('dark-mode');
-                /*divBorde.style.boxShadow= "none";*/
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                body.classList.remove('dark-mode');
-                cuadro.classList.remove('dark-mode');
-                /*divBorde.style.boxShadow= "5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff";*/
-                
-                localStorage.setItem('darkMode', 'disabled');
-            }
-        });
-    </script>
-    
+   
 </body>
 
 </html>

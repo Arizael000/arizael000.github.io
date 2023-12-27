@@ -14,12 +14,12 @@
     gap: 15px;
     padding: 0;
     margin: 0;
-    width: 380px;
+    width: 420px;
 }
 
 .social{
     height: 85px;
-    width: 380px;
+    width: 420px;
    
 }
 /* border: 3px solid #cc2366;*/
@@ -43,7 +43,7 @@
     place-items: center;
     border-radius: 50%;
     color: rgba(255, 255, 255, 0.878);
-    border: 1px solid rgba(156, 156, 156, 0.256);
+    
 }
 
 .bg {
@@ -73,6 +73,10 @@
 
 .face-bg {
     background: #215eae;
+}
+
+.git-bg{
+    background: black;
 }
 
 .social-container .item:hover .bg {
