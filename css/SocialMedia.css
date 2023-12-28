@@ -2,6 +2,7 @@
 
 #main-container {
     display: flex;
+    flex-wrap: wrap;
     height: 100%;
     width:100%;
     justify-content: center;
@@ -27,6 +28,8 @@
     width: 40px;
     height: 40px;
     display: flex;
+    flex-grow: 1;
+    flex-basis: 200;
     cursor: pointer;
     position: relative;
     transition: all .3s;
@@ -43,6 +46,7 @@
     place-items: center;
     border-radius: 50%;
     color: rgba(255, 255, 255, 0.878);
+    cursor: pointer;
     
 }
 

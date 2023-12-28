@@ -10,6 +10,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+
 }
 
 body {
@@ -19,6 +20,8 @@ body {
 /* Genral */
 .container {
     padding: 0 8.4rem;
+    flex-wrap: wrap;
+   
 }
 
 .img-w {
@@ -172,13 +175,13 @@ li a:hover {
 
 .images::before {
     background: linear-gradient(145deg, #e2e8ec, #ffffff);
-    /*box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;*/
+    box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;
     
 }
 
 
 .images {
-    width: 80%;
+    width: 70%;
     margin-left: auto;
     position: relative;
     z-index: -1;

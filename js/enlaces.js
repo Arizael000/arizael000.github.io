@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var whatsappSpan = document.getElementById('whatsapp');
     var telegramSpan=document.getElementById('telegram');
     var facebookSpan=document.getElementById('facebook');
+    var githubSpan=document.getElementById('facebook');
    
       instagramSpan.addEventListener("click", function() {
         window.open("https://instagram.com/arizogc000?igshid=OGQ5ZDc2ODk2ZA==", "_blank");
@@ -19,5 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       facebookSpan.addEventListener("click", function(){
         window.open("https://www.facebook.com/arizael.garciacapote?mibextid=ZbWKwL", "_blank");
+      });
+      githubSpan.addEventListener("click", function(){
+        window.open("https://github.com/Arizael000", "_blank");
       });
   });
