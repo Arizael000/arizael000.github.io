@@ -4,17 +4,24 @@
 :root {
     --primary-color: #f9532d;
     --primary-dark: #1F252E;
+    --card-height: 400px;
+    --card-width: 300px;
 }
 
 * {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+}
 
+
+#frase{
+    color:#f9532d;
 }
 
 body {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit', 'arial';
+    
 
 }
 /* Genral */
@@ -130,12 +137,17 @@ li a:hover {
     animation: topSideAni 1.5s ease forwards;
 }
 
-.social {
+.social{
+    height: 85px;
+    width: 420px;
+    display: inline-block;
+    padding: 10px;
+    justify-content: center;
     display: flex;
-    flex-wrap: wrap;
     gap: 1.4rem;
     margin-top: 1.7rem;
 }
+
 
 .social a {
     display: grid;
@@ -158,11 +170,11 @@ li a:hover {
     box-shadow: 0 0 20px #244D61;
     transition: all .3s ease-in-out;
 }
-.images img {
+.imagesMine img {
     position: relative;
 }
 
-.images::before {
+.imagesMine::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -173,20 +185,20 @@ li a:hover {
     border-radius: 6px;
 }
 
-.images::before {
+.imagesMine::before {
     background: linear-gradient(145deg, #e2e8ec, #ffffff);
     box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;
     
 }
 
 
-.images {
+.imagesMine {
     width: 70%;
     margin-left: auto;
     position: relative;
     z-index: -1;
 }
-.images {
+.imagesMine {
     opacity: 0;
     animation: imageAni 1s ease forwards;
     animation-delay: 1.5s;
@@ -229,7 +241,7 @@ li a:hover {
         color: #fff;
     }
 
-    .images::before {
+    .imagesMine::before {
         background: linear-gradient(145deg, #1f252e, #2e3239);
         box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #1b1f27;
     }
@@ -239,7 +251,103 @@ li a:hover {
     box-shadow: 0 4px 17px rgb(80 80 80 / 31%);
     background: var(--primary-dark);
 }
+/*Section about me (skills)*/
+#aboutMe{
+    margin-top: 35px;
+    border: solid 2px red;
+}
 
+.softSkills{
+    width: var(--card-width);
+    height: var(--card-height);
+    margin-left: 20px;
+    border-radius: 20px;
+    background-color: rgb(36, 22, 156);
+}
+
+
+.knowThing{
+    width: auto;
+    justify-content: center;
+    border: solid 2px red;
+}
+
+.iconoConocido{
+    margin: 50px;
+}
+/*END section*/
+
+/*Section about personal projects */
+#projects{
+        
+        flex-wrap: wrap;
+        margin: 60px 5px 0 5px;
+        text-align: center;
+}
+
+.separator{
+    width: 40px;
+    height: 100%;
+    background-color: transparent;
+    margin: 0 10px;
+
+}
+
+/*End of section*/
+/*Footer*/
+footer {
+    justify-content: space-between;
+    display: flex;
+    height: 120px;
+    margin-top: 20px;
+    background-color: #1c1e22;
+    justify-content: center;
+}
+.footerContainers{
+    margin: 10px;
+    margin-top: 20px;
+}
+#divF1{
+    width: 25%;
+}
+#divF2{
+    justify-content: right;
+    width: 30%;
+    text-align: center;
+}
+#divF3{
+    width: 35%;
+    height: 80%;
+}
+#frase{
+    margin-left: 5px;
+}
+#frase #nofrase{
+    margin:0 5px 5px 0;
+    color:white;
+}
+button {
+    margin-top: 15px;
+    background-color: #f9532d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #bd3434;
+    background-color: #244D61;
+    box-shadow: 0 0 20px #244D61;
+    transition: all .3s ease-in-out;
+}
+
+button:active {
+    transform: scale(0.90);
+}
+
+/*END footer*/
 /* Animation */
 @keyframes leftSideAni {
     0% {
@@ -369,7 +477,7 @@ li a:hover {
         right: 4rem;
     }
 
-    .images {
+    .imagesMine {
         width: 100%;
         margin: auto;
     }
@@ -381,8 +489,5 @@ li a:hover {
 
 /* out of base */
 
-.myown {
-    border:2px solid;
-    /* border-width: thick; */
-    border-color: forestgreen;
-}
+
+

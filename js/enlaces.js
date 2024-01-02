@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var instagramSpan = document.getElementById("instagram");
+    var instagramSpan = document.getElementById('instagram');
     var linkedinSpan = document.getElementById('linkedin');
     var whatsappSpan = document.getElementById('whatsapp');
     var telegramSpan=document.getElementById('telegram');
     var facebookSpan=document.getElementById('facebook');
-    var githubSpan=document.getElementById('facebook');
+    var githubSpan=document.getElementById('github');
    
+    
       instagramSpan.addEventListener("click", function() {
         window.open("https://instagram.com/arizogc000?igshid=OGQ5ZDc2ODk2ZA==", "_blank");
       });

@@ -9,6 +9,13 @@
     align-items: center;
 }
 
+
+#contactMe{
+    margin-top: 30px;
+    padding-left: 140px;
+    
+}
+
 .social-container {
     display: flex;
     flex-direction: row;
@@ -19,8 +26,15 @@
 }
 
 .social{
-    height: 85px;
-    width: 420px;
+    height: 130px;
+    width: 460px;
+    display: inline-block;
+    padding: 10px;
+    display: flex;
+    gap: 1.4rem;
+    margin-top: 1.7rem;
+    background-color: transparent;
+
    
 }
 /* border: 3px solid #cc2366;*/
@@ -95,6 +109,7 @@
 .social-container .item:hover span:last-child {
     transform: translateY(60px);
     width: 100px;
+    
 }
 
 .social-container .item span:last-child {
@@ -107,4 +122,5 @@
     top: 10%;
     transform: translateY(20px);
     transition: .3s;
+    
 }
