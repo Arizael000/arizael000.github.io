@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css');
 :root {
     --primary-color: #f9532d;
     --primary-dark: #1F252E;
@@ -70,7 +70,6 @@ ul {
     background-color: transparent;
     overflow: hidden;
 }
-
 li a {
     display: inline-block;
     padding: .3rem 1rem;
@@ -136,7 +135,6 @@ li a:hover {
     opacity: 0;
     animation: topSideAni 1.5s ease forwards;
 }
-
 .social{
     height: 85px;
     width: 420px;
@@ -146,34 +144,116 @@ li a:hover {
     display: flex;
     gap: 1.4rem;
     margin-top: 1.7rem;
+    flex-wrap: wrap;
 }
+/*Estilo de iconos de las redes sociales*/
+#main-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+}
+#contactMe{
+    margin-top: 30px; 
+}
+.social-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
 
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.social{
 
-.social a {
+    display: inline-block;
+    padding: 10px;
+    display: flex;
+    gap: 1.4rem;
+    margin-top: 1.7rem;
+    background-color: transparent;
+    border: solid 2px red;
+    flex-wrap: wrap;
+}
+.item {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    transition: all .3s;
+    list-style: none;
+    justify-content: center;
+    border: solid 2px blue;
+}
+.fab {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    transition: .3s;
     display: grid;
     place-items: center;
-    text-decoration: none;
-    color: #244D61;
-    font-size: 1.5rem;
-    border: 1.6px solid #244D61;
     border-radius: 50%;
-    padding: 0.39rem;
-    text-align: center;
-    opacity: 0;
-    animation: SocialAni 1s ease forwards;
-    animation-delay: calc(.2s * var(--socialAni));
+    color: rgba(255, 255, 255, 0.878);
+    cursor: pointer;
 }
-
-.social a:hover {
-    color: #fff;
-    background-color: #244D61;
-    box-shadow: 0 0 20px #244D61;
-    transition: all .3s ease-in-out;
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 40%;
+    transition: all .3s;
+    padding-top: 5px;    
 }
+.insta-bg {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+.link-bg {
+    background: rgb(1, 80, 123);
+}
+.whats-bg {
+    background: #15a54a;
+}
+.tele-bg {
+    background: #229ED9;
+}
+.face-bg {
+    background: #215eae;
+}
+.git-bg{
+    background: black;
+}
+.social-container .item:hover .bg {
+    transform: rotate(25deg);
+    transform-origin: bottom;
+}
+.social-container .item:hover .fab {
+    background-color: rgba(156, 156, 156, 0.466);
+}
+.social-container .item:hover span:last-child {
+    transform: translateY(60px);
+    width: 100px; 
+}
+.social-container .item span:last-child {
+    position: absolute;
+    color: white;
+    font-family: 'calibri';
+    width: 0px;
+    overflow: hidden;
+    z-index: -1;
+    top: 10%;
+    transform: translateY(20px);
+    transition: .3s;
+}
+/*Fin del estilo de los iconos de las redes sociales*/
 .imagesMine img {
     position: relative;
 }
-
 .imagesMine::before {
     content: "";
     position: absolute;
@@ -184,14 +264,10 @@ li a:hover {
     transform: translateX(-50%);
     border-radius: 6px;
 }
-
 .imagesMine::before {
     background: linear-gradient(145deg, #e2e8ec, #ffffff);
-    box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;
-    
+    box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff; 
 }
-
-
 .imagesMine {
     width: 70%;
     margin-left: auto;
@@ -203,7 +279,6 @@ li a:hover {
     animation: imageAni 1s ease forwards;
     animation-delay: 1.5s;
 }
-
 /* Section 1 End */
 /* Section 2 start*/
 .acerca h3 {
@@ -215,74 +290,66 @@ li a:hover {
 }
 /* Section 2 end*/
 /* Dark Mode */
-
 .dark-mode {
     background-color: var(--primary-dark);
     color: #ffffff;
 }
-
 .mode input {
     display: none;
 }
-
 :is(.dark-mode) {
     .social a {
         color: var(--primary-color);
         border: 1.6px solid var(--primary-color);
     }
-
     .social a:hover {
         color: var(--primary-dark);
         background-color: var(--primary-color);
         box-shadow: 0 0 20px var(--primary-color);
     }
-
     .logo a {
         color: #fff;
     }
-
     .imagesMine::before {
         background: linear-gradient(145deg, #1f252e, #2e3239);
         box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #1b1f27;
     }
 }
-
 .dark-mode header {
     box-shadow: 0 4px 17px rgb(80 80 80 / 31%);
     background: var(--primary-dark);
 }
 /*Section about me (skills)*/
 #aboutMe{
-    margin-top: 35px;
-    border: solid 2px red;
+    margin-top: 45px;
 }
-
 .softSkills{
     width: var(--card-width);
     height: var(--card-height);
-    margin-left: 20px;
+    margin: 10px 40px 20px 0;
     border-radius: 20px;
     background-color: rgb(238, 238, 240);
 }
-
 #softSkillContainer{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
 }
-
-.knowThing{
+#whatIknow{
+    text-align: center;
+    margin: 20px 20px 20px 0;
+}
+.iconoConocidoContainer{
     width: auto;
     justify-content: center;
-    
-
+    flex-wrap: wrap;
 }
 .iconoConocido{
     width: 50px;
     height: 50px;
     margin: 70px;
     margin-left: 60px;
+    margin-top: 10px;
     filter: grayscale(100);
     transition: filter 0.9s;
     transition: transform 0.9s;
@@ -294,32 +361,34 @@ li a:hover {
     transition: all 0.3s ease-out;
 }
 /*END section*/
-
 /*Section about personal projects */
+#projectContainer{
+    flex-wrap: wrap;
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: 5px;
+}
 #projects{
-        
         flex-wrap: wrap;
         margin: 60px 5px 0 5px;
         text-align: center;
 }
-
 .separator{
     width: 40px;
     height: 100%;
     background-color: transparent;
     margin: 0 10px;
-
 }
-
 /*End of section*/
 /*Footer*/
 footer {
     justify-content: space-between;
     display: flex;
-    height: 120px;
+    height: 30%5;
     margin-top: 20px;
     background-color: #1c1e22;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .footerContainers{
     margin: 10px;
@@ -339,10 +408,6 @@ footer {
 }
 #frase{
     margin-left: 5px;
-}
-#frase #nofrase{
-    margin:0 5px 5px 0;
-    color:white;
 }
 button {
     margin-top: 15px;
@@ -456,19 +521,10 @@ button:active {
     header {
         height: auto;
     }
-
-    ul {
-        background: #fff;
-        width: 100%;
-        height: 100vh;
-        position: absolute;
-        display: flex;
-        flex-direction: column;
+    .social-container {
+        display: block;
         text-align: center;
-        top: 3.4rem;
-        left: -100%;
-        z-index: 111111;
-    }
+      }
 
     .menu {
         display: block;
