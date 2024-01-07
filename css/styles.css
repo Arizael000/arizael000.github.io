@@ -128,23 +128,11 @@ li a:hover {
     animation: leftSideAni 1s ease forwards;
     animation-delay: 1s;
 }
-
 .main p {
     line-height: 1.7;
     font-size: 1.15rem;
     opacity: 0;
     animation: topSideAni 1.5s ease forwards;
-}
-.social{
-    height: 85px;
-    width: 420px;
-    display: inline-block;
-    padding: 10px;
-    justify-content: center;
-    display: flex;
-    gap: 1.4rem;
-    margin-top: 1.7rem;
-    flex-wrap: wrap;
 }
 /*Estilo de iconos de las redes sociales*/
 #main-container {
@@ -158,27 +146,29 @@ li a:hover {
 #contactMe{
     margin-top: 30px; 
 }
+.social{
+    width: 400px;
+    height: 200px;
+    display: inline-block;
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+    gap: 1.4rem;
+    margin-top: 1.7rem;
+    flex-wrap: wrap;
+    border: solid 2px red;
+}
 .social-container {
     display: flex;
     flex-direction: row;
     gap: 15px;
     padding: 0;
     margin: 0;
-
     justify-content: center;
     flex-wrap: wrap;
+    border: solid 2px blue;
 }
-.social{
 
-    display: inline-block;
-    padding: 10px;
-    display: flex;
-    gap: 1.4rem;
-    margin-top: 1.7rem;
-    background-color: transparent;
-    border: solid 2px red;
-    flex-wrap: wrap;
-}
 .item {
     width: 50px;
     height: 50px;
@@ -520,6 +510,10 @@ button:active {
 
     header {
         height: auto;
+    }
+    .social{
+        display: block;
+        text-align: center;
     }
     .social-container {
         display: block;
