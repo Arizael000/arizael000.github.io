@@ -146,7 +146,7 @@ li a:hover {
 #contactMe{
     margin-top: 30px; 
 }
-.social{
+/*.social{
     width: 400px;
     height: 200px;
     display: inline-block;
@@ -157,18 +157,16 @@ li a:hover {
     margin-top: 1.7rem;
     flex-wrap: wrap;
     border: solid 2px red;
-}
+}*/
 .social-container {
     display: flex;
     flex-direction: row;
-    gap: 15px;
     padding: 0;
-    margin: 0;
-    justify-content: center;
+    margin: 15px 0 0 10px;
+    justify-content: space-between;
     flex-wrap: wrap;
-    border: solid 2px blue;
+    position: relative;
 }
-
 .item {
     width: 50px;
     height: 50px;
@@ -178,7 +176,7 @@ li a:hover {
     transition: all .3s;
     list-style: none;
     justify-content: center;
-    border: solid 2px blue;
+    margin-bottom: 30px;
 }
 .fab {
     width: 100%;
@@ -194,7 +192,7 @@ li a:hover {
 .bg {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 90%;
     z-index: -1;
     border-radius: 40%;
     transition: all .3s;
@@ -511,13 +509,12 @@ button:active {
     header {
         height: auto;
     }
-    .social{
-        display: block;
-        text-align: center;
-    }
+  
     .social-container {
-        display: block;
+        
         text-align: center;
+        justify-content: space-between;
+     
       }
 
     .menu {
