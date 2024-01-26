@@ -1,50 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href='css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/styles.css">
     <link href="css/3dcard.css " rel='stylesheet'>
-    <link href="css/circle.css" rel="stylesheet">
+    <link rel="icon" href="" type="image/x-icon">
     <script src="js/enlaces.js"></script>
     <script src="js/darkmode.js"></script>
     <script src="js/contactmeB.js"></script>
     <title>Portfolio</title>
 </head>
 <body>
-    <header class="container">
-        <div class="page-header">
-            <div class="logo">
-                <a href="#">OnlyTN</a>
-            </div>
-            <input type="checkbox" id="click">
-
-            <label for="click" class="mainicon">
-                <div class="menu">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </label>
-            <ul>
-                <li><a href="#"  class="active" style="--navAni:1">Home</a></li>
-                <li><a href="#" style="--navAni:2">About me</a></li>
-                <li><a href="#" style="--navAni:3">Skills</a></li>
-                <li><a href="#" style="--navAni:4">Projects</a></li>
-                <li><a href="#" style="--navAni:5">Download CV</a></li>
-            </ul>
-            <label class="mode">
-                <input type="checkbox" id="darkModeToggle">
-                <i class='bx bxs-moon'></i>
-            </label>
+    <header class="container" id="container">
+      <div class="logo" id="logo">
+        <a href="#">OnlyTN</a>
+      </div>
+      <input type="checkbox" id="click">
+      
+      <nav id="navbar" class="dark-mode">
+        <div id="navLINKS">
+          <a class="navlink" href="#"  class="active" style="--navAni:1">Home</a>
+          <a class="navlink" href="#beginAboutMe" style="--navAni:2">About me</a>
+          <a class="navlink" href="#" style="--navAni:3">Skills</a>
+          <a class="navlink" href="#" style="--navAni:4">Projects</a>
+          <a class="navlink" href="https://drive.usercontent.google.com/u/0/uc?id=1sYw08wUoVuO1m05j-uvnzWNPl9Eez38o&export=download" style="--navAni:5" download="CV_ArizaelGC">Download CV</a>
         </div>
+      </nav>
+      <label for="click" class="mainicon">
+        <div class="menu">
+            <i class='bx bx-menu'></i>
+        </div>
+    </label>
+      <label class="mode">
+        <input type="checkbox" id="darkModeToggle">
+        <i class='bx bxs-moon' id="moon"></i>
+      </label>
     </header>
-    <section class="container">
+    <section class="container" id="Introduction">
         <div class="main">
             <div class="detail">
-                <h3>Hi</h3>
+                <h3 id="isayhi">Hi</h3>
                 <h1>I'm <span style="color:#f9532d;">Arizael</span></h1>
                 <p>I'm a Computer Science Engineer. My main goal now is to become a fullstack web developer, but i'm completly open to growing in other areas.
                 </p>
@@ -89,18 +88,16 @@
                             </div>
                         </div>
                </div>
-            
             <div class="img-sec">
                 <div class="imagesMine" id="divBorde" >
-                    <img id=cuadro src="media/last.png" alt="" class="img-w">
+                    <img id="cuadro" src="media/last.png" alt="" class="img-w">
                 </div>
             </div>
         </div>
     </section> 
-
     <section id="aboutMe">
-        <h2 style="text-align: center;">About me</h2>
-        <h4 style="text-align: center; margin-top: 20px;">Soft skills</h4>
+        <h2 class="litleTitles" style=" margin: 20px;" id="beginAboutMe">About me</h2>
+        <h4 class="litleTitles" >Soft skills</h4>
         <div id="softSkillContainer">
           <div id="comunication" class="cards softSkills">
           </div>
@@ -113,7 +110,7 @@
           <div id="grow" class="cards softSkills">
           </div>
         </div>
-        <h2 id="whatIknow">What i know:</h2>
+        <h2 id="litleTitles">What i know:</h2>
         <div class="iconoConocidoContainer" style="display: flex;">
           <span class="iconoConocido firstoneICO" id="pythonICO"><img src="media/iconosSKILL/python.png"></span>
           <span class="iconoConocido" id="reactICO"><img src="media/iconosSKILL/html5.png"/></span>
@@ -122,15 +119,13 @@
           <span class="iconoConocido" id="djangoICO"><img src="media/iconosSKILL/django.png"/></span>
           <span class="iconoConocido" id="reactICO"><img src="media/iconosSKILL/react.png"/></span>
           <span class="iconoConocido" id="sqlICO"><img src="media/iconosSKILL/sql.png"/></span>
-         
         </div>
+        <h2 id="litleTitles">Tools</h2>
     </section>
-
     <section id="projects">
-        <!-- Personal Projects -->
         <h2 style="margin-bottom: 30px;">My personal projects</h2>
         <div id="projectContainer">
-<a href="card1"  alt="Mythrill" target="_blank">
+<a class="Pcard" href="card1"  alt="Mythrill" target="_blank">
     <div class="card">
       <div class="wrapper">
         <img src="media/projects/dark_rider-cover.jpg" class="cover-image" />
@@ -139,10 +134,7 @@
       <img src="media/projects/dark_rider-character.webp" class="character" />
     </div>
   </a>
-  
-  <div class="separator"></div>
-
-  <a href="card2" alt="Mythrill" target="_blank">
+  <a class="Pcard" href="card2" alt="Mythrill" target="_blank">
     <div class="card">
       <div class="wrapper">
         <img src="media/projects/force_mage-cover.jpg" class="cover-image" />
@@ -151,10 +143,7 @@
       <img src="media/projects/force_mage-character.webp" class="character" />
     </div>
   </a>
-
-  <div class="separator"></div>
-
-  <a href="card3"  alt="Mythrill" target="_blank">
+  <a class="Pcard" href="card3"  alt="Mythrill" target="_blank">
     <div class="card">
       <div class="wrapper">
         <img src="media/projects/dark_rider-cover.jpg" class="cover-image" />
@@ -163,10 +152,7 @@
       <img src="media/projects/dark_rider-character.webp" class="character" />
     </div>
   </a>
-
-  <div class="separator"></div>
-
-  <a href="card4" alt="Mythrill" target="_blank">
+  <a class="Pcard" href="card4" alt="Mythrill" target="_blank">
     <div class="card">
       <div class="wrapper">
         <img src="media/projects/force_mage-cover.jpg" class="cover-image" />
@@ -175,11 +161,8 @@
       <img src="media/projects/force_mage-character.webp" class="character" />
     </div>
   </a>
-
-
 </div>
   <!-- END of personal projects -->
-
 </section>
     <footer>
         <div class="footerContainers" id="divF1">
@@ -196,5 +179,5 @@
         </div>
   </footer>
 </body>
-
 </html>
+
