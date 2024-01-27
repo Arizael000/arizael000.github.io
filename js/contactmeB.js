@@ -25,3 +25,9 @@ window.onclick = function(event) {
       modal.style.display = 'none';
   }
 }
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.querySelector('form');
+
+  form.addEventListener('submit', function (event) {
+     closeModal();
+})});
