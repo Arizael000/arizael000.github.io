@@ -165,12 +165,34 @@
   <!-- END of personal projects -->
 </section>
     <footer>
+      <!-- Modal -->
+        <div id="myModal" class="modal">
+          <!-- Contenido del modal -->
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form action="https://formspree.io/f/mnqejopy" method="POST">
+              <label for="nombre">Name:</label>
+              <input type="text" id="nombre" name="nombre" required placeholder="Please insert your name.">
+            
+              <label for="email">Your email:</label>
+              <input type="email" id="email" name="email" required placeholder="Insert a mail for contact you.">
+            
+              <label for="mensaje">Message:</label>
+              <textarea id="mensaje" name="mensaje" required placeholder="Insert a message for me."></textarea>
+              <div id="buttons">
+              <button type="submit" id="submit">Send</button>
+              <button type="button" onclick="closeModal()" id="cancelarform">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
         <div class="footerContainers" id="divF1">
           <h4 id="frase">If we fail, then let's fail searching greatness.</h4>
         </div>
         <div class="footerContainers" id="divF2">
           <h4 style="color: white;" >OnlyTN, La Habana, Cuba &copy; 2024</h4>
-          <button id="scrollUp">Contact me</button>
+          <button id="scrollUp" onclick="openModal()">Contact me</button>
         </div>
         <div class="footerContainers" id="divF3">
             <p style="color: white;">I have built this web portfolio at the end of my career. 
