@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css');
+@import "https://unpkg.com/open-props" layer(design.system);
 :root {
+     
     --primary-color: #f9532d;
     --primary-dark: #1F252E;
     --card-height: 400px;
@@ -85,7 +87,7 @@ nav *{
     opacity: 0;
     animation: navani .3s ease forwards;
     animation-delay: calc(.15s * var(--navAni));
-   
+    cursor: pointer;
 }
 
 a.active,
@@ -317,7 +319,7 @@ a.active,
     margin-top: 15px;
 }
 #litleTitles{
-    margin: 20px 20px 40px 0;
+    margin: 100px 20px 40px 0;
 }
 
 
@@ -351,7 +353,7 @@ a.active,
 #projectContainer{
     flex-wrap: wrap;
     display: flex; 
-    justify-content: space-between; 
+    justify-content: space-around; 
     margin-bottom: 5px;
     
 }
@@ -413,7 +415,7 @@ button:active {
 }
 
 /* Estilos para el modal */
-/* Estilos para el modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -425,7 +427,7 @@ button:active {
     overflow: auto;
     background-color: rgba(0,0,0,0.7);
     border-radius: 15px;
-    
+    backdrop-filter: blur(20px);
 }
 
 .modal-content {
@@ -434,9 +436,10 @@ button:active {
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 50%;
+    width: 60%;
+    
     text-align: center; /* Centrar el contenido del modal */
-    backdrop-filter: blur(20px);
+    
     border: 0px;
 }
 .close {
@@ -459,7 +462,7 @@ button:active {
 form {
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(20px);
+    
     border-radius: 15px;
     padding: 10px;
 }
@@ -492,7 +495,7 @@ label {
     margin-bottom: 8px;
 }
 
-input, textarea {
+footer input, textarea {
     width: 70%;
     padding: 8px;
     margin-bottom: 16px;
@@ -580,11 +583,26 @@ textarea {
 }
 
 @media screen and (max-width: 1024px) {
+    form {
+        font-size: large;
+        
+    }
+    .modal-content {
+        width: 70%;
+        
+    }
     .container {
         padding: 0 4.4rem;
     }
 }
 @media screen and (max-width: 1010px) {
+    form {
+        font-size: large;
+        
+    }
+    .modal-content {
+        width: 70%;
+    }
     .container {
         padding: 0 4.2rem;
     }
@@ -598,17 +616,33 @@ textarea {
 
 }
 @media screen and (max-width: 990px) {
+    form {
+        backdrop-filter: blur(0px);
+        
+    }
+    .modal-content {
+        width: 70%;
+
+    }
     .container {
         padding: 0 1.9rem;
     }
 }
 @media screen and (max-width: 768px) {
+    #litleTitles{
+        margin-top: 150px;
+    }
+    .modal-content {
+        width: 70%;
+    }
+    footer input, textarea {
+        width: 90%;
+    }
     body {
         height: auto;
         background-color: var(--primary-dark);
         width: 100vw;
     }
-
     .container {
         padding: 1.5rem;
     }
@@ -651,7 +685,7 @@ textarea {
     #click:not(:checked) ~ nav {
         display:none;
         left: -100%; /* Oculta el nav cuando #click no está marcado */
-        transition: left 0.3s ease 0.1s; /* Transición al ocultar el nav */
+        transition: left 0.3s ease 0.32s; /* Transición al ocultar el nav */
     
     }
     header:not(#logo) {
@@ -659,7 +693,6 @@ textarea {
         align-items: center;
         padding: 1rem; /* Ajusta el padding según sea necesario */
     }
-    
     .mode {
         position: sticky;
         padding-left: 10px;
@@ -685,7 +718,6 @@ textarea {
         margin-left: auto;
         margin-right: 0;
     }
-
     .dark-mode .menu {
         color: var(--primary-color);
     }
@@ -716,8 +748,24 @@ textarea {
         width: 20vw;
         height: 20vh;
     }
+    .description{
+        margin-top:80%!important;
+    }
+    .description{
+        margin-top:66%;
+        padding-top:330px;
+        font-size:large;
+    }
 }
 @media screen and (max-width:600px) {
+    .modal-content {
+        width: 90%;
+    }
+
+    input, textarea {
+        width: 100%;
+    }
+
     body {
         height: auto;
         background-color: var(--primary-dark);
@@ -755,8 +803,6 @@ textarea {
         font-weight: bold;
         color: #244D61;
     }
-
-
     .dark-mode .menu {
         color: var(--primary-color);
     }
@@ -787,6 +833,93 @@ textarea {
 }
 
 /* out of base */
+/* Gallery */
+.gallery{
+    padding: 20px 10px 20px;
+    margin: 0 auto;
+    
+}
+.description{
+    display: none;
+    margin-top:66%;
+    
+}
+.description.start {
+    display: block; 
+  }
+@layer demo {
+    .gallery {
+      grid-template-columns:
+        var(--col-1, 1fr)
+        var(--col-2, 1fr)
+        var(--col-3, 1fr)
+        var(--col-4, 1fr)
+        var(--col-5, 1fr);
+  
+      @media (prefers-reduced-motion: no-preference) {
+        transition: grid-template-columns 2s var(--ease-spring-5);
+      }
+  
+      &:has(label:nth-child(1) > input:checked) {
+        --col-1: 5fr;
+        --col-2: 3fr;
+        
+      }
+      &:has(label:nth-child(2) > input:checked) {
+        --col-1: 2fr;
+        --col-2: 5fr;
+        --col-3: 2fr;
+        
+      }
+      &:has(label:nth-child(3) > input:checked) {
+        --col-2: 2fr;
+        --col-3: 5fr;
+        --col-4: 2fr;
+      }
+      &:has(label:nth-child(4) > input:checked) {
+        --col-3: 2fr;
+        --col-4: 5fr;
+        --col-5: 2fr;
+      }
+      &:has(label:nth-child(5) > input:checked) {
+        --col-4: 3fr;
+        --col-5: 5fr;
+      }
+  
+      > label {
+        background-image: var(--_img);
+        background-position: center;
+        background-size: auto 125%;
+      }
+    }
+  }
+  
+  @layer demo.support {
+  
+    .gallery {
+      inline-size: 80vw;
+  
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: 50vh;
+      gap: var(--size-3);
+      border: none;
+  
+      > label {
+        cursor: pointer;
+        border-radius: var(--radius-4);
+  
+        &:focus-within {
+          outline: 1px solid #fff;
+          outline-offset: 5px;
+        }
+  
+        > input {
+          opacity: 0;
+        }
+      }
+    }
+  }
 
 
 
