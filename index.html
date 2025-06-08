@@ -7,24 +7,24 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/styles.css">
     <link href="css/3dcard.css " rel='stylesheet'>
-    <link rel="icon" href="" type="image/x-icon">
+    <link rel="icon" href="media/webIcon.png" type="image/x-icon">
     <script src="js/scripts.js"></script>
     <title>Portfolio</title>
 </head>
 <body>
     <header class="container" id="container">
       <div class="logo" id="logo">
-        <a href="#">OnlyTN</a>
+        <img src="media/webIcon.png" alt="Logo" width="50" height="50" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
       </div>
       <input type="checkbox" id="click">
       
       <nav id="navbar" class="dark-mode">
         <div id="navLINKS">
-          <a class="navlink" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"  class="active" style="--navAni:1">Home</a>
+          <a class="navlink" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});"  class="active" style="--navAni:1">Contact me</a>
           <a class="navlink" onclick="scrollToSection('aboutMe')"  style="--navAni:2">About me</a>
           <a class="navlink"  onclick="scrollToSection('tools')"  style="--navAni:4">Tools</a>
           <a class="navlink"  onclick="scrollToSection('projects')"  style="--navAni:4">Projects</a>
-          <a class="navlink" href="https://drive.usercontent.google.com/u/0/uc?id=1sYw08wUoVuO1m05j-uvnzWNPl9Eez38o&export=download" style="--navAni:5" download="CV_ArizaelGC">Download CV</a>
+          <a class="navlink" href="https://drive.usercontent.google.com/u/0/uc?id=1GLtvv0wj0IWsj5QdNsfEHnt2TbsXs9kK&export=download" style="--navAni:5" download="CV_ArizaelGC">Download CV</a>
         </div>
       </nav>
       <label for="click" class="mainicon">
@@ -42,11 +42,11 @@
             <div class="detail">
                 <h3 id="isayhi">Hi</h3>
                 <h1>I'm <span style="color:#f9532d;">Arizael</span></h1>
-                <p>I'm a Computer Science Engineer. My main goal now is to become a fullstack web developer, but i'm completly open to growing in other areas.
+                <p>I'm a Computer Science Engineer. My main goal is to get a better data scientist combining self learning and new experiences.
                 </p>
             </div>
                 <div>
-                    <!-- SOCIAL MEDIA  -->
+                    <!-- SOCIAL MEDIA  
                     <h2 id="contactMe">Contact me</h2>
                         <div class="social-container">
                             <div class="item">
@@ -54,7 +54,7 @@
                                <span  class="bg insta-bg"></span>
                                <span class="socialName">Instagram</span>
                             </div>
-        
+                          
                             <div class="item">
                                 <span id="linkedin" class="fab fa-linkedin"></span>
                                <span class="bg link-bg"></span>
@@ -67,16 +67,10 @@
                                 <span class="socialName">Whatsapp</span>
                             </div>
         
-                            <div class="item">
+                             <div class="item">
                               <span id="telegram" class="fab fa-telegram"></span>
                               <span class="bg tele-bg"></span>
                                 <span class="socialName">Telegram</span>
-                            </div>
-        
-                            <div class="item">
-                                <span id="facebook" class="fab fa-facebook"></span>
-                                <span class="bg face-bg"></span>
-                                <span class="socialName">Facebook</span>
                             </div>
                              <div class="item">
                                 <span id="github" class="fab fa-github"></span>
@@ -84,7 +78,7 @@
                                 <span class="socialName">GitHub</span>
                             </div>
                         </div>
-               </div>
+               </div>-->
             <div class="img-sec">
                 <div class="imagesMine" id="divBorde" >
                     <img id="cuadro" src="media/last.png" alt="" class="img-w">
@@ -192,10 +186,10 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <form action="https://formspree.io/f/mnqejopy" method="POST">
               <label for="nombre">Name:</label>
-              <input type="text" id="nombre" name="nombre" required placeholder="Please insert your name." autocomplete="on">
+              <input type="text" id="nombre" name="nombre" required placeholder="Identify yourself" autocomplete="on">
             
               <label for="email">Your email:</label>
-              <input type="email" id="email" name="email" required placeholder="Insert a mail for contact you." autocomplete="on">
+              <input type="email" id="email" name="email" required placeholder="Insert an email to contact you." autocomplete="on">
             
               <label for="mensaje">Message:</label>
               <textarea id="mensaje" name="mensaje" required placeholder="Insert a message for me." autocomplete="off"></textarea>
@@ -211,12 +205,12 @@
           <h4 id="frase">If we fail, then let's fail searching greatness.</h4>
         </div>
         <div class="footerContainers" id="divF2">
-          <h4 style="color: white;" >OnlyTN, La Habana, Cuba &copy; 2024</h4>
+          <h4 style="color: white;" >Alajuela, Costa Rica &copy; 2025</h4>
           <button id="scrollUp" onclick="openModal()">Contact me</button>
         </div>
         <div class="footerContainers" id="divF3">
-            <p style="color: white;">I have built this web portfolio at the end of my career. 
-              I'm always trying to improve and optimize the code used here. 
+            <p style="color: white;">I have built this web portfolio since the end of my career. 
+              I'm always trying to improve and optimize.
                Any constructive criticism will be gratefully acepted.</p>
         </div>
        

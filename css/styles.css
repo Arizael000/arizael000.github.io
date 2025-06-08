@@ -95,6 +95,10 @@ a.active,
     color: var(--primary-color);
 }
 
+.logo img {
+    cursor: pointer;
+}
+
 #click {
     display: none;
 }
