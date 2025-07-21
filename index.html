@@ -5,87 +5,115 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="css/header.css " rel='stylesheet'>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="css/3dcard.css " rel='stylesheet'>
+    <link href="css/section1.css " rel='stylesheet'>
+    <link href="css/sectionProjects.css " rel='stylesheet'>
+    <link href="css/footer.css" rel='stylesheet'>
+    <link href="css/darkmode.css" rel='stylesheet'>
     <link rel="icon" href="media/webIcon.png" type="image/x-icon">
     <script src="js/scripts.js"></script>
     <title>Portfolio</title>
 </head>
 <body>
-    <header class="container" id="container">
-      <div class="logo" id="logo">
-        <img src="media/webIcon.png" alt="Logo" width="50" height="50" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-      </div>
-      <input type="checkbox" id="click">
+      <header class="container" id="container">
+        <div class="logo" id="logo">
+          <img src="media/webIcon.png" alt="Logo" width="50" height="50">
+        </div>
+        <input type="checkbox" id="click">
       
-      <nav id="navbar" class="dark-mode">
-        <div id="navLINKS">
-          <a class="navlink" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});"  class="active" style="--navAni:1">Contact me</a>
-          <a class="navlink" onclick="scrollToSection('aboutMe')"  style="--navAni:2">About me</a>
-          <a class="navlink"  onclick="scrollToSection('tools')"  style="--navAni:4">Tools</a>
-          <a class="navlink"  onclick="scrollToSection('projects')"  style="--navAni:4">Projects</a>
-          <a class="navlink" href="https://drive.usercontent.google.com/u/0/uc?id=1GLtvv0wj0IWsj5QdNsfEHnt2TbsXs9kK&export=download" style="--navAni:5" download="CV_ArizaelGC">Download CV</a>
-        </div>
-      </nav>
-      <label for="click" class="mainicon">
-        <div class="menu">
+        <nav id="navbar" class="dark-mode">
+          <div id="navLINKS">
+            <a class="navlink active blink" id = "contactHeader" data-section="contact">Contact me</a>
+            <a class="navlink" data-section="aboutMe">About me</a>
+            <a class="navlink" data-section="tools">Tools</a>
+            <a class="navlink" data-section="projects">Projects</a>
+            <a class="navlink" data-section="Academics">Learning Path</a>
+            <a class="navlink" href="https://drive.usercontent.google.com/u/0/uc?id=1qqVExE91D9ZgpF2pUoxpLMBGBME0Z9-M&export=download" download="CV_ArizaelGC">Download CV</a>
+          </div>
+        </nav>
+        <label for="click" class="mainicon">
+          <div class="menu">
             <i class='bx bx-menu'></i>
+          </div>
+        </label>
+      
+
+        <div class="switch">
+          <div class="icon">
+            <!-- Luna: modo oscuro ON -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+            </svg>
+            <!-- Sol: modo claro OFF -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </div>
+          <label for="toggle-2" aria-label="Toggle Filter">
+            <input type="checkbox" id="toggle-2"  checked data-on="YES" data-off="NO">
+          </label>
+          <span class="led"></span>
         </div>
-    </label>
-      <label class="mode">
-        <input type="checkbox" id="darkModeToggle">
-        <i class='bx bxs-moon' id="moon"></i>
-      </label>
-    </header>
+      </header>
+
     <section class="container" id="introduction">
-        <div class="main">
-            <div class="detail">
-                <h3 id="isayhi">Hi</h3>
-                <h1>I'm <span style="color:#f9532d;">Arizael</span></h1>
-                <p>I'm a Computer Science Engineer. My main goal is to get a better data scientist combining self learning and new experiences.
-                </p>
-            </div>
-                <div>
-                    <!-- SOCIAL MEDIA  
-                    <h2 id="contactMe">Contact me</h2>
-                        <div class="social-container">
-                            <div class="item">
-                               <span id="instagram" class="fab fa-instagram"></span>
-                               <span  class="bg insta-bg"></span>
-                               <span class="socialName">Instagram</span>
-                            </div>
-                          
-                            <div class="item">
-                                <span id="linkedin" class="fab fa-linkedin"></span>
-                               <span class="bg link-bg"></span>
-                               <span class="socialName">Linkedin</span>
-                            </div>
-        
-                            <div class="item">
-                               <span id="whatsapp" class="fab fa-whatsapp"></span>
-                               <span class="bg whats-bg"></span>
-                                <span class="socialName">Whatsapp</span>
-                            </div>
-        
-                             <div class="item">
-                              <span id="telegram" class="fab fa-telegram"></span>
-                              <span class="bg tele-bg"></span>
-                                <span class="socialName">Telegram</span>
-                            </div>
-                             <div class="item">
-                                <span id="github" class="fab fa-github"></span>
-                                <span class="bg git-bg"></span>
-                                <span class="socialName">GitHub</span>
-                            </div>
-                        </div>
-               </div>-->
-            <div class="img-sec">
-                <div class="imagesMine" id="divBorde" >
-                    <img id="cuadro" src="media/last.png" alt="" class="img-w">
-                </div>
-            </div>
+      <div class="main">
+        <div class="detail">
+          <h3 id="isayhi">Hi</h3>
+          <h1>I'm <span style="color:#f9532d;">Arizael</span></h1>
+          <p>I'm a Computer Science Engineer. My main goal is to get a better data scientist combining self learning and new experiences.</p>
         </div>
-    </section> 
+
+                    <!-- Elementos social, poner al lado de la foto -->
+            <link rel="stylesheet" href="css/social.css">
+
+            <div class="menu-social">
+              <div class="toggle">
+                <ion-icon name="share-social"></ion-icon>
+                </div>
+              
+                  <li style="--i:0;--clr:#1877f2">
+                  <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                </li>
+                <li style="--i:1;--clr:#25d366">
+                  <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                </li>
+                <li style="--i:2;--clr:#ff0000">
+                  <a href="#" id="socialEmail"><ion-icon name="mail"></ion-icon></a>
+                </li>
+                 <li style="--i:3;--clr:#0a66c2">
+                  <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+                </li>
+                <li style="--i:4;--clr:#1b1e21">
+                  <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+                </li>
+              
+              
+            </div>
+            <!-- JS para que funcionen -->
+            <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script><script  src="js/social.js"></script>
+
+
+
+        <div class="img-sec">
+          <div class="imagesMine" id="divBorde">
+            <img id="cuadro" src="media/last.png" alt="Arizael profile picture" class="img-w" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
     <section id="aboutMe">
         <h2 class="litleTitles" style=" margin: 20px;" id="beginAboutMe">About me</h2>
         <h4 class="litleTitles" >Soft skills</h4>
@@ -125,27 +153,27 @@
         <h2 id="litleTitles">What i know:</h2>
         <div class="iconoConocidoContainer" style="display: flex;">
           <span class="iconoConocido firstoneICO" id="pythonICO"><img src="media/iconosSKILL/python.png"></span>
-          <span class="iconoConocido" id="reactICO"><img src="media/iconosSKILL/html5.png"/></span>
-          <span class="iconoConocido" id="cssICO"><img src="media/iconosSKILL/css.png"/></span>
-          <span class="iconoConocido" id="javaICO"><img src="media/iconosSKILL/java.png"/></span>
-          <span class="iconoConocido" id="djangoICO"><img src="media/iconosSKILL/django.png"/></span>
-          <span class="iconoConocido" id="reactICO"><img src="media/iconosSKILL/react.png"/></span>
+          <span class="iconoConocido" id="reactICO"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+<linearGradient id="70AWaG9FpYs2yn8LzRfdUa_J0SgMWzAxqFj_gr1" x1="17.151" x2="29.996" y1="8.498" y2="37.571" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f09701"></stop><stop offset="1" stop-color="#e36001"></stop></linearGradient><path fill="url(#70AWaG9FpYs2yn8LzRfdUa_J0SgMWzAxqFj_gr1)" d="M8.108,18.006C10.534,11.579,16.724,7,24,7c7.276,0,13.466,4.579,15.892,11.006	C36.653,14.6,30.757,12.313,24,12.313C17.243,12.313,11.347,14.6,8.108,18.006z M24,35.688c-6.757,0-12.653-2.287-15.892-5.693	C10.534,36.421,16.724,41,24,41c7.276,0,13.466-4.579,15.892-11.006C36.653,33.4,30.757,35.688,24,35.688z"></path><linearGradient id="70AWaG9FpYs2yn8LzRfdUb_J0SgMWzAxqFj_gr2" x1="1.319" x2="25.671" y1="44.651" y2="1.059" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a1aab3"></stop><stop offset="1" stop-color="#8f979e"></stop></linearGradient><path fill="url(#70AWaG9FpYs2yn8LzRfdUb_J0SgMWzAxqFj_gr2)" d="M39.512,4.744c0,1.515-1.228,2.744-2.744,2.744s-2.744-1.228-2.744-2.744S35.253,2,36.768,2S39.512,3.228,39.512,4.744z M10.976,40.415c-1.818,0-3.293,1.474-3.293,3.293c0,1.818,1.474,3.293,3.293,3.293	s3.293-1.474,3.293-3.293C14.268,41.889,12.794,40.415,10.976,40.415z M7.683,6.39c-1.212,0-2.195,0.983-2.195,2.195	s0.983,2.195,2.195,2.195s2.195-0.983,2.195-2.195S8.895,6.39,7.683,6.39z"></path>
+</svg></span>
+          <span class="iconoConocido" id="reactICO"><img width="80" height="80" src="media/iconosSKILL/html5.png"/><img width="80" height="80" src="media/iconosSKILL/css.png"/><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="80" height="80" viewBox="0 0 48 48">
+<path fill="#ffd600" d="M6,42V6h36v36H6z"></path><path fill="#000001" d="M29.538 32.947c.692 1.124 1.444 2.201 3.037 2.201 1.338 0 2.04-.665 2.04-1.585 0-1.101-.726-1.492-2.198-2.133l-.807-.344c-2.329-.988-3.878-2.226-3.878-4.841 0-2.41 1.845-4.244 4.728-4.244 2.053 0 3.528.711 4.592 2.573l-2.514 1.607c-.553-.988-1.151-1.377-2.078-1.377-.946 0-1.545.597-1.545 1.377 0 .964.6 1.354 1.985 1.951l.807.344C36.452 29.645 38 30.839 38 33.523 38 36.415 35.716 38 32.65 38c-2.999 0-4.702-1.505-5.65-3.368L29.538 32.947zM17.952 33.029c.506.906 1.275 1.603 2.381 1.603 1.058 0 1.667-.418 1.667-2.043V22h3.333v11.101c0 3.367-1.953 4.899-4.805 4.899-2.577 0-4.437-1.746-5.195-3.368L17.952 33.029z"></path>
+</svg></span>
+
           <span class="iconoConocido" id="sqlICO"><img src="media/iconosSKILL/sql.png"/></span>
         </div>
     </section>
-    <section id="tools">
-      <h1 id="toolstitle">Tools</h1>
-    </section>
+
     <section id="projects">
-        <h2 style="margin-bottom: 30px;">My personal projects</h2>
+        <h2>Miscellaneous projects</h2>
         <div id="projectContainer">
-            <a class="Pcard" href="card1"  alt="Mythrill" target="_blank">
-                <div class="card">
+            <a class="Pcard" href="#" id="qrScanProject"  alt="Mythrill" target="_blank">
+                <div class="card" >
                   <div class="wrapper">
-                    <img src="media/projects/dark_rider-cover.jpg" class="cover-image" />
+                    <img src="media/projects/SCAN.jpg"  class="cover-image" />
                   </div>
-                  <img src="media/projects/dark_rider-title.png" class="title" />
-                  <img src="media/projects/dark_rider-character.webp" class="character" />
+                  
+                  <img src="media/projects/QRGen.png"  class="character" />
                 </div>
               </a>
               <a class="Pcard" href="card2" alt="Mythrill" target="_blank">
@@ -153,7 +181,7 @@
                   <div class="wrapper">
                     <img src="media/projects/force_mage-cover.jpg" class="cover-image" />
                   </div>
-                  <img src="media/projects/force_mage-title.png" class="title" />
+                  
                   <img src="media/projects/force_mage-character.webp" class="character" />
                 </div>
               </a>
@@ -162,7 +190,7 @@
                   <div class="wrapper">
                     <img src="media/projects/dark_rider-cover.jpg" class="cover-image" />
                   </div>
-                  <img src="media/projects/dark_rider-title.png" class="title" />
+                 
                   <img src="media/projects/dark_rider-character.webp" class="character" />
                 </div>
               </a>
@@ -171,33 +199,33 @@
                   <div class="wrapper">
                     <img src="media/projects/force_mage-cover.jpg" class="cover-image" />
                   </div>
-                  <img src="media/projects/force_mage-title.png" class="title" />
+                 
                   <img src="media/projects/force_mage-character.webp" class="character" />
                 </div>
               </a>
          </div>
-  <!-- END of personal projects -->
 </section>
+
     <footer>
-      <!-- Modal -->
-        <div id="myModal" class="modal">
-          <!-- Contenido del modal -->
+      <div id="myModal" class="modal">
           <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <form action="https://formspree.io/f/mnqejopy" method="POST">
+            <span class="close">&times;</span>
+            <form id="contactForm" method="POST">
               <label for="nombre">Name:</label>
-              <input type="text" id="nombre" name="nombre" required placeholder="Identify yourself" autocomplete="on">
-            
+              <input type="text" id="nombre" name="nombre" required>
+
               <label for="email">Your email:</label>
-              <input type="email" id="email" name="email" required placeholder="Insert an email to contact you." autocomplete="on">
-            
+              <input type="email" id="email" name="email" required>
+
               <label for="mensaje">Message:</label>
-              <textarea id="mensaje" name="mensaje" required placeholder="Insert a message for me." autocomplete="off"></textarea>
+              <textarea id="mensaje" name="mensaje" required></textarea>
+
               <div id="buttons">
-              <button type="submit" id="submit">Send</button>
-              <button type="button" onclick="closeModal()" id="cancelarform">Cancel</button>
+                <button type="submit" id="submit">Send</button>
+                <button type="button" id="cancelarform">Cancel</button>
               </div>
             </form>
+
           </div>
         </div>
 
@@ -206,15 +234,17 @@
         </div>
         <div class="footerContainers" id="divF2">
           <h4 style="color: white;" >Alajuela, Costa Rica &copy; 2025</h4>
-          <button id="scrollUp" onclick="openModal()">Contact me</button>
+          <button id="scrollUp">Contact me</button>
         </div>
         <div class="footerContainers" id="divF3">
             <p style="color: white;">I have built this web portfolio since the end of my career. 
               I'm always trying to improve and optimize.
                Any constructive criticism will be gratefully acepted.</p>
         </div>
-       
   </footer>
+  <script src="js/header.js"></script>
+  <script src="js/enlaces.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script src="js/contactmeB.js"></script>
 </body>
 </html>
-
