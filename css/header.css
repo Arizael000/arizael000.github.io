@@ -18,8 +18,13 @@
   font-weight: 800;
   opacity: 0;
   animation: leftSideAni 1s ease forwards;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 30px;
 }
-
+.logo img{
+  border-radius: 50%;
+}
 .logo a {
   color: #244D61;
   text-decoration: none;
@@ -33,7 +38,7 @@ header {
   box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
   justify-content: space-between;
   display: flex;
-  
+  height: 6em;
 }
 
 nav {

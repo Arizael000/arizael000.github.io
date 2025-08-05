@@ -11,6 +11,7 @@
     <link href="css/sectionProjects.css " rel='stylesheet'>
     <link href="css/footer.css" rel='stylesheet'>
     <link href="css/darkmode.css" rel='stylesheet'>
+    <link rel="stylesheet" href="css/social.css">
     <link rel="icon" href="media/webIcon.png" type="image/x-icon">
     <script src="js/scripts.js"></script>
     <title>Portfolio</title>
@@ -18,7 +19,7 @@
 <body>
       <header class="container" id="container">
         <div class="logo" id="logo">
-          <img src="media/webIcon.png" alt="Logo" width="50" height="50">
+          <img src="media/Gris.jpg" alt="Logo" width="80" height="80">
         </div>
         <input type="checkbox" id="click">
       
@@ -72,16 +73,13 @@
           <h1>I'm <span style="color:#f9532d;">Arizael</span></h1>
           <p>I'm a Computer Science Engineer. My main goal is to get a better data scientist combining self learning and new experiences.</p>
         </div>
-
-                    <!-- Elementos social, poner al lado de la foto -->
-            <link rel="stylesheet" href="css/social.css">
-
-            <div class="menu-social">
-              <div class="toggle">
-                <ion-icon name="share-social"></ion-icon>
+ <!-- Elementos social, poner en contactme -->
+               <div class="menu-social">
+                <div class="toggle">
+                  <ion-icon name="person-circle"></ion-icon>
                 </div>
               
-                  <li style="--i:0;--clr:#1877f2">
+                <li style="--i:0;--clr:#1877f2">
                   <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
                 </li>
                 <li style="--i:1;--clr:#25d366">
@@ -96,59 +94,14 @@
                 <li style="--i:4;--clr:#1b1e21">
                   <a href="#"><ion-icon name="logo-github"></ion-icon></a>
                 </li>
-              
-              
-            </div>
-            <!-- JS para que funcionen -->
-            <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script><script  src="js/social.js"></script>
-
-
-
-        <div class="img-sec">
-          <div class="imagesMine" id="divBorde">
-            <img id="cuadro" src="media/last.png" alt="Arizael profile picture" class="img-w" />
-          </div>
-        </div>
-      </div>
+            </div> 
+        
+ 
     </section>
 
 
-
     <section id="aboutMe">
-        <h2 class="litleTitles" style=" margin: 20px;" id="beginAboutMe">About me</h2>
-        <h4 class="litleTitles" >Soft skills</h4>
-        <fieldset class="gallery">
-          <label class="galleryLabel" style="--_img: url('../media/SoftSkills/Rproblemas.jpg')">
-            <p class="description start"><strong>Resolución de Problemas:</strong>
-              Habilidad para abordar desafíos de codificación identificando soluciones de manera creativa.
-            </p>
-            <input class="galleryInputs" type="radio" name="images" value="Fiddle Leaf" checked>
-          </label>
-          <label class="galleryLabel" style="--_img: url('../media/SoftSkills/Ctecnica.jpg')">
-            <p class="description"><strong>Comunicación Técnica:</strong>
-              Capacidad para expresar ideas técnicas de manera clara, facilitando la colaboración en equipos de desarrollo.
-            </p>
-            <input class="galleryInputs" type="radio" name="images" value="Pink Princess">
-          </label>
-          <label class="galleryLabel" style="--_img: url('../media/SoftSkills/Tequipo.jpg')">
-            <p class="description"><strong>Colaboración en Equipo:</strong>
-              Abierto a trabajar con otros desarrolladores, compartiendo conocimientos y contribuyendo positivamente a los objetivos.
-            </p>
-            <input class="galleryInputs" type="radio" name="images" value="Monstera">
-          </label>
-          <label class="galleryLabel" style="--_img: url('../media/SoftSkills/Aprendizaje.jpg')">
-            <p class="description"><strong>Adaptabilidad en Tecnología:</strong>
-              Disposición para aprender nuevas tecnologías y adaptarse rápidamente a cambios en el entorno de desarrollo de software.
-            </p>
-            <input class="galleryInputs" type="radio" name="images" value="Pothos">
-          </label>
-          <label class="galleryLabel" style="--_img: url('../media/SoftSkills/Pensamiento.jpg')">
-            <p class="description"><strong>Pensamiento Analítico:</strong>
-              Divide y vencerás, nada mejor para solucionar problemas grandes, siempre es mejor dividir en tareas pequeñas.
-            </p>
-            <input class="galleryInputs" type="radio" name="images" value="Rubber Tree">
-          </label>
-        </fieldset>
+        
 
         <h2 id="litleTitles">What i know:</h2>
         <div class="iconoConocidoContainer" style="display: flex;">
@@ -205,7 +158,7 @@
               </a>
          </div>
 </section>
-
+  
     <footer>
       <div id="myModal" class="modal">
           <div class="modal-content">
@@ -222,6 +175,7 @@
 
               <div id="buttons">
                 <button type="submit" id="submit">Send</button>
+                
                 <button type="button" id="cancelarform">Cancel</button>
               </div>
             </form>
@@ -235,6 +189,9 @@
         <div class="footerContainers" id="divF2">
           <h4 style="color: white;" >Alajuela, Costa Rica &copy; 2025</h4>
           <button id="scrollUp">Contact me</button>
+               
+               
+            
         </div>
         <div class="footerContainers" id="divF3">
             <p style="color: white;">I have built this web portfolio since the end of my career. 
@@ -242,6 +199,7 @@
                Any constructive criticism will be gratefully acepted.</p>
         </div>
   </footer>
+  <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script><script  src="js/social.js"></script>
   <script src="js/header.js"></script>
   <script src="js/enlaces.js"></script>
   <script src="js/darkmode.js"></script>
