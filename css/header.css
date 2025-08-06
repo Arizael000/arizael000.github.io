@@ -2,7 +2,7 @@
   --primary-color: #f9532d;
 }
 
-/* Animación solo con text-shadow (sin afectar el color directamente) */
+/* Animación solo con text-shadow */
 @keyframes glowPulse {
   0%, 100% {
     text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
@@ -12,50 +12,77 @@
   }
 }
 
-/* Header */
+/* HEADER GENERAL */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+  display: flex;
+  justify-content: center;
+  height: 6em;
+}
+
+/* CONTENEDOR INTERNO DEL HEADER */
+.header-inner {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* LOGO */
 .logo {
   font-size: 1.5rem;
   font-weight: 800;
   opacity: 0;
   animation: leftSideAni 1s ease forwards;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 30px;
+  display: flex;
+  align-items: center;
 }
-.logo img{
+.logo img {
   border-radius: 50% !important; 
+  cursor: pointer;
 }
 .logo a {
   color: #244D61;
   text-decoration: none;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100; /* Asegura que esté por encima */
-  background: #fff; /* O el color que prefieras */
-  box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
-  justify-content: space-between;
+/* CENTRO: NAV LINKS */
+.center {
+  flex-grow: 1;
   display: flex;
-  height: 6em;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  pointer-events: none;
+
 }
 
+/* NAVBAR */
 nav {
   width: auto;
   display: flex;
-  gap: .2rem;
   background-color: transparent;
   overflow: hidden;
   animation: rightSideAni 1s ease forwards;
+  
 }
-
 nav * {
   margin: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  pointer-events: none;
 }
 
+/* LINKS */
 #navLINKS {
-  margin-left: auto;
   display: flex;
   gap: 1rem;
 }
@@ -75,38 +102,15 @@ nav * {
   animation-delay: calc(.15s * var(--navAni));
   cursor: pointer;
 }
-
 .navlink:hover {
   color: #f9532d !important;
   text-shadow: 0 0 2px var(--primary-color), 0 0 2px var(--primary-color);
 }
-
 .navlink.active {
   color: var(--primary-color);
 }
 
-.logo img {
-  cursor: pointer;
-}
-
-#click {
-  display: none;
-}
-
-.menu {
-  display: none;
-  opacity: 0;
-}
-
-.mode i {
-  font-size: 2rem;
-  cursor: pointer;
-  color: var(--primary-color);
-  opacity: 0;
-  animation: rightSideAni 1.5s ease forwards;
-}
-
-/* Contact me nav item con animación */
+/* "Contact me" con animación */
 #contactHeader {
   color: var(--primary-color);
   animation: glowPulse 1.2s infinite;
@@ -114,10 +118,49 @@ nav * {
   cursor: pointer;
   transition: color 0.3s, text-shadow 0.3s;
 }
-
-/* Al pasar el mouse: pausa la animación y aplica color naranja */
 #contactHeader:hover {
   animation-play-state: paused;
   color: var(--primary-color);
   text-shadow: 0 0 8px var(--primary-color), 0 0 12px var(--primary-color);
+}
+
+/* SWITCH A LA DERECHA */
+.right {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* MOBILE MENU (oculto por ahora, personalízalo si usas uno) */
+#click {
+  display: none;
+}
+.menu {
+  display: none;
+  opacity: 0;
+}
+
+/* ANIMACIONES DE ENTRADA */
+@keyframes leftSideAni {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes rightSideAni {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes navani {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* DARK MODE OPCIONAL: aplica si usas class="dark-mode" en el body o header */
+body.dark-mode,
+header.dark-mode,
+nav.dark-mode {
+  background-color: #1e2329;
+  color: white;
 }

@@ -11,61 +11,55 @@
     <link href="css/sectionProjects.css " rel='stylesheet'>
     <link href="css/footer.css" rel='stylesheet'>
     <link href="css/darkmode.css" rel='stylesheet'>
+    <link href="css/tooltips.css" rel='stylesheet'>
     <link rel="stylesheet" href="css/social.css">
+    <link rel="stylesheet" href="css/mainefect.css">
     <link rel="icon" href="media/webIcon.png" type="image/x-icon">
     <script src="js/scripts.js"></script>
     <title>Portfolio</title>
 </head>
 <body>
       <header class="container" id="container">
-        <div class="logo" id="logo">
-          <img src="media/Gris.jpg" alt="Logo" width="80" height="80">
+  <div class="header-inner">
+    
+    <div class="left logo" id="log-- --o">
+      <img src="media/Gris.jpg" alt="Logo" width="80" height="80">
+    </div>
+    
+    <div class="center" id="navWrapper">
+      <nav id="navbar" class="dark-mode">
+        <div id="navLINKS">
+          <a class="navlink active blink" id="contactHeader" data-section="contact">Contact me</a>
+          <a class="navlink" data-section="aboutMe">About me</a>
+          <a class="navlink" data-section="tools">Tools</a>
+          <a class="navlink" data-section="projects">Projects</a>
+          <a class="navlink" data-section="Academics">Learning Path</a>
+          <a class="navlink" href="CV_ArizaelGC.pdf" download>Download CV</a>
         </div>
-        <input type="checkbox" id="click">
-      
-        <nav id="navbar" class="dark-mode">
-          <div id="navLINKS">
-            <a class="navlink active blink" id = "contactHeader" data-section="contact">Contact me</a>
-            <a class="navlink" data-section="aboutMe">About me</a>
-            <a class="navlink" data-section="tools">Tools</a>
-            <a class="navlink" data-section="projects">Projects</a>
-            <a class="navlink" data-section="Academics">Learning Path</a>
-            <a class="navlink" href="https://drive.usercontent.google.com/u/0/uc?id=1yxn_pme1sAEKMd9hC4s-pM1zKz0kkWoF&export=download" download="CV_ArizaelGC">Download CV</a>
-          </div>
-        </nav>
-        <label for="click" class="mainicon">
-          <div class="menu">
-            <i class='bx bx-menu'></i>
-          </div>
-        </label>
-      
+      </nav>
+    </div>
+<main>
+    <div class="right toggleWrapper">
+      <input class="input" id="dn" type="checkbox" />
+      <label class="toggle" for="dn">
+        <span class="toggle__handler">
+          <span class="crater crater--1"></span>
+          <span class="crater crater--2"></span>
+          <span class="crater crater--3"></span>
+        </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+      </label>
+    </div>
 
-        <div class="switch">
-          <div class="icon">
-            <!-- Luna: modo oscuro ON -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
-            </svg>
-            <!-- Sol: modo claro OFF -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/>
-              <line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-          </div>
-          <label for="toggle-2" aria-label="Toggle Filter">
-            <input type="checkbox" id="toggle-2"  checked data-on="YES" data-off="NO">
-          </label>
-          <span class="led"></span>
-        </div>
-      </header>
+  </div>
+</header>
 
+<main class="visual-bg">
     <section class="container" id="introduction">
       <div class="main">
         <div class="detail">
@@ -73,7 +67,7 @@
           <h1>I'm <span style="color:#f9532d;">Arizael</span></h1>
           <p>I'm a Computer Science Engineer. My main goal is to get a better data scientist combining self learning and new experiences.</p>
         </div>
- <!-- Elementos social, poner en contactme -->
+ <!-- Elementos social, poner en contactme 
                <div class="menu-social">
                 <div class="toggle">
                   <ion-icon name="person-circle"></ion-icon>
@@ -95,7 +89,7 @@
                   <a href="#"><ion-icon name="logo-github"></ion-icon></a>
                 </li>
             </div> 
-        
+        -->
  
     </section>
 
@@ -158,7 +152,42 @@
               </a>
          </div>
 </section>
-  
+
+<section id="tooltips">  
+    <h2>Find me on:</h2>      
+<div class="tooltip-container">
+  <div class="tooltip">
+    <div class="profile">
+      <div class="user">
+        <div class="img" ><img src="media/Gris.jpg" ></div>
+        <div class="details">
+          <div class="name">Arizael García</div>
+          <div class="username">@arizaelcapote</div>
+        </div>
+      </div>
+      <div class="about">500+ Connections</div>
+    </div>
+  </div>
+  <div class="text">
+    <a class="icon" href="https://www.linkedin.com/in/arizaelcapote/" target="_blank">
+      <div class="layer">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="fab fa-linkedin">
+          <svg viewBox="0 0 448 512" height="1em">
+            <path
+              d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+            ></path>
+          </svg>
+        </span>
+      </div>
+      <div class="text">LinkedIn</div>
+    </a>
+  </div>
+</div>
+  </section> 
     <footer>
       <div id="myModal" class="modal">
           <div class="modal-content">
@@ -189,17 +218,16 @@
         <div class="footerContainers" id="divF2">
           <h4 style="color: white;" >Alajuela, Costa Rica &copy; 2025</h4>
           <button id="scrollUp">Contact me</button>
-               
-               
-            
         </div>
         <div class="footerContainers" id="divF3">
             <p style="color: white;">I have built this web portfolio since the end of my career. 
               I'm always trying to improve and optimize.
                Any constructive criticism will be gratefully acepted.</p>
         </div>
+      </main>
   </footer>
-  <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script><script  src="js/social.js"></script>
+  <!-- Scial icons, poner en contactme
+  <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script><script  src="js/social.js"></script>-->
   <script src="js/header.js"></script>
   <script src="js/enlaces.js"></script>
   <script src="js/darkmode.js"></script>

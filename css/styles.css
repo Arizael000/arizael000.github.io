@@ -243,6 +243,7 @@ body {
         padding: 0 1.9rem;
     }
 }
+
 @media screen and (max-width: 768px) {
     #litleTitles{
         margin-top: 150px;
@@ -255,48 +256,55 @@ body {
     }
     body {
         height: auto;
-        background-color: var(--primary-dark);
+        
         width: 100vw;
     }
     .container {
         padding: 1.5rem;
     }
-    .mainicon {
-        display: block;
-        cursor: pointer;
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #244D61;
-        right: 0;
-    }
-    nav{   
-        grid-row: auto;
-        text-align: center;
-        position: fixed;
-        top: 10%;
-        left: -100%;
-        width: 100%;
-        height: 80%;
-        transition: left 0.3s ease;
-        z-index: 111111;
-        overflow-y: auto; /* Añadido para permitir el desplazamiento en el menú */
-    }
-    nav a {
-        display: block;
-        padding: 1rem;  
-    }
-    #click:checked ~ nav {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        left: 0;
-        transition: left 0.3s ease;
-    }
-    #navLINKS{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
+    @media screen and (max-width: 768px) {
+  .mainicon {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    z-index: 999;
+  }
+
+  #navLINKS {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--primary-dark);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease-in-out;
+    z-index: 998;
+  }
+
+  #click:checked ~ nav #navLINKS {
+    left: 0;
+  }
+
+  #navLINKS a {
+    display: block;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: white;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+}
+
     #click:not(:checked) ~ nav {
         display:none;
         left: -100%; /* Oculta el nav cuando #click no está marcado */
@@ -383,7 +391,7 @@ body {
 
     body {
         height: auto;
-        background-color: var(--primary-dark);
+    
     }
     header {
         height: auto;
@@ -536,5 +544,13 @@ body {
     }
   }
 
+/* Transición suave para los elementos principales */
+body,
+header,
+nav,
+#navLINKS .navlink,
+.socialName {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
 
 

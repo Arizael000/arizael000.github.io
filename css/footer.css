@@ -3,7 +3,7 @@ footer {
     justify-content: space-between;
     display: flex;
     height: 30%5;
-    margin-top: 20px;
+    margin-top: px;
     background-color: #1c1e22;
     justify-content: center;
     flex-wrap: wrap;
@@ -172,3 +172,4 @@ textarea {
 .toast-error {
   background-color: #dc3545;
 }
+
