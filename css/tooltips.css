@@ -1,175 +1,104 @@
 
-/* From Uiverse.io by vikas7754 */ 
-
-/* Estilo para la sección completa */
 #tooltips {
-    padding-top: 8rem;   /* espacio arriba */
-  padding-bottom: 8rem; /* espacio abajo */
-  text-align: center;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  padding: 2rem 1rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    padding: 1rem;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;  
+}
+   
+
+
+/* From Uiverse.io by wilsondesouza */ 
+ul {
+  list-style: none;
 }
 
-/* Contenedor que agrupa todos los tooltips */
-#tooltips > .tooltip-container {
-  position: relative; /* para que los tooltips posicionados absolute se relacionen aquí */
-  display: inline-flex; /* para que los tooltips estén uno al lado del otro */
-  gap: 2rem; /* espacio entre tooltips */
-  justify-content: center;
-  flex-wrap: wrap; /* en caso de que agregues muchos, bajan a la siguiente línea */
-  max-width: 100%;
+.example-2 {
+    margin:80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-
-
-.tooltip-container {
-    margin-top: 10rem;
-  margin-bottom: 4rem;
-  position: absolute;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 17px;
-  border-radius: 10px;
-}
-
-.tooltip {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s;
-  border-radius: 15px;
-  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
-    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
-}
-
-.profile {
-  background: #2a2b2f;
-  border-radius: 10px 15px;
-  padding: 10px;
-  border: 1px solid rgba(11, 63, 95, 1);
-}
-
-.tooltip-container:hover .tooltip {
-  top: -150px;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.icon {
-  text-decoration: none;
-  color: #fff;
-  display: block;
+.example-2 .icon-content {
+  margin: 0 10px;
   position: relative;
 }
-.layer {
-  width: 55px;
-  height: 55px;
-  transition: transform 0.3s;
-}
-.icon:hover .layer {
-  transform: rotate(-35deg) skew(20deg);
-}
-.layer span {
+.example-2 .icon-content .tooltip {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  transition: all 0.3s;
-}
-
-.layer span,
-.text {
-  color: #1da1f2;
-  border-color: #1da1f2;
-}
-
-.icon:hover.layer span {
-  box-shadow: -1px 1px 3px #1da1f2;
-}
-.icon .text {
-  position: absolute;
+  top: -30px;
   left: 50%;
-  bottom: -5px;
-  opacity: 0;
-  font-weight: 500;
   transform: translateX(-50%);
-  transition: bottom 0.3s ease, opacity 0.3s ease;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
-.icon:hover .text {
-  bottom: -35px;
+.example-2 .icon-content:hover .tooltip {
   opacity: 1;
+  visibility: visible;
+  top: -50px;
 }
-
-.icon:hover .layer span:nth-child(1) {
-  opacity: 0.2;
-}
-.icon:hover .layer span:nth-child(2) {
-  opacity: 0.4;
-  transform: translate(5px, -5px);
-}
-.icon:hover .layer span:nth-child(3) {
-  opacity: 0.6;
-  transform: translate(10px, -10px);
-}
-.icon:hover .layer span:nth-child(4) {
-  opacity: 0.8;
-  transform: translate(15px, -15px);
-}
-.icon:hover .layer span:nth-child(5) {
-  opacity: 1;
-  transform: translate(20px, -20px);
-}
-
-.layer span.fab {
-  font-size: 30px;
-  line-height: 64px;
-  text-align: center;
-  fill: #1da1f2;
-  background: #000;
-}
-.user {
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
   display: flex;
-  gap: 10px;
-}
-.img {
+  justify-content: center;
+  align-items: center;
   width: 50px;
   height: 50px;
-  font-size: 25px;
-  font-weight: 700;
-  border: 1px solid #1da1f2;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
 }
-.img img {
-  max-width: 100%;       /* la imagen nunca será más ancha que el div */
-  max-height: 100%;      /* la imagen nunca será más alta que el div */
-  object-fit: contain;   /* mantiene la proporción, ajusta sin cortar */
-  display: block;        /* elimina espacio debajo de la imagen */
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
 }
-.name {
-  font-size: 17px;
-  font-weight: 700;
-  color: #1da1f2;
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
 }
-.details {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  color: #fff;
+.example-2 .icon-content a:hover {
+  color: white;
 }
-.about {
-  color: #ccc;
-  padding-top: 5px;
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+  background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+  background-color: #24262a;
+}
+
+.example-2 .icon-content a[data-social="discord"] .filled,
+.example-2 .icon-content a[data-social="discord"] ~ .tooltip {
+  background-color: #5865F2; /* color oficial de Discord */
 }

@@ -1,16 +1,22 @@
 /*Footer*/
 footer {
-    justify-content: space-between;
+    
     display: flex;
-    height: 30%5;
-    margin-top: px;
+  
+ 
     background-color: #1c1e22;
     justify-content: center;
     flex-wrap: wrap;
 }
 .footerContainers{
-    margin: 10px;
-    margin-top: 20px;
+    justify-content: center ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+ 
+
 }
 #divF1{
     width: 25%;
@@ -22,7 +28,7 @@ footer {
 }
 #divF3{
     width: 35%;
-    height: 80%;
+    height: 70%;
 }
 #frase{
     margin-left: 5px;
@@ -92,7 +98,6 @@ button:active {
     color: black;
 }
 
-/* Estilos para el formulario dentro del modal */
 /* Estilos para el formulario dentro del modal */
 form {
     display: flex;
@@ -171,5 +176,31 @@ textarea {
 }
 .toast-error {
   background-color: #dc3545;
+}
+
+/* Aplica al div contenedor sin clase */
+div > #divF1,
+div > #divF2,
+div > #divF3 {
+  flex: 1;
+  padding: 1rem;
+}
+
+/* Estilo al div sin clase que contiene los divF1, divF2 y divF3 */
+div:has(> #divF2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* opcional: centrar también verticalmente */
+  flex-wrap: wrap;      /* permite que se acomoden en columna en pantallas pequeñas */
+  gap: 1rem;
+  padding: 2rem;
+}
+
+/* Estilo específico para centrar divF2 */
+#divF2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
