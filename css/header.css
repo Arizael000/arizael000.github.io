@@ -60,7 +60,7 @@ header {
   background: transparent;
   border: none;
   box-shadow: none;
-  pointer-events: none;
+ 
 
 }
 
@@ -78,7 +78,7 @@ nav * {
   background: transparent;
   border: none;
   box-shadow: none;
-  pointer-events: none;
+
 }
 
 /* LINKS */
