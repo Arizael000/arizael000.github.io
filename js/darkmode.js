@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleColors(dark) {
         if (dark) {
             body.classList.add('dark-mode');
+            header.classList.add('dark-mode');
             setIcons(true);
             localStorage.setItem('darkMode', 'enabled');
             for (let i = 0; i < socialnames.length; i++) {
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else {
             body.classList.remove('dark-mode');
+            header.classList.remove('dark-mode');
             setIcons(false);
             localStorage.setItem('darkMode', 'disabled');
             for (let i = 0; i < socialnames.length; i++) {

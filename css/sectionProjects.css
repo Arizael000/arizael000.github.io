@@ -15,10 +15,15 @@
   padding: 0 1px;
   perspective: 2500px;
   background-color: transparent;
-
 }
+
 .Pcard {
   text-decoration: none; 
+  display: flex;
+  flex-direction: column; /* organiza card + título en columna */
+  align-items: center;    /* centra horizontalmente */
+    margin-left: 20px;
+  margin-right: 20px;
 }
 
 .Pcard .project-title {
@@ -30,13 +35,12 @@
   text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
-
 .wrapper {
   position: absolute;
-  top: 0;               /* que empiece desde arriba */
-  left: 0;              /* y desde la izquierda */
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;         /* que cubra todo el alto de la card */
+  height: 100%;
   z-index: -1;
   transition: all 0.5s;
 }
@@ -44,14 +48,10 @@
 .cover-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;    /* llena el contenedor aunque recorte */
+  object-fit: cover;
   object-position: center;
   border-radius: 10px;
- 
 }
-
-
-
 
 .card:hover .wrapper {
   transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
@@ -70,6 +70,7 @@
   position: absolute;
   left: 0;
 }
+
 .wrapper::before {
   top: 0;
   height: 100%;
@@ -80,6 +81,7 @@
     rgba(12, 13, 19) 97%
   );
 }
+
 .wrapper::after {
   bottom: 0;
   opacity: 1;
@@ -99,10 +101,12 @@
 .card:hover .wrapper::after {
   height: 120px;
 }
+
 .title {
   width: 100%;
   transition: transform 0.5s;
 }
+
 .card:hover .title {
   transform: translate3d(0%, -50px, 100px);
 }
@@ -123,12 +127,66 @@
   cursor: pointer;
 }
 
-#projects{
-    margin-top:85px;
-    margin-bottom: 50px;
+#projects {
+  margin-top: 85px;
+
+  margin-bottom: 50px;
 }
 
-#projects h2{
-    margin-bottom: 70px;
-   
+#projects h2 {
+  margin-bottom: 70px;
+}
+
+#projectContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centra las cards */
+  gap: 20px; /* espacio entre cards */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  :root {
+    --card-height: 220px;
+    --card-width: calc(var(--card-height) / 1.5);
+  }
+
+  #projectContainer {
+    justify-content: center; /* todas las cards centradas */
+  }
+
+  .Pcard {
+    width: 90%; /* que cada card ocupe casi todo el ancho de la pantalla */
+    max-width: 300px;
+  }
+
+  #projects {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  #projects h2 {
+    margin-bottom: 40px;
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  .Pcard .project-title {
+    font-size: 1em;
+    margin-top: 15px;
+  }
+
+  .card:hover .wrapper {
+    transform: perspective(900px) translateY(-3%) rotateX(15deg) translateZ(0);
+    box-shadow: 1px 20px 20px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .card:hover .wrapper::after {
+    height: 80px;
+  }
+
+  .character {
+    height: 70%;
+  }
 }

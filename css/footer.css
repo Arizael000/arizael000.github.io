@@ -1,9 +1,9 @@
 /*Footer*/
 footer {
-    
+    width: 100%;
     display: flex;
-  
- 
+    bottom: 0;
+
     background-color: #1c1e22;
     justify-content: center;
     flex-wrap: wrap;

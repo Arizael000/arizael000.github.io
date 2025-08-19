@@ -1,8 +1,8 @@
 
 .menu-social{
-  margin-left: 360px;
+  margin-left: auto;
   position:relative;
-  width:280px;
+  width:auto;
   height:280px;
   display:flex;
   align-items:center;
