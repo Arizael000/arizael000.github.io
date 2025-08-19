@@ -39,7 +39,7 @@
 /* Section 1 End */
 
 /* Media Queries para tablets/desktop */
-@media(min-width: 768px) {
+@media(min-width: 600px) {
     .info {
         grid-template-columns: repeat(2, 1fr); /* dos columnas */
         text-align: left;
