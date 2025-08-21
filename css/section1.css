@@ -1,15 +1,16 @@
 /* Section 1 */
 #introduction {
-    padding-top: 40px;
+    display: flex;
+    justify-content: center;   /* centra horizontalmente el contenido */
+    align-items: center;       /* centra verticalmente */
+    padding: 40px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    align-items: center;
-    justify-items: center; /* centra horizontalmente los elementos del grid */
-    text-align: center;    /* centra el texto dentro de cada celda */
+    text-align: center;       /* centra el texto en móviles */
+    width: 100%;
 }
 
 .info h3 {
@@ -27,37 +28,6 @@
 }
 
 .info p {
-    line-height: 1.7;
-    font-size: 1.8rem;
-    opacity: 0;
-    animation: topSideAni 1.5s ease forwards;
-    animation-delay: 1.3s;
-}
-
-
-
-/* Section 1 End */
-
-/* Media Queries para tablets/desktop */
-@media(min-width: 600px) {
-    .info {
-        grid-template-columns: repeat(2, 1fr); /* dos columnas */
-        text-align: left;
-    }
-
-    .info h1 {
-        font-size: 4rem; /* tamaño original para desktop */
-    }
-
-    .info p {
-        font-size: 0.98rem;
-    }
-}
-
-/* Desktop grande */
-@media(min-width: 1200px) {
-    #introduction {
-        margin: 80px auto;
-        padding: 60px 40px;
-    }
+    margin-top: 20px;
+    font-size: 1.2rem;
 }
