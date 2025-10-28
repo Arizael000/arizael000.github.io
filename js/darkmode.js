@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const moonIcon = document.querySelector('.switch .icon svg:first-child');
     const sunIcon = document.querySelector('.switch .icon svg:last-child');
     const main = document.querySelector('main');
+    const navr = document.getElementsByClassName("menu-container");
 
+    
     function setIcons(dark) {
         if (moonIcon && sunIcon) {
             if (dark) {
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             body.classList.remove('dark-mode');
             header.classList.remove('dark-mode');
+            
             setIcons(false);
             localStorage.setItem('darkMode', 'disabled');
             for (let i = 0; i < socialnames.length; i++) {
