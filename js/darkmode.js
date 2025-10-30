@@ -3,12 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const body = document.body;
     const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
     const header = document.getElementById("container");
-    const nav = document.getElementById("navbar");
-    const socialnames = document.getElementsByClassName("socialName");
     const moonIcon = document.querySelector('.switch .icon svg:first-child');
     const sunIcon = document.querySelector('.switch .icon svg:last-child');
-    const main = document.querySelector('main');
-    const navr = document.getElementsByClassName("menu-container");
+    const navr = document.getElementById("navbar");
 
     
     function setIcons(dark) {
@@ -26,21 +23,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleColors(dark) {
         if (dark) {
             body.classList.add('dark-mode');
+            navr.classList.add('dark-mode');
             header.classList.add('dark-mode');
             setIcons(true);
             localStorage.setItem('darkMode', 'enabled');
-            for (let i = 0; i < socialnames.length; i++) {
-                socialnames[i].style.setProperty('color', 'white');
-            }
+            
         } else {
             body.classList.remove('dark-mode');
             header.classList.remove('dark-mode');
-            
+            navr.classList.remove('dark-mode');
+            navr.style.setProperty('color', 'white');
             setIcons(false);
             localStorage.setItem('darkMode', 'disabled');
-            for (let i = 0; i < socialnames.length; i++) {
-                socialnames[i].style.setProperty('color', 'black');
-            }
         }
     }
 
