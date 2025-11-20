@@ -1,4 +1,3 @@
-
 /* Contenedor principal */
 #tooltips {
   display: flex;
@@ -8,18 +7,21 @@
   position: relative;
 
   width: 100%;
-  max-width: 1300px;   /* evita crecer más que el layout */
+  max-width: 1300px;
+  /* evita crecer más que el layout */
   margin: 20px auto;
   padding: 1rem;
-  box-sizing: border-box; /* importante para no sumar padding al ancho */
+  box-sizing: border-box;
+  /* importante para no sumar padding al ancho */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
 }
 
 /* Asegura que el wrapper no se salga */
 .tooltip-container {
   width: 100%;
-  max-width: 780px;    /* ajusta si quieres más/menos ancho */
+  max-width: 780px;
+  /* ajusta si quieres más/menos ancho */
   margin: 0 auto;
   margin-top: 30px;
   box-sizing: border-box;
@@ -36,18 +38,23 @@ ul,
 /* FILA de iconos: usa gap y permite wrap (no usar space-around) */
 .example-2 {
   display: flex;
-  flex-wrap: wrap;             /* <- clave para evitar overflow */
-  justify-content: center;     /* centrado estable */
+  flex-wrap: wrap;
+  /* <- clave para evitar overflow */
+  justify-content: center;
+  /* centrado estable */
   align-items: center;
-  gap: 20px 28px;              /* separaciones (fila x columna) */
+  gap: 20px 28px;
+  /* separaciones (fila x columna) */
   max-width: 100%;
   box-sizing: border-box;
 }
 
 .example-2 .icon-content {
-  margin: 0;                   /* usamos gap, no márgenes */
+  margin: 0;
+  /* usamos gap, no márgenes */
   position: relative;
-  flex: 0 0 auto;              /* no estires los items */
+  flex: 0 0 auto;
+  /* no estires los items */
 }
 
 /* Icono */
@@ -86,6 +93,7 @@ ul,
   font-size: 14px;
   transition: all .3s ease;
 }
+
 .example-2 .icon-content:hover .tooltip {
   opacity: 1;
   visibility: visible;
@@ -94,26 +102,60 @@ ul,
 
 /* Colores por red */
 .example-2 .icon-content a[data-social="linkedin"] .filled,
-.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip { background-color: #0274b3; }
+.example-2 .icon-content a[data-social="linkedin"]~.tooltip {
+  background-color: #0274b3;
+}
+
 .example-2 .icon-content a[data-social="github"] .filled,
-.example-2 .icon-content a[data-social="github"] ~ .tooltip { background-color: #24262a; }
+.example-2 .icon-content a[data-social="github"]~.tooltip {
+  background-color: #24262a;
+}
+
 .example-2 .icon-content a[data-social="discord"] .filled,
-.example-2 .icon-content a[data-social="discord"] ~ .tooltip { background-color: #5865F2; }
+.example-2 .icon-content a[data-social="discord"]~.tooltip {
+  background-color: #5865F2;
+}
+
+/* Hover effects */
+.example-2 .icon-content a:hover {
+  color: #fff;
+}
+
+.example-2 .icon-content a[data-social="linkedin"]:hover {
+  background-color: #0274b3;
+  box-shadow: 0 0 10px #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"]:hover {
+  background-color: #24262a;
+  box-shadow: 0 0 10px #24262a;
+}
+
+.example-2 .icon-content a[data-social="discord"]:hover {
+  background-color: #5865F2;
+  box-shadow: 0 0 10px #5865F2;
+}
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .tooltip-container { max-width: 100%; }
+  .tooltip-container {
+    max-width: 100%;
+  }
 
-  .example-2 { gap: 16px 22px; }
+  .example-2 {
+    gap: 16px 22px;
+  }
 
   .example-2 .icon-content a {
     width: 56px;
     height: 56px;
   }
+
   .example-2 .icon-content a svg {
     width: 28px;
     height: 28px;
   }
+
   .example-2 .icon-content .tooltip {
     font-size: 12px;
     top: -40px;
@@ -123,13 +165,18 @@ ul,
 /* Fallback ultra pequeño: fila con desplazamiento horizontal (swipe) */
 @media (max-width: 420px) {
   .example-2 {
-    flex-wrap: nowrap;          /* no hacer varias filas */
+    flex-wrap: nowrap;
+    /* no hacer varias filas */
     justify-content: flex-start;
-    overflow-x: auto;           /* scroll horizontal si no cabe */
+    overflow-x: auto;
+    /* scroll horizontal si no cabe */
     -webkit-overflow-scrolling: touch;
     padding: 0 8px;
     gap: 16px;
     scroll-snap-type: x mandatory;
   }
-  .example-2 .icon-content { scroll-snap-align: center; }
+
+  .example-2 .icon-content {
+    scroll-snap-align: center;
+  }
 }
