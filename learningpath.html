@@ -1,1 +1,175 @@
-Here im gonna add my learning path.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Learning Path | Arizael</title>
+    <meta name="description" content="My academic and self-taught journey in Computer Science and Data Science.">
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="media/webIcon.png" type="image/x-icon">
+
+    <!-- CSS -->
+    <link href="css/header.css" rel='stylesheet'>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="css/footer.css" rel='stylesheet'>
+    <link href="css/darkmode.css" rel='stylesheet'>
+    <link href="css/tooltips.css" rel='stylesheet'>
+    <link rel="stylesheet" href="css/social.css">
+    <link rel="stylesheet" href="css/learningpath.css">
+
+    <script src="js/scripts.js"></script>
+</head>
+
+<body>
+    <main class="container">
+        <header class="container" id="container">
+            <div class="header-inner">
+
+                <div class="left logo" id="log-- --o">
+                    <a href="index.html"><img src="media/Gris.jpg" alt="Logo" width="80" height="80"></a>
+                </div>
+
+                <div class="center" id="navWrapper">
+                    <nav id="navbar">
+                        <div id="navLINKS">
+                            <a class="navlink" href="index.html">Home</a>
+                            <a class="navlink" href="index.html#contact">Contact me</a>
+                            <a class="navlink" href="tools.html">Tools</a>
+                            <a class="navlink" href="index.html#projects">Projects</a>
+                            <a class="navlink active" href="learningpath.html">Learning Path</a>
+                            <a class="navlink" id="cv" href="" download>Download CV</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="right toggleWrapper">
+                    <input class="input" id="dn" type="checkbox" />
+                    <label class="toggle" for="dn">
+                        <span class="toggle__handler">
+                            <span class="crater crater--1"></span>
+                            <span class="crater crater--2"></span>
+                            <span class="crater crater--3"></span>
+                        </span>
+                        <span class="star star--1"></span>
+                        <span class="star star--2"></span>
+                        <span class="star star--3"></span>
+                        <span class="star star--4"></span>
+                        <span class="star star--5"></span>
+                        <span class="star star--6"></span>
+                    </label>
+                </div>
+                <!-- Botón menú hamburguesa -->
+
+                <label class="event-wrapper">
+                    <input type="checkbox" class="event-wrapper-inp" />
+                    </section>
+                </label>
+
+            </div>
+        </header>
+
+        <section id="lp-intro">
+            <h1>My Learning <span style="color: var(--primary-color);">Path</span></h1>
+            <p>A timeline of my academic background in Computer Science and my self-taught journey into Data Science and
+                AI.</p>
+        </section>
+
+        <div class="timeline">
+            <!-- University -->
+            <div class="timeline-container left-container">
+                <div class="content">
+                    <h2>Bachelor's Degree</h2>
+                    <h3>Computer Science Engineering</h3>
+                    <span class="date">2019 - 2024</span>
+                    <p>Formal education covering algorithms, data structures, software engineering, and system
+                        architecture. Built a strong foundation in programming and problem-solving.</p>
+                </div>
+            </div>
+
+            <!-- Self-Taught Start -->
+            <div class="timeline-container right-container">
+                <div class="content">
+                    <h2>Data Science Initiation</h2>
+                    <h3>Self-Taught</h3>
+                    <span class="date">2023 - Present</span>
+                    <p>Started a deep dive into Data Science, learning Python libraries like Pandas, NumPy, and
+                        Matplotlib through online courses and documentation.</p>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="timeline-container left-container">
+                <div class="content">
+                    <h2>Applied Projects</h2>
+                    <h3>Practical Experience</h3>
+                    <span class="date">2024</span>
+                    <p>Developed practical projects such as the Hotel Reservation System and Logistic Prediction models
+                        to apply theoretical knowledge in real-world scenarios.</p>
+                </div>
+            </div>
+
+            <!-- Advanced AI -->
+            <div class="timeline-container right-container">
+                <div class="content">
+                    <h2>Advanced AI & Automation</h2>
+                    <h3>Continuous Learning</h3>
+                    <span class="date">Current Focus</span>
+                    <p>Exploring advanced topics in Artificial Intelligence, including Large Language Models (LLMs),
+                        agentic workflows (like Antigravity), and automated data pipelines.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form id="contactForm" method="POST">
+                        <label for="nombre">Name:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+
+                        <label for="email">Your email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="mensaje">Message:</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+
+                        <div id="buttons">
+                            <button type="submit" id="submit">Send</button>
+
+                            <button type="button" id="cancelarform">Cancel</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div>
+                <div class="footerContainers" id="divF1">
+                    <h4 id="frase">If we fail, then let's fail searching greatness.</h4>
+                </div>
+                <div class="footerContainers" id="divF2">
+                    <h4 style="color: white;">Alajuela, Costa Rica &copy; 2025</h4>
+                    <button id="scrollUp">Contact me</button>
+                </div>
+                <div class="footerContainers" id="divF3">
+                    <p style="color: white;">I have built this web portfolio since the end of my career.
+                        I'm always trying to improve and optimize.
+                        Any constructive criticism will be gratefully acepted.</p>
+                </div>
+            </div>
+
+        </footer>
+
+        <script src="js/header.js"></script>
+        <script src="js/enlaces.js"></script>
+        <script src="js/darkmode.js"></script>
+        <script src="js/contactmeB.js"></script>
+        <script src="js/burguermenu.js"></script>
+    </main>
+</body>
+
+</html>

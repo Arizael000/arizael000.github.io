@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="css/header.css " rel='stylesheet'>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="css/section1.css " rel='stylesheet'>
-    <link href="css/sectionProjects.css " rel='stylesheet'>
-    <link href="css/footer.css" rel='stylesheet'>
-    <link href="css/darkmode.css" rel='stylesheet'>
-    <link href="css/tooltips.css" rel='stylesheet'>
-    <link rel="stylesheet" href="css/social.css">
-    <link rel="icon" href="media/webIcon.png" type="image/x-icon">
-    <script src="js/scripts.js"></script>
-    <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="css/header.css " rel='stylesheet'>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="css/section1.css " rel='stylesheet'>
+  <link href="css/sectionProjects.css " rel='stylesheet'>
+  <link href="css/footer.css" rel='stylesheet'>
+  <link href="css/darkmode.css" rel='stylesheet'>
+  <link href="css/tooltips.css" rel='stylesheet'>
+  <link rel="stylesheet" href="css/social.css">
+  <link rel="icon" href="media/webIcon.png" type="image/x-icon">
+  <script src="js/scripts.js"></script>
+  <title>Portfolio</title>
 </head>
+
 <body>
   <main class="container">
-      <header class="container" id="container">
-  <div class="header-inner">
-    
-    <div class="left logo" id="log-- --o">
-      <img src="media/Gris.jpg" alt="Logo" width="80" height="80">
-    </div>
-    
-    <div class="center" id="navWrapper">
-      <nav id="navbar">
-        <div id="navLINKS">
-          <a class="navlink active blink" id="contactHeader" data-section="contact">Contact me</a>
-          <a class="navlink" data-section="tools">Tools</a>
-          <a class="navlink" data-section="projects">Projects</a>
-          <a class="navlink" data-section="Academics">Learning Path</a>
-          <a class="navlink" id = "cv" href="" download>Download CV</a>
+    <header class="container" id="container">
+      <div class="header-inner">
+
+        <div class="left logo" id="log-- --o">
+          <img src="media/Gris.jpg" alt="Logo" width="80" height="80">
         </div>
-      </nav>
-    </div>
-    <div class="right toggleWrapper">
-      <input class="input" id="dn" type="checkbox" />
-      <label class="toggle" for="dn">
-        <span class="toggle__handler">
-          <span class="crater crater--1"></span>
-          <span class="crater crater--2"></span>
-          <span class="crater crater--3"></span>
-        </span>
-        <span class="star star--1"></span>
-        <span class="star star--2"></span>
-        <span class="star star--3"></span>
-        <span class="star star--4"></span>
-        <span class="star star--5"></span>
-        <span class="star star--6"></span>
-      </label> 
-    </div>
-<!-- Botón menú hamburguesa -->
- 
-  <label class="event-wrapper">
-  <input type="checkbox" checked="" class="event-wrapper-inp" />
-  <div class="bar">
-    <span class="top bar-list"></span>
-    <span class="middle bar-list"></span>
-    <span class="bottom bar-list"></span>
-  </div>
-  <section class="menu-container">
-    <div class="menu-list menu1">Contact me</div>
-    <div class="menu-list menu2">Tools</div>
-    <div class="menu-list menu3">Learning Path</div>
-    <div style="color:crimson;" class="menu-list menu4" href="CV_ArizaelGC.pdf" download>Download CV</div>
-  </section>
-</label>
 
-  </div>
-</header>
+        <div class="center" id="navWrapper">
+          <nav id="navbar">
+            <div id="navLINKS">
+              <a class="navlink" href="index.html">Home</a>
+              <a class="navlink active blink" id="contactHeader" data-section="contact">Contact me</a>
+              <a class="navlink" data-section="tools">Tools</a>
+              <a class="navlink" data-section="projects">Projects</a>
+              <a class="navlink" href="learningpath.html">Learning Path</a>
+              <a class="navlink" id="cv" href="" download>Download CV</a>
+            </div>
+          </nav>
+        </div>
+        <div class="right toggleWrapper">
+          <input class="input" id="dn" type="checkbox" />
+          <label class="toggle" for="dn">
+            <span class="toggle__handler">
+              <span class="crater crater--1"></span>
+              <span class="crater crater--2"></span>
+              <span class="crater crater--3"></span>
+            </span>
+            <span class="star star--1"></span>
+            <span class="star star--2"></span>
+            <span class="star star--3"></span>
+            <span class="star star--4"></span>
+            <span class="star star--5"></span>
+            <span class="star star--6"></span>
+          </label>
+        </div>
+        <!-- Botón menú hamburguesa -->
 
- 
+        <label class="event-wrapper">
+          <input type="checkbox" checked="" class="event-wrapper-inp" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list menu1"><a href="index.html" style="text-decoration: none; color: inherit;">Home</a>
+            </div>
+            <div class="menu-list menu1"><a href="#contact" style="text-decoration: none; color: inherit;">Contact
+                me</a></div>
+            <div class="menu-list menu2">Tools</div>
+            <div class="menu-list menu3">Learning Path</div>
+            <div style="color:crimson;" class="menu-list menu4" href="CV_ArizaelGC.pdf" download>Download CV</div>
+          </section>
+        </label>
+
+      </div>
+    </header>
+
+
 
 
     <section class="container" id="introduction">
@@ -81,180 +87,156 @@
         <div class="detail">
           <h3 id="isayhi">Hi</h3>
           <h1>I'm <span style="color:#f9532d;">Arizael</span></h1>
-          <p>I'm a Computer Science Engineer. My main goal is to get a better data scientist combining self learning and new experiences. In the next cards you will find more about my projects and the technologies i used in them.</p>
+          <p>I'm a Computer Science Engineer. My main goal is to get a better data scientist combining self learning and
+            new experiences. In the next cards you will find more about my projects and the technologies i used in them.
+          </p>
         </div>
 
- 
+
     </section>
 
 
-   
+
 
     <section id="projects">
-        <h2>My projects</h2>
-        <div id="projectContainer">
-            <a class="Pcard" href="#" id="qrScanProject"  alt="Mythrill" target="_blank">
-                <div class="card" >
-                  <div class="wrapper">
-                    <img src="media/projects/SCAN.jpg"  class="cover-image" />
-                  </div>
-                  
-                  <img src="media/projects/QRGen.png"  class="character" />
-                </div>
-                <p class="project-title">QR Code Generator</p>
-              </a>
-              <a class="Pcard" href="card2" id="logisticPredictionProject"  alt="Mythrill" target="_blank">
-                <div class="card">
-                  <div class="wrapper">
-                    <img src="media/projects/logistic.jpg" class="cover-image" />
-                  </div>
-                  
-                  <img src="media/projects/Data.png" class="character" />
-                  
-                </div>
-                <p class="project-title">Logistic Prediction</p>
-              </a>
-              <a class="Pcard" href="card3" id="hotelProject"  alt="Mythrill" target="_blank">
-                <div class="card">
-                  <div class="wrapper">
-                    <img src="media/projects/hotel.png" class="cover-image" />
-                  </div>
-                 
-                  <img src="media/projects/booking.png" class="character" />
-                </div>
-                <p class="project-title">Hotel Reservation System</p>
-              </a>
-              <a class="Pcard" href="card4"  id="qgisParameters" alt="Mythrill" target="_blank">
-                <div class="card">
-                  <div class="wrapper">
-                    <img src="media/projects/qgis.png" class="cover-image" />
-                  </div>
-                 
-                  <img src="media/projects/raster.png" class="character" />
-                </div>
-                <p class="project-title">QGIS Parameters Extraction</p>
-              </a>
-         </div>
-</section>
+      <h2>My projects</h2>
+      <div id="projectContainer">
+        <a class="Pcard" href="#" id="qrScanProject" alt="Mythrill" target="_blank">
+          <div class="card">
+            <div class="wrapper">
+              <img src="media/projects/SCAN.jpg" class="cover-image" />
+            </div>
 
-<section id="tooltips">  
-    <h2>Find me on:</h2>      
-<div class="tooltip-container">
-  <ul class="example-2">
-  <li class="icon-content">
-    <a
-      href="https://www.linkedin.com/in/arizaelcapote"
-      aria-label="LinkedIn"
-      data-social="linkedin"
-      target="_blank"
-    >
-      <div class="filled"></div>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-linkedin"
-        viewBox="0 0 16 16"
-        xml:space="preserve"
-      >
-        <path
-          d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
-          fill="currentColor"
-        ></path>
-      </svg>
-    </a>
-    <div class="tooltip">LinkedIn</div>
-  </li>
-  <li class="icon-content">
-    <a href="https://github.com/Arizael000" aria-label="GitHub" data-social="github"target="_blank">
-      <div class="filled"></div>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-github"
-        viewBox="0 0 16 16"
-        xml:space="preserve"
-      >
-        <path
-          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
-          fill="currentColor"
-        ></path>
-      </svg>
-    </a>
-    <div class="tooltip">GitHub</div>
-  </li>
- 
-  <li class="icon-content">
-  <a href="https://discord.com/users/arizael." aria-label="Discord" data-social="discord" target="_blank">
-    <div class="filled"></div>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-discord"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.0371A19.7363 19.7363 0 0 0 3.677 4.3698a.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1568-1.0857-2.1568-2.419 0-1.3332.9554-2.4189 2.1568-2.4189 1.2109 0 2.1758 1.0952 2.1569 2.419 0 1.3332-.946 2.4189-2.1569 2.4189Z"
-        fill="currentColor"
-      />
-    </svg>
-  </a>
-  <div class="tooltip">Discord</div>
-</li>
-</ul>
-</div>
-  </section> 
-    <footer>
-      <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <form id="contactForm" method="POST">
-              <label for="nombre">Name:</label>
-              <input type="text" id="nombre" name="nombre" required>
+            <img src="media/projects/QRGen.png" class="character" />
+          </div>
+          <p class="project-title">QR Code Generator</p>
+        </a>
+        <a class="Pcard" href="card2" id="logisticPredictionProject" alt="Mythrill" target="_blank">
+          <div class="card">
+            <div class="wrapper">
+              <img src="media/projects/logistic.jpg" class="cover-image" />
+            </div>
 
-              <label for="email">Your email:</label>
-              <input type="email" id="email" name="email" required>
-
-              <label for="mensaje">Message:</label>
-              <textarea id="mensaje" name="mensaje" required></textarea>
-
-              <div id="buttons">
-                <button type="submit" id="submit">Send</button>
-                
-                <button type="button" id="cancelarform">Cancel</button>
-              </div>
-            </form>
+            <img src="media/projects/Data.png" class="character" />
 
           </div>
+          <p class="project-title">Logistic Prediction</p>
+        </a>
+        <a class="Pcard" href="card3" id="hotelProject" alt="Mythrill" target="_blank">
+          <div class="card">
+            <div class="wrapper">
+              <img src="media/projects/hotel.png" class="cover-image" />
+            </div>
+
+            <img src="media/projects/booking.png" class="character" />
+          </div>
+          <p class="project-title">Hotel Reservation System</p>
+        </a>
+        <a class="Pcard" href="card4" id="qgisParameters" alt="Mythrill" target="_blank">
+          <div class="card">
+            <div class="wrapper">
+              <img src="media/projects/qgis.png" class="cover-image" />
+            </div>
+
+            <img src="media/projects/raster.png" class="character" />
+          </div>
+          <p class="project-title">QGIS Parameters Extraction</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="tooltips">
+      <h2>Find me on:</h2>
+      <div class="tooltip-container">
+        <ul class="example-2">
+          <li class="icon-content">
+            <a href="https://www.linkedin.com/in/arizaelcapote" aria-label="LinkedIn" data-social="linkedin"
+              target="_blank">
+              <div class="filled"></div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin"
+                viewBox="0 0 16 16" xml:space="preserve">
+                <path
+                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                  fill="currentColor"></path>
+              </svg>
+            </a>
+            <div class="tooltip">LinkedIn</div>
+          </li>
+          <li class="icon-content">
+            <a href="https://github.com/Arizael000" aria-label="GitHub" data-social="github" target="_blank">
+              <div class="filled"></div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+                viewBox="0 0 16 16" xml:space="preserve">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                  fill="currentColor"></path>
+              </svg>
+            </a>
+            <div class="tooltip">GitHub</div>
+          </li>
+
+          <li class="icon-content">
+            <a href="https://discord.com/users/arizael." aria-label="Discord" data-social="discord" target="_blank">
+              <div class="filled"></div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord"
+                viewBox="0 0 24 24">
+                <path
+                  d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.0371A19.7363 19.7363 0 0 0 3.677 4.3698a.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1568-1.0857-2.1568-2.419 0-1.3332.9554-2.4189 2.1568-2.4189 1.2109 0 2.1758 1.0952 2.1569 2.419 0 1.3332-.946 2.4189-2.1569 2.4189Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+            <div class="tooltip">Discord</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <footer>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form id="contactForm" method="POST">
+            <label for="nombre">Name:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Your email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Message:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <div id="buttons">
+              <button type="submit" id="submit">Send</button>
+
+              <button type="button" id="cancelarform">Cancel</button>
+            </div>
+          </form>
+
         </div>
-        <div>
+      </div>
+      <div>
         <div class="footerContainers" id="divF1">
           <h4 id="frase">If we fail, then let's fail searching greatness.</h4>
         </div>
         <div class="footerContainers" id="divF2">
-          <h4 style="color: white;" >Alajuela, Costa Rica &copy; 2025</h4>
+          <h4 style="color: white;">Alajuela, Costa Rica &copy; 2025</h4>
           <button id="scrollUp">Contact me</button>
         </div>
         <div class="footerContainers" id="divF3">
-            <p style="color: white;">I have built this web portfolio since the end of my career. 
-              I'm always trying to improve and optimize.
-               Any constructive criticism will be gratefully acepted.</p>
+          <p style="color: white;">I have built this web portfolio since the end of my career.
+            I'm always trying to improve and optimize.
+            Any constructive criticism will be gratefully acepted.</p>
         </div>
       </div>
-      
-  </footer>
-  <!-- Scial icons, poner en contactme
+
+    </footer>
+    <!-- Scial icons, poner en contactme
   <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script><script  src="js/social.js"></script>-->
-  <script src="js/header.js"></script>
-  <script src="js/enlaces.js"></script>
-  <script src="js/darkmode.js"></script>
-  <script src="js/contactmeB.js"></script>
-  <script src="js/burguermenu.js"></script>
-</main>
+    <script src="js/header.js"></script>
+    <script src="js/enlaces.js"></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/contactmeB.js"></script>
+    <script src="js/burguermenu.js"></script>
+  </main>
 </body>
+
 </html>

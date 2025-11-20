@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', (e) => {
       if (section === 'tools') {
         e.preventDefault();
-        window.open('tools.html', '_blank');
+        window.location.href = 'tools.html';
       } else if (section === 'contact') {
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       } else {

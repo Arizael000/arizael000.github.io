@@ -8,31 +8,37 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
 }
-.footerContainers{
-    justify-content: center ;
+
+.footerContainers {
+    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     width: 100%;
- 
+
 
 }
-#divF1{
+
+#divF1 {
     width: 25%;
 }
-#divF2{
+
+#divF2 {
     justify-content: right;
     width: 30%;
     text-align: center;
 }
-#divF3{
+
+#divF3 {
     width: 35%;
     height: 70%;
 }
-#frase{
+
+#frase {
     margin-left: 5px;
 }
+
 button {
     margin-top: 15px;
     background-color: #f9532d;
@@ -65,7 +71,7 @@ button:active {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 15px;
     backdrop-filter: blur(20px);
     z-index: 9999;
@@ -78,11 +84,13 @@ button:active {
     padding: 20px;
     border: 1px solid #888;
     width: 60%;
-    
-    text-align: center; /* Centrar el contenido del modal */
-    
+
+    text-align: center;
+    /* Centrar el contenido del modal */
+
     border: 0px;
 }
+
 .close {
     color: #aaa;
     float: right;
@@ -102,7 +110,7 @@ button:active {
 form {
     display: flex;
     flex-direction: column;
-    
+
     border-radius: 15px;
     padding: 10px;
 }
@@ -128,14 +136,15 @@ form button {
 
 #submit:hover {
     background-color: #054903;
-    color:white;
+    color: white;
 }
 
 label {
     margin-bottom: 8px;
 }
 
-footer input, textarea {
+footer input,
+textarea {
     width: 70%;
     padding: 8px;
     margin-bottom: 16px;
@@ -155,52 +164,76 @@ textarea {
     display: flex;
     justify-content: space-around;
 }
+
 /*END footer*/
 
 .toast {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #323232;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 5px;
-  font-size: 16px;
-  z-index: 9999;
-  opacity: 0.95;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #323232;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 9999;
+    opacity: 0.95;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 .toast-success {
-  background-color: #28a745;
+    background-color: #28a745;
 }
+
 .toast-error {
-  background-color: #dc3545;
+    background-color: #dc3545;
 }
 
 /* Aplica al div contenedor sin clase */
-div > #divF1,
-div > #divF2,
-div > #divF3 {
-  flex: 1;
-  padding: 1rem;
+div>#divF1,
+div>#divF2,
+div>#divF3 {
+    flex: 1;
+    padding: 1rem;
 }
 
 /* Estilo al div sin clase que contiene los divF1, divF2 y divF3 */
 div:has(> #divF2) {
-  display: flex;
-  justify-content: center;
-  align-items: center;  /* opcional: centrar también verticalmente */
-  flex-wrap: wrap;      /* permite que se acomoden en columna en pantallas pequeñas */
-  gap: 1rem;
-  padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* opcional: centrar también verticalmente */
+    flex-wrap: wrap;
+    /* permite que se acomoden en columna en pantallas pequeñas */
+    gap: 1rem;
+    padding: 2rem;
 }
 
 /* Estilo específico para centrar divF2 */
 #divF2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
+/* Media query para footer en móviles */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #divF1,
+    #divF2,
+    #divF3 {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    #divF2 {
+        justify-content: center;
+    }
+}
