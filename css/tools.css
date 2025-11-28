@@ -2,8 +2,8 @@
 
 #tools-intro {
     text-align: center;
-    padding: 4rem 2rem;
-    margin-top: 60px;
+    padding: 0rem 2rem;
+    margin-top: 0px;
     /* Space for fixed header if needed, though header seems relative in index */
 }
 
@@ -28,6 +28,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     padding: 2rem 4rem;
+    margin-bottom: 20px;
     max-width: 1400px;
     margin: 0 auto;
 }
