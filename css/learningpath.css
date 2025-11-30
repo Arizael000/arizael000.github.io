@@ -174,9 +174,14 @@
 /* Media queries - Responsive timeline on screens less than 768px */
 @media screen and (max-width: 768px) {
 
+    .timeline {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     /* Place the timelime to the left */
     .timeline::after {
-        left: 31px;
+        left: 30px;
     }
 
     /* Full-width containers */
@@ -188,7 +193,7 @@
 
     /* Make sure all circles are at the same spot */
     .timeline-container::after {
-        left: 15px;
+        left: 16.5px;
     }
 
     /* Make all right containers behave like the left ones */
