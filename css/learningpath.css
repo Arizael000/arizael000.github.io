@@ -19,7 +19,7 @@
 }
 
 :is(.dark-mode) #lp-intro p {
-    color: #ccc;
+    color: white;
 }
 
 /* Timeline Container */
@@ -41,6 +41,10 @@
     left: 50%;
     margin-left: -3px;
     border-radius: 3px;
+}
+
+:is(.dark-mode) .timeline::after {
+    background-color: white;
 }
 
 /* Container around content */
@@ -66,6 +70,11 @@
     top: 15px;
     border-radius: 50%;
     z-index: 1;
+}
+
+:is(.dark-mode) .timeline-container::after {
+    border-color: white;
+    background-color: var(--primary-dark);
 }
 
 /* Place the container to the left */
@@ -126,49 +135,36 @@
     cursor: default;
 }
 
-:is(.dark-mode) .content {
-    background-color: var(--primary-dark);
-    color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
 
-:is(.dark-mode) .left-container::before {
-    border-color: transparent transparent transparent var(--primary-dark);
-}
-
-:is(.dark-mode) .right-container::before {
-    border-color: transparent var(--primary-dark) transparent transparent;
-}
 
 .content h2 {
     color: var(--primary-color);
     margin-bottom: 10px;
 }
 
+
+
 .content h3 {
     font-size: 1.1rem;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--primary-color);
 }
 
-:is(.dark-mode) .content h3 {
-    color: #eee;
-}
+
 
 .content .date {
     font-size: 0.9rem;
-    color: #777;
+    color: var(--primary-color);
     margin-bottom: 15px;
     display: block;
     font-weight: bold;
 }
 
-:is(.dark-mode) .content .date {
-    color: #aaa;
-}
+
 
 .content p {
     line-height: 1.6;
+    color: var(--primary-color);
 }
 
 /* Media queries - Responsive timeline on screens less than 768px */
@@ -210,10 +206,7 @@
         border-color: transparent white transparent transparent;
     }
 
-    :is(.dark-mode) .left-container::before,
-    :is(.dark-mode) .right-container::before {
-        border-color: transparent var(--primary-dark) transparent transparent;
-    }
+
 }
 
 .btn-download {

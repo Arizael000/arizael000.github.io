@@ -20,7 +20,7 @@
 }
 
 :is(.dark-mode) #tools-intro p {
-    color: #ccc;
+    color: white;
 }
 
 .tools-grid {
@@ -48,11 +48,7 @@
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-:is(.dark-mode) .tool-card {
-    background: var(--primary-dark);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
+
 
 .tool-card:hover {
     transform: translateY(-10px);
@@ -66,20 +62,23 @@
     margin-bottom: 1rem;
 }
 
+
+
 .tool-name {
     font-size: 1.5rem;
     font-weight: 600;
     margin: 0;
+    color: var(--primary-color);
 }
+
+
 
 .tool-desc {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--primary-color);
 }
 
-:is(.dark-mode) .tool-desc {
-    color: #aaa;
-}
+
 
 @media screen and (max-width: 768px) {
     .tools-grid {

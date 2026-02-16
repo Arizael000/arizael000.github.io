@@ -4,8 +4,8 @@
 @import "https://unpkg.com/open-props" layer(design.system);
 
 :root {
-    --primary-color: #f9532d;
-    --primary-dark: #1F252E;
+    --primary-color: #457a7e;
+    --primary-dark: #2d4f52;
     --card-height: 400px;
     --card-width: 300px;
 }
@@ -15,7 +15,11 @@
 }
 
 #frase {
-    color: #f9532d;
+    color: #457a7e;
+}
+
+:is(.dark-mode) #frase {
+    color: white;
 }
 
 body {
@@ -31,7 +35,7 @@ body {
 
 /* Dark Mode */
 .dark-mode {
-    background-color: var(--primary-dark);
+    background-color: #0d0d0d;
     color: #ffffff;
 }
 
@@ -41,17 +45,19 @@ body {
 
 :is(.dark-mode) {
     .social a {
-        color: var(--primary-color);
-        border: 1.6px solid var(--primary-color);
+        color: white;
+        border: 1.6px solid white;
     }
+
     .social a:hover {
         color: var(--primary-dark);
-        background-color: var(--primary-color);
-        box-shadow: 0 0 20px var(--primary-color);
+        background-color: white;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     }
+
     .imagesMine::before {
-        background: linear-gradient(145deg, #1f252e, #2e3239);
-        box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #1b1f27;
+        background: linear-gradient(145deg, #2d4f52, #3a5f62);
+        box-shadow: 10px 10px 19px #243d40, -10px -10px 19px #365e61;
     }
 }
 
@@ -106,8 +112,8 @@ body {
 /*Section about personal projects */
 #projectContainer {
     flex-wrap: wrap;
-    display: flex; 
-    justify-content: space-around; 
+    display: flex;
+    justify-content: space-around;
     margin-bottom: 5px;
 }
 
@@ -119,58 +125,150 @@ body {
 
 /* Animations */
 @keyframes leftSideAni {
-    0% { transform: translateX(-100px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
+
 @keyframes navani {
-    0% { transform: translateY(100px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
+
 @keyframes rightSideAni {
-    0% { transform: translateX(100px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
+
 @keyframes topSideAni {
-    0% { transform: translateY(-100px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
+
 @keyframes SocialAni {
-    0% { transform: translateY(100px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
+
 @keyframes imageAni {
-    0% { opacity: 0; transform: scale(0); }
-    100% { opacity: 1; transform: scale(1); }
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Media Queries */
 @media screen and (max-width: 1024px) {
-    form { font-size: large; }
-    .modal-content { width: 70%; }
-    .container { padding: 0 4.4rem; }
+    form {
+        font-size: large;
+    }
+
+    .modal-content {
+        width: 70%;
+    }
+
+    .container {
+        padding: 0 4.4rem;
+    }
 }
 
 @media screen and (max-width: 1010px) {
-    form { font-size: large; }
-    .modal-content { width: 70%; }
-    .container { padding: 0 4.2rem; }
+    form {
+        font-size: large;
+    }
 
-    #projectContainer { justify-content: space-around; }
-    .Pcard { margin: 15px; }
+    .modal-content {
+        width: 70%;
+    }
+
+    .container {
+        padding: 0 4.2rem;
+    }
+
+    #projectContainer {
+        justify-content: space-around;
+    }
+
+    .Pcard {
+        margin: 15px;
+    }
 }
 
 @media screen and (max-width: 990px) {
-    form { backdrop-filter: blur(0px); }
-    .modal-content { width: 70%; }
-    .container { padding: 0 1.9rem; }
+    form {
+        backdrop-filter: blur(0px);
+    }
+
+    .modal-content {
+        width: 70%;
+    }
+
+    .container {
+        padding: 0 1.9rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
-    #litleTitles { margin-top: 150px; }
-    .modal-content { width: 70%; }
-    footer input, textarea { width: 90%; }
-    body { height: auto; width: 100vw; }
-    .container { padding: 1.5rem; }
+    #litleTitles {
+        margin-top: 150px;
+    }
+
+    .modal-content {
+        width: 70%;
+    }
+
+    footer input,
+    textarea {
+        width: 90%;
+    }
+
+    body {
+        height: auto;
+        width: 100vw;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
 
     .main {
         grid-template-columns: repeat(auto-fit, minmax(266px, 1fr));
@@ -179,12 +277,16 @@ body {
     }
 
     #projectContainer {
-        display: row; 
-        justify-content: center; 
+        display: row;
+        justify-content: center;
         margin-bottom: 5px;
     }
 
-    .card { width: 20vw; height: 20vh; }
+    .card {
+        width: 20vw;
+        height: 20vh;
+    }
+
     .description {
         margin-top: 66%;
         padding-top: 330px;
@@ -193,14 +295,26 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-    .modal-content { width: 90%; }
-    input, textarea { width: 100%; }
-    body { height: 100%; }
-    .main { margin-top: 2rem; }
+    .modal-content {
+        width: 90%;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+    }
+
+    body {
+        height: 100%;
+    }
+
+    .main {
+        margin-top: 2rem;
+    }
 
     #projectContainer {
-        display: row; 
-        justify-content: center; 
+        display: row;
+        justify-content: center;
         margin-bottom: 5px;
     }
 }
@@ -210,21 +324,53 @@ body {
     padding: 20px 10px 20px;
     margin: 0 auto;
 }
-.description { display: none; margin-top: 66%; }
-.description.start { display: block; }
+
+.description {
+    display: none;
+    margin-top: 66%;
+}
+
+.description.start {
+    display: block;
+}
 
 @layer demo {
     .gallery {
         grid-template-columns: var(--col-1, 1fr) var(--col-2, 1fr) var(--col-3, 1fr) var(--col-4, 1fr) var(--col-5, 1fr);
+
         @media (prefers-reduced-motion: no-preference) {
             transition: grid-template-columns 2s var(--ease-spring-5);
         }
-        &:has(label:nth-child(1) > input:checked) { --col-1: 5fr; --col-2: 3fr; }
-        &:has(label:nth-child(2) > input:checked) { --col-1: 2fr; --col-2: 5fr; --col-3: 2fr; }
-        &:has(label:nth-child(3) > input:checked) { --col-2: 2fr; --col-3: 5fr; --col-4: 2fr; }
-        &:has(label:nth-child(4) > input:checked) { --col-3: 2fr; --col-4: 5fr; --col-5: 2fr; }
-        &:has(label:nth-child(5) > input:checked) { --col-4: 3fr; --col-5: 5fr; }
-        > label {
+
+        &:has(label:nth-child(1) > input:checked) {
+            --col-1: 5fr;
+            --col-2: 3fr;
+        }
+
+        &:has(label:nth-child(2) > input:checked) {
+            --col-1: 2fr;
+            --col-2: 5fr;
+            --col-3: 2fr;
+        }
+
+        &:has(label:nth-child(3) > input:checked) {
+            --col-2: 2fr;
+            --col-3: 5fr;
+            --col-4: 2fr;
+        }
+
+        &:has(label:nth-child(4) > input:checked) {
+            --col-3: 2fr;
+            --col-4: 5fr;
+            --col-5: 2fr;
+        }
+
+        &:has(label:nth-child(5) > input:checked) {
+            --col-4: 3fr;
+            --col-5: 5fr;
+        }
+
+        >label {
             background-image: var(--_img);
             background-position: center;
             background-size: auto 125%;
@@ -240,11 +386,19 @@ body {
         grid-template-rows: 50vh;
         gap: var(--size-3);
         border: none;
-        > label {
+
+        >label {
             cursor: pointer;
             border-radius: var(--radius-4);
-            &:focus-within { outline: 1px solid #fff; outline-offset: 5px; }
-            > input { opacity: 0; }
+
+            &:focus-within {
+                outline: 1px solid #fff;
+                outline-offset: 5px;
+            }
+
+            >input {
+                opacity: 0;
+            }
         }
     }
 }

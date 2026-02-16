@@ -9,6 +9,10 @@ footer {
     flex-wrap: wrap;
 }
 
+:is(.dark-mode) footer {
+    background-color: var(--primary-dark);
+}
+
 .footerContainers {
     justify-content: center;
     display: flex;
@@ -41,7 +45,7 @@ footer {
 
 button {
     margin-top: 15px;
-    background-color: #f9532d;
+    background-color: #457a7e;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -50,10 +54,9 @@ button {
 }
 
 button:hover {
-    color: #bd3434;
-    background-color: #244D61;
-    box-shadow: 0 0 10px #244D61;
-    transition: all .2s ease-in-out;
+    color: white;
+    background-color: #d94422;
+    transition: background-color 0.3s;
 }
 
 button:active {

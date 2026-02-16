@@ -1,8 +1,8 @@
 :root {
   --card-height: 300px;
   --card-width: calc(var(--card-height) / 1.5);
-  --primary-color: #f9532d;
-  --primary-dark: #1F252E;
+  --primary-color: #457a7e;
+  --primary-dark: #2d4f52;
 }
 
 .card {

@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #f9532d;
+  --primary-color: #457a7e;
 }
 
 /* Animación solo con text-shadow */
@@ -60,6 +60,10 @@ header {
   text-decoration: none;
 }
 
+:is(.dark-mode) .logo a {
+  color: white;
+}
+
 /* CENTRO: NAV LINKS */
 .center {
   flex-grow: 1;
@@ -106,16 +110,30 @@ nav * {
   animation: navani .3s ease forwards;
   animation-delay: calc(.15s * var(--navAni));
   cursor: pointer;
-  color: #ec6142;
+  color: #457a7e;
 }
 
 .navlink:hover {
-  color: #f9532d;
+  color: #457a7e;
   text-shadow: 0 0 2px var(--primary-color), 0 0 2px var(--primary-color);
 }
 
 .navlink.active {
   color: var(--primary-color);
+}
+
+/* Dark mode navigation link colors */
+:is(.dark-mode) .navlink {
+  color: white;
+}
+
+:is(.dark-mode) .navlink:hover {
+  color: white;
+  text-shadow: 0 0 2px white, 0 0 2px white;
+}
+
+:is(.dark-mode) .navlink.active {
+  color: white;
 }
 
 /* "Contact me" con animación */
@@ -131,6 +149,15 @@ nav * {
   animation-play-state: paused;
   color: var(--primary-color);
   text-shadow: 0 0 8px var(--primary-color), 0 0 12px var(--primary-color);
+}
+
+:is(.dark-mode) #contactHeader {
+  color: white;
+}
+
+:is(.dark-mode) #contactHeader:hover {
+  color: white;
+  text-shadow: 0 0 8px white, 0 0 12px white;
 }
 
 /* SWITCH A LA DERECHA */
@@ -346,10 +373,9 @@ nav * {
 }
 
 /* DARK MODE OPCIONAL */
-body.dark-mode,
 header.dark-mode,
 nav.dark-mode {
-  background-color: #1e2329;
+  background-color: #345559;
   color: white;
 }
 
