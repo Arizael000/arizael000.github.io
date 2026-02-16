@@ -65,6 +65,8 @@ button:active {
 
 /* Estilos para el modal */
 
+/* Estilos para el modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -74,98 +76,144 @@ button:active {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
-    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     z-index: 9999;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
-    background-color: #9191911f;
-    border-radius: 15px;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%;
-
+    background-color: #1c1e22;
+    border-radius: 20px;
+    margin: auto;
+    /* Center vertically and horizontally with flex parent */
+    padding: 30px;
+    border: 1px solid var(--primary-dark);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     text-align: center;
-    /* Centrar el contenido del modal */
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+}
 
-    border: 0px;
+:is(.dark-mode) .modal-content {
+    background-color: #151515;
+    border-color: var(--primary-color);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .close {
     color: #aaa;
-    float: right;
+    position: absolute;
+    top: 15px;
+    right: 20px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: -20px;
-
+    transition: color 0.3s;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: var(--primary-color);
 }
 
 /* Estilos para el formulario dentro del modal */
 form {
     display: flex;
     flex-direction: column;
-
-    border-radius: 15px;
-    padding: 10px;
-}
-
-form button {
-    width: 18%;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: medium;
-}
-
-#cancelarform {
-    background-color: red;
-}
-
-#cancelarform:hover {
-    background-color: gray;
-}
-
-#submit {
-    background-color: #15a54a;
-}
-
-#submit:hover {
-    background-color: #054903;
-    color: white;
+    width: 100%;
+    margin-top: 10px;
 }
 
 label {
     margin-bottom: 8px;
+    text-align: left;
+    color: white;
+    font-weight: 500;
+    font-family: 'Outfit', sans-serif;
 }
 
 footer input,
 textarea {
-    width: 70%;
-    padding: 8px;
-    margin-bottom: 16px;
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
     box-sizing: border-box;
     border-radius: 10px;
-    margin-right: auto;
-    margin-left: auto;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid #333;
+    background-color: #2a2c30;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s, background-color 0.3s;
+    outline: none;
+}
+
+footer input:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    background-color: #333;
 }
 
 textarea {
-    /* Ajusta la altura del textarea según tus necesidades */
-    height: 100px;
+    resize: vertical;
+    min-height: 120px;
 }
 
 #buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#cancelarform {
+    background-color: transparent;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+}
+
+#cancelarform:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+#submit {
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: white;
+}
+
+#submit:hover {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
 }
 
 /*END footer*/
@@ -238,5 +286,11 @@ div:has(> #divF2) {
 
     #divF2 {
         justify-content: center;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 10% auto;
     }
 }
