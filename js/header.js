@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Navegación por secciones
+  // Navegación por secciones (data-section en index.html)
   navlinks.forEach(link => {
     const section = link.getAttribute('data-section');
 
     link.addEventListener('click', (e) => {
       if (section === 'tools') {
         e.preventDefault();
-        window.location.href = 'tools.html';
+        window.location.href = 'tools.html'; // replaceState lo limpiará al llegar
       } else if (section === 'contact') {
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       } else {
@@ -27,4 +27,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
-
