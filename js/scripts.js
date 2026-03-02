@@ -2,8 +2,11 @@
 (function () {
   var path = window.location.pathname;
   if (path.endsWith('.html')) {
-    var cleanPath = path.slice(0, -5); // quita ".html"
-    history.replaceState(null, '', cleanPath || '/');
+    // index.html → '/', cualquier otra → quitar solo '.html'
+    var cleanPath = path.endsWith('index.html')
+      ? path.slice(0, -10) || '/'   // /index.html → / 
+      : path.slice(0, -5);          // /tools.html → /tools
+    history.replaceState(null, '', cleanPath);
   }
 })();
 

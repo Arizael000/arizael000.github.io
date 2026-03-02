@@ -111,9 +111,9 @@ ul,
   background-color: #24262a;
 }
 
-.example-2 .icon-content a[data-social="discord"] .filled,
-.example-2 .icon-content a[data-social="discord"]~.tooltip {
-  background-color: #5865F2;
+.example-2 .icon-content a[data-social="signal"] .filled,
+.example-2 .icon-content a[data-social="signal"]~.tooltip {
+  background-color: #3A76F0;
 }
 
 /* Hover effects */
@@ -131,9 +131,9 @@ ul,
   box-shadow: 0 0 10px #24262a;
 }
 
-.example-2 .icon-content a[data-social="discord"]:hover {
-  background-color: #5865F2;
-  box-shadow: 0 0 10px #5865F2;
+.example-2 .icon-content a[data-social="signal"]:hover {
+  background-color: #3A76F0;
+  box-shadow: 0 0 10px #3A76F0;
 }
 
 /* ===== Responsive ===== */
