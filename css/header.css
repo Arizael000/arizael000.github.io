@@ -192,6 +192,7 @@ nav * {
   position: relative;
   cursor: pointer;
   justify-content: space-between;
+  border: 2px solid black;
 }
 
 .arrow {
@@ -231,6 +232,7 @@ nav * {
   background-color: white;
   color: var(--primary-color);
   border-radius: 10px;
+  border: 2px solid black;
   position: absolute;
   width: 150px;
   left: -100px;
@@ -238,6 +240,7 @@ nav * {
   overflow: hidden;
   clip-path: inset(0% 0% 0% 0% round 10px);
   transition: all 0.4s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .menu-list {
@@ -297,6 +300,12 @@ nav * {
   transition:
     transform 0.4s calc(var(--delay) + (var(--trdelay) * 3)),
     opacity 0.4s calc(var(--delay) + (var(--trdelay) * 3));
+}
+
+.event-wrapper-inp:not(:checked)~.menu-container .menu-list:nth-child(5) {
+  transition:
+    transform 0.4s calc(var(--delay) + (var(--trdelay) * 4)),
+    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 4));
 }
 
 .bar-event-wrapper-inp {
