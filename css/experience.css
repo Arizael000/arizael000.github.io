@@ -1,0 +1,195 @@
+/* ===== EXPERIENCE SECTION ===== */
+#experience {
+    padding: 5rem 1.5rem 3rem;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+/* ── Timeline vertical ── */
+.exp-timeline {
+    position: relative;
+    padding-left: 2.4rem;
+}
+
+/* Vertical line */
+.exp-timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom,
+            var(--primary-color),
+            rgba(69, 122, 126, 0.15));
+    border-radius: 2px;
+}
+
+/* ── Single item ── */
+.exp-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.exp-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Dot on the line */
+.exp-dot {
+    position: absolute;
+    left: -2.4rem;
+    top: 1.2rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary-color);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.exp-item:hover .exp-dot {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 3px var(--primary-color), 0 0 10px rgba(69, 122, 126, 0.4);
+}
+
+/* Card */
+.exp-card {
+    background: #fff;
+    border: 1px solid rgba(69, 122, 126, 0.18);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 1.3rem 1.5rem 1.1rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.exp-item:hover .exp-card {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(69, 122, 126, 0.14);
+}
+
+/* Date badge */
+.exp-date {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: var(--primary-color);
+    background: rgba(69, 122, 126, 0.1);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    margin-bottom: 0.55rem;
+}
+
+/* Role / Title */
+.exp-role {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a3a3c;
+    margin: 0.2rem 0 0.2rem;
+}
+
+/* Company line */
+.exp-company {
+    font-size: 0.88rem;
+    color: #888;
+    margin-bottom: 0.6rem;
+}
+
+/* Description */
+.exp-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.65;
+    margin-bottom: 0.8rem;
+}
+
+/* Tech tags */
+.exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.exp-tags span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.22rem 0.65rem;
+    border-radius: 20px;
+    background: rgba(69, 122, 126, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(69, 122, 126, 0.25);
+}
+
+/* ── Dark mode ── */
+:is(.dark-mode) .section-title {
+    color: #7fccd0;
+}
+
+:is(.dark-mode) .section-subtitle {
+    color: #aaa;
+}
+
+:is(.dark-mode) .exp-dot {
+    border-color: #1c2e30;
+}
+
+:is(.dark-mode) .exp-card {
+    background: #1e3235;
+    border-color: rgba(127, 204, 208, 0.2);
+    border-left-color: #7fccd0;
+}
+
+:is(.dark-mode) .exp-role {
+    color: #e2f0f1;
+}
+
+:is(.dark-mode) .exp-company {
+    color: #99b8ba;
+}
+
+:is(.dark-mode) .exp-desc {
+    color: #b8d0d2;
+}
+
+:is(.dark-mode) .exp-date {
+    color: #7fccd0;
+    background: rgba(127, 204, 208, 0.1);
+}
+
+:is(.dark-mode) .exp-tags span {
+    color: #7fccd0;
+    background: rgba(127, 204, 208, 0.1);
+    border-color: rgba(127, 204, 208, 0.25);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    .exp-timeline {
+        padding-left: 1.8rem;
+    }
+
+    .exp-dot {
+        left: -1.8rem;
+    }
+
+    .exp-card {
+        padding: 1rem 1.1rem;
+    }
+}

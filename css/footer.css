@@ -8,7 +8,9 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
 }
-
+p {
+  text-align: center;
+}
 :is(.dark-mode) footer {
     background-color: var(--primary-dark);
 }
@@ -145,7 +147,7 @@ label {
     text-align: left;
     color: white;
     font-weight: 500;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-base);
 }
 
 footer input,
@@ -158,7 +160,7 @@ textarea {
     border: 2px solid #333;
     background-color: #2a2c30;
     color: white;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-base);
     font-size: 1rem;
     transition: border-color 0.3s, background-color 0.3s;
     outline: none;
@@ -187,7 +189,7 @@ form button {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-base);
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;

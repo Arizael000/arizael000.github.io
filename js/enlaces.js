@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
         cv.addEventListener("click", function(e){
             e.preventDefault(); 
             const link = document.createElement('a');
-            link.href = "https://drive.google.com/uc?export=download&id=1yxn_pme1sAEKMd9hC4s-pM1zKz0kkWoF";
+            link.href = "https://drive.google.com/uc?export=download&id=1yJgHDrvRO2X2sxd2sBv7CZUhykmCMmcB";
+            //https://drive.google.com/file/d/1yJgHDrvRO2X2sxd2sBv7CZUhykmCMmcB/view?usp=drive_link
             link.setAttribute('download', 'CV_ArizaelGC.pdf'); // Nombre del archivo a descargar
             document.body.appendChild(link);
             link.click();

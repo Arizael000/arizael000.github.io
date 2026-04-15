@@ -2,16 +2,16 @@
   --primary-color: #457a7e;
 }
 
-/* Animación solo con text-shadow */
+/* Animación elegante: pulso de opacidad suave */
 @keyframes glowPulse {
 
   0%,
   100% {
-    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    opacity: 1;
   }
 
   50% {
-    text-shadow: 0 0 2px var(--primary-color);
+    opacity: 0.35;
   }
 }
 
@@ -98,28 +98,93 @@ nav * {
 
 .navlink {
   display: inline-block;
-  padding: .3rem;
+  padding: .3rem .7rem;
   text-decoration: none;
   font-size: 1.20rem;
   font-weight: 600;
   letter-spacing: .7px;
-  border-radius: 36px;
+  border-radius: 6px;
   line-height: 2;
-  transition: color 0.3s, text-shadow 0.3s;
   opacity: 0;
   animation: navani .3s ease forwards;
   animation-delay: calc(.15s * var(--navAni));
   cursor: pointer;
   color: #457a7e;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: color 0.35s ease;
+}
+
+/* Fondo que emerge de izquierda a derecha */
+.navlink::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: inherit;
+  z-index: -1;
 }
 
 .navlink:hover {
-  color: #457a7e;
-  text-shadow: 0 0 2px var(--primary-color), 0 0 2px var(--primary-color);
+  color: #ffffff;
+}
+
+.navlink:hover::before {
+  transform: scaleX(1);
+}
+
+.navlink:active {
+  transform: scale(0.95);
+  background: rgba(69, 122, 126, 0.2);
+  transition: transform 0.1s ease;
 }
 
 .navlink.active {
   color: var(--primary-color);
+}
+
+#cv {
+  color: var(--primary-color);
+  font-weight: 700;
+  border: 2px solid var(--primary-color);
+  padding: 0.35rem 0.9rem;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Evitar que el efecto pill de .navlink se aplique al CV */
+#cv::before {
+  display: none !important;
+}
+
+#cv:hover {
+  background: #ff3b3b;
+  /* Un rojo más vibrante y moderno */
+  border-color: #ff3b3b;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
+}
+
+:is(.dark-mode) #cv {
+  color: #7fccd0;
+  border-color: #7fccd0;
+}
+
+:is(.dark-mode) #cv:hover {
+  background: #ff4d4d;
+  border-color: #ff4d4d;
+  color: #fff !important;
+}
+
+#cv:active {
+  transform: scale(0.95);
+  filter: brightness(0.9);
+  transition: transform 0.1s ease;
 }
 
 /* Dark mode navigation link colors */
@@ -127,28 +192,30 @@ nav * {
   color: white;
 }
 
+:is(.dark-mode) .navlink::before {
+  background: rgba(255, 255, 255, 0.15);
+}
+
 :is(.dark-mode) .navlink:hover {
   color: white;
-  text-shadow: 0 0 2px white, 0 0 2px white;
 }
 
 :is(.dark-mode) .navlink.active {
   color: white;
 }
 
-/* "Contact me" con animación */
+/* "Contact me" con animación elegante */
 #contactHeader {
   color: var(--primary-color);
-  animation: glowPulse 1.2s infinite;
-  opacity: 1 !important;
+  animation: glowPulse 3s ease-in-out infinite;
   cursor: pointer;
-  transition: color 0.3s, text-shadow 0.3s;
+  transition: color 0.3s ease, opacity 0.3s ease, letter-spacing 0.3s ease;
 }
 
 #contactHeader:hover {
   animation-play-state: paused;
+  opacity: 1;
   color: var(--primary-color);
-  text-shadow: 0 0 8px var(--primary-color), 0 0 12px var(--primary-color);
 }
 
 :is(.dark-mode) #contactHeader {
@@ -157,7 +224,6 @@ nav * {
 
 :is(.dark-mode) #contactHeader:hover {
   color: white;
-  text-shadow: 0 0 8px white, 0 0 12px white;
 }
 
 /* SWITCH A LA DERECHA */
@@ -310,6 +376,7 @@ nav * {
 
 .bar-event-wrapper-inp {
   -webkit-appearance: none;
+  appearance: none;
   display: none;
   visibility: hidden;
 }
