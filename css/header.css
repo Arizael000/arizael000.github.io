@@ -1,86 +1,119 @@
 :root {
   --primary-color: #457a7e;
+  --primary-light: #7fccd0;
+  --primary-dark: #2d4f52;
 }
 
-/* Animación elegante: pulso de opacidad suave */
+/* ── Entrance animations ── */
+@keyframes leftSideAni {
+  from { transform: translateX(-40px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+@keyframes rightSideAni {
+  from { transform: translateX(40px);  opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+@keyframes navani {
+  from { transform: translateY(-10px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
 @keyframes glowPulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.35;
-  }
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
 }
 
-/* HEADER GENERAL */
+/* ═══════════════ HEADER ═══════════════ */
 header {
   margin: 0 !important;
   padding: 0 !important;
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #fff;
-  box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(69, 122, 126, 0.12);
+  box-shadow: 0 2px 20px rgba(69, 122, 126, 0.08);
   display: flex;
   justify-content: center;
-  height: 6em;
+  height: 5rem;
   width: 100%;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* CONTENEDOR INTERNO DEL HEADER */
+/* Dark mode glass */
+:is(.dark-mode) header {
+  background: rgba(13, 13, 13, 0.82);
+  border-bottom: 1px solid rgba(127, 204, 208, 0.12);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Inner container ── */
 .header-inner {
   width: 100%;
   max-width: 1300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
+  gap: 1rem;
 }
 
-/* LOGO */
+/* ═══════════════ LOGO ═══════════════ */
 .logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  opacity: 0;
-  animation: leftSideAni 1s ease forwards;
   display: flex;
   align-items: center;
-}
-
-.logo img {
-  border-radius: 50% !important;
-  cursor: pointer;
-}
-
-.logo a {
-  color: #244D61;
+  gap: 0.65rem;
   text-decoration: none;
+  opacity: 0;
+  animation: leftSideAni 0.7s ease forwards;
 }
 
-:is(.dark-mode) .logo a {
-  color: white;
+.logo-avatar-wrap {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
 
-/* CENTRO: NAV LINKS */
+.logo-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(69, 122, 126, 0.18);
+  transition: box-shadow 0.3s ease;
+}
+
+.logo:hover .logo-avatar {
+  box-shadow: 0 0 0 4px rgba(69, 122, 126, 0.35);
+}
+
+.logo-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  letter-spacing: 0.3px;
+  transition: color 0.3s;
+}
+
+:is(.dark-mode) .logo-name {
+  color: var(--primary-light);
+}
+
+/* ═══════════════ NAV CENTER ═══════════════ */
 .center {
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  background: transparent;
-  border: none;
-  box-shadow: none;
 }
 
-/* NAVBAR */
 nav {
   width: auto;
   display: flex;
-  background-color: transparent;
-  overflow: hidden;
-  animation: rightSideAni 1s ease forwards;
+  animation: rightSideAni 0.7s ease forwards;
 }
 
 nav * {
@@ -90,33 +123,32 @@ nav * {
   box-shadow: none;
 }
 
-/* LINKS */
 #navLINKS {
   display: flex;
-  gap: 1rem;
+  gap: 0.25rem;
+  align-items: center;
 }
 
+/* ── Nav link pill ── */
 .navlink {
   display: inline-block;
-  padding: .3rem .7rem;
+  padding: 0.35rem 0.85rem;
   text-decoration: none;
-  font-size: 1.20rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: .7px;
-  border-radius: 6px;
-  line-height: 2;
+  letter-spacing: 0.4px;
+  border-radius: 8px;
   opacity: 0;
-  animation: navani .3s ease forwards;
-  animation-delay: calc(.15s * var(--navAni));
+  animation: navani 0.4s ease forwards;
+  animation-delay: calc(0.1s * var(--navAni, 1));
   cursor: pointer;
   color: #457a7e;
   position: relative;
   overflow: hidden;
   z-index: 0;
-  transition: color 0.35s ease;
+  transition: color 0.3s ease, background 0.3s ease;
 }
 
-/* Fondo que emerge de izquierda a derecha */
 .navlink::before {
   content: "";
   position: absolute;
@@ -124,13 +156,13 @@ nav * {
   background: var(--primary-color);
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: inherit;
   z-index: -1;
 }
 
 .navlink:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
 .navlink:hover::before {
@@ -139,31 +171,37 @@ nav * {
 
 .navlink:active {
   transform: scale(0.95);
-  background: rgba(69, 122, 126, 0.2);
   transition: transform 0.1s ease;
 }
 
-.navlink.active {
-  color: var(--primary-color);
+:is(.dark-mode) .navlink {
+  color: #d0e8ea;
 }
 
+:is(.dark-mode) .navlink::before {
+  background: rgba(127, 204, 208, 0.2);
+}
+
+:is(.dark-mode) .navlink:hover {
+  color: white;
+}
+
+/* ── Download CV button ── */
 #cv {
   color: var(--primary-color);
   font-weight: 700;
   border: 2px solid var(--primary-color);
-  padding: 0.35rem 0.9rem;
+  padding: 0.3rem 0.85rem;
   border-radius: 8px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Evitar que el efecto pill de .navlink se aplique al CV */
 #cv::before {
   display: none !important;
 }
 
 #cv:hover {
   background: #ff3b3b;
-  /* Un rojo más vibrante y moderno */
   border-color: #ff3b3b;
   color: #fff !important;
   transform: translateY(-2px);
@@ -181,65 +219,21 @@ nav * {
   color: #fff !important;
 }
 
-#cv:active {
-  transform: scale(0.95);
-  filter: brightness(0.9);
-  transition: transform 0.1s ease;
-}
-
-/* Dark mode navigation link colors */
-:is(.dark-mode) .navlink {
-  color: white;
-}
-
-:is(.dark-mode) .navlink::before {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-:is(.dark-mode) .navlink:hover {
-  color: white;
-}
-
-:is(.dark-mode) .navlink.active {
-  color: white;
-}
-
-/* "Contact me" con animación elegante */
-#contactHeader {
-  color: var(--primary-color);
-  animation: glowPulse 3s ease-in-out infinite;
-  cursor: pointer;
-  transition: color 0.3s ease, opacity 0.3s ease, letter-spacing 0.3s ease;
-}
-
-#contactHeader:hover {
-  animation-play-state: paused;
-  opacity: 1;
-  color: var(--primary-color);
-}
-
-:is(.dark-mode) #contactHeader {
-  color: white;
-}
-
-:is(.dark-mode) #contactHeader:hover {
-  color: white;
-}
-
-/* SWITCH A LA DERECHA */
+/* ═══════════════ TOGGLE WRAPPER ═══════════════ */
 .right {
-  margin-right: 30px;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .toggleWrapper {
   display: flex;
   align-items: center;
+  /* Push it in a bit from edge */
+  margin-right: 4px;
 }
 
-/* BOTÓN MENÚ HAMBURGUESA */
-
+/* ═══════════════ HAMBURGER ═══════════════ */
 .event-wrapper>.event-wrapper-inp {
   display: none;
 }
@@ -345,33 +339,23 @@ nav * {
 }
 
 .event-wrapper-inp:not(:checked)~.menu-container .menu-list:nth-child(1) {
-  transition:
-    transform 0.4s var(--delay),
-    opacity 0.4s var(--delay);
+  transition: transform 0.4s var(--delay), opacity 0.4s var(--delay);
 }
 
 .event-wrapper-inp:not(:checked)~.menu-container .menu-list:nth-child(2) {
-  transition:
-    transform 0.4s calc(var(--delay) + (var(--trdelay) * 1)),
-    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 1));
+  transition: transform 0.4s calc(var(--delay) + (var(--trdelay) * 1)), opacity 0.4s calc(var(--delay) + (var(--trdelay) * 1));
 }
 
 .event-wrapper-inp:not(:checked)~.menu-container .menu-list:nth-child(3) {
-  transition:
-    transform 0.4s calc(var(--delay) + (var(--trdelay) * 2)),
-    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 2));
+  transition: transform 0.4s calc(var(--delay) + (var(--trdelay) * 2)), opacity 0.4s calc(var(--delay) + (var(--trdelay) * 2));
 }
 
 .event-wrapper-inp:not(:checked)~.menu-container .menu-list:nth-child(4) {
-  transition:
-    transform 0.4s calc(var(--delay) + (var(--trdelay) * 3)),
-    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 3));
+  transition: transform 0.4s calc(var(--delay) + (var(--trdelay) * 3)), opacity 0.4s calc(var(--delay) + (var(--trdelay) * 3));
 }
 
 .event-wrapper-inp:not(:checked)~.menu-container .menu-list:nth-child(5) {
-  transition:
-    transform 0.4s calc(var(--delay) + (var(--trdelay) * 4)),
-    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 4));
+  transition: transform 0.4s calc(var(--delay) + (var(--trdelay) * 4)), opacity 0.4s calc(var(--delay) + (var(--trdelay) * 4));
 }
 
 .bar-event-wrapper-inp {
@@ -415,92 +399,49 @@ nav * {
   transform: translateY(calc(var(--transform) * -1)) rotate(45deg);
 }
 
-
-/* ANIMACIONES DE ENTRADA */
-@keyframes leftSideAni {
-  from {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes rightSideAni {
-  from {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes navani {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* DARK MODE OPCIONAL */
-header.dark-mode,
-nav.dark-mode {
-  background-color: #345559;
-  color: white;
-}
-
-/* ===== RESPONSIVE HEADER ===== */
+/* ── Responsive header ── */
 @media (max-width: 992px) {
-
-  /* Mostrar botón hamburguesa */
   .event-wrapper {
     display: flex !important;
   }
 
-  /* Ajuste del header interno */
   .header-inner {
     justify-content: space-between;
   }
 
-  /* Menú oculto por defecto */
   #navLINKS {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 6em;
-    /* debajo del header */
+    top: 5rem;
     right: 0;
-    background: white;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
     align-items: flex-start;
     width: 70%;
     max-width: 300px;
     padding: 1rem;
-    box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 200;
   }
 
-  /* Cuando se abre */
+  :is(.dark-mode) #navLINKS {
+    background: rgba(15, 25, 28, 0.96);
+  }
+
   #navLINKS.open {
     transform: translateX(0);
   }
 
-  /* Links en móvil */
   .navlink {
     padding: 0.8rem 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     width: 100%;
     text-align: left;
   }
 
-  /* Evitar que el centro se expanda en móvil */
   .center {
     flex-grow: unset;
   }

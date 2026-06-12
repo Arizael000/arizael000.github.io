@@ -29,61 +29,64 @@
     <main class="container">
         <header class="container" id="container">
             <div class="header-inner">
-
-                <div class="left logo" id="log-- --o">
-                    <a href="index.html"><img src="media/Gris.jpg" alt="Logo" width="80" height="80"></a>
+      
+              <div class="left logo" id="log-- --o">
+                <div class="logo-avatar-wrap">
+                  <img src="media/Gris.jpg" alt="Arizael" class="logo-avatar">
                 </div>
-
-                <div class="center" id="navWrapper">
-                    <nav id="navbar">
-                        <div id="navLINKS">
-                            <a class="navlink" href="index.html">Home</a>
-                            <a class="navlink" href="tools.html">Tools</a>
-                            <a class="navlink active" href="learningpath.html">Learning Path</a>
-                            <a class="navlink" id="cv" href="" download>Download CV</a>
-                        </div>
-                    </nav>
-                </div>
-                <div class="right toggleWrapper">
-                    <input class="input" id="dn" type="checkbox" />
-                    <label class="toggle" for="dn">
-                        <span class="toggle__handler">
-                            <span class="crater crater--1"></span>
-                            <span class="crater crater--2"></span>
-                            <span class="crater crater--3"></span>
-                        </span>
-                        <span class="star star--1"></span>
-                        <span class="star star--2"></span>
-                        <span class="star star--3"></span>
-                        <span class="star star--4"></span>
-                        <span class="star star--5"></span>
-                        <span class="star star--6"></span>
-                    </label>
-                </div>
-                <!-- Botón menú hamburguesa -->
-
-                <label class="event-wrapper">
-                    <input type="checkbox" checked="" class="event-wrapper-inp" />
-                    <div class="bar">
-                        <span class="top bar-list"></span>
-                        <span class="middle bar-list"></span>
-                        <span class="bottom bar-list"></span>
-                    </div>
-                    <section class="menu-container">
-                        <div class="menu-list"><a href="index.html"
-                                style="text-decoration: none; color: inherit;">Home</a>
-                        </div>
-                        <div class="menu-list menu1">Contact me</div>
-                        <div class="menu-list menu2">Tools</div>
-                        <div class="menu-list menu3">Learning Path</div>
-                        <div style="color:#457a7e;" class="menu-list menu4">Download CV</div>
-                    </section>
+                <span class="logo-name">Arizael</span>
+              </div>
+      
+              <div class="center" id="navWrapper">
+                <nav id="navbar">
+                  <div id="navLINKS">
+                    <a class="navlink" href="./" style="--navAni:1">Home</a>
+                    <a class="navlink" href="tools.html" style="--navAni:2">Tools</a>
+                    <a class="navlink active" data-section="learning" style="--navAni:3">Learning Path</a>
+                    <a class="navlink" id="cv" href="" download style="--navAni:4">Download CV</a>
+                  </div>
+                </nav>
+              </div>
+      
+              <div class="right toggleWrapper">
+                <input class="input" id="dn" type="checkbox" />
+                <label class="toggle" for="dn" title="Toggle dark mode">
+                  <span class="toggle__handler">
+                    <span class="crater crater--1"></span>
+                    <span class="crater crater--2"></span>
+                    <span class="crater crater--3"></span>
+                  </span>
+                  <span class="star star--1"></span>
+                  <span class="star star--2"></span>
+                  <span class="star star--3"></span>
+                  <span class="star star--4"></span>
+                  <span class="star star--5"></span>
+                  <span class="star star--6"></span>
                 </label>
-
+              </div>
+      
+              <!-- Hamburger menu button -->
+              <label class="event-wrapper">
+                <input type="checkbox" checked="" class="event-wrapper-inp" />
+                <div class="bar">
+                  <span class="top bar-list"></span>
+                  <span class="middle bar-list"></span>
+                  <span class="bottom bar-list"></span>
+                </div>
+                <section class="menu-container">
+                  <div class="menu-list"><a href="index.html" style="text-decoration: none; color: inherit;">Home</a>
+                  </div>
+                  <div class="menu-list menu1">Contact me</div>
+                  <div class="menu-list menu2">Tools</div>
+                  <div class="menu-list menu3">Learning Path</div>
+                  <a id="cvHamburger" style="color:#457a7e; text-decoration: none; cursor: pointer;" class="menu-list menu4">Download CV</a>
+                </section>
+              </label>
+      
             </div>
-        </header>
+          </header>
 
-        <section id="lp-intro">
+        <section id="lp-intro" class="reveal">
             <h1>My Learning <span style="color: var(--primary-color);">Path</span></h1>
             <p>A timeline of my academic background in Computer Science and my self-taught journey into Data Science and
                 AI.</p>
@@ -91,7 +94,7 @@
 
         <div class="timeline">
             <!-- University -->
-            <div class="timeline-container left-container">
+            <div class="timeline-container left-container reveal-item">
                 <div class="content">
                     <h2>Bachelor's Degree</h2>
                     <h3>Computer Science Engineering</h3>
@@ -104,7 +107,7 @@
             </div>
 
             <!-- Self-Taught Start -->
-            <div class="timeline-container right-container">
+            <div class="timeline-container right-container reveal-item">
                 <div class="content">
                     <h2>Data Science Initiation</h2>
                     <h3>Self-Taught</h3>
@@ -115,7 +118,7 @@
             </div>
 
             <!-- Projects -->
-            <div class="timeline-container left-container">
+            <div class="timeline-container left-container reveal-item">
                 <div class="content">
                     <h2>Applied Projects</h2>
                     <h3>Practical Experience</h3>
@@ -126,7 +129,7 @@
             </div>
 
             <!-- Advanced AI -->
-            <div class="timeline-container right-container">
+            <div class="timeline-container right-container reveal-item">
                 <div class="content">
                     <h2>Advanced AI & Automation</h2>
                     <h3>Continuous Learning</h3>
@@ -182,6 +185,7 @@
         <script src="js/darkmode.js"></script>
         <script src="js/contactmeB.js"></script>
         <script src="js/burguermenu.js"></script>
+        <script src="js/scrollReveal.js"></script>
     </main>
 </body>
 

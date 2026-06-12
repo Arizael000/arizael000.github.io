@@ -30,61 +30,64 @@
     <main class="container">
         <header class="container" id="container">
             <div class="header-inner">
-
-                <div class="left logo" id="log-- --o">
-                    <a href="index.html"><img src="media/Gris.jpg" alt="Logo" width="80" height="80"></a>
+      
+              <div class="left logo" id="log-- --o">
+                <div class="logo-avatar-wrap">
+                  <img src="media/Gris.jpg" alt="Arizael" class="logo-avatar">
                 </div>
-
-                <div class="center" id="navWrapper">
-                    <nav id="navbar">
-                        <div id="navLINKS">
-                            <a class="navlink" href="index.html">Home</a>
-                            <a class="navlink active" href="tools.html">Tools</a>
-                            <a class="navlink" href="learningpath.html">Learning Path</a>
-                            <a class="navlink" id="cv" href="" download>Download CV</a>
-                        </div>
-                    </nav>
-                </div>
-                <div class="right toggleWrapper">
-                    <input class="input" id="dn" type="checkbox" />
-                    <label class="toggle" for="dn">
-                        <span class="toggle__handler">
-                            <span class="crater crater--1"></span>
-                            <span class="crater crater--2"></span>
-                            <span class="crater crater--3"></span>
-                        </span>
-                        <span class="star star--1"></span>
-                        <span class="star star--2"></span>
-                        <span class="star star--3"></span>
-                        <span class="star star--4"></span>
-                        <span class="star star--5"></span>
-                        <span class="star star--6"></span>
-                    </label>
-                </div>
-                <!-- Botón menú hamburguesa -->
-
-                <label class="event-wrapper">
-                    <input type="checkbox" checked="" class="event-wrapper-inp" />
-                    <div class="bar">
-                        <span class="top bar-list"></span>
-                        <span class="middle bar-list"></span>
-                        <span class="bottom bar-list"></span>
-                    </div>
-                    <section class="menu-container">
-                        <div class="menu-list"><a href="index.html"
-                                style="text-decoration: none; color: inherit;">Home</a>
-                        </div>
-                        <div class="menu-list menu1">Contact me</div>
-                        <div class="menu-list menu2">Tools</div>
-                        <div class="menu-list menu3">Learning Path</div>
-                        <div style="color:#457a7e;" class="menu-list menu4">Download CV</div>
-                    </section>
+                <span class="logo-name">Arizael</span>
+              </div>
+      
+              <div class="center" id="navWrapper">
+                <nav id="navbar">
+                  <div id="navLINKS">
+                    <a class="navlink" href="./" style="--navAni:1">Home</a>
+                    <a class="navlink active" data-section="tools" style="--navAni:2">Tools</a>
+                    <a class="navlink" href="learningpath.html" style="--navAni:3">Learning Path</a>
+                    <a class="navlink" id="cv" href="" download style="--navAni:4">Download CV</a>
+                  </div>
+                </nav>
+              </div>
+      
+              <div class="right toggleWrapper">
+                <input class="input" id="dn" type="checkbox" />
+                <label class="toggle" for="dn" title="Toggle dark mode">
+                  <span class="toggle__handler">
+                    <span class="crater crater--1"></span>
+                    <span class="crater crater--2"></span>
+                    <span class="crater crater--3"></span>
+                  </span>
+                  <span class="star star--1"></span>
+                  <span class="star star--2"></span>
+                  <span class="star star--3"></span>
+                  <span class="star star--4"></span>
+                  <span class="star star--5"></span>
+                  <span class="star star--6"></span>
                 </label>
-
+              </div>
+      
+              <!-- Hamburger menu button -->
+              <label class="event-wrapper">
+                <input type="checkbox" checked="" class="event-wrapper-inp" />
+                <div class="bar">
+                  <span class="top bar-list"></span>
+                  <span class="middle bar-list"></span>
+                  <span class="bottom bar-list"></span>
+                </div>
+                <section class="menu-container">
+                  <div class="menu-list"><a href="index.html" style="text-decoration: none; color: inherit;">Home</a>
+                  </div>
+                  <div class="menu-list menu1">Contact me</div>
+                  <div class="menu-list menu2">Tools</div>
+                  <div class="menu-list menu3">Learning Path</div>
+                  <a id="cvHamburger" style="color:#457a7e; text-decoration: none; cursor: pointer;" class="menu-list menu4">Download CV</a>
+                </section>
+              </label>
+      
             </div>
-        </header>
+          </header>
 
-        <section id="tools-intro">
+        <section id="tools-intro" class="reveal">
             <h1>Most used <span style="color: var(--primary-color);">Tools</span></h1>
             <p>These are the technologies and tools I use on a daily basis to build software, analyze data, and solve
                 problems.</p>
@@ -92,21 +95,21 @@
 
         <section class="tools-grid">
             <!-- Python -->
-            <div class="tool-card">
+            <div class="tool-card reveal-item">
                 <i class="bx bxl-python tool-icon"></i>
                 <h3 class="tool-name">Python</h3>
                 <p class="tool-desc">My primary language for Data Science, AI, and backend development.</p>
             </div>
 
             <!-- SQL -->
-            <div class="tool-card">
+            <div class="tool-card reveal-item">
                 <i class="bx bxs-data tool-icon"></i>
                 <h3 class="tool-name">SQL</h3>
                 <p class="tool-desc">Database management and complex querying for data analysis.</p>
             </div>
 
             <!-- VS Code & Antigravity -->
-            <div class="tool-card">
+            <div class="tool-card reveal-item">
                 <div style="display: flex; gap: 20px;">
                     <i class="bx bxl-visual-studio tool-icon" style="margin-bottom: 0;"></i>
                     <i class="bx bx-rocket tool-icon" style="margin-bottom: 0;"></i>
@@ -117,7 +120,7 @@
             </div>
 
             <!-- Jupyter -->
-            <div class="tool-card">
+            <div class="tool-card reveal-item">
                 <i class="bx bx-code-block tool-icon"></i>
                 <!-- Using generic code block as Jupyter icon might not be in boxicons free -->
                 <h3 class="tool-name">Jupyter Notebooks</h3>
@@ -126,28 +129,28 @@
             </div>
 
             <!-- Data Science -->
-            <div class="tool-card">
+            <div class="tool-card reveal-item">
                 <i class="bx bxs-bar-chart-alt-2 tool-icon"></i>
                 <h3 class="tool-name">Data Science Bases</h3>
                 <p class="tool-desc">Pandas, NumPy, and Scikit-learn for data manipulation and modeling.</p>
             </div>
 
             <!-- AI / ML -->
-            <div class="tool-card">
+            <div class="tool-card reveal-item">
                 <i class="bx bx-brain tool-icon"></i>
                 <h3 class="tool-name">Artificial Intelligence</h3>
                 <p class="tool-desc">Using and training models for predictive analytics and automation.</p>
             </div>
 
             <!-- Git -->
-            <div class="tool-card">
+            <div class="tool-card reveal-item">
                 <i class="bx bxl-git tool-icon"></i>
                 <h3 class="tool-name">Git & GitHub</h3>
                 <p class="tool-desc">Version control and collaboration.</p>
             </div>
 
             <!-- PowerBI -->
-            <div class="tool-card">
+            <div class="tool-card reveal-item">
                 <i class="bx bxs-bar-chart-alt-2 tool-icon"></i>
                 <h3 class="tool-name">Data Visualization</h3>
                 <p class="tool-desc">Data visualization and business intelligence reporting. (Focus on PowerBI and Python libraries)</p>
@@ -202,6 +205,7 @@
         <script src="js/darkmode.js"></script>
         <script src="js/contactmeB.js"></script>
         <script src="js/burguermenu.js"></script>
+        <script src="js/scrollReveal.js"></script>
     </main>
 </body>
 

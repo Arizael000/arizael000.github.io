@@ -1,10 +1,128 @@
+/* ═══════════════ PROJECTS SECTION ═══════════════ */
 :root {
   --card-height: 300px;
   --card-width: calc(var(--card-height) / 1.5);
   --primary-color: #457a7e;
   --primary-dark: #2d4f52;
+  --primary-light: #7fccd0;
 }
 
+#projects {
+  padding: 5rem 2rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* ═══════════════ ALTERNATING ROW LAYOUT ═══════════════ */
+.project-row {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  margin-bottom: 5rem;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid rgba(69, 122, 126, 0.1);
+}
+
+.project-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Reverse: text left, image right */
+.project-row--reverse {
+  flex-direction: row-reverse;
+}
+
+/* ── Project visual (card) ── */
+.project-visual {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── Project info (text) ── */
+.project-info {
+  flex: 1;
+}
+
+.project-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  background: rgba(69, 122, 126, 0.10);
+  border: 1px solid rgba(69, 122, 126, 0.22);
+  padding: 0.2rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+
+:is(.dark-mode) .project-badge {
+  color: var(--primary-light);
+  background: rgba(127, 204, 208, 0.10);
+  border-color: rgba(127, 204, 208, 0.22);
+}
+
+.project-name {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #1a3a3c;
+  margin: 0 0 0.8rem;
+  line-height: 1.2;
+}
+
+:is(.dark-mode) .project-name {
+  color: #e2f0f1;
+}
+
+.project-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #555;
+  margin-bottom: 1.2rem;
+  max-width: 460px;
+}
+
+:is(.dark-mode) .project-desc {
+  color: #b8d0d2;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tags span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  background: rgba(69, 122, 126, 0.08);
+  color: var(--primary-color);
+  border: 1px solid rgba(69, 122, 126, 0.2);
+  transition: background 0.2s ease;
+}
+
+.project-tags span:hover {
+  background: rgba(69, 122, 126, 0.18);
+}
+
+:is(.dark-mode) .project-tags span {
+  color: var(--primary-light);
+  background: rgba(127, 204, 208, 0.08);
+  border-color: rgba(127, 204, 208, 0.22);
+}
+
+/* ═══════════════ 3D CARD (preserved) ═══════════════ */
 .card {
   width: var(--card-width);
   height: var(--card-height);
@@ -15,31 +133,32 @@
   padding: 0 1px;
   perspective: 2500px;
   background-color: transparent;
+  border-radius: 12px;
 }
 
 .Pcard {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  /* organiza card + título en columna */
   align-items: center;
-  /* centra horizontalmente */
-  margin-left: 20px;
-  margin-right: 20px;
+  transition: transform 0.2s ease;
+}
+
+.Pcard:hover {
+  transform: translateY(-4px);
 }
 
 .Pcard .project-title {
-  margin-top: 30px;
+  margin-top: 20px;
   text-decoration: none;
   color: #333;
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: 1em;
+  font-weight: 700;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 :is(.dark-mode) .Pcard .project-title {
   color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .wrapper {
@@ -50,6 +169,8 @@
   height: 100%;
   z-index: -1;
   transition: all 0.5s;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .cover-image {
@@ -57,14 +178,12 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .card:hover .wrapper {
   transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
   box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
 }
 
 .wrapper::before,
@@ -82,18 +201,18 @@
   top: 0;
   height: 100%;
   background-image: linear-gradient(to top,
-      transparent 46%,
-      rgba(12, 13, 19, 0.5) 68%,
-      rgba(12, 13, 19) 97%);
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%);
 }
 
 .wrapper::after {
   bottom: 0;
   opacity: 1;
   background-image: linear-gradient(to bottom,
-      transparent 46%,
-      rgba(12, 13, 19, 0.5) 68%,
-      rgba(12, 13, 19) 97%);
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%);
 }
 
 .card:hover .wrapper::before,
@@ -103,15 +222,6 @@
 
 .card:hover .wrapper::after {
   height: 120px;
-}
-
-.title {
-  width: 100%;
-  transition: transform 0.5s;
-}
-
-.card:hover .title {
-  transform: translate3d(0%, -50px, 100px);
 }
 
 .character {
@@ -130,70 +240,32 @@
   cursor: pointer;
 }
 
-#projects {
-  margin-top: 85px;
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width: 900px) {
+  .project-row,
+  .project-row--reverse {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+  }
 
-  margin-bottom: 50px;
+  .project-desc {
+    max-width: 100%;
+  }
+
+  .project-tags {
+    justify-content: center;
+  }
 }
 
-#projects h2 {
-  margin-bottom: 70px;
-}
-
-#projectContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  /* centra las cards */
-  gap: 20px;
-  /* espacio entre cards */
-}
-
-/* Media query para pantallas pequeñas */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   :root {
     --card-height: 220px;
-    --card-width: calc(var(--card-height) / 1.5);
-  }
-
-  #projectContainer {
-    justify-content: center;
-    /* todas las cards centradas */
-  }
-
-  .Pcard {
-    width: 90%;
-    /* que cada card ocupe casi todo el ancho de la pantalla */
-    max-width: 300px;
   }
 
   #projects {
-    margin-top: 50px;
-    margin-bottom: 30px;
-    padding: 0 10px;
-  }
-
-  #projects h2 {
-    margin-bottom: 40px;
-    font-size: 1.8em;
-    text-align: center;
-  }
-
-  .Pcard .project-title {
-    font-size: 1em;
-    margin-top: 15px;
-  }
-
-  .card:hover .wrapper {
-    transform: perspective(900px) translateY(-3%) rotateX(15deg) translateZ(0);
-    box-shadow: 1px 20px 20px -5px rgba(0, 0, 0, 0.5);
-  }
-
-  .card:hover .wrapper::after {
-    height: 80px;
-  }
-
-  .character {
-    height: 70%;
+    padding: 3rem 1.2rem 2rem;
   }
 }

@@ -8,7 +8,7 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
 }
-p {
+footer p {
   text-align: center;
 }
 :is(.dark-mode) footer {

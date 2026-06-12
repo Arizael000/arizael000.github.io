@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Arizael – Computer Science professional and aspiring Data Scientist. Explore my projects, skills, and journey.">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="css/header.css " rel='stylesheet'>
   <link rel="stylesheet" href="css/styles.css">
@@ -17,7 +18,7 @@
   <link rel="stylesheet" href="css/social.css">
   <link rel="icon" href="media/webIcon.png" type="image/x-icon">
   <script src="js/scripts.js"></script>
-  <title>Portfolio</title>
+  <title>Arizael – Portfolio</title>
 </head>
 
 <body>
@@ -26,22 +27,26 @@
       <div class="header-inner">
 
         <div class="left logo" id="log-- --o">
-          <img src="media/Gris.jpg" alt="Logo" width="80" height="80">
+          <div class="logo-avatar-wrap">
+            <img src="media/Gris.jpg" alt="Arizael" class="logo-avatar">
+          </div>
+          <span class="logo-name">Arizael</span>
         </div>
 
         <div class="center" id="navWrapper">
           <nav id="navbar">
             <div id="navLINKS">
-              <a class="navlink" href="./">Home</a>
-              <a class="navlink" data-section="tools">Tools</a>
-              <a class="navlink" href="learningpath.html">Learning Path</a>
-              <a class="navlink" id="cv" href="" download>Download CV</a>
+              <a class="navlink" href="./" style="--navAni:1">Home</a>
+              <a class="navlink" data-section="tools" style="--navAni:2">Tools</a>
+              <a class="navlink" href="learningpath.html" style="--navAni:3">Learning Path</a>
+              <a class="navlink" id="cv" href="" download style="--navAni:4">Download CV</a>
             </div>
           </nav>
         </div>
+
         <div class="right toggleWrapper">
           <input class="input" id="dn" type="checkbox" />
-          <label class="toggle" for="dn">
+          <label class="toggle" for="dn" title="Toggle dark mode">
             <span class="toggle__handler">
               <span class="crater crater--1"></span>
               <span class="crater crater--2"></span>
@@ -55,8 +60,8 @@
             <span class="star star--6"></span>
           </label>
         </div>
-        <!-- Botón menú hamburguesa -->
 
+        <!-- Hamburger menu button -->
         <label class="event-wrapper">
           <input type="checkbox" checked="" class="event-wrapper-inp" />
           <div class="bar">
@@ -78,43 +83,51 @@
     </header>
 
 
-
-
-    <section class="container" id="introduction">
-      <div class="info">
-        <div class="detail">
-          <h3 id="isayhi">Hi</h3>
-          <h1>I'm <span class="highlight-name">Arizael</span></h1>
-          <p>I am a Computer Science Professional. My main goal is to become a better data scientist combining self-learning
-            and
-            new experiences. In the next cards you will find more about my projects and the technologies I used in them.
+    <!-- ═══════════════ HERO SECTION ═══════════════ -->
+    <section class="hero-section" id="introduction">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="hero-greeting">👋 Hello, I'm</p>
+          <h1 class="hero-name">Arizael <span class="hero-name-accent">Capote</span></h1>
+          <p class="hero-role">Computer Science · Data Science</p>
+          <p class="hero-bio">
+            I build data-driven solutions that translate raw numbers into real insights.
+            Currently deepening my expertise in machine learning and predictive modeling —
+            one project at a time.
           </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="#experience" class="btn-outline">Experience</a>
+          </div>
         </div>
-
-
+        <div class="hero-image-wrap">
+          <div class="hero-avatar-ring">
+            <img src="media/Gris.jpg" alt="Arizael Capote" class="hero-avatar">
+          </div>
+          <div class="hero-blob"></div>
+        </div>
+      </div>
     </section>
 
 
-
-
-    <section id="experience">
+    <!-- ═══════════════ EXPERIENCE SECTION ═══════════════ -->
+    <section id="experience" class="reveal">
       <h2 class="section-title">Experience</h2>
       <p class="section-subtitle">My journey through Data Science projects</p>
 
       <div class="exp-timeline">
 
         <!-- ── Project 1 ── -->
-        <div class="exp-item">
+        <div class="exp-item reveal-item">
           <div class="exp-dot"></div>
           <div class="exp-card">
             <span class="exp-date">2024 – 2024</span>
             <h3 class="exp-role">Logistic Prediction</h3>
-            <p class="exp-company">Lo bueno con lo bueno / · Domain</p>
+            <p class="exp-company">Lo bueno con lo bueno · Supply Chain</p>
             <p class="exp-desc">
-              In this project i served to "Lo bueno con lo bueno" food company to predict the demand of their products.
-              Helped to mantain an optimal stock of the products and keeping sales at the best points by sharing
-              insights
-              with the team of the products that were most sold and the ones that were not.
+              Developed a demand forecasting model for a food distribution company,
+              helping maintain optimal inventory levels and surfacing sales insights
+              that guided restocking decisions.
             </p>
             <div class="exp-tags">
               <span>Python</span>
@@ -124,96 +137,127 @@
           </div>
         </div>
 
-        <!-- ── Project 2 ── 
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div class="exp-card">
-            <span class="exp-date">2023 – 2024</span>
-            <h3 class="exp-role">Data Science Project #2</h3>
-            <p class="exp-company">Company / Personal · Domain</p>
-            <p class="exp-desc">
-              Brief description of what you did, the problem you solved,
-              the dataset used, and the main outcome or metric achieved.
-            </p>
-            <div class="exp-tags">
-              <span>SQL</span>
-              <span>NumPy</span>
-              <span>Matplotlib</span>
-            </div>
-          </div>
-        </div>-->
-
-        <!-- ── Project 3 ──
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div class="exp-card">
-            <span class="exp-date">2022 – 2023</span>
-            <h3 class="exp-role">Data Science Project #3</h3>
-            <p class="exp-company">Company / Personal · Domain</p>
-            <p class="exp-desc">
-              Brief description of what you did, the problem you solved,
-              the dataset used, and the main outcome or metric achieved.
-            </p>
-            <div class="exp-tags">
-              <span>Machine Learning</span>
-              <span>Jupyter</span>
-              <span>Power BI</span>
-            </div>
-          </div>
-        </div> -->
-
       </div>
     </section>
 
+
+    <!-- ═══════════════ PROJECTS SECTION ═══════════════ -->
     <section id="projects">
-      <h2>My projects</h2>
-      <div id="projectContainer">
-        <a class="Pcard" href="#" id="qrScanProject" alt="Mythrill" target="_blank">
-          <div class="card">
-            <div class="wrapper">
-              <img src="media/projects/SCAN.jpg" class="cover-image" />
-            </div>
-
-            <img src="media/projects/QRGen.png" class="character" />
-          </div>
-          <p class="project-title">QR Code Generator</p>
-        </a>
-        <a class="Pcard" href="card2" id="logisticPredictionProject" alt="Mythrill" target="_blank">
-          <div class="card">
-            <div class="wrapper">
-              <img src="media/projects/logistic.jpg" class="cover-image" />
-            </div>
-
-            <img src="media/projects/Data.png" class="character" />
-
-          </div>
-          <p class="project-title">Logistic Prediction</p>
-        </a>
-        <a class="Pcard" href="card3" id="hotelProject" alt="Mythrill" target="_blank">
-          <div class="card">
-            <div class="wrapper">
-              <img src="media/projects/hotel.png" class="cover-image" />
-            </div>
-
-            <img src="media/projects/booking.png" class="character" />
-          </div>
-          <p class="project-title">Hotel Reservation System</p>
-        </a>
-        <a class="Pcard" href="card4" id="qgisParameters" alt="Mythrill" target="_blank">
-          <div class="card">
-            <div class="wrapper">
-              <img src="media/projects/qgis.png" class="cover-image" />
-            </div>
-
-            <img src="media/projects/raster.png" class="character" />
-          </div>
-          <p class="project-title">QGIS Parameters Extraction</p>
-        </a>
+      <div class="projects-header reveal">
+        <h2 class="section-title">My Projects</h2>
+        <p class="section-subtitle">Things I've built along the way</p>
       </div>
+
+      <!-- Project 1 – image LEFT, text RIGHT -->
+      <div class="project-row reveal-item" id="qrScanProject">
+        <div class="project-visual">
+          <a href="#" target="_blank" class="Pcard">
+            <div class="card">
+              <div class="wrapper">
+                <img src="media/projects/SCAN.jpg" class="cover-image" alt="QR Scanner background" />
+              </div>
+              <img src="media/projects/QRGen.png" class="character" alt="QR Code Generator icon" />
+            </div>
+          </a>
+        </div>
+        <div class="project-info">
+          <span class="project-badge">Web Tool</span>
+          <h3 class="project-name">QR Code Generator</h3>
+          <p class="project-desc">
+            A lightweight browser-based tool that converts any URL or text into a
+            scannable QR code instantly — no backend required. Clean, fast, and
+            fully client-side.
+          </p>
+          <div class="project-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 – text LEFT, image RIGHT -->
+      <div class="project-row project-row--reverse reveal-item" id="logisticPredictionProject">
+        <div class="project-visual">
+          <a href="#" target="_blank" class="Pcard">
+            <div class="card">
+              <div class="wrapper">
+                <img src="media/projects/logistic.jpg" class="cover-image" alt="Logistic prediction" />
+              </div>
+              <img src="media/projects/Data.png" class="character" alt="Data icon" />
+            </div>
+          </a>
+        </div>
+        <div class="project-info">
+          <span class="project-badge">Data Science</span>
+          <h3 class="project-name">Logistic Prediction</h3>
+          <p class="project-desc">
+            End-to-end demand forecasting pipeline for a local food company. Cleaned
+            messy sales data, trained a regression model, and delivered a simple
+            dashboard to support daily restocking decisions.
+          </p>
+          <div class="project-tags">
+            <span>Python</span><span>Pandas</span><span>Scikit-learn</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 – image LEFT, text RIGHT -->
+      <div class="project-row reveal-item" id="hotelProject">
+        <div class="project-visual">
+          <a href="#" target="_blank" class="Pcard">
+            <div class="card">
+              <div class="wrapper">
+                <img src="media/projects/hotel.png" class="cover-image" alt="Hotel reservation system" />
+              </div>
+              <img src="media/projects/booking.png" class="character" alt="Booking icon" />
+            </div>
+          </a>
+        </div>
+        <div class="project-info">
+          <span class="project-badge">Backend</span>
+          <h3 class="project-name">Hotel Reservation System</h3>
+          <p class="project-desc">
+            A full reservation management system built from scratch, handling room
+            availability, bookings, and guest records. Focused on clean data modeling
+            and a reliable business logic layer.
+          </p>
+          <div class="project-tags">
+            <span>Java</span><span>SQL</span><span>OOP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 – text LEFT, image RIGHT -->
+      <div class="project-row project-row--reverse reveal-item" id="qgisParameters">
+        <div class="project-visual">
+          <a href="#" target="_blank" class="Pcard">
+            <div class="card">
+              <div class="wrapper">
+                <img src="media/projects/qgis.png" class="cover-image" alt="QGIS project" />
+              </div>
+              <img src="media/projects/raster.png" class="character" alt="Raster icon" />
+            </div>
+          </a>
+        </div>
+        <div class="project-info">
+          <span class="project-badge">GIS / Analysis</span>
+          <h3 class="project-name">QGIS Parameters Extraction</h3>
+          <p class="project-desc">
+            Automated extraction of raster parameters from geospatial datasets using
+            QGIS scripting. Reduced manual processing time significantly and improved
+            reproducibility of spatial analyses.
+          </p>
+          <div class="project-tags">
+            <span>Python</span><span>QGIS</span><span>Raster</span>
+          </div>
+        </div>
+      </div>
+
     </section>
 
-    <section id="tooltips">
-      <h2>Find me on:</h2>
+
+    <!-- ═══════════════ SOCIAL / CONTACT SECTION ═══════════════ -->
+    <section id="tooltips" class="reveal">
+      <h2 class="section-title">Find me on:</h2>
       <div class="tooltip-container">
         <ul class="example-2">
           <li class="icon-content">
@@ -257,6 +301,7 @@
         </ul>
       </div>
     </section>
+
     <footer>
       <div id="myModal" class="modal">
         <div class="modal-content">
@@ -296,13 +341,12 @@
       </div>
 
     </footer>
-    <!-- Scial icons, poner en contactme
-  <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script><script  src="js/social.js"></script>-->
     <script src="js/header.js"></script>
     <script src="js/enlaces.js"></script>
     <script src="js/darkmode.js"></script>
     <script src="js/contactmeB.js"></script>
     <script src="js/burguermenu.js"></script>
+    <script src="js/scrollReveal.js"></script>
   </main>
 </body>
 
