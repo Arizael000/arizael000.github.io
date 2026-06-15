@@ -38,7 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
         cv.addEventListener("click", function(e){
             e.preventDefault(); 
             const link = document.createElement('a');
-            link.href = "https://drive.google.com/uc?export=download&id=1wd9GHxqb2TaAH31SZW9jTiFm23FKa00K";
+            link.href = "https://drive.google.com/uc?export=download&id=1Wl90OcFqx_9sAMBipGgoM46dAuETrmzV";
+
+
 
             link.setAttribute('download', 'CV_ArizaelGC.pdf');
             document.body.appendChild(link);
