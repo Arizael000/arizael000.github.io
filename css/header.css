@@ -114,6 +114,14 @@ nav {
   width: auto;
   display: flex;
   animation: rightSideAni 0.7s ease forwards;
+  outline: none;
+}
+
+nav:focus,
+nav:focus-visible,
+#navbar:focus,
+#navbar:focus-visible {
+  outline: none;
 }
 
 nav * {
@@ -252,7 +260,7 @@ nav * {
   position: relative;
   cursor: pointer;
   justify-content: space-between;
-  border: 2px solid black;
+  border: none;
 }
 
 .arrow {
@@ -292,7 +300,7 @@ nav * {
   background-color: white;
   color: var(--primary-color);
   border-radius: 10px;
-  border: 2px solid black;
+  border: none;
   position: absolute;
   width: 150px;
   left: -100px;
@@ -356,6 +364,33 @@ nav * {
 
 .event-wrapper-inp:not(:checked)~.menu-container .menu-list:nth-child(5) {
   transition: transform 0.4s calc(var(--delay) + (var(--trdelay) * 4)), opacity 0.4s calc(var(--delay) + (var(--trdelay) * 4));
+}
+
+#cv-mobile {
+  color: var(--primary-color);
+  font-weight: 700;
+  border: 2px solid var(--primary-color);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#cv-mobile:hover {
+  background: #ff3b3b;
+  border-color: #ff3b3b;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
+}
+
+:is(.dark-mode) #cv-mobile {
+  color: #7fccd0;
+  border-color: #7fccd0;
+}
+
+:is(.dark-mode) #cv-mobile:hover {
+  background: #ff4d4d;
+  border-color: #ff4d4d;
+  color: #fff !important;
 }
 
 .bar-event-wrapper-inp {
@@ -442,7 +477,25 @@ nav * {
     text-align: left;
   }
 
+  #cv {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 0;
+    margin-top: 0.5rem;
+    border-width: 2px;
+    display: none;
+  }
+
+  #cv:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
+  }
+
   .center {
-    flex-grow: unset;
+    display: none;
+  }
+
+  nav {
+    display: none;
   }
 }

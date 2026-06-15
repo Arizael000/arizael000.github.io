@@ -46,17 +46,4 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.removeChild(link);
         });
     }
-
-    const cvHamburger = document.getElementById('cvHamburger');
-    if(cvHamburger){
-        cvHamburger.addEventListener("click", function(e){
-            e.preventDefault();
-            const link = document.createElement('a');
-            link.href = "https://drive.google.com/uc?export=download&id=1wd9GHxqb2TaAH31SZW9jTiFm23FKa00K";
-            link.setAttribute('download', 'CV_ArizaelGC.pdf');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-    }
 });
