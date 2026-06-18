@@ -45,7 +45,7 @@ footer p {
     margin-left: 5px;
 }
 
-button {
+#sendMail {
     margin-top: 15px;
     background-color: #457a7e;
     color: white;
@@ -55,13 +55,13 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+#sendMail:hover {
     color: white;
     background-color: #d94422;
     transition: background-color 0.3s;
 }
 
-button:active {
+#sendMail:active {
     transform: scale(0.90);
 }
 

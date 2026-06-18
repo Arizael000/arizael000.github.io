@@ -42,8 +42,16 @@
 .project-visual {
   flex-shrink: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+}
+
+/* GitHub button - static below card */
+.github-btn {
+  margin-top: 0.5rem;
+  align-self: center;
 }
 
 /* ── Project info (text) ── */
@@ -267,5 +275,113 @@
 
   #projects {
     padding: 3rem 1.2rem 2rem;
+  }
+}
+
+/* ═══════════════ GITHUB BUTTON (Code link) ═══════════════ */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.project-link.github-link {
+  color: var(--primary-color);
+  background: rgba(69, 122, 126, 0.08);
+  border: 1px solid rgba(69, 122, 126, 0.2);
+}
+
+.project-link.github-link:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(69, 122, 126, 0.3);
+}
+
+:is(.dark-mode) .project-link.github-link {
+  color: var(--primary-light);
+  background: rgba(127, 204, 208, 0.1);
+  border-color: rgba(127, 204, 208, 0.25);
+}
+
+:is(.dark-mode) .project-link.github-link:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(127, 204, 208, 0.35);
+}
+
+.project-link i {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.project-link:hover i {
+  transform: translateX(2px);
+}
+
+/* Tooltip simple CSS-only */
+.project-link[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+  background: #1a3a3c;
+  color: #fff;
+  border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.project-link[data-tooltip]::after {
+  content: "";
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #1a3a3c;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.project-link:hover[data-tooltip]::before,
+.project-link:hover[data-tooltip]::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+:is(.dark-mode) .project-link[data-tooltip]::before {
+  background: #e2f0f1;
+  color: #1a3a3c;
+}
+
+:is(.dark-mode) .project-link[data-tooltip]::after {
+  border-top-color: #e2f0f1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .project-link .link-text {
+    display: none;
+  }
+  .project-link {
+    padding: 0.5rem;
   }
 }
