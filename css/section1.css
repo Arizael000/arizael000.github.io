@@ -16,7 +16,6 @@
   min-height: calc(100vh - 5rem);
   display: flex;
   align-items: center;
-  padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -113,6 +112,8 @@
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
+  cursor: pointer;
+  user-select: none;
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 14px rgba(69, 122, 126, 0.3);
 }
@@ -132,6 +133,8 @@
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
+  cursor: pointer;
+  user-select: none;
   transition: all 0.3s ease;
 }
 

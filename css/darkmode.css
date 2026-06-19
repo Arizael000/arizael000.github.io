@@ -21,6 +21,7 @@
 /* ── Scaled-down toggle: 60×33px ── */
 .toggle {
   cursor: pointer;
+  user-select: none;
   display: inline-block;
   position: relative;
   width: 60px;

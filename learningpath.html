@@ -105,7 +105,7 @@
                     </div>
                 </article>
                 <article class="certificate-card">
-                    <img src="media/certificates/freecodecamp.svg" alt="freeCodeCamp" class="cert-icon">
+                    <img src="media/certificates/title/freecodecamp.jpg" alt="freeCodeCamp" class="cert-icon">
                     <div class="cert-info">
                         <h3>freeCodeCamp</h3>
                         <p class="cert-title">Responsive Web Design</p>
@@ -114,12 +114,40 @@
                     </div>
                 </article>
                 <article class="certificate-card">
-                    <img src="media/certificates/ef-set.svg" alt="EF SET English Certificate" class="cert-icon">
+                    <img src="media/certificates/title/Efset.png" alt="EF SET English Certificate" class="cert-icon">
                     <div class="cert-info">
                         <h3>EF SET</h3>
                         <p class="cert-title">English Certificate</p>
                         <p class="cert-date">2024</p>
                         <a href="https://cert.efset.org/5nsuCC" target="_blank" class="btn-verify">Verify Certificate</a>
+                    </div>
+                </article>
+                <article class="certificate-card" data-gallery='["media/certificates/title/uci.jpg","media/certificates/title/expotesis.JPG","media/certificates/title/Rec1.JPG","media/certificates/title/Rec2.JPG"]'>
+                    <img src="media/certificates/coding-icon.svg" alt="Computer Science Engineering" class="cert-icon">
+                    <div class="cert-info">
+                        <h3>Universidad de las Ciencias Informáticas</h3>
+                        <p class="cert-title">Computer Science Engineer</p>
+                        <p class="cert-date">2024</p>
+                        <div class="cert-actions">
+                            <a href="media/certificates/title/Engineering.pdf" target="_blank" class="btn-verify btn-view">View PDF</a>
+                            <a href="media/certificates/title/Engineering.pdf" download="titleScaned.pdf" class="btn-verify btn-download">Download PDF</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="certificate-card">
+                    <img src="media/certificates/title/google.png" alt="Google Developers" class="cert-icon">
+                    <div class="cert-info">
+                        <h3>Google Developers</h3>
+                        <p class="cert-title">Data Science &amp; Machine Learning</p>
+                        <p class="cert-desc">Exploring ML models and data science through Google for Developers towards DataScience.</p>
+                        <div class="cert-tags">
+                            <span>TensorFlow</span>
+                            <span>Google Colab</span>
+                            <span>Algorithm bases</span>
+                            <span>IA Development</span>
+                            <span>OpenCode</span>
+                        </div>
+                        <a href="https://me.developers.google.com/u/100984391129552971381" target="_blank" class="btn-verify">View Profile</a>
                     </div>
                 </article>
             </div>
@@ -210,13 +238,9 @@
         <section id="lp-summary" class="reveal">
             <h2>What I Know</h2>
             <p class="summary-text">
-                My journey blends formal Computer Science training with self-driven Data Science mastery. 
-                My degree gave me rigor in algorithms, data structures, and system design — the engineering backbone. 
-                Since 2023, I've built a practical data stack: Python (Pandas, NumPy, Scikit-learn), SQL for querying, 
-                and Power BI for business-ready dashboards. I've taken projects from messy raw data to deployed models 
-                that drive real decisions, like the demand forecasting system for <em>Lo bueno con lo bueno</em>. 
-                Now I'm pushing into AI automation — LLMs, prompt engineering, and pipeline orchestration — to turn 
-                repetitive analysis into scalable workflows. The constant: solving problems with code, data, and clear communication.
+                Software Engineer specialized in Data Science. Expert in the full data lifecycle: from processing and modeling with Python/SQL 
+                to deploying AI-driven automation. 
+                Focused on delivering high-impact, scalable solutions through clean code and data-driven insights.
             </p>
             <div class="summary-skills">
                 <div class="summary-skill">
@@ -237,6 +261,13 @@
                 </div>
             </div>
         </section>
+
+        <div id="cert-gallery-modal" class="cert-gallery-modal" role="dialog" aria-modal="true" aria-label="Certificate gallery">
+            <div class="gallery-window">
+                <button class="gallery-close" aria-label="Close gallery">&times;</button>
+                <div class="gallery-content"></div>
+            </div>
+        </div>
 
         <footer>
             <div id="myModal" class="modal">
@@ -284,6 +315,7 @@
         <script src="js/contactmeB.js"></script>
         <script src="js/burguermenu.js"></script>
         <script src="js/scrollReveal.js"></script>
+        <script src="js/learningpath.js"></script>
     </main>
 </body>
 

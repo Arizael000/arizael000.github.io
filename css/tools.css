@@ -116,3 +116,27 @@
         font-size: 3rem;
     }
 }
+
+/* ═══════════════ EXTRA TOOLS SECTION ═══════════════ */
+.tools-extra {
+    margin-top: 2rem;
+}
+
+.tools-subtitle {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+:is(.dark-mode) .tools-subtitle {
+    color: var(--primary-light);
+}
+
+@media (max-width: 600px) {
+    .tools-subtitle {
+        font-size: 1.4rem;
+    }
+}

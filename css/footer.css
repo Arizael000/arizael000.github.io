@@ -53,9 +53,27 @@ footer p {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    user-select: none;
+}
+
+#scrollUp {
+    margin-top: 15px;
+    background-color: #457a7e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
 }
 
 #sendMail:hover {
+    color: white;
+    background-color: #d94422;
+    transition: background-color 0.3s;
+}
+
+#scrollUp:hover {
     color: white;
     background-color: #d94422;
     transition: background-color 0.3s;
@@ -126,6 +144,7 @@ footer p {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    user-select: none;
     transition: color 0.3s;
 }
 
@@ -193,6 +212,7 @@ form button {
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
+    user-select: none;
     transition: all 0.3s ease;
 }
 

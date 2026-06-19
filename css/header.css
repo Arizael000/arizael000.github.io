@@ -150,6 +150,7 @@ nav * {
   animation: navani 0.4s ease forwards;
   animation-delay: calc(0.1s * var(--navAni, 1));
   cursor: pointer;
+  user-select: none;
   color: #457a7e;
   position: relative;
   overflow: hidden;
@@ -259,6 +260,7 @@ nav * {
   width: fit-content;
   position: relative;
   cursor: pointer;
+  user-select: none;
   justify-content: space-between;
   border: none;
 }
@@ -372,6 +374,7 @@ nav * {
   border: 2px solid var(--primary-color);
   text-align: center;
   cursor: pointer;
+  user-select: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

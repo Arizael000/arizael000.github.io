@@ -21,6 +21,7 @@
   color:#333;
   font-size:2rem;
   cursor:pointer;
+  user-select:none;
   transition:1.25s;
   z-index:5;
 }

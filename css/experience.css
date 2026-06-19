@@ -135,6 +135,8 @@
     background: rgba(69, 122, 126, 0.1);
     color: var(--primary-color);
     border: 1px solid rgba(69, 122, 126, 0.25);
+    cursor: default;
+    user-select: none;
 }
 
 /* ── Dark mode ── */
