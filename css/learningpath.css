@@ -1,5 +1,6 @@
-/* Learning Path Specific Styles */
+/* ═══════════════ LEARNING PATH SPECIFIC STYLES ═══════════════ */
 
+/* ── Intro Section ── */
 #lp-intro {
     text-align: center;
     padding: 4rem 2rem;
@@ -22,6 +23,313 @@
     color: rgba(255, 255, 255, 0.8);
 }
 
+/* ═══════════════ CERTIFICATES SECTION ═══════════════ */
+#lp-certificates {
+    padding: 4rem 1.5rem 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#lp-certificates h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+:is(.dark-mode) #lp-certificates h2 {
+    color: var(--primary-light);
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ── Certificate Card ── */
+.certificate-card {
+    background: #fff;
+    border: 1px solid rgba(69, 122, 126, 0.12);
+    border-radius: 16px;
+    padding: 1.8rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(69, 122, 126, 0.15);
+}
+
+:is(.dark-mode) .certificate-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+:is(.dark-mode) .certificate-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    border-color: rgba(127, 204, 208, 0.15);
+}
+
+/* ── Certificate Icon ── */
+.cert-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 14px;
+    padding: 8px;
+    background: rgba(69, 122, 126, 0.08);
+    border: 1px solid rgba(69, 122, 126, 0.12);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.certificate-card:hover .cert-icon {
+    transform: scale(1.08);
+    background: rgba(69, 122, 126, 0.14);
+}
+
+:is(.dark-mode) .cert-icon {
+    background: rgba(127, 204, 208, 0.1);
+    border-color: rgba(127, 204, 208, 0.15);
+}
+
+:is(.dark-mode) .certificate-card:hover .cert-icon {
+    background: rgba(127, 204, 208, 0.18);
+}
+
+/* ── Certificate Info ── */
+.cert-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.cert-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a3a3c;
+    margin: 0;
+}
+
+:is(.dark-mode) .cert-info h3 {
+    color: #e2f0f1;
+}
+
+.cert-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    margin: 0;
+}
+
+:is(.dark-mode) .cert-title {
+    color: #99b8ba;
+}
+
+.cert-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: rgba(69, 122, 126, 0.1);
+    padding: 0.15rem 0.7rem;
+    border-radius: 20px;
+    margin: 0.2rem 0;
+}
+
+:is(.dark-mode) .cert-date {
+    color: var(--primary-light);
+    background: rgba(127, 204, 208, 0.1);
+}
+
+/* ── Verify Button ── */
+.btn-verify {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.5rem 1.2rem;
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-verify:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(69, 122, 126, 0.35);
+}
+
+:is(.dark-mode) .btn-verify {
+    background: var(--primary-light);
+    color: #1a3a3c;
+}
+
+:is(.dark-mode) .btn-verify:hover {
+    background: #a8e6e9;
+    box-shadow: 0 4px 14px rgba(127, 204, 208, 0.35);
+}
+
+/* ── Certificates Responsive ── */
+@media (max-width: 600px) {
+    #lp-certificates {
+        padding: 3rem 1rem 1.5rem;
+    }
+
+    #lp-certificates h2 {
+        font-size: 1.6rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .certificate-card {
+        padding: 1.4rem 1.2rem;
+    }
+
+    .cert-icon {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* ═══════════════ LP SUMMARY (Learning Path Page) ═══════════════ */
+#lp-summary {
+    padding: 4rem 1.5rem 3rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+#lp-summary h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
+
+:is(.dark-mode) #lp-summary h2 {
+    color: var(--primary-light);
+}
+
+.summary-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #555;
+    background: #fff;
+    border: 1px solid rgba(69, 122, 126, 0.12);
+    border-radius: 16px;
+    padding: 2rem 2.2rem;
+    box-shadow: 0 8px 24px rgba(69, 122, 126, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-text:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(69, 122, 126, 0.12);
+}
+
+:is(.dark-mode) .summary-text {
+    color: #b8d0d2;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+:is(.dark-mode) .summary-text:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    border-color: rgba(127, 204, 208, 0.12);
+}
+
+.summary-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.summary-skill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    background: rgba(69, 122, 126, 0.08);
+    border: 1px solid rgba(69, 122, 126, 0.15);
+    border-radius: 24px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #1a3a3c;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.summary-skill:hover {
+    background: rgba(69, 122, 126, 0.14);
+    transform: translateY(-2px);
+}
+
+:is(.dark-mode) .summary-skill {
+    background: rgba(127, 204, 208, 0.08);
+    border-color: rgba(127, 204, 208, 0.15);
+    color: #e2f0f1;
+}
+
+:is(.dark-mode) .summary-skill:hover {
+    background: rgba(127, 204, 208, 0.16);
+}
+
+.summary-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.summary-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-color);
+}
+
+:is(.dark-mode) .summary-icon svg {
+    color: var(--primary-light);
+}
+
+@media (max-width: 600px) {
+    #lp-summary {
+        padding: 3rem 1rem 2rem;
+    }
+
+    #lp-summary h2 {
+        font-size: 1.6rem;
+    }
+
+    .summary-text {
+        padding: 1.5rem 1.3rem;
+    }
+
+    .summary-skills {
+        gap: 0.6rem;
+    }
+
+    .summary-skill {
+        font-size: 0.82rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* ═══════════════ TIMELINE ═══════════════ */
 /* Timeline Container */
 .timeline {
     position: relative;
@@ -217,4 +525,170 @@
 
 .btn-download:hover {
     background-color: #d94422;
+}
+
+/* ═══════════════ LEARNING PATH SUMMARY (Home Page) ═══════════════ */
+#learning-path-summary {
+    padding: 5rem 1.5rem 3rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.lp-summary-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.lp-summary-text {
+    background: #fff;
+    border: 1px solid rgba(69, 122, 126, 0.12);
+    border-radius: 16px;
+    padding: 2rem 2.2rem;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(69, 122, 126, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lp-summary-text:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(69, 122, 126, 0.12);
+}
+
+:is(.dark-mode) .lp-summary-text {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+:is(.dark-mode) .lp-summary-text:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    border-color: rgba(127, 204, 208, 0.12);
+}
+
+.lp-summary-text p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+:is(.dark-mode) .lp-summary-text p {
+    color: #b8d0d2;
+}
+
+/* ── Skills Row ── */
+.lp-summary-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.lp-skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    background: rgba(69, 122, 126, 0.08);
+    border: 1px solid rgba(69, 122, 126, 0.15);
+    border-radius: 24px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #1a3a3c;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.lp-skill-item:hover {
+    background: rgba(69, 122, 126, 0.14);
+    transform: translateY(-2px);
+}
+
+:is(.dark-mode) .lp-skill-item {
+    background: rgba(127, 204, 208, 0.08);
+    border-color: rgba(127, 204, 208, 0.15);
+    color: #e2f0f1;
+}
+
+:is(.dark-mode) .lp-skill-item:hover {
+    background: rgba(127, 204, 208, 0.16);
+}
+
+.lp-skill-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.lp-skill-icon--accent {
+    background: #f2c811;
+    padding: 3px;
+}
+
+.lp-skill-icon--svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-color);
+}
+
+:is(.dark-mode) .lp-skill-icon--svg {
+    color: var(--primary-light);
+}
+
+/* ── View Button ── */
+.btn-lp-view {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(69, 122, 126, 0.3);
+}
+
+.btn-lp-view:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(69, 122, 126, 0.4);
+}
+
+:is(.dark-mode) .btn-lp-view {
+    background: var(--primary-light);
+    color: #1a3a3c;
+}
+
+:is(.dark-mode) .btn-lp-view:hover {
+    background: #a8e6e9;
+    box-shadow: 0 6px 20px rgba(127, 204, 208, 0.4);
+}
+
+/* ── LP Summary Responsive ── */
+@media (max-width: 768px) {
+    #learning-path-summary {
+        padding: 4rem 1.2rem 2rem;
+    }
+
+    .lp-summary-text {
+        padding: 1.5rem 1.3rem;
+    }
+
+    .lp-summary-skills {
+        gap: 0.6rem;
+    }
+
+    .lp-skill-item {
+        font-size: 0.82rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lp-summary-skills {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
