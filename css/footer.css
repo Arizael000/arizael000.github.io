@@ -45,17 +45,7 @@ footer p {
     margin-left: 5px;
 }
 
-#sendMail {
-    margin-top: 15px;
-    background-color: #457a7e;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none;
-}
-
+#sendMail,
 #scrollUp {
     margin-top: 15px;
     background-color: #457a7e;
@@ -67,19 +57,14 @@ footer p {
     user-select: none;
 }
 
-#sendMail:hover {
-    color: white;
-    background-color: #d94422;
-    transition: background-color 0.3s;
-}
-
+#sendMail:hover,
 #scrollUp:hover {
     color: white;
     background-color: #d94422;
     transition: background-color 0.3s;
 }
 
-#sendMail:active {
+#scrollUp:active {
     transform: scale(0.90);
 }
 
@@ -146,6 +131,13 @@ footer p {
     cursor: pointer;
     user-select: none;
     transition: color 0.3s;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
 }
 
 .close:hover,
@@ -319,5 +311,12 @@ div:has(> #divF2) {
         max-height: 88vh;
         overflow-y: auto;
         box-sizing: border-box;
+    }
+
+    .close {
+        top: 8px;
+        right: 10px;
+        width: 28px;
+        height: 28px;
     }
 }
