@@ -401,9 +401,30 @@
 }
 
 /* ── Skill Tags ── */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.6rem 0;
+}
+
 .skill-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    background: rgba(69, 122, 126, 0.08);
+    color: var(--primary-color);
+    border: 1px solid rgba(69, 122, 126, 0.18);
     cursor: default;
     user-select: none;
+    transition: background 0.2s ease;
+}
+
+:is(.dark-mode) .skill-tag {
+    color: var(--primary-light);
+    background: rgba(127, 204, 208, 0.08);
+    border-color: rgba(127, 204, 208, 0.2);
 }
 
 /* ═══════════════ TIMELINE ═══════════════ */
@@ -603,7 +624,7 @@
 }
 
 .btn-download:hover {
-    background-color: #d94422;
+    background-color: var(--primary-dark);
 }
 
 /* ═══════════════ LEARNING PATH SUMMARY (Home Page) ═══════════════ */

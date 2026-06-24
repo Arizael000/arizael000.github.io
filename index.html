@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/experience.css">
   <link rel="stylesheet" href="css/social.css">
   <link rel="stylesheet" href="css/learningpath.css">
+  <link rel="stylesheet" href="css/dashboards.css">
   <link rel="icon" href="media/webIcon.png" type="image/x-icon">
   <script src="js/scripts.js"></script>
   <title>Arizael – Portfolio</title>
@@ -27,12 +28,12 @@
     <header class="container" id="container">
       <div class="header-inner">
 
-        <div class="left logo" id="log-- --o">
+        <a href="./" class="left logo" id="log-- --o">
           <div class="logo-avatar-wrap">
             <img src="media/Gris.jpg" alt="Arizael" class="logo-avatar">
           </div>
           <span class="logo-name">Arizael</span>
-        </div>
+        </a>
 
         <div class="center" id="navWrapper">
           <nav id="navbar">
@@ -90,11 +91,11 @@
         <div class="hero-text">
           <p class="hero-greeting">👋 Hello, I'm</p>
           <h1 class="hero-name">Arizael <span class="hero-name-accent">Capote</span></h1>
-          <p class="hero-role">Computer Science · Data Science</p>
+          <p class="hero-role">Computer Science · Data Analysis · Data Science</p>
           <p class="hero-bio">
-            I build data-driven solutions that translate raw numbers into real insights.
-            Currently deepening my expertise in machine learning and predictive modeling —
-            one project at a time.
+            I transform raw data into actionable insights through rigorous, data-driven analysis and interactive Power BI dashboards that simplify complex results for stakeholders.<br>
+            I build custom Python solutions tailored to specific business requirements.<br>
+            I have a passion for excellence and technology.
           </p>
           <div class="hero-cta">
             <a href="#projects" class="btn-primary">View My Work</a>
@@ -314,6 +315,84 @@
     </section>
 
 
+    <!-- ═══════════════ POWER BI DASHBOARDS ═══════════════ -->
+    <section id="dashboards" class="reveal">
+      <h2 class="section-title">Power BI Dashboards</h2>
+      <p class="section-subtitle">Dashboards I've built practice and real work</p>
+
+      <h3 class="dash-group-title">Aside Projects</h3>
+      <div class="dashboards-row">
+        <div class="dashboard-card">
+          <div class="dash-thumb">
+            <img src="media/dashboards/p1.png" alt="Project dashboard 1" loading="lazy">
+          </div>
+          <div class="dash-body">
+            <h3>Aside Project Dashboard</h3>
+            <div class="dash-tags">
+              <span>Power BI</span>
+              <span>Power Query</span>
+              <span>DAX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="dash-thumb">
+            <img src="media/dashboards/p2.png" alt="Project dashboard 2" loading="lazy">
+          </div>
+          <div class="dash-body">
+            <h3>Aside Project Dashboard</h3>
+            <div class="dash-tags">
+              <span>Power BI</span>
+              <span>Power Query</span>
+              <span>DAX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="dash-group-title">Logistic Prediction</h3>
+      <div class="dashboards-row">
+        <div class="dashboard-card">
+          <div class="dash-thumb">
+            <img src="media/dashboards/lp1.png" alt="Learning Path dashboard 1" loading="lazy">
+          </div>
+          <div class="dash-body">
+            <h3>Logistic Prediction Dashboard</h3>
+            <div class="dash-tags">
+              <span>Power BI</span>
+              <span>Power Query</span>
+              <span>DAX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="dash-thumb">
+            <img src="media/dashboards/lp2.png" alt="Learning Path dashboard 2" loading="lazy">
+          </div>
+          <div class="dash-body">
+            <h3>Logistic Prediction Dashboard</h3>
+            <div class="dash-tags">
+              <span>Power BI</span>
+              <span>Power Query</span>
+              <span>DAX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════ DASHBOARD LIGHTBOX MODAL ═══════════════ -->
+    <div id="dashModal" class="dash-modal-overlay">
+      <div class="dash-modal-content">
+        <button class="dash-modal-close">&times;</button>
+        <img src="" alt="Dashboard">
+      </div>
+    </div>
+
+
     <!-- ═══════════════ LEARNING PATH SUMMARY ═══════════════ -->
     <section id="learning-path-summary" class="reveal">
       <h2 class="section-title">Learning Path</h2>
@@ -442,6 +521,7 @@
     <script src="js/contactmeB.js"></script>
     <script src="js/burguermenu.js"></script>
     <script src="js/scrollReveal.js"></script>
+    <script src="js/dashboards.js"></script>
   </main>
 </body>
 

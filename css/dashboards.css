@@ -1,0 +1,220 @@
+/* ═══════════════ DASHBOARDS SECTION ═══════════════ */
+#dashboards {
+  padding: 4rem 2rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#dashboards .section-subtitle {
+  margin-bottom: 2.5rem;
+}
+
+.dashboards-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-card {
+  width: 300px;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+}
+
+:is(.dark-mode) .dashboard-card {
+  background: #181818;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+:is(.dark-mode) .dashboard-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.dash-thumb {
+  width: 100%;
+  aspect-ratio: 600 / 380;
+  overflow: hidden;
+  background: #1a3a3c;
+}
+
+.dash-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.dashboard-card:hover .dash-thumb img {
+  transform: scale(1.04);
+}
+
+.dash-body {
+  padding: 1rem 1.1rem 1.2rem;
+  text-align: left;
+}
+
+.dash-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a3a3c;
+  margin: 0 0 0.6rem;
+}
+
+:is(.dark-mode) .dash-body h3 {
+  color: #e2f0f1;
+}
+
+.dash-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.dash-tags span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  background: rgba(69, 122, 126, 0.08);
+  color: var(--primary-color);
+  border: 1px solid rgba(69, 122, 126, 0.2);
+  cursor: default;
+  user-select: none;
+}
+
+:is(.dark-mode) .dash-tags span {
+  color: var(--primary-light);
+  background: rgba(127, 204, 208, 0.08);
+  border-color: rgba(127, 204, 208, 0.22);
+}
+
+/* ═══════════════ GROUP HEADINGS ═══════════════ */
+.dash-group-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary-color);
+  margin: 2.5rem 0 1.2rem;
+  text-align: center;
+}
+
+.dash-group-title:first-of-type {
+  margin-top: 0;
+}
+
+:is(.dark-mode) .dash-group-title {
+  color: var(--primary-light);
+}
+
+/* ═══════════════ LIGHTBOX MODAL ═══════════════ */
+.dash-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  backdrop-filter: blur(4px);
+}
+
+.dash-modal-overlay.dash-modal--open {
+  display: flex;
+}
+
+.dash-modal-content {
+  position: relative;
+  width: 50vw;
+  max-width: 900px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  animation: dashFadeIn 0.25s ease;
+}
+
+:is(.dark-mode) .dash-modal-content {
+  background: #181818;
+}
+
+.dash-modal-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.dash-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.dash-modal-close:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@keyframes dashFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width: 700px) {
+  #dashboards {
+    padding: 3rem 1.2rem 2rem;
+  }
+
+  .dashboard-card {
+    width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboards-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-card {
+    width: 100%;
+    max-width: 340px;
+  }
+}
