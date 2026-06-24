@@ -113,8 +113,9 @@ function teclearTexto(elemento) {
   }, 100); // Ajusta la velocidad según tus preferencias
 }
 
-// Llamada a la función para cada elemento con la clase 'description'
-const elementosTecleado = document.querySelectorAll('.description');
-elementosTecleado.forEach(teclearTexto);
+document.addEventListener('DOMContentLoaded', function () {
+  const elementosTecleado = document.querySelectorAll('.description');
+  elementosTecleado.forEach(teclearTexto);
+});
 
 
