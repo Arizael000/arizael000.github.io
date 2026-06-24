@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Standalone GitHub buttons (not inside project sections)
+    document.querySelectorAll('.btn-download.github-btn[data-repo]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://github.com/Arizael000/' + btn.dataset.repo, '_blank');
+        });
+    });
+
     var cv = document.getElementById('cv');
     if(cv){
         cv.setAttribute('href', 'javascript:void(0)');

@@ -66,14 +66,14 @@
   text-align: left;
 }
 
-.dash-body h3 {
+.dash-body h4 {
   font-size: 1.05rem;
   font-weight: 700;
   color: #1a3a3c;
   margin: 0 0 0.6rem;
 }
 
-:is(.dark-mode) .dash-body h3 {
+:is(.dark-mode) .dash-body h4 {
   color: #e2f0f1;
 }
 
