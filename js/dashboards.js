@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.dashboard-card').forEach(function (card) {
     card.addEventListener('click', function () {
       var img = card.querySelector('.dash-thumb img');
-      if (img) openModal(img.src, img.alt);
+      if (img) openModal(img.src.replace('/thumbs', ''), img.alt);
     });
   });
 
