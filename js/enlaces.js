@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { selector: '#logisticPredictionProject', url: 'https://github.com/Arizael000/logisticPrediction' },
         { selector: '#hotelProject', url: 'https://github.com/Arizael000/SG_Hotel' },
         { selector: '#qgisParameters', url: 'https://github.com/Arizael000/Parameters-Extraction-in-QGIS' },
+        { selector: '#faultyMedicalDevicesProject', url: 'https://github.com/Arizael000/faulty-mdevices' },
     ];
 
     projects.forEach(function(project) {
