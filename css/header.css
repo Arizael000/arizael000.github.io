@@ -99,7 +99,7 @@ header {
 }
 
 @media (max-width: 480px) {
-  .logo-name { font-size: 0.82rem; }
+  .logo-name { font-size: clamp(0.6rem, 3.5vw, 0.82rem); }
 }
 
 @media (max-width: 768px) {
