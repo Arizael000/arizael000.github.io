@@ -238,6 +238,55 @@
     box-shadow: 0 4px 14px rgba(69, 122, 126, 0.35);
 }
 
+.cert-row {
+    display: flex;
+    gap: 0.3rem;
+    width: 100%;
+    flex: 1 1 100%;
+}
+
+.cert-row .btn-verify {
+    flex: 1;
+}
+
+.btn-linkedin-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    min-width: 40px;
+    padding: 0.5rem;
+    background: transparent;
+    color: #0274b3;
+    border: 2px solid #0274b3;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-linkedin-sm svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-linkedin-sm:hover {
+    background: #0274b3;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(2, 116, 179, 0.35);
+}
+
+:is(.dark-mode) .btn-linkedin-sm {
+    color: #6fc8e8;
+    border-color: #6fc8e8;
+}
+
+:is(.dark-mode) .btn-linkedin-sm:hover {
+    background: #6fc8e8;
+    color: #1a3a3c;
+}
+
 :is(.dark-mode) .btn-verify {
     background: var(--primary-light);
     color: #1a3a3c;
