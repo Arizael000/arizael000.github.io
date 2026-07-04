@@ -16,6 +16,11 @@
     box-sizing: border-box;
 }
 
+main.container {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 /* ═══════════════ SCROLL REVEAL ═══════════════ */
 .reveal {
     opacity: 0;
@@ -440,4 +445,41 @@ p {
 body,
 .socialName {
     transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* ── Scroll to Top Button ── */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+#scrollToTopBtn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#scrollToTopBtn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+:is(.dark-mode) #scrollToTopBtn {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
