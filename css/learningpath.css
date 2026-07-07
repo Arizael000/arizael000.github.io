@@ -772,11 +772,6 @@
     object-fit: contain;
 }
 
-.lp-skill-icon--accent {
-    background: #f2c811;
-    padding: 3px;
-}
-
 .lp-skill-icon--svg {
     width: 20px;
     height: 20px;
