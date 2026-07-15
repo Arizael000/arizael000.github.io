@@ -8,7 +8,7 @@
 
   width: 100%;
   max-width: 1300px;
-  /* evita crecer más que el layout */
+  /* prevents growing beyond the layout */
   margin: 20px auto;
   padding: 1rem;
   box-sizing: border-box;
@@ -21,13 +21,13 @@
 .tooltip-container {
   width: 100%;
   max-width: 780px;
-  /* ajusta si quieres más/menos ancho */
+  /* adjust for desired width */
   margin: 0 auto;
   margin-top: 30px;
   box-sizing: border-box;
 }
 
-/* Reset de listas para evitar sangría y margen por defecto que causan desbordes */
+/* Reset lists to avoid default padding/margin that cause overflow */
 ul,
 .example-2 {
   list-style: none;
@@ -51,7 +51,7 @@ ul,
 
 .example-2 .icon-content {
   margin: 0;
-  /* usamos gap, no márgenes */
+  /* use gap, not margins */
   position: relative;
   flex: 0 0 auto;
   /* no estires los items */
@@ -67,7 +67,7 @@ ul,
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  color: #4d4d4d;
+  color: #8b8b8b;
   background-color: #fff;
   transition: all .3s ease-in-out;
 }
@@ -116,6 +116,13 @@ ul,
   background-color: #3A76F0;
 }
 
+/* Brand colors (default state) */
+.example-2 .icon-content a[data-social="linkedin"] { color: #6bb4d9; }
+.example-2 .icon-content a[data-social="github"]   { color: #8b8b8b; }
+.example-2 .icon-content a[data-social="signal"]   { color: #8ab4f8; }
+.example-2 .icon-content a[data-social="whatsapp"] { color: #81dba5; }
+.example-2 .icon-content a[data-social="email"]    { color: #f09b94; }
+
 /* Hover effects */
 .example-2 .icon-content a:hover {
   color: #fff;
@@ -134,6 +141,26 @@ ul,
 .example-2 .icon-content a[data-social="signal"]:hover {
   background-color: #3A76F0;
   box-shadow: 0 0 10px #3A76F0;
+}
+
+.example-2 .icon-content a[data-social="whatsapp"] .filled,
+.example-2 .icon-content a[data-social="whatsapp"]~.tooltip {
+  background-color: #25D366;
+}
+
+.example-2 .icon-content a[data-social="email"] .filled,
+.example-2 .icon-content a[data-social="email"]~.tooltip {
+  background-color: #EA4335;
+}
+
+.example-2 .icon-content a[data-social="whatsapp"]:hover {
+  background-color: #25D366;
+  box-shadow: 0 0 10px #25D366;
+}
+
+.example-2 .icon-content a[data-social="email"]:hover {
+  background-color: #EA4335;
+  box-shadow: 0 0 10px #EA4335;
 }
 
 /* ===== Responsive ===== */
@@ -162,7 +189,7 @@ ul,
   }
 }
 
-/* Fallback ultra pequeño: fila con desplazamiento horizontal (swipe) */
+/* Fallback for very small screens: horizontal swipe row */
 @media (max-width: 420px) {
   .example-2 {
     flex-wrap: nowrap;

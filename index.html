@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arizael | Data Analyst & Computer Science Engineer</title>
   <meta name="description" content="Analyzing data and crafting solutions with advanced Python skills. I turn raw data into actionable business insights visualized in Power BI.">
   <!-- ==================== OPEN GRAPH META TAGS ==================== -->
@@ -22,78 +22,81 @@
   <link href="css/header.css " rel='stylesheet'>
   <link rel="stylesheet" href="css/styles.css">
   <link href="css/section1.css " rel='stylesheet'>
-  <link href="css/sectionProjects.css " rel='stylesheet'>
+  <link href="css/carousel.css " rel='stylesheet'>
   <link href="css/footer.css" rel='stylesheet'>
   <link href="css/darkmode.css" rel='stylesheet'>
   <link href="css/tooltips.css" rel='stylesheet'>
   <link rel="stylesheet" href="css/experience.css">
-  <link rel="stylesheet" href="css/social.css">
   <link rel="stylesheet" href="css/learningpath.css">
   <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/sectionTools.css">
   <link rel="icon" href="media/arizael-favicon.png" type="image/png">
+  <script>if(localStorage.getItem('darkMode')==='enabled'){document.documentElement.classList.add('dark-mode')}</script>
 </head>
 
 <body>
-  <main class="container">
-    <header class="container" id="container">
+  <header class="container" id="container">
       <div class="header-inner">
 
-        <a href="./" class="left logo" id="log-- --o">
-          <div class="logo-avatar-wrap">
-            <img src="media/arizael-capote-profile-thumb.webp" alt="Arizael" class="logo-avatar">
-          </div>
-          <span class="logo-name">Data Science Portfolio</span>
-        </a>
+        <div class="header-left">
+          <a href="./" class="logo" id="logo">
+            <span class="logo-name">Data Science Portfolio</span>
+          </a>
+        </div>
 
-        <div class="center" id="navWrapper">
+        <div class="nav-desktop" id="navWrapper">
           <nav id="navbar">
             <div id="navLINKS">
-              <a class="navlink" href="./" style="--navAni:1">Home</a>
-              <a class="navlink" data-section="tools" style="--navAni:2">Tools</a>
-              <a class="navlink" href="learningpath.html" style="--navAni:3">Learning Path</a>
-              <a class="navlink" id="cv" href="" download style="--navAni:4">Download CV</a>
+              <a class="navlink" data-section="introduction" data-watch="introduction" style="--navAni:1">Home</a>
+              <a class="navlink" data-section="projects" data-watch="projects" style="--navAni:2">Projects</a>
+              <a class="navlink" data-section="tools" data-watch="tools" style="--navAni:3">Tools</a>
+              <a class="navlink" data-section="learningpath" data-watch="learning-path-summary" style="--navAni:4">Learning Path</a>
+              <a class="navlink" id="cv" href="" download style="--navAni:5">Download CV</a>
+              <div class="navlink dn-navlink" style="--navAni:6">
+                <input class="input" id="dn" type="checkbox" />
+                <label class="toggle" for="dn" title="Toggle dark mode">
+                  <span class="toggle__handler">
+                    <span class="crater crater--1"></span>
+                    <span class="crater crater--2"></span>
+                    <span class="crater crater--3"></span>
+                  </span>
+                  <span class="star star--1"></span>
+                  <span class="star star--2"></span>
+                  <span class="star star--3"></span>
+                  <span class="star star--4"></span>
+                  <span class="star star--5"></span>
+                  <span class="star star--6"></span>
+                </label>
+              </div>
             </div>
           </nav>
         </div>
 
-        <div class="right toggleWrapper">
-          <input class="input" id="dn" type="checkbox" />
-          <label class="toggle" for="dn" title="Toggle dark mode">
-            <span class="toggle__handler">
-              <span class="crater crater--1"></span>
-              <span class="crater crater--2"></span>
-              <span class="crater crater--3"></span>
-            </span>
-            <span class="star star--1"></span>
-            <span class="star star--2"></span>
-            <span class="star star--3"></span>
-            <span class="star star--4"></span>
-            <span class="star star--5"></span>
-            <span class="star star--6"></span>
-          </label>
-        </div>
+        <div class="header-right">
 
-        <!-- Hamburger menu button -->
-        <label class="event-wrapper">
-          <input type="checkbox" checked="" class="event-wrapper-inp" />
-          <div class="bar">
-            <span class="top bar-list"></span>
-            <span class="middle bar-list"></span>
-            <span class="bottom bar-list"></span>
-          </div>
-          <section class="menu-container">
-            <div class="menu-list"><a href="index.html" style="text-decoration: none; color: inherit;">Home</a>
+          <!-- Hamburger menu button -->
+          <label class="event-wrapper">
+            <input type="checkbox" checked="" class="event-wrapper-inp" />
+            <div class="bar">
+              <span class="top bar-list"></span>
+              <span class="middle bar-list"></span>
+              <span class="bottom bar-list"></span>
             </div>
-            <div class="menu-list menu1">Contact me</div>
-            <div class="menu-list menu2">Tools</div>
-            <div class="menu-list menu3">Learning Path</div>
-            <div class="menu-list menu4" id="cv-mobile">Download CV</div>
+          <section class="menu-container">
+            <div class="menu-list"><i class="fas fa-house"></i><a href="index.html" style="text-decoration: none; color: inherit;">Home</a></div>
+            <div class="menu-list menu1"><i class="fas fa-envelope"></i>Contact me</div>
+            <div class="menu-list menu2"><i class="fas fa-folder-open"></i>Projects</div>
+            <div class="menu-list menu3"><i class="fas fa-wrench"></i>Tools</div>
+            <div class="menu-list menu4"><i class="fas fa-graduation-cap"></i>Learning Path</div>
+            <div class="menu-list menu5" id="cv-mobile"><i class="fas fa-download"></i>Download CV</div>
+            <div class="menu-list menu-darkmode"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span class="dm-label-light">Dark Mode</span><span class="dm-label-dark">Light Mode</span></div>
           </section>
         </label>
 
       </div>
     </header>
 
+    <main class="container">
 
     <!-- ═══════════════ HERO SECTION ═══════════════ -->
     <section class="hero-section" id="introduction">
@@ -104,8 +107,6 @@
           <p class="hero-role">Computer Science Engineer | Data Analyst | Data Scientist</p>
           <p class="hero-bio">
             I transform raw data into actionable insights through rigorous data analysis, Python automation, and interactive Power BI dashboards. 
-            <br>As a Computer Science Engineer, I build end-to-end data pipelines — from cleaning messy datasets with Pandas to deploying predictive models that drive business decisions.
-            <br>I can build demanded Python solutions.
           </p>
           <div class="hero-cta">
             <a href="#projects" class="btn-primary">View My Work</a>
@@ -118,313 +119,105 @@
           </div>
           <div class="hero-blob"></div>
           <div class="hero-verse">
-            <p class="verse-text">Encomienda al Señor tu camino; confía en él, y él hará.</p>
-            <p class="verse-ref">— Salmo 37:5</p>
+            <p class="verse-text">Commit your way to the Lord; trust in him, and he will act.</p>
+            <p class="verse-ref">— Psalm 37:5</p>
           </div>
         </div>
       </div>
     </section>
 
 
-    <!-- ═══════════════ EXPERIENCE SECTION ═══════════════ -->
-    <section id="experience" class="reveal">
-      <h2 class="section-title">Work Experience</h2>
-      <p class="section-subtitle">My journey through labor market</p>
+    <!-- ═══════════════ PROJECTS CAROUSEL ═══════════════ -->
+    <section id="projects" class="reveal">
+      <h2 class="section-title">Projects &amp; Dashboards</h2>
+      <p class="section-subtitle">Things I've built along the way</p>
 
-      <div class="exp-timeline">
-        <!-- ── Work 2 ── -->
-        <div class="exp-item reveal-item">
-          <div class="exp-dot"></div>
-          <div class="exp-card">
-            <span class="exp-date">2025 – 2026</span>
-            <h3 class="exp-role">Billing and operations</h3>
-            <p class="exp-company">Walmart meat processing center · Costa Rica</p>
-            <p class="exp-desc">
-              Managed <strong>high-volume B2B invoicing</strong> using SAP and Excel, ensuring <strong>data integrity</strong> across ERP systems. 
-              Generated daily operational reports and provided data-driven support for logistics, dispatch, and personnel management — coordinating
-              and supporting cross-functional operations in a high-demand supply chain environment.
-            </p>
-            <div class="exp-tags">
-              <span>Excel</span>
-              <span>SAP</span>
-              <span>Billing</span>
-              <span>Logistic</span>
-              <span>Reporting</span>
-            </div>
-          </div>
-        </div>  
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+    <!-- ═══════════════ TOOLS SECTION ═══════════════ -->
+    <section id="tools" class="reveal">
+      <h2 class="section-title">Tools &amp; Technologies</h2>
+      <p class="section-subtitle">My daily toolbox for data &amp; AI</p>
 
-        <!-- ── Project 1 ── -->
-        <div class="exp-item reveal-item">
-          <div class="exp-dot"></div>
-          <div class="exp-card">
-            <span class="exp-date">2024 – 2024</span>
-            <h3 class="exp-role">Logistic Prediction</h3>
-            <p class="exp-company">"Lo bueno con lo bueno" · Supply Chain</p>
-            <p class="exp-desc">
-              Implemented a <strong>demand forecasting model</strong> using Python (Pandas, Scikit-learn) and <strong>Power BI</strong> for a food distribution company. 
-              Cleaned and analyzed historical sales data, engineered features for seasonality, 
-              and delivered actionable dashboard that guided restocking decisions across 7 product categories.
-            </p>
-            <div class="exp-tags">
-              <span>Python</span>
-              <span>Pandas</span>
-              <span>Scikit-learn</span>
-              <span>Matplotlib</span>
-              <span>Seaborn</span>
-              <span>PowerBi</span>
-            </div>
+      <div class="tools-grid">
+        <!-- Python -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(6, 0) scale(0.44)">
+                <path fill="#306998" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z" transform="translate(0, 10.26)"/>
+                <path fill="#FFD43B" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z" transform="translate(0, 10.26)"/>
+              </g>
+            </svg>
           </div>
+          <h3 class="tool-name">Python</h3>
+          <p class="tool-desc">Data analysis, automation, machine learning &amp; scripting</p>
         </div>
 
+
+        <!-- JupyterLab -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="64" height="64" rx="12" fill="#F37626"/>
+              <g fill="#fff" transform="translate(8, 8) scale(2)">
+                <path d="M7.157 22.201A1.784 1.799 0 0 1 5.374 24a1.784 1.799 0 0 1-1.784-1.799 1.784 1.799 0 0 1 1.784-1.799 1.784 1.799 0 0 1 1.783 1.799zM20.582 1.427a1.415 1.427 0 0 1-1.415 1.428 1.415 1.427 0 0 1-1.416-1.428A1.415 1.427 0 0 1 19.167 0a1.415 1.427 0 0 1 1.415 1.427zM4.992 3.336A1.047 1.056 0 0 1 3.946 4.39a1.047 1.056 0 0 1-1.047-1.055A1.047 1.056 0 0 1 3.946 2.28a1.047 1.056 0 0 1 1.046 1.056zm7.336 1.517c3.769 0 7.06 1.38 8.768 3.424a9.363 9.363 0 0 0-3.393-4.547 9.238 9.238 0 0 0-5.377-1.728A9.238 9.238 0 0 0 6.95 3.73a9.363 9.363 0 0 0-3.394 4.547c1.713-2.04 5.004-3.424 8.772-3.424zm.001 13.295c-3.768 0-7.06-1.381-8.768-3.425a9.363 9.363 0 0 0 3.394 4.547A9.238 9.238 0 0 0 12.33 21a9.238 9.238 0 0 0 5.377-1.729 9.363 9.363 0 0 0 3.393-4.547c-1.712 2.044-5.003 3.425-8.772 3.425z"/>
+              </g>
+            </svg>
+          </div>
+          <h3 class="tool-name">JupyterLab</h3>
+          <p class="tool-desc">Interactive notebooks for exploration, prototyping &amp; sharing</p>
+        </div>
+
+        <!-- Power BI -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="64" height="64" rx="12" fill="#F2C811"/>
+              <g fill="#fff">
+                <rect x="12" y="34" width="6" height="14" rx="2"/>
+                <rect x="22" y="28" width="6" height="20" rx="2"/>
+                <rect x="32" y="22" width="6" height="26" rx="2"/>
+                <rect x="42" y="16" width="6" height="32" rx="2"/>
+              </g>
+            </svg>
+          </div>
+          <h3 class="tool-name">Power BI</h3>
+          <p class="tool-desc">Dashboards, business intelligence &amp; data storytelling</p>
+        </div>
+
+        <!-- IA -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="64" height="64" rx="12" fill="#7C3AED"/>
+              <g fill="#fff">
+                <circle cx="20" cy="20" r="5"/>
+                <circle cx="44" cy="20" r="5"/>
+                <circle cx="20" cy="44" r="5"/>
+                <circle cx="44" cy="44" r="5"/>
+                <circle cx="32" cy="32" r="5"/>
+                <line x1="20" y1="20" x2="32" y2="32" stroke="#fff" stroke-width="2"/>
+                <line x1="44" y1="20" x2="32" y2="32" stroke="#fff" stroke-width="2"/>
+                <line x1="20" y1="44" x2="32" y2="32" stroke="#fff" stroke-width="2"/>
+                <line x1="44" y1="44" x2="32" y2="32" stroke="#fff" stroke-width="2"/>
+                <line x1="20" y1="20" x2="20" y2="44" stroke="#fff" stroke-width="2"/>
+                <line x1="44" y1="20" x2="44" y2="44" stroke="#fff" stroke-width="2"/>
+              </g>
+            </svg>
+          </div>
+          <h3 class="tool-name">IA &amp; ML</h3>
+          <p class="tool-desc">Machine learning, LLMs, prompt engineering &amp; automation</p>
+        </div>
+      </div>
+
+      <div class="tools-more">
+        <span class="tools-more-dots">⋯</span>
+        <span class="tools-more-text">More</span>
       </div>
     </section>
 
 
-    <!-- ═══════════════ PROJECTS SECTION ═══════════════ -->
-    <section id="projects">
-      <div class="projects-header reveal">
-        <h2 class="section-title">My Projects</h2>
-        <p class="section-subtitle">Things I've built along the way</p>
-      </div>
-
-      <!-- Project 1 – image LEFT, text RIGHT -->
-      <div class="project-row reveal-item" id="faultyMedicalDevicesProject">
-        <div class="project-visual">
-          <a href="#" target="_blank" class="Pcard">
-            <div class="card">
-              <div class="wrapper">
-                <img src="media/projects/medicalDevices.webp" class="cover-image" alt="Background of the Faulty Medical Devices data analysis project" />
-              </div>
-              <img src="media/projects/medicalDevices2.png" class="character" alt="Medical devices analysis icon" />
-            </div>
-          </a>
-          <a class="project-link github-link github-btn" 
-             data-repo="faulty-mdevices"
-             aria-label="View code on GitHub - Faulty Medical Devices Analysis"
-             data-tooltip="View code">
-            <i class="bx bxl-github"></i>
-            <span class="link-text">Code</span>
-          </a>
-        </div>
-        <div class="project-info">
-          <span class="project-badge">Data Analysis</span>
-          <h3 class="project-name">Data Analysis of Faulty Medical Devices</h3>
-          <p class="project-desc">
-            Data Analysis of Faulty Medical Devices <strong style="color: #1a3c5e;">(In progress)</strong>
-          </p>
-          <div class="project-tags">
-            <span>Python</span><span>Pandas</span><span>PowerBi</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2 – text LEFT, image RIGHT -->
-      <div class="project-row project-row--reverse reveal-item" id="logisticPredictionProject">
-        <div class="project-visual">
-          <a href="#" target="_blank" class="Pcard">
-            <div class="card">
-              <div class="wrapper">
-                <img src="media/projects/proyecto-logistic-prediction-fondo.webp" class="cover-image" alt="Logistic Prediction project background, demand forecasting with Python and Power BI" />
-              </div>
-              <img src="media/projects/inventory-prediction.jpg" class="character" alt="Data icon for the Logistic Prediction project" />
-            </div>
-          </a>
-          <a class="project-link github-link github-btn" 
-             data-repo="logisticPrediction"
-             aria-label="View code on GitHub - Logistic Prediction"
-             data-tooltip="View code">
-            <i class="bx bxl-github"></i>
-            <span class="link-text">Code</span>
-          </a>
-        </div>
-        <div class="project-info">
-          <span class="project-badge">Data Science</span>
-          <h3 class="project-name">Demand Forecasting & Sales Prediction with Python and Power BI</h3>
-          <p class="project-desc">
-            Ad-hoc Demand Forecasting Analysis: Designed a 90-day demand prediction model for a food distributor using Python and Prophet, analyzing 6+ months of historical sales data.
-          </p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>Pandas</span>
-            <span>Scikit-learn</span>
-            <span>Matplotlib</span>
-            <span>Seaborn</span>
-            <span>PowerBi</span>
-            <span>Sales prediction</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3 – image LEFT, text RIGHT -->
-      <div class="project-row reveal-item" id="qrScanProject">
-        <div class="project-visual">
-          <a href="#" target="_blank" class="Pcard">
-            <div class="card">
-              <div class="wrapper">
-                <img src="media/projects/proyecto-qr-generator-scan.webp" class="cover-image" alt="Background of the QR Code Generator project, a Python desktop application" />
-              </div>
-              <img src="media/projects/proyecto-qr-generator-icono.webp" class="character" alt="QR Code Generator icon" />
-            </div>
-          </a>
-          <a class="project-link github-link github-btn" 
-             data-repo="QR-Generator"
-             aria-label="View code on GitHub - QR Code Generator"
-             data-tooltip="View code">
-            <i class="bx bxl-github"></i>
-            <span class="link-text">Code</span>
-          </a>
-        </div>
-        <div class="project-info">
-          <span class="project-badge">Desktop solution</span>
-          <h3 class="project-name">QR Code Generator – Desktop Automation Tool Built with Python</h3>
-          <p class="project-desc">
-            A lightweight Python desktop (Windows) application built with Tkinter that converts URLs, text, and numeric data into scannable QR codes. 
-            Features an intuitive GUI for instant generation — useful for inventory labeling, 
-            event check-ins, and digital business cards. 
-            Also can scan images to read QR. (It´s free to use)
-          </p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>Tkinter</span>
-            <span>Pillow</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4 – text LEFT, image RIGHT -->
-      <div class="project-row project-row--reverse reveal-item" id="qgisParameters">
-        <div class="project-visual">
-          <a href="#" target="_blank" class="Pcard">
-            <div class="card">
-              <div class="wrapper">
-                <img src="media/projects/proyecto-qgis-params-fondo.webp" class="cover-image" alt="Background of the raster parameters extraction project in QGIS with Python" />
-              </div>
-              <img src="media/projects/proyecto-qgis-params-icono-raster.webp" class="character" alt="Raster data icon for the QGIS Parameters Extraction project" />
-            </div>
-          </a>
-          <a class="project-link github-link github-btn" 
-             data-repo="Parameters-Extraction-in-QGIS"
-             aria-label="View code on GitHub - QGIS Parameters Extraction"
-             data-tooltip="View code">
-            <i class="bx bxl-github"></i>
-            <span class="link-text">Code</span>
-          </a>
-        </div>
-        <div class="project-info">
-          <span class="project-badge">GIS / Analysis</span>
-          <h3 class="project-name">Geospatial Data Automation – Raster Extraction with Python and QGIS</h3>
-          <p class="project-desc">
-            Automated the extraction of raster terrain parameters from geospatial datasets using Python scripting within QGIS. Replaced a manual multi-step GIS workflow, reducing processing time by over 80% and ensuring full reproducibility of spatial analyses for environmental and agricultural studies.
-          </p>
-          <div class="project-tags">
-            <span>Python</span><span>QGIS</span><span>Raster</span>
-          </div>
-        </div>
-      </div>
-      </div>
-
-    </section>
-
-
-    <!-- ═══════════════ POWER BI DASHBOARDS ═══════════════ -->
-    <section id="dashboards" class="reveal">
-      <h2 class="section-title">Power BI Dashboards</h2>
-      <p class="section-subtitle">Dashboards I've built practice and real work</p>
-
-      <h3 class="dash-group-title">Aside Projects</h3>
-      <div class="dashboards-row">
-        <div class="dashboard-card">
-          <div class="dash-thumb">
-            <img src="media/dashboards/thumbs/dashboard-accidentes-eeuu-1.webp" alt="Power BI dashboard: US accident analysis (learning project)" loading="lazy">
-          </div>
-          <div class="dash-body">
-            <h4>Aside Project Dashboard</h4>
-            <div class="dash-tags">
-              <span>Power BI</span>
-              <span>Power Query</span>
-              <span>DAX</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="dash-thumb">
-            <img src="media/dashboards/thumbs/dashboard-accidentes-eeuu-2.webp" alt="Power BI dashboard with US road accident indicators" loading="lazy">
-          </div>
-          <div class="dash-body">
-            <h4>Aside Project Dashboard</h4>
-            <div class="dash-tags">
-              <span>Power BI</span>
-              <span>Power Query</span>
-              <span>DAX</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="dash-group-title">Logistic Prediction</h3>
-      <div class="dashboards-row">
-        <div class="dashboard-card">
-          <div class="dash-thumb">
-            <img src="media/dashboards/thumbs/dashboard-forecast-logistico-1.webp" alt="Power BI dashboard for sales forecasting and logistics prediction" loading="lazy">
-          </div>
-          <div class="dash-body">
-            <h4>Logistic Prediction Dashboard</h4>
-            <div class="dash-tags">
-              <span>Power BI</span>
-              <span>Power Query</span>
-              <span>DAX</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="dash-thumb">
-            <img src="media/dashboards/thumbs/dashboard-forecast-logistico-2.webp" alt="Power BI dashboard with demand forecast for logistics prediction project" loading="lazy">
-          </div>
-          <div class="dash-body">
-            <h4>Logistic Prediction Dashboard</h4>
-            <div class="dash-tags">
-              <span>Power BI</span>
-              <span>Power Query</span>
-              <span>DAX</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="dash-group-title">Daily Reports</h3>
-    <div class="dashboards-row">
-      <div class="dashboard-card">
-        <div class="dash-thumb">
-          <img src="media/dashboards/thumbs/ReporteSencillo.webp" alt="Power BI dashboard: daily reports" loading="lazy">
-        </div>
-        <div class="dash-body">
-          <h4>Daily Reports Dashboard</h4>
-          <div class="dash-tags">
-            <span>Power BI</span>
-            <span>Power Query</span>
-            <span>DAX</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="dashboard-card">
-        <div class="dash-thumb">
-          <img src="media/dashboards/thumbs/Sales.webp" alt="Power BI dashboard: example sales dashboard" loading="lazy">
-        </div>
-        <div class="dash-body">
-          <h4>Example Sales Dashboard</h4>
-          <div class="dash-tags">
-            <span>Power BI</span>
-            <span>Power Query</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
 
     <!-- ═══════════════ DASHBOARD LIGHTBOX MODAL ═══════════════ -->
@@ -438,125 +231,127 @@
 
     <!-- ═══════════════ LEARNING PATH SUMMARY ═══════════════ -->
     <section id="learning-path-summary" class="reveal">
-      <h2 class="section-title">Learning Path</h2>
+      <h2 class="section-title">About me</h2>
       <p class="section-subtitle">My journey from Computer Science to Data Science &amp; AI</p>
       <div class="lp-summary-content">
         <div class="lp-summary-text">
           <p>
-            My journey blends formal Computer Science training with self-driven Data Science mastery. 
+            My journey blends formal Computer Science training with practical expertise in Data Analytics and daily learning. 
             Since 2024, I've built a practical data stack: Python (Pandas, NumPy, Scikit-learn), SQL for querying, 
             and Power BI for business-ready dashboards. I've taken projects from messy raw data to deployed models 
             that drive real decisions. Now I'm pushing into AI automation — LLMs, prompt engineering, and pipeline orchestration.
           </p>
           <div class="lp-summary-skills">
-            <div class="lp-skill-item">
-              <img src="media/iconosSKILL/icono-python.webp" alt="Python" class="lp-skill-icon">
-              <span>Python</span>
+            <div class="lp-summary-badges">
+              <div class="lp-skill-item">
+                <img src="media/iconosSKILL/icono-python.webp" alt="Python" class="lp-skill-icon">
+                <span>Python</span>
+              </div>
+              <div class="lp-skill-item">
+                <img src="media/iconosSKILL/icono-sql.webp" alt="SQL" class="lp-skill-icon">
+                <span>SQL</span>
+              </div>
+              <div class="lp-skill-item">
+                <img src="media/iconosSKILL/pbi.png" alt="Power BI" class="lp-skill-icon">
+                <span>Power BI</span>
+              </div>
+              <div class="lp-skill-item">
+                <svg class="lp-skill-icon lp-skill-icon--svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                <span>Data Analysis</span>
+              </div>
             </div>
-            <div class="lp-skill-item">
-              <img src="media/iconosSKILL/icono-sql.webp" alt="SQL" class="lp-skill-icon">
-              <span>SQL</span>
-            </div>
-            <div class="lp-skill-item">
-              <img src="media/iconosSKILL/pbi.png" alt="Power BI" class="lp-skill-icon">
-              <span>Power BI</span>
-            </div>
-            <div class="lp-skill-item">
-              <svg class="lp-skill-icon lp-skill-icon--svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-              <span>Data Analysis</span>
-            </div>
+            <a href="learningpath.html" class="btn-lp-view">Full Learning Path</a>
           </div>
         </div>
-        <a href="learningpath.html" class="btn-lp-view">View Full Learning Path</a>
       </div>
     </section>
 
 
-    <!-- ═══════════════ SOCIAL / CONTACT SECTION ═══════════════ -->
-    <section id="tooltips" class="reveal">
-      <h2 class="section-title">Find me on:</h2>
-      <div class="tooltip-container">
-        <ul class="example-2">
-          <li class="icon-content">
-            <a href="https://www.linkedin.com/in/arizaelcapote" aria-label="LinkedIn" data-social="linkedin"
-              target="_blank">
-              <div class="filled"></div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin"
-                viewBox="0 0 16 16" xml:space="preserve">
-                <path
-                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
-                  fill="currentColor"></path>
-              </svg>
-            </a>
-            <div class="tooltip">LinkedIn</div>
-          </li>
-          <li class="icon-content">
-            <a href="https://github.com/Arizael000" aria-label="GitHub" data-social="github" target="_blank">
-              <div class="filled"></div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
-                viewBox="0 0 16 16" xml:space="preserve">
-                <path
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
-                  fill="currentColor"></path>
-              </svg>
-            </a>
-            <div class="tooltip">GitHub</div>
-          </li>
 
-          <li class="icon-content">
-            <a href="https://signal.me/#eu/p2Lv5_wmZ_m-IRaEsLGCnMsplVQzTfPbdWvP5k_72DjC_tCnJfNCmLXAbVd4S-3t"
-              aria-label="Signal" data-social="signal" target="_blank">
-              <div class="filled"></div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.27 4.15a7.87 7.87 0 0 1 3.5.814l.59-.59a.59.59 0 0 1 .834.834l-.5.5A7.85 7.85 0 0 1 19.85 12a7.877 7.877 0 0 1-.606 3.044l.606.606a.59.59 0 1 1-.835.834l-.588-.588A7.85 7.85 0 0 1 12 19.85a7.876 7.876 0 0 1-3.473-.805l-.614.614a.59.59 0 1 1-.834-.834l.532-.532A7.85 7.85 0 0 1 4.15 12c0-1.284.308-2.497.852-3.567l-.588-.588a.59.59 0 1 1 .834-.834l.57.57A7.853 7.853 0 0 1 12.27 4.15zm3.382 5.027-5.887 5.888-2.417-2.418a.786.786 0 1 0-1.111 1.11l2.972 2.973a.786.786 0 0 0 1.111 0l6.443-6.443a.786.786 0 1 0-1.111-1.11z"
-                  fill="currentColor" />
-              </svg>
-            </a>
-            <div class="tooltip">Signal</div>
-          </li>
-        </ul>
-      </div>
-    </section>
+  </main>
 
     <footer>
       <div id="myModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
           <form id="contactForm" method="POST">
-            <label for="nombre">Name:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
             <label for="email">Your email:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="mensaje">Message:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
 
             <div id="buttons">
-              <button type="submit" id="submit">Send</button>
+              <button type="submit" id="submitBtn">Send</button>
 
-              <button type="button" id="cancelarform">Cancel</button>
+              <button type="button" id="cancelBtn">Cancel</button>
             </div>
           </form>
 
         </div>
       </div>
-      <div>
-        <div class="footerContainers" id="divF1">
+      <div class="footer-inner">
+        <div class="footer-col footer-tagline">
           <h4 id="frase">If we fail, then let's fail searching greatness.</h4>
         </div>
-        <div class="footerContainers" id="divF2">
-          <h4 style="color: white;">Alajuela, Costa Rica &copy; 2025</h4>
-          <button id="scrollUp">Contact me</button>
+        <div class="footer-col footer-social">
+          <ul class="example-2">
+            <li class="icon-content">
+              <a href="https://www.linkedin.com/in/arizaelcapote" aria-label="LinkedIn" data-social="linkedin" target="_blank">
+                <div class="filled"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16" xml:space="preserve">
+                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" fill="currentColor"></path>
+                </svg>
+              </a>
+              <div class="tooltip">LinkedIn</div>
+            </li>
+            <li class="icon-content">
+              <a href="https://github.com/Arizael000" aria-label="GitHub" data-social="github" target="_blank">
+                <div class="filled"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" xml:space="preserve">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" fill="currentColor"></path>
+                </svg>
+              </a>
+              <div class="tooltip">GitHub</div>
+            </li>
+            <li class="icon-content">
+              <a href="https://signal.me/#eu/p2Lv5_wmZ_m-IRaEsLGCnMsplVQzTfPbdWvP5k_72DjC_tCnJfNCmLXAbVd4S-3t" aria-label="Signal" data-social="signal" target="_blank">
+                <div class="filled"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.27 4.15a7.87 7.87 0 0 1 3.5.814l.59-.59a.59.59 0 0 1 .834.834l-.5.5A7.85 7.85 0 0 1 19.85 12a7.877 7.877 0 0 1-.606 3.044l.606.606a.59.59 0 1 1-.835.834l-.588-.588A7.85 7.85 0 0 1 12 19.85a7.876 7.876 0 0 1-3.473-.805l-.614.614a.59.59 0 1 1-.834-.834l.532-.532A7.85 7.85 0 0 1 4.15 12c0-1.284.308-2.497.852-3.567l-.588-.588a.59.59 0 1 1 .834-.834l.57.57A7.853 7.853 0 0 1 12.27 4.15zm3.382 5.027-5.887 5.888-2.417-2.418a.786.786 0 1 0-1.111 1.11l2.972 2.973a.786.786 0 0 0 1.111 0l6.443-6.443a.786.786 0 1 0-1.111-1.11z" fill="currentColor" />
+                </svg>
+              </a>
+              <div class="tooltip">Signal</div>
+            </li>
+            <li class="icon-content">
+              <a href="https://wa.me/50670528947" aria-label="WhatsApp" data-social="whatsapp" target="_blank">
+                <div class="filled"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                  <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" fill="currentColor"/>
+                </svg>
+              </a>
+              <div class="tooltip">WhatsApp</div>
+            </li>
+            <li class="icon-content">
+              <a href="mailto:gurdian2411@gmail.com" aria-label="Email" data-social="email" target="_blank">
+                <div class="filled"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" fill="currentColor"/>
+                </svg>
+              </a>
+              <div class="tooltip">Email</div>
+            </li>
+          </ul>
+          <p class="footer-copyright">Alajuela, Costa Rica &copy; <span id="footerYear">2026</span></p>
         </div>
-        <div class="footerContainers" id="divF3">
-          <p style="color: white;">I have built this web portfolio since the end of my career.
-            I'm always trying to improve and optimize.
-            Any constructive criticism will be gratefully acepted.</p>
+        <div class="footer-col footer-info">
+          <p>My objective is to become a better Data Scientist every day.</p>
+          <button id="scrollUp">Contact me easier</button>
         </div>
       </div>
-
     </footer>
 
     <button id="scrollToTopBtn" aria-label="Scroll to top">
@@ -570,9 +365,7 @@
     <script src="js/contactmeB.js"></script>
     <script src="js/burguermenu.js"></script>
     <script src="js/scrollReveal.js"></script>
-    <script src="js/dashboards.js"></script>
-  </main>
+    <script src="js/carousel.js"></script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4a8656c19415498c9c5e637bb06bc267"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
-
 </html>

@@ -24,7 +24,7 @@
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.35s ease;
   cursor: default;
 }
 
@@ -72,6 +72,7 @@
   font-weight: 700;
   color: #1a3a3c;
   margin: 0 0 0.6rem;
+  transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .dash-body h4 {
@@ -94,6 +95,7 @@
   border: 1px solid rgba(69, 122, 126, 0.2);
   cursor: default;
   user-select: none;
+  transition: color 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
 }
 
 :is(.dark-mode) .dash-tags span {
@@ -111,6 +113,7 @@
   color: var(--primary-color);
   margin: 2.5rem 0 1.2rem;
   text-align: center;
+  transition: color 0.35s ease;
 }
 
 .dash-group-title:first-of-type {
@@ -148,6 +151,7 @@
   overflow: hidden;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
   animation: dashFadeIn 0.25s ease;
+  transition: background-color 0.35s ease;
 }
 
 :is(.dark-mode) .dash-modal-content {

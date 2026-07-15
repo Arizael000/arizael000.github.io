@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const projects = [
         { selector: '#qrScanProject', url: 'https://github.com/Arizael000/QR-Generator' },
         { selector: '#logisticPredictionProject', url: 'https://github.com/Arizael000/logisticPrediction' },
-        { selector: '#hotelProject', url: 'https://github.com/Arizael000/SG_Hotel' },
         { selector: '#qgisParameters', url: 'https://github.com/Arizael000/Parameters-Extraction-in-QGIS' },
         { selector: '#faultyMedicalDevicesProject', url: 'https://github.com/Arizael000/faulty-mdevices' },
     ];
@@ -31,6 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
             window.open('https://github.com/Arizael000/' + btn.dataset.repo, '_blank');
         });
     });
+
+    // Tools "More" button → tools.html
+    var toolsMore = document.querySelector('.tools-more');
+    if (toolsMore) {
+        toolsMore.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'tools.html';
+        });
+    }
 
     var cv = document.getElementById('cv');
     if(cv){

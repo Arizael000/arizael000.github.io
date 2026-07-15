@@ -1,0 +1,348 @@
+/* ═══════════════ PROJECTS GRID ═══════════════ */
+#projects {
+  padding: 4rem 1.5rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#projects .section-subtitle {
+  margin-bottom: 2.5rem;
+}
+
+/* ── Grid ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: left;
+}
+
+/* ── Card ── */
+.project-card {
+  background: #fff;
+  border: 1px solid rgba(69, 122, 126, 0.18);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+}
+
+.project-card--3d {
+  overflow: visible;
+}
+
+.project-card--3d:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.project-card--dashboard:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Image ── */
+.project-card-img {
+  position: relative;
+  aspect-ratio: 600 / 340;
+  overflow: hidden;
+  background: #e8edee;
+  transition: background-color 0.35s ease;
+}
+
+.project-card-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.45s ease, transform 0.5s ease;
+}
+
+/* ── Dashboard hover (crossfade) ── */
+.project-card-img .img-hover {
+  opacity: 0;
+}
+
+.project-card:not(.project-card--3d):hover .project-card-img .img-primary {
+  opacity: 0;
+}
+
+.project-card:not(.project-card--3d):hover .project-card-img .img-hover {
+  opacity: 1;
+}
+
+/* ── Single-image zoom ── */
+.card--single .project-card-img img {
+  transition: opacity 0.45s ease, transform 0.5s ease;
+}
+
+.card--single:hover .project-card-img img {
+  transform: scale(1.06);
+}
+
+/* ── 3D hover effect (project cards only) ── */
+.project-card--3d .project-card-img {
+  overflow: visible;
+  perspective: 2500px;
+}
+
+.project-card--3d .wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.project-card--3d .cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-card--3d .project-card-img:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.project-card--3d .wrapper::before,
+.project-card--3d .wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+
+.project-card--3d .wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%);
+}
+
+.project-card--3d .wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%);
+}
+
+.project-card--3d .project-card-img:hover .wrapper::before,
+.project-card--3d .wrapper::after {
+  opacity: 1;
+}
+
+.project-card--3d .project-card-img:hover .wrapper::after {
+  height: 120px;
+}
+
+.project-card--3d .character {
+  height: 75%;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: auto;
+  right: auto;
+  z-index: -1;
+  border-radius: 10px;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.project-card--3d .project-card-img:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+
+/* ── Body ── */
+.project-card-body {
+  padding: 1rem 1.2rem 1.2rem;
+}
+
+/* ── Badge ── */
+.project-card-body .card-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  margin-bottom: 0.4rem;
+  background: rgba(69, 122, 126, 0.12);
+  color: var(--primary-color);
+  transition: color 0.35s ease, background-color 0.35s ease;
+}
+
+/* ── Title ── */
+.project-card-body .card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1c2e30;
+  margin: 0 0 0.35rem;
+  line-height: 1.3;
+  transition: color 0.35s ease;
+}
+
+/* ── Description ── */
+.project-card-body .card-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #5a7375;
+  margin: 0 0 0.7rem;
+  transition: color 0.35s ease;
+}
+
+/* ── Tags ── */
+.project-card-body .card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-card-body .card-tags span {
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 0.12rem 0.5rem;
+  border-radius: 20px;
+  background: rgba(69, 122, 126, 0.08);
+  color: var(--primary-color);
+  transition: color 0.35s ease, background-color 0.35s ease;
+}
+
+/* ── Button ── */
+.project-card-body .card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: 1.5px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  font-family: inherit;
+}
+
+.project-card-body .card-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.project-card-body .card-btn::before {
+  content: "\2197\00a0";
+}
+
+/* ═══════════════ DARK MODE ═══════════════ */
+:is(.dark-mode) .project-card {
+  background: #1e3235;
+  border-color: rgba(127, 204, 208, 0.2);
+}
+
+:is(.dark-mode) .project-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.30);
+}
+
+:is(.dark-mode) .project-card--3d:hover {
+  box-shadow: none;
+}
+
+:is(.dark-mode) .project-card--dashboard:hover {
+  box-shadow: none;
+}
+
+:is(.dark-mode) .project-card-img {
+  background: #152426;
+}
+
+:is(.dark-mode) .project-card--3d .wrapper {
+  background: #152426;
+}
+
+:is(.dark-mode) .project-card-body .card-badge {
+  background: rgba(127, 204, 208, 0.12);
+  color: var(--primary-light);
+}
+
+:is(.dark-mode) .project-card-body .card-title {
+  color: #e2f0f1;
+}
+
+:is(.dark-mode) .project-card-body .card-desc {
+  color: #99b8ba;
+}
+
+:is(.dark-mode) .project-card-body .card-tags span {
+  background: rgba(127, 204, 208, 0.1);
+  color: var(--primary-light);
+}
+
+:is(.dark-mode) .project-card-body .card-btn {
+  border-color: var(--primary-light);
+  color: var(--primary-light);
+}
+
+:is(.dark-mode) .project-card-body .card-btn:hover {
+  background: var(--primary-light);
+  color: #1c2e30;
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #projects {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .project-card-img {
+    aspect-ratio: 600 / 300;
+  }
+
+  .project-card-body {
+    padding: 0.8rem 1rem 1rem;
+  }
+
+  .project-card-body .card-title {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card-img {
+    aspect-ratio: 600 / 320;
+  }
+}

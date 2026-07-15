@@ -22,23 +22,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function toggleColors(dark) {
         if (dark) {
+            document.documentElement.classList.add('dark-mode');
             body.classList.add('dark-mode');
             navr.classList.add('dark-mode');
             header.classList.add('dark-mode');
+            navr.style.removeProperty('color');
             setIcons(true);
             localStorage.setItem('darkMode', 'enabled');
-            
         } else {
+            document.documentElement.classList.remove('dark-mode');
             body.classList.remove('dark-mode');
             header.classList.remove('dark-mode');
             navr.classList.remove('dark-mode');
-            navr.style.setProperty('color', 'white');
             setIcons(false);
             localStorage.setItem('darkMode', 'disabled');
         }
     }
 
-    // Inicializa el modo según localStorage
+    // Initialize mode from localStorage
     toggleColors(isDarkMode);
     darkModeToggle.checked = isDarkMode;
 

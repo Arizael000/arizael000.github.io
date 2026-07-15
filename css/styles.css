@@ -88,6 +88,13 @@ p {
     background-color: #0d0d0d;
     color: #ffffff;
 }
+html.dark-mode {
+    background-color: #0d0d0d;
+}
+html.dark-mode body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
 
 .mode input {
     display: none;
@@ -133,17 +140,17 @@ p {
     margin-top: 15px;
 }
 
-#litleTitles {
+    #smallTitles {
     margin: 100px 20px 40px 0;
 }
 
-.iconoConocidoContainer {
+.knownIconContainer {
     width: auto;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.iconoConocido {
+.knownIcon {
     width: 13vw;
     height: 9vh;
     margin: 30px;
@@ -153,7 +160,7 @@ p {
     transition: filter 0.9s, transform 0.9s;
 }
 
-.iconoConocido:hover {
+.knownIcon:hover {
     transform: scale(1.2);
     filter: grayscale(0);
     transition: all 0.3s ease-in-out;
@@ -286,7 +293,7 @@ p {
 }
 
 @media screen and (max-width: 768px) {
-    #litleTitles {
+#smallTitles {
         margin-top: 150px;
     }
 
@@ -301,17 +308,22 @@ p {
 
     body {
         height: auto;
-        width: 100vw;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    html {
+        overflow-x: hidden;
     }
 
     .container {
         padding: 1.5rem;
     }
 
-    .main {
+    main.container {
+        padding: 0 1.5rem;
         grid-template-columns: repeat(auto-fit, minmax(266px, 1fr));
         margin-top: 2rem;
-        overflow-x: hidden;
     }
 
     #projectContainer {
@@ -441,10 +453,11 @@ p {
     }
 }
 
-/* Transición suave para los elementos principales */
+/* Smooth transition for main elements */
+html,
 body,
 .socialName {
-    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 /* ── Scroll to Top Button ── */

@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('myModal');
   const openBtn = document.getElementById('scrollUp');
   const closeBtn = document.querySelector('.close');
-  const cancelBtn = document.getElementById('cancelarform');
+  const cancelBtn = document.getElementById('cancelBtn');
   const form = document.getElementById('contactForm');
 
-  // ✅ Aquí defines el endpoint oculto, solo en JS
+  // Hidden form endpoint (configured only in JS for security)
   const FORM_ENDPOINT = "https://formspree.io/f/mnqejopy";
 
   // === MODAL ===
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // === FORM SUBMIT (AJAX via fetch) ===
   form?.addEventListener('submit', async function (event) {
-    event.preventDefault(); // Detiene el envío tradicional
+    event.preventDefault(); // Prevent default form submission
 
     const formData = new FormData(form);
 

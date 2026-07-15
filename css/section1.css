@@ -23,7 +23,7 @@
 .hero-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 3rem;
   width: 100%;
 }
@@ -31,7 +31,7 @@
 /* ── Text side ── */
 .hero-text {
   flex: 1;
-  max-width: 560px;
+  max-width: 480px;
   opacity: 0;
   animation: fadeUp 0.8s ease forwards;
   animation-delay: 0.2s;
@@ -44,6 +44,7 @@
   color: var(--primary-color);
   margin-bottom: 0.4rem;
   letter-spacing: 0.5px;
+  transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .hero-greeting {
@@ -56,10 +57,12 @@
   color: #1a3a3c;
   line-height: 1.1;
   margin: 0 0 0.3rem;
+  transition: color 0.35s ease;
 }
 
 .hero-name-accent {
   color: var(--primary-color);
+  transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .hero-name {
@@ -77,6 +80,7 @@
   text-transform: uppercase;
   color: #888;
   margin-bottom: 1.2rem;
+  transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .hero-role {
@@ -90,6 +94,7 @@
   max-width: 480px;
   margin-bottom: 2rem;
   text-align: left;
+  transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .hero-bio {
@@ -255,6 +260,7 @@
   max-width: 300px;
   z-index: 2;
   animation: floatAni 5s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .verse-text {
@@ -264,6 +270,7 @@
   color: #1a3a3c;
   margin: 0 0 0.4rem;
   font-style: italic;
+  transition: color 0.35s ease;
 }
 
 .verse-ref {
@@ -272,6 +279,7 @@
   color: var(--primary-color);
   margin: 0;
   letter-spacing: 0.5px;
+  transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .hero-verse {

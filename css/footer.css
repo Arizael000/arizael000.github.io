@@ -1,77 +1,181 @@
-/*Footer*/
+/* ═══════════════ FOOTER — Full-width Modern ═══════════════ */
 footer {
     width: 100%;
-    display: flex;
-    bottom: 0;
-
     background-color: #1c1e22;
-    justify-content: center;
-    flex-wrap: wrap;
+    padding: 2.5rem 0;
+    transition: background-color 0.35s ease;
 }
-footer p {
-  text-align: center;
-}
+
 :is(.dark-mode) footer {
     background-color: var(--primary-dark);
 }
 
-.footerContainers {
-    justify-content: center;
+.footer-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+/* ── Left: Tagline ── */
+.footer-tagline {
+    text-align: left;
+}
+
+.footer-tagline h4 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.5;
+    transition: color 0.35s ease;
+}
+
+:is(.dark-mode) .footer-tagline h4 {
+    color: white;
+}
+
+/* ── Center: Social + Copyright ── */
+.footer-social {
+    flex: 0 0 auto;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    width: 100%;
-
-
+    gap: 0.75rem;
 }
 
-#divF1 {
-    width: 25%;
+.footer-social .example-2 {
+    margin: 0;
+    padding: 0;
 }
 
-#divF2 {
-    justify-content: right;
-    width: 30%;
-    text-align: center;
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    margin: 0;
+    white-space: nowrap;
 }
 
-#divF3 {
-    width: 35%;
-    height: 70%;
+/* ── Right: Info + CTA ── */
+.footer-info {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
 }
 
-#frase {
-    margin-left: 5px;
+.footer-info p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+    margin: 0;
+    max-width: 320px;
+    line-height: 1.5;
 }
 
-#sendMail,
-#scrollUp {
-    margin-top: 15px;
-    background-color: #457a7e;
+/* Gentle pulse keyframes */
+@keyframes gentle-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(69, 122, 126, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(69, 122, 126, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(69, 122, 126, 0);
+    }
+}
+
+/* Contact CTA button */
+#sendMail {
+    background-color: var(--primary-color);
     color: white;
-    padding: 10px 20px;
+    padding: 10px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    font-family: var(--font-base);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s;
     user-select: none;
 }
 
-#sendMail:hover,
-#scrollUp:hover {
+#scrollUp {
+    background-color: var(--primary-color);
     color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font-base);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    user-select: none;
+    animation: gentle-pulse 2.5s ease-in-out infinite;
+}
+
+#sendMail:hover {
     background-color: #d94422;
-    transition: background-color 0.3s;
+    color: white;
+    transform: translateY(-1px);
+}
+
+#scrollUp:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(69, 122, 126, 0.4);
+    animation-play-state: paused;
+}
+
+:is(.dark-mode) #scrollUp:hover {
+    background: #a8e6e9;
+    color: #1a3a3c;
+    box-shadow: 0 6px 20px rgba(127, 204, 208, 0.4);
 }
 
 #scrollUp:active {
-    transform: scale(0.90);
+    transform: scale(0.96);
 }
 
-/* Estilos para el modal */
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 0;
+    }
 
-/* Estilos para el modal */
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
 
+    .footer-tagline,
+    .footer-info {
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-info {
+        align-items: center;
+    }
+
+    .footer-info p {
+        max-width: 100%;
+    }
+}
+
+/* ═══════════════ CONTACT MODAL ═══════════════ */
 .modal {
     display: none;
     position: fixed;
@@ -102,6 +206,7 @@ footer p {
     text-align: center;
     position: relative;
     animation: modalFadeIn 0.3s ease-out;
+    transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 :is(.dark-mode) .modal-content {
@@ -145,7 +250,7 @@ footer p {
     color: var(--primary-color);
 }
 
-/* Estilos para el formulario dentro del modal */
+/* Form styles inside modal */
 form {
     display: flex;
     flex-direction: column;
@@ -208,32 +313,31 @@ form button {
     transition: all 0.3s ease;
 }
 
-#cancelarform {
+#cancelBtn {
     background-color: transparent;
     border: 2px solid #dc3545;
     color: #dc3545;
 }
 
-#cancelarform:hover {
+#cancelBtn:hover {
     background-color: #dc3545;
     color: white;
 }
 
-#submit {
+#submitBtn {
     background-color: var(--primary-color);
     border: 2px solid var(--primary-color);
     color: white;
 }
 
-#submit:hover {
+#submitBtn:hover {
     background-color: #2ecc71;
     border-color: #2ecc71;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
 }
 
-/*END footer*/
-
+/* ═══════════════ TOAST NOTIFICATION ═══════════════ */
 .toast {
     position: fixed;
     bottom: 20px;
@@ -255,68 +359,4 @@ form button {
 
 .toast-error {
     background-color: #dc3545;
-}
-
-/* Aplica al div contenedor sin clase */
-div>#divF1,
-div>#divF2,
-div>#divF3 {
-    flex: 1;
-    padding: 1rem;
-}
-
-/* Estilo al div sin clase que contiene los divF1, divF2 y divF3 */
-div:has(> #divF2) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* opcional: centrar también verticalmente */
-    flex-wrap: wrap;
-    /* permite que se acomoden en columna en pantallas pequeñas */
-    gap: 1rem;
-    padding: 2rem;
-}
-
-/* Estilo específico para centrar divF2 */
-#divF2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* Media query para footer en móviles */
-@media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #divF1,
-    #divF2,
-    #divF3 {
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0;
-    }
-
-    #divF2 {
-        justify-content: center;
-    }
-
-    .modal-content {
-        width: 92%;
-        padding: 20px 16px;
-        margin: auto;
-        max-height: 88vh;
-        overflow-y: auto;
-        box-sizing: border-box;
-    }
-
-    .close {
-        top: 8px;
-        right: 10px;
-        width: 28px;
-        height: 28px;
-    }
 }

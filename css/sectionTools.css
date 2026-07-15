@@ -1,0 +1,175 @@
+/* ═══════════════ TOOLS SECTION ═══════════════ */
+#tools {
+  padding: 4rem 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+#tools .section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+  transition: color 0.35s ease;
+}
+
+#tools .section-subtitle {
+  text-align: center;
+  color: #5a7a7e;
+  font-size: 1.05rem;
+  margin-bottom: 3rem;
+  transition: color 0.35s ease;
+}
+
+:is(.dark-mode) #tools .section-title {
+  color: var(--primary-light);
+}
+
+:is(.dark-mode) #tools .section-subtitle {
+  color: #9ab0b3;
+}
+
+/* ── Grid ── */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Tool Card ── */
+.tool-card {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(69, 122, 126, 0.10);
+  border-radius: 16px;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s ease,
+              background-color 0.35s ease,
+              border-color 0.35s ease;
+  cursor: default;
+}
+
+.tool-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(69, 122, 126, 0.15);
+}
+
+:is(.dark-mode) .tool-card {
+  background: rgba(20, 25, 25, 0.60);
+  border-color: rgba(127, 204, 208, 0.10);
+}
+
+:is(.dark-mode) .tool-card:hover {
+  box-shadow: 0 12px 32px rgba(127, 204, 208, 0.10);
+}
+
+/* ── Tool Icon (SVG container) ── */
+.tool-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Tool Name ── */
+.tool-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.3px;
+  transition: color 0.35s ease;
+}
+
+:is(.dark-mode) .tool-name {
+  color: var(--primary-light);
+}
+
+/* ── Tool Description ── */
+.tool-desc {
+  font-size: 0.88rem;
+  color: #5a7a7e;
+  line-height: 1.5;
+  margin: 0;
+  transition: color 0.35s ease;
+}
+
+:is(.dark-mode) .tool-desc {
+  color: #9ab0b3;
+}
+
+/* ── More button ── */
+.tools-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.55rem 1.4rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 40px;
+  background: transparent;
+  color: var(--primary-color);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tools-more:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(69, 122, 126, 0.25);
+}
+
+.tools-more:active {
+  transform: scale(0.96);
+}
+
+.tools-more-dots {
+  font-size: 1.3rem;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.tools-more-text {
+  font-size: 0.95rem;
+}
+
+:is(.dark-mode) .tools-more {
+  border-color: var(--primary-light);
+  color: var(--primary-light);
+}
+
+:is(.dark-mode) .tools-more:hover {
+  background: var(--primary-light);
+  color: #1a1a1a;
+  box-shadow: 0 6px 16px rgba(127, 204, 208, 0.25);
+}

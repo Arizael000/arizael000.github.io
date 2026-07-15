@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Science & Analytics Tools | Arizael</title>
     <meta name="description"
         content="Tools I use as an Engineer: Python, SQL, VSCode, AI, Jupyter Notebook, Data Science">
@@ -20,71 +20,76 @@
     <link href="css/footer.css" rel='stylesheet'>
     <link href="css/darkmode.css" rel='stylesheet'>
     <link href="css/tooltips.css" rel='stylesheet'>
-    <link rel="stylesheet" href="css/social.css">
     <link rel="stylesheet" href="css/tools.css">
-
+    <script>if(localStorage.getItem('darkMode')==='enabled'){document.documentElement.classList.add('dark-mode')}</script>
 </head>
 
 <body>
-    <main class="container">
-        <header class="container" id="container">
+    <header class="container" id="container">
             <div class="header-inner">
-      
-              <a href="./" class="left logo" id="log-- --o">
-                <div class="logo-avatar-wrap">
-                  <img src="media/arizael-capote-profile-thumb.webp" alt="Arizael" class="logo-avatar">
-                </div>
-                <span class="logo-name">Arizael</span>
-              </a>
-      
-              <div class="center" id="navWrapper">
+
+              <div class="header-left">
+                <a href="./" class="logo" id="logo">
+                  <div class="logo-avatar-wrap">
+                    <img src="media/arizael-capote-profile-thumb.webp" alt="Arizael" class="logo-avatar">
+                  </div>
+                  <span class="logo-name">Arizael</span>
+                </a>
+              </div>
+
+              <div class="nav-desktop" id="navWrapper">
                 <nav id="navbar">
                   <div id="navLINKS">
-                    <a class="navlink" href="./" style="--navAni:1">Home</a>
-                    <a class="navlink active" data-section="tools" style="--navAni:2">Tools</a>
-                    <a class="navlink" href="learningpath.html" style="--navAni:3">Learning Path</a>
-                    <a class="navlink" id="cv" href="" download style="--navAni:4">Download CV</a>
+                    <a class="navlink" href="./" data-watch="introduction" style="--navAni:1">Home</a>
+                    <a class="navlink" href="./" data-section="projects" data-watch="projects" style="--navAni:2">Projects</a>
+                    <a class="navlink active" data-section="tools" style="--navAni:3">Tools</a>
+                    <a class="navlink" href="learningpath.html" style="--navAni:4">Learning Path</a>
+                    <a class="navlink" id="cv" href="" download style="--navAni:5">Download CV</a>
+                    <div class="navlink dn-navlink" style="--navAni:6">
+                      <input class="input" id="dn" type="checkbox" />
+                      <label class="toggle" for="dn" title="Toggle dark mode">
+                        <span class="toggle__handler">
+                          <span class="crater crater--1"></span>
+                          <span class="crater crater--2"></span>
+                          <span class="crater crater--3"></span>
+                        </span>
+                        <span class="star star--1"></span>
+                        <span class="star star--2"></span>
+                        <span class="star star--3"></span>
+                        <span class="star star--4"></span>
+                        <span class="star star--5"></span>
+                        <span class="star star--6"></span>
+                      </label>
+                    </div>
                   </div>
                 </nav>
               </div>
-      
-              <div class="right toggleWrapper">
-                <input class="input" id="dn" type="checkbox" />
-                <label class="toggle" for="dn" title="Toggle dark mode">
-                  <span class="toggle__handler">
-                    <span class="crater crater--1"></span>
-                    <span class="crater crater--2"></span>
-                    <span class="crater crater--3"></span>
-                  </span>
-                  <span class="star star--1"></span>
-                  <span class="star star--2"></span>
-                  <span class="star star--3"></span>
-                  <span class="star star--4"></span>
-                  <span class="star star--5"></span>
-                  <span class="star star--6"></span>
+
+              <div class="header-right">
+
+                <!-- Hamburger menu button -->
+                <label class="event-wrapper">
+                  <input type="checkbox" checked="" class="event-wrapper-inp" />
+                  <div class="bar">
+                    <span class="top bar-list"></span>
+                    <span class="middle bar-list"></span>
+                    <span class="bottom bar-list"></span>
+                  </div>
+                  <section class="menu-container">
+                    <div class="menu-list"><i class="fas fa-house"></i><a href="index.html" style="text-decoration: none; color: inherit;">Home</a></div>
+                    <div class="menu-list menu1"><i class="fas fa-envelope"></i>Contact me</div>
+                    <div class="menu-list menu2"><i class="fas fa-wrench"></i>Tools</div>
+                    <div class="menu-list menu3"><i class="fas fa-graduation-cap"></i>Learning Path</div>
+                    <div class="menu-list menu4" id="cv-mobile"><i class="fas fa-download"></i>Download CV</div>
+                    <div class="menu-list menu-darkmode"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span class="dm-label-light">Dark Mode</span><span class="dm-label-dark">Light Mode</span></div>
+                  </section>
                 </label>
               </div>
-      
-              <!-- Hamburger menu button -->
-              <label class="event-wrapper">
-                <input type="checkbox" checked="" class="event-wrapper-inp" />
-                <div class="bar">
-                  <span class="top bar-list"></span>
-                  <span class="middle bar-list"></span>
-                  <span class="bottom bar-list"></span>
-                </div>
-                <section class="menu-container">
-                  <div class="menu-list"><a href="index.html" style="text-decoration: none; color: inherit;">Home</a>
-                  </div>
-                  <div class="menu-list menu1">Contact me</div>
-                  <div class="menu-list menu2">Tools</div>
-                  <div class="menu-list menu3">Learning Path</div>
-                  <div class="menu-list menu4" id="cv-mobile">Download CV</div>
-                </section>
-              </label>
-      
+
             </div>
           </header>
+
+        <main class="container">
 
         <section id="tools-intro" class="reveal">
             <h1>Most used <span style="color: var(--primary-color);">Tools</span></h1>
@@ -186,41 +191,90 @@
             </div>
         </section>
 
+    </main>
+
         <footer>
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <form id="contactForm" method="POST">
-                        <label for="nombre">Name:</label>
-                        <input type="text" id="nombre" name="nombre" required>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
 
                         <label for="email">Your email:</label>
                         <input type="email" id="email" name="email" required>
 
-                        <label for="mensaje">Message:</label>
-                        <textarea id="mensaje" name="mensaje" required></textarea>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea>
 
                         <div id="buttons">
-                            <button type="submit" id="submit">Send</button>
+                            <button type="submit" id="submitBtn">Send</button>
 
-                            <button type="button" id="cancelarform">Cancel</button>
+                            <button type="button" id="cancelBtn">Cancel</button>
                         </div>
                     </form>
 
                 </div>
             </div>
-            <div>
-                <div class="footerContainers" id="divF1">
+            <div class="footer-inner">
+                <div class="footer-col footer-tagline">
                     <h4 id="frase">If we fail, then let's fail searching greatness.</h4>
                 </div>
-                <div class="footerContainers" id="divF2">
-                    <h4 style="color: white;">Alajuela, Costa Rica &copy; 2025</h4>
-                    <button id="scrollUp">Contact me</button>
+                <div class="footer-col footer-social">
+                    <ul class="example-2">
+                        <li class="icon-content">
+                            <a href="https://www.linkedin.com/in/arizaelcapote" aria-label="LinkedIn" data-social="linkedin" target="_blank">
+                                <div class="filled"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16" xml:space="preserve">
+                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" fill="currentColor"></path>
+                                </svg>
+                            </a>
+                            <div class="tooltip">LinkedIn</div>
+                        </li>
+                        <li class="icon-content">
+                            <a href="https://github.com/Arizael000" aria-label="GitHub" data-social="github" target="_blank">
+                                <div class="filled"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" xml:space="preserve">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" fill="currentColor"></path>
+                                </svg>
+                            </a>
+                            <div class="tooltip">GitHub</div>
+                        </li>
+                        <li class="icon-content">
+                            <a href="https://signal.me/#eu/p2Lv5_wmZ_m-IRaEsLGCnMsplVQzTfPbdWvP5k_72DjC_tCnJfNCmLXAbVd4S-3t" aria-label="Signal" data-social="signal" target="_blank">
+                                <div class="filled"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.27 4.15a7.87 7.87 0 0 1 3.5.814l.59-.59a.59.59 0 0 1 .834.834l-.5.5A7.85 7.85 0 0 1 19.85 12a7.877 7.877 0 0 1-.606 3.044l.606.606a.59.59 0 1 1-.835.834l-.588-.588A7.85 7.85 0 0 1 12 19.85a7.876 7.876 0 0 1-3.473-.805l-.614.614a.59.59 0 1 1-.834-.834l.532-.532A7.85 7.85 0 0 1 4.15 12c0-1.284.308-2.497.852-3.567l-.588-.588a.59.59 0 1 1 .834-.834l.57.57A7.853 7.853 0 0 1 12.27 4.15zm3.382 5.027-5.887 5.888-2.417-2.418a.786.786 0 1 0-1.111 1.11l2.972 2.973a.786.786 0 0 0 1.111 0l6.443-6.443a.786.786 0 1 0-1.111-1.11z" fill="currentColor" />
+                                </svg>
+                            </a>
+                            <div class="tooltip">Signal</div>
+                        </li>
+                        <li class="icon-content">
+                            <a href="https://wa.me/50670528947" aria-label="WhatsApp" data-social="whatsapp" target="_blank">
+                                <div class="filled"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <div class="tooltip">WhatsApp</div>
+                        </li>
+                        <li class="icon-content">
+                            <a href="mailto:gurdian2411@gmail.com" aria-label="Email" data-social="email" target="_blank">
+                                <div class="filled"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <div class="tooltip">Email</div>
+                        </li>
+                    </ul>
+                    <p class="footer-copyright">Alajuela, Costa Rica &copy; <span id="footerYear">2025</span></p>
                 </div>
-                <div class="footerContainers" id="divF3">
-                    <p style="color: white;">I have built this web portfolio since the end of my career.
+                <div class="footer-col footer-info">
+                    <p>I have built this web portfolio since the end of my career.
                         I'm always trying to improve and optimize.
-                        Any constructive criticism will be gratefully acepted.</p>
+                        Any constructive criticism will be gratefully accepted.</p>
+                    <button id="scrollUp">Contact me easier</button>
                 </div>
             </div>
 
@@ -233,7 +287,6 @@
         <script src="js/contactmeB.js"></script>
         <script src="js/burguermenu.js"></script>
         <script src="js/scrollReveal.js"></script>
-    </main>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4a8656c19415498c9c5e637bb06bc267"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 

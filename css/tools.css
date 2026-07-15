@@ -17,6 +17,7 @@
     color: #666;
     max-width: 800px;
     margin: 0 auto;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) #tools-intro p {
@@ -39,7 +40,7 @@
     padding: 2.5rem 2rem;
     text-align: center;
     box-shadow: 0 10px 30px rgba(69, 122, 126, 0.08);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background-color 0.35s ease, border-color 0.35s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,6 +89,7 @@
     font-weight: 700;
     margin: 0;
     color: #2c3e50;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .tool-name {
@@ -98,6 +100,7 @@
     font-size: 0.95rem;
     color: #666;
     line-height: 1.5;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .tool-desc {
@@ -129,6 +132,7 @@
     color: var(--primary-color);
     margin-bottom: 1.5rem;
     padding: 0 1rem;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .tools-subtitle {

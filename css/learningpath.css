@@ -17,6 +17,7 @@
     color: #666;
     max-width: 800px;
     margin: 0 auto;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) #lp-intro p {
@@ -36,6 +37,7 @@
     color: var(--primary-color);
     text-align: center;
     margin-bottom: 2.5rem;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) #lp-certificates h2 {
@@ -59,7 +61,7 @@
     align-items: center;
     text-align: center;
     gap: 1rem;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .certificate-card:hover {
@@ -87,7 +89,7 @@
     padding: 8px;
     background: rgba(69, 122, 126, 0.08);
     border: 1px solid rgba(69, 122, 126, 0.12);
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.35s ease;
 }
 
 .certificate-card:hover .cert-icon {
@@ -117,6 +119,7 @@
     font-weight: 700;
     color: #1a3a3c;
     margin: 0;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .cert-info h3 {
@@ -128,6 +131,7 @@
     font-weight: 500;
     color: #666;
     margin: 0;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .cert-title {
@@ -144,6 +148,7 @@
     margin: 0.2rem 0;
     cursor: default;
     user-select: none;
+    transition: color 0.35s ease, background-color 0.35s ease;
 }
 
 :is(.dark-mode) .cert-date {
@@ -159,6 +164,7 @@
     margin: 0.3rem 0;
     text-align: center;
     max-width: 260px;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .cert-desc {
@@ -184,6 +190,7 @@
     border: 1px solid rgba(69, 122, 126, 0.18);
     cursor: default;
     user-select: none;
+    transition: color 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
 }
 
 :is(.dark-mode) .cert-tags span {
@@ -216,7 +223,7 @@
     font-weight: 600;
     cursor: pointer;
     user-select: none;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.35s ease;
     flex: 1;
     min-width: 120px;
 }
@@ -262,7 +269,7 @@
     border-radius: 8px;
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.35s ease, border-color 0.35s ease;
 }
 
 .btn-linkedin-sm svg {
@@ -350,7 +357,7 @@
     border-radius: 16px;
     padding: 2rem 2.2rem;
     box-shadow: 0 8px 24px rgba(69, 122, 126, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .summary-text:hover {
@@ -391,7 +398,7 @@
     color: #1a3a3c;
     cursor: default;
     user-select: none;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease, color 0.35s ease, border-color 0.35s ease;
 }
 
 .summary-skill:hover {
@@ -467,7 +474,7 @@
     border: 1px solid rgba(69, 122, 126, 0.18);
     cursor: default;
     user-select: none;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, color 0.35s ease, border-color 0.35s ease;
 }
 
 :is(.dark-mode) .skill-tag {
@@ -496,6 +503,7 @@
     left: 50%;
     margin-left: -3px;
     border-radius: 3px;
+    transition: background-color 0.35s ease;
 }
 
 :is(.dark-mode) .timeline::after {
@@ -525,6 +533,7 @@
     top: 15px;
     border-radius: 50%;
     z-index: 1;
+    transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 :is(.dark-mode) .timeline-container::after {
@@ -556,7 +565,7 @@
     position: relative;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(69, 122, 126, 0.08);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background-color 0.35s ease, border-color 0.35s ease;
     border: 1px solid rgba(69, 122, 126, 0.1);
 }
 
@@ -582,6 +591,7 @@
     font-size: 1.5rem;
     color: #2c3e50;
     margin-bottom: 10px;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .content h2 {
@@ -592,6 +602,7 @@
     font-size: 1.1rem;
     margin-bottom: 5px;
     color: var(--primary-color);
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .content h3 {
@@ -604,6 +615,7 @@
     margin-bottom: 15px;
     display: block;
     font-weight: bold;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .content .date {
@@ -613,6 +625,7 @@
 .content p {
     line-height: 1.6;
     color: #555;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .content p {
@@ -669,11 +682,19 @@
     font-size: 0.9rem;
     cursor: pointer;
     user-select: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .btn-download:hover {
     background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(69, 122, 126, 0.4);
+}
+
+:is(.dark-mode) .btn-download:hover {
+    background-color: #a8e6e9;
+    color: #1a3a3c;
+    box-shadow: 0 6px 20px rgba(127, 204, 208, 0.4);
 }
 
 /* ═══════════════ LEARNING PATH SUMMARY (Home Page) ═══════════════ */
@@ -697,7 +718,7 @@
     padding: 2rem 2.2rem;
     width: 100%;
     box-shadow: 0 8px 24px rgba(69, 122, 126, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .lp-summary-text:hover {
@@ -721,6 +742,7 @@
     line-height: 1.75;
     color: #555;
     margin-bottom: 1.5rem;
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .lp-summary-text p {
@@ -731,6 +753,14 @@
 .lp-summary-skills {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.lp-summary-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 0.8rem;
 }
 
@@ -747,7 +777,7 @@
     color: #1a3a3c;
     cursor: default;
     user-select: none;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease, color 0.35s ease, border-color 0.35s ease;
 }
 
 .lp-skill-item:hover {
@@ -776,6 +806,7 @@
     width: 20px;
     height: 20px;
     color: var(--primary-color);
+    transition: color 0.35s ease;
 }
 
 :is(.dark-mode) .lp-skill-icon--svg {
@@ -794,7 +825,7 @@
     font-size: 0.95rem;
     cursor: pointer;
     user-select: none;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.35s ease;
     box-shadow: 0 4px 14px rgba(69, 122, 126, 0.3);
 }
 
@@ -835,7 +866,7 @@
 }
 
 @media (max-width: 480px) {
-    .lp-summary-skills {
+    .lp-summary-badges {
         flex-direction: column;
         align-items: flex-start;
     }

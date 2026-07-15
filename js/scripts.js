@@ -10,15 +10,15 @@
   }
 })();
 
-// Función para desplazar el scroll a una sección específica
+// Scroll to a specific section
 function scrollToSection(id) {
   var section = document.getElementById(id);
   section.style.display = 'block';
 
-  // Calcula la posición de la sección en relación con la ventana
+  // Calculate section position relative to viewport
   var offsetTop = section.offsetTop;
 
-  // Desplaza el scroll a la posición de la sección
+  // Scroll to section position
   window.scrollTo({
     top: offsetTop,
     behavior: 'smooth'
@@ -33,7 +33,7 @@ function closeModal() {
   document.getElementById('myModal').style.display = 'none';
 }
 
-// Cierra el modal si se hace clic fuera de él
+// Close modal if clicked outside
 window.onclick = function (event) {
   var modal = document.getElementById('myModal');
   if (event.target == modal) {
@@ -50,36 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  const body = document.body;
-  const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
-  const header = document.getElementById("container");
-  const nav = document.getElementById("navbar");
-  const socialnames = document.getElementsByClassName("socialName");
-  if (isDarkMode) {
-    body.classList.add('dark-mode');
-    //darkModeToggle.checked = true;
-    header.classList.add('dark-mode');
-    nav.classList.add('dark-mode');
-    for (let i = 0; i < socialnames.length; i++) {
-      socialnames[i].style.setProperty('color', 'white')
-    }
-  } else {
-    body.classList.remove('dark-mode');
-    header.classList.remove('dark-mode');
-    nav.classList.remove('dark-mode');
-    for (let i = 0; i < socialnames.length; i++) {
-      socialnames[i].style.setProperty('color', 'black')
-    }
-
-  }
-
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  // Obtén todos los elementos input dentro de la clase gallery
+  // Get all input elements inside the gallery class
   var inputs = document.querySelectorAll('.galleryInputs');
 
   // Agrega un evento change a cada input
@@ -98,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
-// Función para simular el efecto de tecleado
+// Simulate typing effect
 function teclearTexto(elemento) {
   const textoCompleto = elemento.innerText;
   elemento.innerHTML = ""; // Limpiar el contenido original
@@ -110,7 +81,7 @@ function teclearTexto(elemento) {
     if (i > textoCompleto.length) {
       clearInterval(intervalo);
     }
-  }, 100); // Ajusta la velocidad según tus preferencias
+  }, 100); // Adjust typing speed
 }
 
 document.addEventListener('DOMContentLoaded', function () {
