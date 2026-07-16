@@ -1041,3 +1041,235 @@
         min-width: auto;
     }
 }
+
+/* ═══════════════ CURRICULUM MODAL ═══════════════ */
+.btn-curriculum {
+    margin-left: 0.5rem;
+}
+
+.curriculum-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 1.5rem;
+    animation: curriculumFadeIn 0.2s ease-out;
+}
+
+.curriculum-modal.is-open {
+    display: flex;
+}
+
+@keyframes curriculumFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.curriculum-window {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    max-height: 85vh;
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+    animation: curriculumWindowIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+:is(.dark-mode) .curriculum-window {
+    background: #1a1a1a;
+}
+
+@keyframes curriculumWindowIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.curriculum-close {
+    position: absolute;
+    top: -0.8rem;
+    right: -0.8rem;
+    background: #c0392b;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 20;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.curriculum-close:hover {
+    background: #e74c3c;
+    transform: scale(1.1);
+}
+
+.curriculum-close:active {
+    transform: scale(0.93);
+}
+
+.curriculum-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 0 0 0.3rem;
+    text-align: center;
+    transition: color 0.35s ease;
+}
+
+:is(.dark-mode) .curriculum-title {
+    color: var(--primary-light);
+}
+
+.curriculum-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin: 0 0 1.5rem;
+    transition: color 0.35s ease;
+}
+
+:is(.dark-mode) .curriculum-subtitle {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.curriculum-body {
+    overflow-y: auto;
+    flex: 1;
+    border-radius: 10px;
+    border: 1px solid rgba(69, 122, 126, 0.12);
+    transition: border-color 0.35s ease;
+}
+
+:is(.dark-mode) .curriculum-body {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.curriculum-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.curriculum-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    opacity: 1;
+    background: var(--primary-color);
+}
+
+.curriculum-table th {
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    transition: background 0.35s ease;
+}
+
+:is(.dark-mode) .curriculum-table th {
+    background: #2a6b6f;
+    color: #e2f0f1;
+}
+
+:is(.dark-mode) .curriculum-table thead {
+    background: #2a6b6f;
+}
+
+.curriculum-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid rgba(69, 122, 126, 0.08);
+    color: #333;
+    transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+:is(.dark-mode) .curriculum-table td {
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.curriculum-table tbody tr:hover:not(.curriculum-year-row) {
+    background: rgba(69, 122, 126, 0.06);
+}
+
+:is(.dark-mode) .curriculum-table tbody tr:hover:not(.curriculum-year-row) {
+    background: rgba(127, 204, 208, 0.08);
+}
+
+.curriculum-year-row td {
+    background: rgba(69, 122, 126, 0.1);
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--primary-color);
+    padding: 0.65rem 1rem;
+    letter-spacing: 0.02em;
+    transition: color 0.35s ease, background-color 0.35s ease;
+}
+
+:is(.dark-mode) .curriculum-year-row td {
+    background: rgba(127, 204, 208, 0.12);
+    color: var(--primary-light);
+}
+
+/* ── Curriculum Responsive ── */
+@media (max-width: 600px) {
+    .curriculum-modal {
+        padding: 0.5rem;
+    }
+
+    .curriculum-window {
+        max-width: 95vw;
+        max-height: 90vh;
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+
+    .curriculum-close {
+        top: -0.4rem;
+        right: -0.4rem;
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+
+    .curriculum-title {
+        font-size: 1.3rem;
+    }
+
+    .curriculum-table {
+        font-size: 0.8rem;
+    }
+
+    .curriculum-table th,
+    .curriculum-table td {
+        padding: 0.5rem 0.6rem;
+    }
+
+    .btn-curriculum {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+}

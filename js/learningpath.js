@@ -1,71 +1,102 @@
 (function () {
     'use strict';
 
+    /* ── Certificate Gallery Modal ── */
     var modal = document.getElementById('cert-gallery-modal');
-    if (!modal) return;
+    if (modal) {
+        var content = modal.querySelector('.gallery-content');
+        var closeBtn = modal.querySelector('.gallery-close');
 
-    var content = modal.querySelector('.gallery-content');
-    var closeBtn = modal.querySelector('.gallery-close');
-
-    function openGallery(images, rotateIndices) {
-        if (!images.length) return;
-        content.innerHTML = '';
-        images.forEach(function (src, index) {
-            var img = document.createElement('img');
-            img.src = src;
-            img.alt = 'Certificate image';
-            img.loading = 'lazy';
-            if (rotateIndices && rotateIndices.indexOf(index) !== -1) {
-                img.classList.add('rotated');
-            }
-            content.appendChild(img);
-        });
-        modal.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-        document.addEventListener('keydown', handleKeydown);
-    }
-
-    function closeGallery() {
-        modal.classList.remove('is-open');
-        document.body.style.overflow = '';
-        document.removeEventListener('keydown', handleKeydown);
-    }
-
-    function handleKeydown(e) {
-        if (e.key === 'Escape') closeGallery();
-    }
-
-    document.querySelectorAll('.certificate-card[data-gallery]').forEach(function (card) {
-        var btn = card.querySelector('.btn-gallery');
-        if (btn) {
-            btn.addEventListener('click', function (e) {
-                e.stopPropagation();
-                var data = card.dataset.gallery;
-                var rotateData = card.dataset.galleryRotate;
-                if (!data) return;
-                try {
-                    var rotateIndices = rotateData ? JSON.parse(rotateData) : null;
-                    openGallery(JSON.parse(data), rotateIndices);
-                } catch (err) {
-                    console.error('Invalid gallery data:', data);
+        function openGallery(images, rotateIndices) {
+            if (!images.length) return;
+            content.innerHTML = '';
+            images.forEach(function (src, index) {
+                var img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Certificate image';
+                img.loading = 'lazy';
+                if (rotateIndices && rotateIndices.indexOf(index) !== -1) {
+                    img.classList.add('rotated');
                 }
+                content.appendChild(img);
             });
-        } else {
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', function () {
-                var data = card.dataset.gallery;
-                if (!data) return;
-                try {
-                    openGallery(JSON.parse(data));
-                } catch (err) {
-                    console.error('Invalid gallery data:', data);
-                }
-            });
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+            document.addEventListener('keydown', handleKeydown);
         }
-    });
 
-    closeBtn.addEventListener('click', closeGallery);
-    modal.addEventListener('click', function (e) {
-        if (e.target === modal) closeGallery();
-    });
+        function closeGallery() {
+            modal.classList.remove('is-open');
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', handleKeydown);
+        }
+
+        function handleKeydown(e) {
+            if (e.key === 'Escape') closeGallery();
+        }
+
+        document.querySelectorAll('.certificate-card[data-gallery]').forEach(function (card) {
+            var btn = card.querySelector('.btn-gallery');
+            if (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var data = card.dataset.gallery;
+                    var rotateData = card.dataset.galleryRotate;
+                    if (!data) return;
+                    try {
+                        var rotateIndices = rotateData ? JSON.parse(rotateData) : null;
+                        openGallery(JSON.parse(data), rotateIndices);
+                    } catch (err) {
+                        console.error('Invalid gallery data:', data);
+                    }
+                });
+            } else {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function () {
+                    var data = card.dataset.gallery;
+                    if (!data) return;
+                    try {
+                        openGallery(JSON.parse(data));
+                    } catch (err) {
+                        console.error('Invalid gallery data:', data);
+                    }
+                });
+            }
+        });
+
+        closeBtn.addEventListener('click', closeGallery);
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeGallery();
+        });
+    }
+
+    /* ── Curriculum Modal ── */
+    var curriculumModal = document.getElementById('curriculum-modal');
+    var openCurriculumBtn = document.getElementById('openCurriculumModal');
+
+    if (curriculumModal && openCurriculumBtn) {
+        var curriculumCloseBtn = curriculumModal.querySelector('.curriculum-close');
+
+        function openCurriculum() {
+            curriculumModal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+            document.addEventListener('keydown', handleCurriculumKeydown);
+        }
+
+        function closeCurriculum() {
+            curriculumModal.classList.remove('is-open');
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', handleCurriculumKeydown);
+        }
+
+        function handleCurriculumKeydown(e) {
+            if (e.key === 'Escape') closeCurriculum();
+        }
+
+        openCurriculumBtn.addEventListener('click', openCurriculum);
+        curriculumCloseBtn.addEventListener('click', closeCurriculum);
+        curriculumModal.addEventListener('click', function (e) {
+            if (e.target === curriculumModal) closeCurriculum();
+        });
+    }
 })();

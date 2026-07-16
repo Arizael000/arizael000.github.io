@@ -60,7 +60,7 @@ header.dark-mode {
 /* ═══════════════ HEADER LEFT (Logo + Nav + Toggle) ═══════════════ */
 .header-left {
   display: flex;
-  align-items: center;
+  align-items: right;
   gap: 1.5rem;
   flex-shrink: 0;
 }
@@ -79,6 +79,7 @@ header.dark-mode {
   align-items: center;
   gap: 0.65rem;
   text-decoration: none;
+  padding-left: 9rem;
   opacity: 0;
   animation: leftSideAni 0.7s ease forwards;
 }

@@ -197,6 +197,7 @@
                     </div>
                     <a href="https://drive.google.com/file/d/15e1vfitcJZ6KTVmLL0W3ZrqpFgQJP497/view?usp=sharing"
                         target="_blank" class="btn-download">Show Thesis</a>
+                    <button class="btn-download btn-curriculum" id="openCurriculumModal">View Full Subjects</button>
                 </div>
             </div>
 
@@ -291,6 +292,96 @@
             <div class="gallery-window">
                 <button class="gallery-close" aria-label="Close gallery">&times;</button>
                 <div class="gallery-content"></div>
+            </div>
+        </div>
+
+        <!-- Curriculum Modal -->
+        <div id="curriculum-modal" class="curriculum-modal" role="dialog" aria-modal="true" aria-label="Computer Science Engineering Curriculum">
+            <div class="curriculum-window">
+                <button class="curriculum-close" aria-label="Close curriculum">&times;</button>
+                <h2 class="curriculum-title">Computer Science Engineering</h2>
+                <p class="curriculum-subtitle">Universidad de las Ciencias Informáticas &mdash; 2019&ndash;2024</p>
+                <div class="curriculum-body">
+                    <table class="curriculum-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Subject</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- First Year -->
+                            <tr class="curriculum-year-row"><td colspan="2">First Year (2019&ndash;2020)</td></tr>
+                            <tr><td>2019&ndash;2020</td><td>Algebra</td></tr>
+                            <tr><td>2019&ndash;2021</td><td>National Defense (Humanities)</td></tr>
+                            <tr><td>2019&ndash;2022</td><td>Physical Education I</td></tr>
+                            <tr><td>2019&ndash;2023</td><td>Philosophy</td></tr>
+                            <tr><td>2019&ndash;2024</td><td>History of Cuba</td></tr>
+                            <tr><td>2019&ndash;2025</td><td>Introduction to Programming I</td></tr>
+                            <tr><td>2019&ndash;2026</td><td>Introduction to Computer Science I</td></tr>
+                            <tr><td>2019&ndash;2027</td><td>Introduction to Computer Science II</td></tr>
+                            <tr><td>2019&ndash;2028</td><td>Discrete Mathematics I</td></tr>
+                            <tr><td>2019&ndash;2029</td><td>National Security (Humanities)</td></tr>
+
+                            <!-- Second Year -->
+                            <tr class="curriculum-year-row"><td colspan="2">Second Year (2021)</td></tr>
+                            <tr><td>2021</td><td>Political Economy</td></tr>
+                            <tr><td>2021</td><td>Physical Education II</td></tr>
+                            <tr><td>2021</td><td>Introduction to Programming II</td></tr>
+                            <tr><td>2021</td><td>Discrete Mathematics II</td></tr>
+                            <tr><td>2021</td><td>Calculus I</td></tr>
+                            <tr><td>2021</td><td>Calculus II</td></tr>
+                            <tr><td>2021</td><td>Scientific Research Methodology</td></tr>
+                            <tr><td>2021</td><td>Research &amp; Development Project I</td></tr>
+                            <tr><td>2021</td><td>Research &amp; Development Project II</td></tr>
+
+                            <!-- Third Year -->
+                            <tr class="curriculum-year-row"><td colspan="2">Third Year (2022)</td></tr>
+                            <tr><td>2022</td><td>Computer Architecture</td></tr>
+                            <tr><td>2022</td><td>Physical Education III</td></tr>
+                            <tr><td>2022</td><td>Physical Education IV</td></tr>
+                            <tr><td>2022</td><td>Data Structures I</td></tr>
+                            <tr><td>2022</td><td>Data Structures II</td></tr>
+                            <tr><td>2022</td><td>Physics</td></tr>
+                            <tr><td>2022</td><td>Administration &amp; Organization Management Fundamentals</td></tr>
+                            <tr><td>2022</td><td>Software Engineering I</td></tr>
+                            <tr><td>2022</td><td>Calculus III</td></tr>
+                            <tr><td>2022</td><td>Research &amp; Development Project III</td></tr>
+                            <tr><td>2022</td><td>Research &amp; Development Project IV</td></tr>
+                            <tr><td>2022</td><td>Database Systems I</td></tr>
+                            <tr><td>2022</td><td>Database Systems II</td></tr>
+                            <tr><td>2022</td><td>Operating Systems</td></tr>
+                            <tr><td>2022</td><td>Political Theory (Humanities)</td></tr>
+
+                            <!-- Fourth Year -->
+                            <tr class="curriculum-year-row"><td colspan="2">Fourth Year (2023)</td></tr>
+                            <tr><td>2023</td><td>Machine Learning</td></tr>
+                            <tr><td>2023</td><td>Science, Technology &amp; Society Studies (Exam Equivalency)</td></tr>
+                            <tr><td>2023</td><td>Business Process Management</td></tr>
+                            <tr><td>2023</td><td>IT Project Management</td></tr>
+                            <tr><td>2023</td><td>Software Engineering II</td></tr>
+                            <tr><td>2023</td><td>Artificial Intelligence</td></tr>
+                            <tr><td>2023</td><td>Operations Research</td></tr>
+                            <tr><td>2023</td><td>Probability &amp; Statistics</td></tr>
+                            <tr><td>2023</td><td>Web Programming</td></tr>
+                            <tr><td>2023</td><td>Research &amp; Development Project V</td></tr>
+                            <tr><td>2023</td><td>Research &amp; Development Project VI</td></tr>
+                            <tr><td>2023</td><td>Networks &amp; IT Security I</td></tr>
+                            <tr><td>2023</td><td>Networks &amp; IT Security II</td></tr>
+                            <tr><td>2023</td><td>Project Feasibility</td></tr>
+                            <tr><td>2023</td><td>Ontology Fundamentals &amp; Applications</td></tr>
+
+                            <!-- Thesis -->
+                            <tr class="curriculum-year-row"><td colspan="2">Thesis (2024)</td></tr>
+                            <tr><td>2024</td><td>Degree Project</td></tr>
+
+                            <!-- Academic Summary -->
+                            <tr class="curriculum-year-row"><td colspan="2">Academic Summary</td></tr>
+                            <tr><td>GPA</td><td><strong>4.48 / 5.00</strong> (Equivalent to <strong>3.5 / 4.0</strong> US Scale)</td></tr>
+                            <tr><td>Thesis</td><td>Awarded a perfect score of <strong>5.0 / 5.0</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
