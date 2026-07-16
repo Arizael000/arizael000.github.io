@@ -48,11 +48,11 @@ header.dark-mode {
 /* ── Inner container ── */
 .header-inner {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.5rem;
+  padding: 0;
   gap: 1rem;
   position: relative;
 }
@@ -231,6 +231,11 @@ nav:focus-visible,
   padding: 0;
   background: transparent;
   cursor: pointer;
+  border-radius: 0;
+  overflow: visible;
+  color: inherit;
+  min-width: 0;
+  min-height: 0;
 }
 
 .dn-navlink:hover {
@@ -420,22 +425,6 @@ nav:focus-visible,
   transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
-:is(.dark-mode) .dn-navlink {
-  background: transparent;
-}
-
-:is(.dark-mode) .dn-navlink:hover {
-  background: transparent;
-}
-
-:is(.dark-mode) .dn-navlink .toggle {
-  background-color: #749dd6;
-}
-
-:is(.dark-mode) .dn-navlink .input:checked + .toggle {
-  background-color: #83d8ff;
-}
-
 :is(.dark-mode) .navlink {
   color: #d0e8ea;
   background: #1e1e1e;
@@ -449,6 +438,23 @@ nav:focus-visible,
 :is(.dark-mode) .navlink.active {
   color: var(--primary-light);
   background: rgba(127, 204, 208, 0.12);
+}
+
+:is(.dark-mode) .dn-navlink {
+  background: transparent !important;
+  color: inherit;
+}
+
+:is(.dark-mode) .dn-navlink:hover {
+  background: transparent !important;
+}
+
+:is(.dark-mode) .dn-navlink .toggle {
+  background-color: #749dd6;
+}
+
+:is(.dark-mode) .dn-navlink .input:checked + .toggle {
+  background-color: #83d8ff;
 }
 
 /* ── Download CV button ── */
