@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const openBtn = document.getElementById('scrollUp');
   const closeBtn = document.querySelector('.close');
   const cancelBtn = document.getElementById('cancelBtn');
-  const form = document.getElementById('contactForm');
+  const forms = document.querySelectorAll('#contactForm, .portfolio-contact-form');
 
-  // Hidden form endpoint (configured only in JS for security)
+  // Reuse the configured endpoint for the existing footer contact modal.
   const FORM_ENDPOINT = "https://formspree.io/f/mnqejopy";
 
   // === MODAL ===
@@ -28,30 +28,57 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // === FORM SUBMIT (AJAX via fetch) ===
-  form?.addEventListener('submit', async function (event) {
-    event.preventDefault(); // Prevent default form submission
+  forms.forEach(form => {
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
 
-    const formData = new FormData(form);
+      const inlineForm = form.classList.contains('portfolio-contact-form');
+      const status = inlineForm ? form.querySelector('.contact-form-status') : null;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const buttonLabel = submitButton?.querySelector('span');
+      const originalLabel = buttonLabel?.textContent;
+      const successMessage = form.dataset.successMessage || "Message sent successfully. Thank you!";
+      const errorMessage = form.dataset.errorMessage || "The message could not be sent. Please try again.";
 
-    try {
-      const response = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json'
-        },
-        body: formData
-      });
-
-      if (response.ok) {
-        closeModal();
-        showSuccessMessage("Message sent successfully. Thank you!");
-        form.reset();
-      } else {
-        showErrorMessage("Oops! Something went wrong.");
+      if (status) status.textContent = '';
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
       }
-    } catch (error) {
-      showErrorMessage("Network error. Please try again.");
-    }
+      if (buttonLabel) buttonLabel.textContent = 'Sending...';
+
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+
+        if (!response.ok) {
+          if (status) status.textContent = errorMessage;
+          showErrorMessage(errorMessage);
+          return;
+        }
+
+        form.reset();
+        if (inlineForm) {
+          if (status) status.textContent = successMessage;
+        } else {
+          closeModal();
+          showSuccessMessage(successMessage);
+        }
+      } catch (error) {
+        console.error('Contact form submission failed:', error);
+        if (status) status.textContent = errorMessage;
+        showErrorMessage(errorMessage);
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.removeAttribute('aria-busy');
+        }
+        if (buttonLabel && originalLabel) buttonLabel.textContent = originalLabel;
+      }
+    });
   });
 
   // === TOAST MESSAGES ===

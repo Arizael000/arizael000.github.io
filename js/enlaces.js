@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // LinkedIn link for new Thenew Programmer certificate
+    var newCertLinkedin = document.querySelector('.certificates-grid .certificate-card:first-child .btn-linkedin-sm');
+    if (newCertLinkedin) {
+        newCertLinkedin.href = "https://www.linkedin.com/in/arizaelcapote/overlay/Education/1269756823/treasury/?profileId=ACoAAEBWCskB7vuPodnKzni2Hj-pgbU2RMSPH7U&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_education_details%3BjSE75mz5Rn23Wv66AtP7Zw%3D%3D";
+    }
+
     const projects = [
         { selector: '#qrScanProject', url: 'https://github.com/Arizael000/QR-Generator' },
         { selector: '#logisticPredictionProject', url: 'https://github.com/Arizael000/logisticPrediction' },

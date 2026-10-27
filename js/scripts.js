@@ -41,15 +41,6 @@ window.onclick = function (event) {
   }
 }
 document.addEventListener('DOMContentLoaded', function () {
-  var form = document.querySelector('form');
-
-  form.addEventListener('submit', function (event) {
-    closeModal();
-  })
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
   // Get all input elements inside the gallery class
   var inputs = document.querySelectorAll('.galleryInputs');
 
@@ -106,5 +97,4 @@ document.addEventListener('DOMContentLoaded', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
-
 

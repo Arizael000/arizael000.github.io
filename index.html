@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="css/learningpath.css">
   <link rel="stylesheet" href="css/dashboards.css">
   <link rel="stylesheet" href="css/sectionTools.css">
+  <link rel="stylesheet" href="css/contact.css">
   <link rel="icon" href="media/arizael-favicon.png" type="image/png">
   <script>if(localStorage.getItem('darkMode')==='enabled'){document.documentElement.classList.add('dark-mode')}</script>
 </head>
@@ -50,7 +51,8 @@
               <a class="navlink" data-section="introduction" data-watch="introduction" style="--navAni:1">Home</a>
               <a class="navlink" data-section="projects" data-watch="projects" style="--navAni:2">Projects</a>
               <a class="navlink" data-section="tools" data-watch="tools" style="--navAni:3">Tools</a>
-              <a class="navlink" data-section="learningpath" data-watch="learning-path-summary" style="--navAni:4">Learning Path</a>
+              <a class="navlink" data-section="services" data-watch="services" style="--navAni:4">Services</a>
+              <a class="navlink" data-section="learning-path-summary" data-watch="learning-path-summary" style="--navAni:6">Learning Path</a>
               <a class="navlink" id="cv" href="" download style="--navAni:5">Download CV</a>
               <div class="navlink dn-navlink" style="--navAni:6">
                 <input class="input" id="dn" type="checkbox" />
@@ -87,8 +89,9 @@
             <div class="menu-list menu1"><i class="fas fa-envelope"></i>Contact me</div>
             <div class="menu-list menu2"><i class="fas fa-folder-open"></i>Projects</div>
             <div class="menu-list menu3"><i class="fas fa-wrench"></i>Tools</div>
-            <div class="menu-list menu4"><i class="fas fa-graduation-cap"></i>Learning Path</div>
-            <div class="menu-list menu5" id="cv-mobile"><i class="fas fa-download"></i>Download CV</div>
+            <div class="menu-list menu4"><i class="fas fa-chart-line"></i><a href="#services" style="text-decoration: none; color: inherit;">Services</a></div>
+            <div class="menu-list menu5"><i class="fas fa-graduation-cap"></i>Learning Path</div>
+            <div class="menu-list menu6" id="cv-mobile"><i class="fas fa-download"></i>Download CV</div>
             <div class="menu-list menu-darkmode"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span class="dm-label-light">Dark Mode</span><span class="dm-label-dark">Light Mode</span></div>
           </section>
         </label>
@@ -217,7 +220,68 @@
       </div>
     </section>
 
+    <section id="services" class="home-services reveal" aria-labelledby="home-services-title">
+      <div class="home-services-heading">
+        <h2 id="home-services-title">Services</h2>
+        <p>Explore how analytics, dashboards, and predictive modeling can turn your data into clearer decisions.</p>
+      </div>
 
+      <div class="home-services-copy">
+        <span class="home-services-eyebrow"><i class="bx bx-globe" aria-hidden="true"></i> Remote services worldwide</span>
+        <h3>Make your data work for you</h3>
+        <p class="home-services-intro">From clear, interactive dashboards to predictive data science, turn complex information into your next business decision.</p>
+
+        <ul class="home-services-list">
+          <li><i class="bx bx-check" aria-hidden="true"></i> Business intelligence &amp; dashboards</li>
+          <li><i class="bx bx-check" aria-hidden="true"></i> Statistical analysis &amp; segmentation</li>
+          <li><i class="bx bx-check" aria-hidden="true"></i> Predictive analytics &amp; machine learning</li>
+        </ul>
+
+        <a class="home-services-cta" href="services.html">
+          <span>Explore all services</span>
+          <i class="bx bx-right-arrow-alt" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="home-services-chart-card">
+        <div class="home-services-chart-heading">
+          <div>
+            <span class="home-services-chart-kicker">Interactive sample</span>
+            <h3>Order value distribution</h3>
+          </div>
+          <span class="home-services-chart-icon" aria-hidden="true"><i class="bx bx-bar-chart-alt-2"></i></span>
+        </div>
+        <p class="home-services-chart-description">Fictional order data · USD</p>
+
+        <div class="home-services-chart" id="order-histogram" data-bin-count="6" role="group" aria-label="Interactive histogram of fictional order values">
+          <div class="histogram-y-axis" aria-hidden="true">
+            <span data-y-tick="max">0</span>
+            <span data-y-tick="high">0</span>
+            <span data-y-tick="mid">0</span>
+            <span data-y-tick="low">0</span>
+            <span>0</span>
+          </div>
+          <div class="histogram-plot">
+            <div class="histogram-gridlines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <div class="histogram-bars" aria-label="Order value ranges"></div>
+            <div class="histogram-x-axis" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="histogram-stats" aria-live="polite">
+          <span><strong id="histogram-sample-size">0</strong><small>sample orders</small></span>
+          <span><strong id="histogram-average">$0</strong><small>average order</small></span>
+          <span><strong id="histogram-selection">Select a bar</strong><small>range details</small></span>
+        </div>
+
+        <div class="histogram-control">
+          <label for="histogram-bin-control">Histogram detail</label>
+          <input id="histogram-bin-control" type="range" min="4" max="10" step="1" value="6" aria-describedby="histogram-bin-value">
+          <output id="histogram-bin-value" for="histogram-bin-control">6 bins</output>
+        </div>
+        <p class="histogram-note">Illustrative sample data for demonstration only.</p>
+      </div>
+    </section>
 
 
     <!-- ═══════════════ DASHBOARD LIGHTBOX MODAL ═══════════════ -->
@@ -266,8 +330,62 @@
       </div>
     </section>
 
+    <section id="contact" class="portfolio-contact reveal" aria-labelledby="home-contact-title">
+      <div class="contact-heading">
+        <span class="contact-eyebrow">Let’s work together</span>
+        <h2 id="home-contact-title">Contact</h2>
+        <p>Data overload? Let's turn it into action.</p>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-details">
+          <h3>Contact information</h3>
+          <a class="contact-detail" href="mailto:gurdian2411@gmail.com">
+            <span class="contact-detail-icon"><i class="bx bx-envelope" aria-hidden="true"></i></span>
+            <span><small>Email</small><strong>gurdian2411@gmail.com</strong></span>
+          </a>
+          <a class="contact-detail" href="https://wa.me/50670528947" target="_blank" rel="noopener noreferrer">
+            <span class="contact-detail-icon"><i class="bx bx-message-rounded-dots" aria-hidden="true"></i></span>
+            <span><small>WhatsApp</small><strong>+506 7052 8947</strong></span>
+          </a>
+          <div class="contact-detail">
+            <span class="contact-detail-icon"><i class="bx bx-map" aria-hidden="true"></i></span>
+            <span><small>Location</small><strong>Alajuela, Costa Rica · Worldwide remote</strong></span>
+          </div>
+          <h3 class="contact-social-title">Social media</h3>
+          <div class="contact-social-links">
+            <a href="https://github.com/Arizael000" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bx bxl-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/arizaelcapote" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bx bxl-linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
 
-
+        <form class="portfolio-contact-form" data-success-message="Message sent successfully. Thank you!" data-error-message="The message could not be sent. Please try again or email me directly.">
+          <div class="contact-fields">
+            <div class="contact-field">
+              <label for="home-contact-name">Full name</label>
+              <input id="home-contact-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+            </div>
+            <div class="contact-field">
+              <label for="home-contact-email">Email address</label>
+              <input id="home-contact-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+            </div>
+            <div class="contact-field">
+              <label for="home-contact-phone">Phone / WhatsApp <span>(optional)</span></label>
+              <input id="home-contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 000 0000">
+            </div>
+            <div class="contact-field">
+              <label for="home-contact-subject">Subject</label>
+              <input id="home-contact-subject" name="_subject" type="text" placeholder="Project proposal" required>
+            </div>
+            <div class="contact-field contact-field-message">
+              <label for="home-contact-message">Message</label>
+              <textarea id="home-contact-message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+          </div>
+          <button class="contact-submit" type="submit"><span>Send message</span><i class="bx bx-send" aria-hidden="true"></i></button>
+          <p class="contact-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
     <footer>
@@ -366,6 +484,7 @@
     <script src="js/burguermenu.js"></script>
     <script src="js/scrollReveal.js"></script>
     <script src="js/carousel.js"></script>
+    <script src="js/services-preview.js"></script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4a8656c19415498c9c5e637bb06bc267"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

@@ -4,6 +4,7 @@ footer {
     background-color: #1c1e22;
     padding: 2.5rem 0;
     transition: background-color 0.35s ease;
+    margin-top: auto;
 }
 
 :is(.dark-mode) footer {

@@ -49,15 +49,33 @@ document.addEventListener("DOMContentLoaded", function () {
     closeAllMenus();
   });
 
-  // Learning Path → navega a learningpath.html
-  menu4.addEventListener("click", function () {
+  // Services → scroll to the services section on the current page
+  menu4.addEventListener("click", function (event) {
+    var servicesAnchor = menu4.querySelector('a[href="#services"]');
+    if (servicesAnchor) {
+      event.preventDefault();
+      var target = document.getElementById('services');
+      if (target) {
+        history.pushState(null, '', '#services');
+        target.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = './#services';
+      }
+      closeAllMenus();
+      return;
+    }
+
     window.location.href = 'learningpath.html';
   });
 
-  // Download CV → descarga el CV
+  // Learning Path → navigate to learningpath.html
   if (menu5) {
     menu5.addEventListener("click", function () {
-      if (cvLink) cvLink.click();
+      if (menu5.id === 'cv-mobile') {
+        if (cvLink) cvLink.click();
+      } else {
+        window.location.href = 'learningpath.html';
+      }
       closeAllMenus();
     });
   }

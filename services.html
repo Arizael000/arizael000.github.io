@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arizael | Data Analysis Services</title>
+  <meta name="description" content="Data analysis, interactive dashboards, and Power BI and Python consulting services.">
+  <!-- ==================== OPEN GRAPH META TAGS ==================== -->
+  <meta property="og:title" content="Data Analysis Services | Arizael Capote">
+  <meta property="og:description" content="Professional data analysis, dashboard, and Power BI and Python consulting services.">
+  <meta property="og:image" content="https://arizael000.github.io/media/arizael-capote-profile.webp">
+  <meta property="og:url" content="https://arizael000.github.io/services.html">
+  <meta name="author" content="Arizael García Capote">
+
+  <!-- ==================== Styles and scripts ==================== -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/section1.css">
+  <link rel="stylesheet" href="css/experience.css">
+  <link rel="stylesheet" href="css/learningpath.css">
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/dashboard-chart.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/tooltips.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="icon" href="media/arizael-favicon.png" type="image/png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script>if(localStorage.getItem('darkMode')==='enabled'){document.documentElement.classList.add('dark-mode')}</script>
+</head>
+
+<body>
+
+  <header class="container" id="container">
+      <div class="header-inner">
+
+        <div class="header-left">
+          <a href="./" class="logo" id="logo">
+            <span class="logo-name">Data Science Portfolio</span>
+          </a>
+        </div>
+
+        <div class="nav-desktop" id="navWrapper">
+          <nav id="navbar">
+            <div id="navLINKS">
+              <a class="navlink" data-section="introduction" data-watch="introduction" style="--navAni:1">Home</a>
+              <a class="navlink" data-section="projects" data-watch="projects" style="--navAni:2">Projects</a>
+              <a class="navlink" data-section="tools" data-watch="tools" style="--navAni:3">Tools</a>
+              <a class="navlink" data-section="services" data-watch="services" style="--navAni:4">Services</a>
+              <a class="navlink" href="learningpath.html" style="--navAni:5">Learning Path</a>
+              <a class="navlink" id="cv" href="../arizael000.github.io/cv.pdf" download style="--navAni:6">Download CV</a>
+              <div class="navlink dn-navlink" style="--navAni:7">
+                <input class="input" id="dn" type="checkbox" />
+                <label class="toggle" for="dn" title="Toggle dark mode">
+                  <span class="toggle__handler">
+                    <span class="crater crater--1"></span>
+                    <span class="crater crater--2"></span>
+                    <span class="crater crater--3"></span>
+                  </span>
+                  <span class="star star--1"></span>
+                  <span class="star star--2"></span>
+                  <span class="star star--3"></span>
+                  <span class="star star--4"></span>
+                  <span class="star star--5"></span>
+                  <span class="star star--6"></span>
+                </label>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="header-right">
+
+          <!-- Hamburger menu button -->
+          <label class="event-wrapper">
+            <input type="checkbox" checked="" class="event-wrapper-inp" />
+            <div class="bar">
+              <span class="top bar-list"></span>
+              <span class="middle bar-list"></span>
+              <span class="bottom bar-list"></span>
+            </div>
+          <section class="menu-container">
+            <div class="menu-list"><i class="fas fa-house"></i><a href="index.html" style="text-decoration: none; color: inherit;">Home</a></div>
+            <div class="menu-list menu1"><i class="fas fa-envelope"></i>Contact me</div>
+            <div class="menu-list menu2"><i class="fas fa-folder-open"></i>Projects</div>
+            <div class="menu-list menu3"><i class="fas fa-wrench"></i>Tools</div>
+            <div class="menu-list menu4"><i class="fas fa-chart-line"></i><a href="#services" style="text-decoration: none; color: inherit;">Services</a></div>
+            <div class="menu-list menu5"><i class="fas fa-graduation-cap"></i>Learning Path</div>
+            <div class="menu-list menu6" id="cv-mobile"><i class="fas fa-download"></i>Download CV</div>
+            <div class="menu-list menu-darkmode"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span class="dm-label-light">Dark Mode</span><span class="dm-label-dark">Light Mode</span></div>
+          </section>
+        </label>
+
+      </div>
+    </header>
+
+    <main class="container">
+
+<!-- HERO SECTION: Turn Your Data into Strategy -->
+<section id="hero-section">
+    <div class="hero-content">
+        <!-- Badge -->
+        <span class="hero-badge">New: Free Data Assessment</span>
+
+        <!-- Main Headline -->
+        <h1>From Data Chaos to <span class="accent">Purposeful Decisions</span>.</h1>
+
+        <!-- Subtitle -->
+        <p class="subtitle">We turn your operational data into clear, actionable strategies so every investment can deliver meaningful business value.</p>
+
+        <!-- CTA Group -->
+        <div class="hero-cta-group">
+            <a href="#contact" class="cta-button primary-cta">
+                <span>Let's schedule a meeting</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="projects.html" class="cta-button secondary-cta">View success stories</a>
+        </div>
+
+        <p class="disclaimer">No commitment. We'll review your needs and identify opportunities.</p>
+    </div>
+
+    <!-- Interactive Mini Dashboard Visual -->
+    <div class="hero-visual">
+        <div class="dashboard-mockup" aria-label="Sample interactive dashboard with KPIs and sales charts">
+            <div class="dashboard-header">
+                <div class="dashboard-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="dashboard-title">Executive Dashboard — Sample Sales 2025</span>
+                <div style="width: 48px;"></div>
+            </div>
+            <div class="dashboard-grid">
+                <!-- KPI Cards -->
+                <div class="kpi-card">
+                    <span class="kpi-label">Total revenue</span>
+                    <span class="kpi-value" data-kpi="revenue">$361,000</span>
+                    <span class="kpi-trend">January–June total</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">New customers</span>
+                    <span class="kpi-value" data-kpi="customers">305</span>
+                    <span class="kpi-trend">January–June total</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Average order value</span>
+                    <span class="kpi-value" data-kpi="averageTicket">$1,184</span>
+                    <span class="kpi-trend">Per customer</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Estimated profit</span>
+                    <span class="kpi-value" data-kpi="profit">$119,000</span>
+                    <span class="kpi-trend">January–June total · sample data</span>
+                </div>
+
+                <!-- Interactive Bar Chart (Chart.js) -->
+                <div class="chart-container interactive-chart" role="region" aria-label="Interactive monthly sales bar chart">
+                    <div class="chart-header">
+                        <span class="chart-title">Monthly sales</span>
+                        <span class="chart-period">Jan–Jun 2025</span>
+                        <div class="chart-filter">
+                            <label for="metricFilter" class="visually-hidden">Chart metric</label>
+                            <select id="metricFilter" aria-label="Select a metric to display">
+                                <option value="revenue">Revenue (USD)</option>
+                                <option value="customers">New customers</option>
+                                <option value="averageTicket">Average order value (USD)</option>
+                                <option value="profit">Estimated profit (USD)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-canvas">
+                        <canvas id="heroBarChart" role="img" aria-label="Comparative monthly sales bar chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Line Chart -->
+                <div class="chart-container revenue-chart">
+                    <div class="chart-header">
+                        <span class="chart-title">Revenue trend</span>
+                        <span class="chart-period">Jan–Jun 2025 · USD</span>
+                    </div>
+                    <div class="chart-canvas">
+                        <canvas id="heroRevenueChart" role="img" aria-label="Monthly revenue line chart from January to June 2025"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- Floating particles -->
+            <div class="dashboard-particles" aria-hidden="true">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+      <!-- ═══════════════ SERVICES SECTION ═══════════════ -->
+      <section id="services" class="reveal">
+        <h2 class="section-title">Data Analysis Services</h2>
+        <p class="section-subtitle">Turn your data into strategic business decisions</p>
+
+        <div class="services-grid">
+          <!-- Card: Sales Dashboard -->
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="media/services/dashboard.jpg" alt="Sales dashboard" class="service-img">
+            </div>
+            <h3>Sales Dashboard</h3>
+            <p>Interactive sales performance dashboards with real-time KPI tracking, regional breakdowns, and trend analysis for a complete view of your business.</p>
+          </div>
+
+          <!-- Card: Operational Performance -->
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="media/services/operativeAnalysis.jpg" alt="Operational performance analysis" class="service-img">
+            </div>
+            <h3>Operational Performance</h3>
+            <p>Operational efficiency analysis, cost breakdowns, bottleneck identification, and ROI projections. Deliverables include executive reports with actionable recommendations and improvement metrics.</p>
+          </div>
+
+          <!-- Card: Results and Deliverables -->
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="media/services/entregables.jpg" alt="Analysis results and deliverables" class="service-img">
+            </div>
+            <h3>Results and Deliverables</h3>
+            <p>Comprehensive executive reports, data visualizations, and strategic summaries with clear action items and measurable outcomes. Each delivery includes a preliminary analysis, interactive dashboard, PDF report, and a 60-minute presentation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="service-packages" class="service-packages reveal" aria-labelledby="packages-title">
+        <div class="packages-heading">
+          <span class="packages-eyebrow">Solutions for every stage</span>
+          <h2 class="section-title" id="packages-title">Data Analysis Packages</h2>
+          <p class="section-subtitle">Start with a clear view of your data and progress toward predictive insights with solutions tailored to your business.</p>
+          <p class="worldwide-note"><i class="bx bx-globe" aria-hidden="true"></i> Fully remote services for clients worldwide</p>
+        </div>
+
+        <ol class="package-list">
+          <li class="package-card">
+            <div class="package-number" aria-hidden="true">01</div>
+            <div class="package-content">
+              <span class="package-level">Essentials</span>
+              <h3>Basic Analysis + Dashboard</h3>
+              <p>Organize your data and understand what's happening in your business with an initial analysis and an interactive dashboard.</p>
+              <ul>
+                <li>Basic data review and cleaning</li>
+                <li>Key metrics and Power BI visualizations</li>
+                <li>Summary of findings and initial recommendations</li>
+              </ul>
+              <a class="package-cta" href="https://wa.me/50670528947?text=Hello%2C%20I%27m%20interested%20in%20the%20basic%20analysis%20and%20dashboard%20package." target="_blank" rel="noopener noreferrer">Request this package <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+            </div>
+          </li>
+
+          <li class="package-card">
+            <div class="package-number" aria-hidden="true">02</div>
+            <div class="package-content">
+              <span class="package-level">Growth</span>
+              <h3>Business Intelligence &amp; Performance Analysis</h3>
+              <p>Connect multiple data sources and turn your metrics into an ongoing tool for tracking business performance.</p>
+              <ul>
+                <li>Integration and preparation of multiple data sources</li>
+                <li>Dashboard with filters, metrics, and trend analysis</li>
+                <li>Identification of improvement opportunities</li>
+              </ul>
+              <a class="package-cta" href="https://wa.me/50670528947?text=Hello%2C%20I%27m%20interested%20in%20the%20Business%20Intelligence%20and%20performance%20analysis%20package." target="_blank" rel="noopener noreferrer">Request this package <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+            </div>
+          </li>
+
+          <li class="package-card">
+            <div class="package-number" aria-hidden="true">03</div>
+            <div class="package-content">
+              <span class="package-level">Advanced</span>
+              <h3>Statistical Analysis &amp; Segmentation</h3>
+              <p>Explore your data in depth to understand patterns, customer segments, and the factors influencing your results.</p>
+              <ul>
+                <li>Exploratory and statistical analysis with Python</li>
+                <li>Segmentation and detection of meaningful patterns</li>
+                <li>Results report with actionable conclusions</li>
+              </ul>
+              <a class="package-cta" href="https://wa.me/50670528947?text=Hello%2C%20I%27m%20interested%20in%20the%20statistical%20analysis%20and%20segmentation%20package." target="_blank" rel="noopener noreferrer">Request this package <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+            </div>
+          </li>
+
+          <li class="package-card package-card-featured">
+            <div class="package-number" aria-hidden="true">04</div>
+            <div class="package-content">
+              <span class="package-level">Data Science</span>
+              <h3>Predictive Analytics &amp; Machine Learning</h3>
+              <p>Anticipate future scenarios with predictive models built around your data and business needs.</p>
+              <ul>
+                <li>Data assessment and definition of the prediction objective</li>
+                <li>Machine learning model development and validation</li>
+                <li>Presentation of predictions, limitations, and next steps</li>
+              </ul>
+              <a class="package-cta" href="https://wa.me/50670528947?text=Hello%2C%20I%27m%20interested%20in%20predictive%20analytics%20and%20machine%20learning%20services." target="_blank" rel="noopener noreferrer">Request a consultation <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+            </div>
+          </li>
+        </ol>
+
+        <p class="packages-footer-note">Each project is quoted based on your data, goals, and scope. <a href="mailto:gurdian2411@gmail.com?subject=Data%20services%20inquiry">Tell me what you need</a>.</p>
+      </section>
+
+      <section id="contact" class="portfolio-contact reveal" aria-labelledby="services-contact-title">
+        <div class="contact-heading">
+          <span class="contact-eyebrow">Let's discuss your project</span>
+          <h2 id="services-contact-title">Get in Touch</h2>
+          <p>Tell me what you need. I work remotely with clients around the world.</p>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-details">
+            <h3>Contact Information</h3>
+            <a class="contact-detail" href="mailto:gurdian2411@gmail.com">
+              <span class="contact-detail-icon"><i class="bx bx-envelope" aria-hidden="true"></i></span>
+              <span><small>Email</small><strong>gurdian2411@gmail.com</strong></span>
+            </a>
+            <a class="contact-detail" href="https://wa.me/50670528947" target="_blank" rel="noopener noreferrer">
+              <span class="contact-detail-icon"><i class="bx bx-message-rounded-dots" aria-hidden="true"></i></span>
+              <span><small>WhatsApp</small><strong>+506 7052 8947</strong></span>
+            </a>
+            <div class="contact-detail">
+              <span class="contact-detail-icon"><i class="bx bx-map" aria-hidden="true"></i></span>
+              <span><small>Location</small><strong>Alajuela, Costa Rica · Available worldwide</strong></span>
+            </div>
+            <h3 class="contact-social-title">Social Media</h3>
+            <div class="contact-social-links">
+              <a href="https://github.com/Arizael000" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bx bxl-github" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/in/arizaelcapote" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bx bxl-linkedin" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <form class="portfolio-contact-form" data-success-message="Message sent successfully. Thank you!" data-error-message="The message could not be sent. Please try again or email me directly.">
+            <div class="contact-fields">
+              <div class="contact-field">
+                <label for="services-contact-name">Full name</label>
+                <input id="services-contact-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+              </div>
+              <div class="contact-field">
+                <label for="services-contact-email">Email address</label>
+                <input id="services-contact-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+              </div>
+              <div class="contact-field">
+                <label for="services-contact-phone">Phone / WhatsApp <span>(optional)</span></label>
+                <input id="services-contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 000 0000">
+              </div>
+              <div class="contact-field">
+                <label for="services-contact-subject">Subject</label>
+                <input id="services-contact-subject" name="_subject" type="text" placeholder="Service inquiry" required>
+              </div>
+              <div class="contact-field contact-field-message">
+                <label for="services-contact-message">Message</label>
+                <textarea id="services-contact-message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+              </div>
+            </div>
+            <button class="contact-submit" type="submit"><span>Send Message</span><i class="bx bx-send" aria-hidden="true"></i></button>
+            <p class="contact-form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ═══════════════ FOOTER ═══════════════ -->
+      <footer id="contacto">
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="contactForm" method="POST">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+
+              <label for="email">Your email:</label>
+              <input type="email" id="email" name="email" required>
+
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" required></textarea>
+
+              <div id="buttons">
+                <button type="submit" id="submitBtn">Send</button>
+                <button type="button" id="cancelBtn">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="footer-inner">
+          <div class="footer-col footer-tagline">
+            <h4 id="frase">If we fail, then let's fail searching greatness.</h4>
+          </div>
+          <div class="footer-col footer-social">
+            <ul class="example-2">
+              <li class="icon-content">
+                <a href="https://www.linkedin.com/in/arizaelcapote" aria-label="LinkedIn" data-social="linkedin" target="_blank">
+                  <div class="filled"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16" xml:space="preserve">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" fill="currentColor"></path>
+                  </svg>
+                </a>
+                <div class="tooltip">LinkedIn</div>
+              </li>
+              <li class="icon-content">
+                <a href="https://github.com/Arizael000" aria-label="GitHub" data-social="github" target="_blank">
+                  <div class="filled"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" xml:space="preserve">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" fill="currentColor"></path>
+                  </svg>
+                </a>
+                <div class="tooltip">GitHub</div>
+              </li>
+              <li class="icon-content">
+                <a href="https://signal.me/#eu/p2Lv5_wmZ_m-IRaEsLGCnMsplVQzTfPbdWvP5k_72DjC_tCnJfNCmLXAbVd4S-3t" aria-label="Signal" data-social="signal" target="_blank">
+                  <div class="filled"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.27 4.15a7.87 7.87 0 0 1 3.5.814l.59-.59a.59.59 0 0 1 .834.834l-.5.5A7.85 7.85 0 0 1 19.85 12a7.877 7.877 0 0 1-.606 3.044l.606.606a.59.59 0 1 1-.835.834l-.588-.588A7.85 7.85 0 0 1 12 19.85a7.876 7.876 0 0 1-3.473-.805l-.614.614a.59.59 0 1 1-.834-.834l.532-.532A7.85 7.85 0 0 1 4.15 12c0-1.284.308-2.497.852-3.567l-.588-.588a.59.59 0 1 1 .834-.834l.57.57A7.853 7.853 0 0 1 12.27 4.15zm3.382 5.027-5.887 5.888-2.417-2.418a.786.786 0 1 0-1.111 1.11l2.972 2.973a.786.786 0 0 0 1.111 0l6.443-6.443a.786.786 0 1 0-1.111-1.11z" fill="currentColor" />
+                  </svg>
+                </a>
+                <div class="tooltip">Signal</div>
+              </li>
+              <li class="icon-content">
+                <a href="https://wa.me/50670528947" aria-label="WhatsApp" data-social="whatsapp" target="_blank">
+                  <div class="filled"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" fill="currentColor"/>
+                  </svg>
+                </a>
+                <div class="tooltip">WhatsApp</div>
+              </li>
+              <li class="icon-content">
+                <a href="mailto:gurdian2411@gmail.com" aria-label="Email" data-social="email" target="_blank">
+                  <div class="filled"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" fill="currentColor"/>
+                  </svg>
+                </a>
+                <div class="tooltip">Email</div>
+              </li>
+            </ul>
+            <p class="footer-copyright">Alajuela, Costa Rica &copy; <span id="footerYear">2026</span></p>
+          </div>
+          <div class="footer-col footer-info">
+            <p>My objective is to become a better Data Scientist every day.</p>
+            <button id="scrollUp">Contact me easier</button>
+          </div>
+        </div>
+      </footer>
+
+      <button id="scrollToTopBtn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+
+    </main>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/enlaces.js"></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/contactmeB.js"></script>
+    <script src="js/burguermenu.js"></script>
+    <script src="js/scrollReveal.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/dashboard-chart.js" defer></script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4a8656c19415498c9c5e637bb06bc267"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
