@@ -41,6 +41,16 @@ document.addEventListener('DOMContentLoaded', function () {
       desc: 'Thesis work: Raster parameter extraction algorithms built for a QGIS plugin: HYDRO_PROCESS M-SALD. Automation of parameter extraction'
     },
     {
+      title: 'Documental Report',
+      group: 'Dashboard',
+      badge: 'Export Operations',
+      img: 'media/dashboards/thumbs/reporte-documental.webp',
+      tags: ['Document Control', 'Packing List', 'Invoices'],
+      href: 'reporteDocumental.html',
+      cta: 'View report',
+      desc: 'Workflow dashboard for analyzing, reconciling and reviewing Packing List and invoice PDFs before export procedures.'
+    },
+    {
       title: 'Aside Dashboards Practice',
       group: 'Dashboard',
       badge: 'Power BI',
@@ -167,11 +177,20 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       body.appendChild(tags);
 
-      var btn = document.createElement(card.isDashboard ? 'button' : 'a');
-      btn.className = 'card-btn';
-      if (card.isDashboard) {
+      var btn;
+      if (card.href) {
+        btn = document.createElement('a');
+        btn.className = 'card-btn';
+        btn.href = card.href;
+        btn.textContent = card.cta || 'View';
+      } else if (card.isDashboard) {
+        btn = document.createElement('button');
+        btn.className = 'card-btn';
+        btn.type = 'button';
         btn.textContent = 'View';
       } else {
+        btn = document.createElement('a');
+        btn.className = 'card-btn';
         btn.href = card.link;
         btn.target = '_blank';
         btn.textContent = 'Code';
@@ -191,6 +210,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var idx = Array.prototype.indexOf.call(grid.children, cardEl);
     var data = cards[idx];
     if (!data) return;
+
+    if (data.href) {
+      window.location.href = data.href;
+      return;
+    }
 
     if (data.isDashboard) {
       if (modal && modalImg) {

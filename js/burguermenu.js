@@ -30,43 +30,59 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Contact me → scroll al footer
-  menu1.addEventListener("click", function () {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    closeAllMenus();
-  });
+  if (menu1) {
+    menu1.addEventListener("click", function () {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      closeAllMenus();
+    });
+  }
 
   // Projects → scroll a projects section
-  menu2.addEventListener("click", function () {
-    var target = document.getElementById('projects');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-    closeAllMenus();
-  });
-
-  // Tools → scroll a tools section
-  menu3.addEventListener("click", function () {
-    var target = document.getElementById('tools');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-    closeAllMenus();
-  });
-
-  // Services → scroll to the services section on the current page
-  menu4.addEventListener("click", function (event) {
-    var servicesAnchor = menu4.querySelector('a[href="#services"]');
-    if (servicesAnchor) {
-      event.preventDefault();
-      var target = document.getElementById('services');
+  if (menu2) {
+    menu2.addEventListener("click", function () {
+      var target = document.getElementById('projects');
       if (target) {
-        history.pushState(null, '', '#services');
         target.scrollIntoView({ behavior: 'smooth' });
       } else {
-        window.location.href = './#services';
+        window.location.href = './#projects';
       }
       closeAllMenus();
-      return;
-    }
+    });
+  }
 
-    window.location.href = 'learningpath.html';
-  });
+  // Tools → scroll a tools section
+  if (menu3) {
+    menu3.addEventListener("click", function () {
+      var target = document.getElementById('tools');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = './#tools';
+      }
+      closeAllMenus();
+    });
+  }
+
+  // Services → scroll to the services section on the current page
+  if (menu4) {
+    menu4.addEventListener("click", function (event) {
+      var servicesAnchor = menu4.querySelector('a[href="#services"]');
+      if (servicesAnchor) {
+        event.preventDefault();
+        var target = document.getElementById('services');
+        if (target) {
+          history.pushState(null, '', '#services');
+          target.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.href = './#services';
+        }
+        closeAllMenus();
+        return;
+      }
+
+      window.location.href = 'learningpath.html';
+    });
+  }
 
   // Learning Path → navigate to learningpath.html
   if (menu5) {

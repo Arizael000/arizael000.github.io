@@ -649,19 +649,19 @@
 
     /* Place the timelime to the left */
     .timeline::after {
-        left: 30px;
+        left: 22px;
     }
 
     /* Full-width containers */
     .timeline-container {
         width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
+        padding-left: 52px;
+        padding-right: 0;
     }
 
     /* Make sure all circles are at the same spot */
     .timeline-container::after {
-        left: 16.5px;
+        left: 8.5px;
     }
 
     /* Make all right containers behave like the left ones */
@@ -675,7 +675,29 @@
         display: none;
     }
 
+    .content {
+        padding: 1.5rem 1.25rem;
+    }
 
+    .content h2 {
+        font-size: 1.3rem;
+    }
+
+}
+
+@media (max-width: 600px) {
+    #lp-intro {
+        margin-top: 0;
+        padding: 2.5rem 1rem;
+    }
+
+    #lp-intro h1 {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    #lp-intro p {
+        font-size: 1rem;
+    }
 }
 
 .btn-download {
@@ -875,8 +897,19 @@
 
 @media (max-width: 480px) {
     .lp-summary-badges {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lp-summary-skills {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .btn-lp-view {
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -1009,6 +1042,11 @@
 }
 
 @media (max-width: 600px) {
+    .cert-info {
+        min-width: 0;
+        width: 100%;
+    }
+
     .cert-gallery-modal {
         padding: 0.5rem;
     }
@@ -1041,12 +1079,34 @@
     }
 
     .cert-actions {
-        flex-direction: column;
+        align-items: stretch;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
     }
 
-    .btn-verify {
+    .cert-row {
+        flex: 0 0 auto;
+        min-width: 0;
+    }
+
+    .cert-row .btn-verify {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
+    }
+
+    .cert-actions > .btn-verify {
         width: 100%;
         min-width: auto;
+        flex: 0 0 auto;
+    }
+
+    .content .btn-download {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        margin: 0.65rem 0 0;
     }
 }
 
