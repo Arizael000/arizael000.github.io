@@ -16,6 +16,8 @@ from pathlib import Path
 SPREADSHEET_ID = "19TxYbxkkO-JB68yoxrBlBN567YLAUtpJynyyog49b0c"
 SHEET_RANGE = "hojaPublica!A:L"
 SHEET_EPOCH = datetime(1899, 12, 30)
+WORKDAY_START_MINUTES = 8 * 60
+WORKDAY_END_MINUTES = 18 * 60
 METRIC_FIELDS = (
     "lateCorrections",
     "lateErrors",
@@ -69,8 +71,14 @@ def time_minutes(value):
     if parsed is None:
         return None
     if isinstance(parsed, time):
-        return parsed.hour * 60 + parsed.minute + parsed.second / 60
-    return parsed
+        minutes = parsed.hour * 60 + parsed.minute + parsed.second / 60
+    else:
+        minutes = parsed
+    if minutes < WORKDAY_START_MINUTES:
+        minutes += 12 * 60
+    if minutes < WORKDAY_START_MINUTES or minutes > WORKDAY_END_MINUTES:
+        raise ValueError("time is outside the expected 08:00-18:00 workday")
+    return minutes
 
 
 def parse_number(value, row_number, field):
@@ -115,7 +123,9 @@ def normalize_rows(values):
             start = time_minutes(cell("startTime"))
             end = time_minutes(cell("endTime"))
         except ValueError as error:
-            raise ValueError("row {} has invalid date, type, or time data.".format(row_number)) from error
+            raise ValueError(
+                "row {} has invalid date, type, or time data: {}.".format(row_number, error)
+            ) from error
         if not record_type:
             raise ValueError("row {} is missing its type.".format(row_number))
 
@@ -129,6 +139,8 @@ def normalize_rows(values):
             "date": record_date,
             "type": record_type,
             "processingMinutes": elapsed,
+            "startMinute": start,
+            "endMinute": end,
         }
         for field in METRIC_FIELDS:
             record[field] = parse_number(cell(field), row_number, field)
@@ -141,13 +153,104 @@ def normalize_rows(values):
     return list(by_id.values())
 
 
+def build_public_cases(records):
+    ordered = sorted(
+        records,
+        key=lambda record: (
+            record["date"],
+            record["startMinute"] is None,
+            record["startMinute"] if record["startMinute"] is not None else 0,
+            record["type"],
+        ),
+    )
+    cases = []
+    start_times = []
+    for index, record in enumerate(ordered, start=1):
+        cases.append({
+            "caseNumber": "Case {:03d}".format(index),
+            "date": record["date"],
+            "type": record["type"],
+            "startMinute": record["startMinute"],
+            "endMinute": record["endMinute"],
+            "durationMinutes": record["processingMinutes"],
+            "invoiceCount": record["fQuantity"],
+            "packingListCount": record["plQuantity"],
+            "overlapsWith": [],
+        })
+        if record["startMinute"] is None or record["processingMinutes"] is None:
+            start_times.append(None)
+        else:
+            day = datetime.strptime(record["date"], "%Y-%m-%d").date().toordinal()
+            start_times.append(day * 1440 + record["startMinute"])
+
+    for index, case in enumerate(cases):
+        start_at = start_times[index]
+        duration = case["durationMinutes"]
+        if start_at is None or duration is None or duration <= 0:
+            continue
+        end_at = start_at + duration
+        for other_index in range(index + 1, len(cases)):
+            other_start = start_times[other_index]
+            other_duration = cases[other_index]["durationMinutes"]
+            if other_start is None or other_duration is None or other_duration <= 0:
+                continue
+            if max(start_at, other_start) < min(end_at, other_start + other_duration):
+                case["overlapsWith"].append(cases[other_index]["caseNumber"])
+                cases[other_index]["overlapsWith"].append(case["caseNumber"])
+
+    return cases
+
+
+def mark_overlapping_starts(records):
+    events = []
+    for record in records:
+        start = record["startMinute"]
+        if start is None:
+            continue
+        start_at = parse_date(record["date"])
+        day = datetime.strptime(start_at, "%Y-%m-%d").date().toordinal()
+        start_at = day * 1440 + start
+        events.append((start_at, 1, record))
+        duration = record["processingMinutes"]
+        if duration is not None and duration > 0:
+            events.append((start_at + duration, 0, record))
+
+    events.sort(key=lambda event: (event[0], event[1]))
+    active_count = 0
+    index = 0
+    while index < len(events):
+        time_at, _, _ = events[index]
+        end_count = 0
+        start_records = []
+        while index < len(events) and events[index][0] == time_at:
+            _, event_type, record = events[index]
+            if event_type == 0:
+                end_count += 1
+            else:
+                start_records.append(record)
+            index += 1
+
+        active_count -= end_count
+        active_starts = sum(
+            1 for record in start_records
+            if record["processingMinutes"] is not None and record["processingMinutes"] > 0
+        )
+        for record in start_records:
+            is_active = record["processingMinutes"] is not None and record["processingMinutes"] > 0
+            if active_count + active_starts - int(is_active) > 0:
+                record["startedDuringAnother"] = True
+        active_count += active_starts
+
+
 def build_cache(values, generated_at=None):
     normalized = normalize_rows(values)
+    mark_overlapping_starts(normalized)
     grouped = defaultdict(
         lambda: {
             "recordCount": 0,
             "timedRecordCount": 0,
             "processingMinutes": 0.0,
+            "overlappingStartCount": 0,
             "lateCorrections": 0.0,
             "lateErrors": 0.0,
             "fQuantity": 0.0,
@@ -165,6 +268,8 @@ def build_cache(values, generated_at=None):
         if record["processingMinutes"] is not None:
             aggregate["timedRecordCount"] += 1
             aggregate["processingMinutes"] += record["processingMinutes"]
+        if record.get("startedDuringAnother"):
+            aggregate["overlappingStartCount"] += 1
         for field in METRIC_FIELDS:
             aggregate[field] += record[field]
 
@@ -179,6 +284,7 @@ def build_cache(values, generated_at=None):
             "recordCount": len(normalized),
         },
         "records": records,
+        "cases": build_public_cases(normalized),
     }
 
 

@@ -9,10 +9,11 @@ workflow**. GitHub may delay scheduled jobs during periods of high load.
 The **Refresh data** button explicitly requests the latest public-sheet values
 from the browser and updates the dashboard in memory. It does not write or
 commit the cache; a page reload returns to the latest scheduled cache. The live
-query excludes the `id` column and only aggregates rows by date and type. A
-failed request leaves the currently displayed data intact and reports the
-error. This manual refresh requires the sheet to allow link-based viewing and a
-browser connection to Google.
+query uses `id` only in memory to apply the same last-row-wins rule as the cache
+builder, then discards it before producing anonymized case summaries and
+aggregates by date and type. A failed request leaves the currently displayed
+data intact and reports the error. This manual refresh requires the sheet to
+allow link-based viewing and a browser connection to Google.
 
 ## Google Sheets source
 
@@ -24,12 +25,14 @@ using the Google Sheets API v4 range `hojaPublica!A:L`. Required headers are:
 `lateErrors`, `fQuantity`, `plQuantity`, `apportionmentQ`,
 `lateApportionment`, `changesPkgsWeightFreight`.
 
-The `id` column is used only by the refresh job to treat the last non-empty row
-for an ID as the current version. IDs are never written to the cache. The cache
-contains daily aggregates by `date` and `type`, with counts, metric totals,
-processing-time totals, and timed-record counts. It contains no row-level
-records, shipment identifiers, or shipment ranking. Because this cache is
-served by GitHub Pages, all aggregate values in it are public.
+The `id` column is used only to treat the last non-empty row for an ID as the
+current version. IDs are never written to the cache or rendered by the dashboard. The
+cache contains daily aggregates by `date` and `type`, plus case-level summaries
+with generated labels, date, type, start/end time, elapsed minutes, invoice and
+packing-list counts, and links to other generated labels whose time intervals
+overlap. The original IDs, counterparties, and shipment references are
+excluded. Because the case-level counts and timing are served by GitHub Pages,
+those details are public.
 
 ## One-time setup
 
@@ -42,8 +45,8 @@ served by GitHub Pages, all aggregate values in it are public.
    write access to contents. The scheduled job commits the cache only when it
    changes.
 4. Run the workflow manually once and check its result. The first run requires
-   the secret; until then the page shows that the cache is waiting for its
-   first refresh.
+   the secret. If it is unavailable, the site continues serving the latest
+   committed cache rather than discarding the previously published data.
 
 The sheet is currently shared with anyone who has its link. The API key does
 not make a public sheet private. Do not add shipment details or confidential
@@ -52,8 +55,32 @@ Pages is not an appropriate hosting target.
 
 ## Metrics and filters
 
-- Processing time is `endTime - startTime`, in minutes; intervals crossing
-  midnight are handled as overnight durations.
+- Processing time is `endTime - startTime`; source and cache totals are stored
+  in minutes, while averages in the dashboard are displayed in hours. Intervals
+  crossing midnight are handled as overnight durations.
+- This operation's valid workday is 08:00–18:00. Imported times before 08:00
+  are normalized by adding 12 hours when that places them within the workday
+  (for example, `1:43` becomes `13:43`); values still outside that range are
+  rejected rather than silently treated as valid durations. Case intervals are
+  displayed in 24-hour time.
+- In the live Google Visualization response, a date-only `Date(1899,11,30)`
+  value is an empty time cell, not midnight. Explicit midnight values include
+  time components and remain valid. If there are no complete start/end pairs,
+  the dashboard shows time metrics as unavailable instead of reporting zero.
+- Average processing time is the sum of durations divided by the number of
+  records with both start and end times.
+- A case is counted as started during another case when its start timestamp
+  falls within at least one other recorded processing interval. Cases starting
+  at the same time count as overlapping; intervals ending at that instant do
+  not.
+- The case analysis displays generated labels rather than source IDs.
+  `fQuantity` is shown as invoice count, and `plQuantity` as packing-list
+  count. Its minimum and maximum invoice filters narrow the cases in the
+  analysis. The duration chart can show individual cases or group cases with
+  the same elapsed duration to the nearest second; selecting a duration group
+  limits the table and **Case Details** navigation to that group. Cases with
+  any shared interval are listed on both cases, even when neither case started
+  inside the other's interval.
 - Error and correction rates are shown as total events per 100 records of each
   type. They can exceed 100 when a record contains multiple events.
 - Volume can be grouped by week (Monday start) or month.

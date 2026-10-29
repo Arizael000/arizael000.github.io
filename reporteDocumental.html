@@ -110,7 +110,7 @@
           <a class="rd-btn rd-btn--primary" href="#dashboard">
             View the dashboard <i class="bx bx-right-arrow-alt" aria-hidden="true"></i>
           </a>
-          <span class="rd-status"><span class="rd-status-dot" aria-hidden="true"></span> Prototype · sample data</span>
+          <span class="rd-status"><span class="rd-status-dot" aria-hidden="true"></span> Operational sheet · anonymized case labels</span>
         </div>
       </div>
 
@@ -149,7 +149,7 @@
 
         <p class="rd-scope-note">
           <i class="bx bx-info-circle" aria-hidden="true"></i>
-          The dashboard below uses fictional data until the official document source is connected.
+          The dashboard uses the published hojaPublica data. Case labels are generated, and source IDs and shipment references are omitted.
         </p>
       </aside>
     </section>
@@ -204,11 +204,11 @@
         <article class="rd-card rd-chart-card">
           <div class="rd-card-head">
             <div>
-              <h3>Average processing time by type</h3>
+              <h3>Average processing time per case by type</h3>
               <p>Elapsed time from startTime to endTime</p>
             </div>
           </div>
-          <div class="rd-chart-wrap"><canvas id="rd-time-chart" role="img" aria-label="Average processing time by type in minutes"></canvas></div>
+          <div class="rd-chart-wrap"><canvas id="rd-time-chart" role="img" aria-label="Average processing time by type in hours"></canvas></div>
         </article>
 
         <article class="rd-card rd-chart-card">
@@ -245,18 +245,110 @@
           <div class="rd-card-head">
             <div>
               <h3>Complexity vs. processing time</h3>
-              <p>Aggregated changesPkgsWeightFreight against average processing minutes</p>
+              <p>Aggregated changesPkgsWeightFreight against average processing hours</p>
             </div>
           </div>
           <div class="rd-chart-wrap"><canvas id="rd-complexity-chart" role="img" aria-label="Scatter plot of aggregated complexity against processing time by type and date"></canvas></div>
         </article>
       </div>
 
+      <section class="rd-time-analysis" aria-labelledby="rd-time-analysis-title">
+        <div class="rd-section-heading">
+          <div class="rd-section-copy">
+            <span class="rd-eyebrow"><i class="bx bx-stopwatch" aria-hidden="true"></i> Case-level analysis</span>
+            <h2 id="rd-time-analysis-title">Time spent on each case</h2>
+            <p>Explore each anonymized case interval, compare invoice volume with duration and inspect cases that overlapped.</p>
+          </div>
+        </div>
+
+        <p class="rd-dashboard-message rd-case-message" id="rd-case-message" role="status" aria-live="polite" hidden></p>
+        <div class="rd-kpi-grid rd-time-kpis" id="rd-time-kpis" aria-label="Case time analysis summary"></div>
+
+        <div class="rd-case-controls" aria-label="Case analysis filters">
+          <label class="rd-case-group-toggle" for="rd-group-duration">
+            <input id="rd-group-duration" type="checkbox">
+            <span>Group cases with identical elapsed time</span>
+          </label>
+          <div class="rd-case-invoice-filter">
+            <label for="rd-invoice-from">Invoices from</label>
+            <input id="rd-invoice-from" type="number" min="0" step="1" inputmode="numeric" placeholder="0">
+            <label for="rd-invoice-to">to</label>
+            <input id="rd-invoice-to" type="number" min="0" step="1" inputmode="numeric" placeholder="No limit">
+            <span>per case</span>
+          </div>
+          <button class="rd-case-reset" id="rd-clear-duration-group" type="button" hidden>Clear duration group</button>
+        </div>
+
+        <div class="rd-time-analysis-grid">
+          <article class="rd-card rd-chart-card rd-time-card--wide">
+            <div class="rd-card-head">
+              <div>
+                <h3 id="rd-case-timeline-title">Case overlap timeline</h3>
+                <p id="rd-case-timeline-description">Each bar is one case; red bars share time with another case. Select a bar for details.</p>
+              </div>
+              <span class="rd-card-badge"><span class="rd-legend-dot rd-legend-dot--overlap"></span>Overlapping</span>
+            </div>
+            <div class="rd-chart-wrap rd-case-timeline-wrap" id="rd-case-timeline-wrap">
+              <canvas id="rd-case-timeline-chart" role="img" aria-label="Interactive case timeline showing processing intervals and overlaps"></canvas>
+            </div>
+          </article>
+
+          <article class="rd-card rd-chart-card">
+            <div class="rd-card-head">
+              <div>
+                <h3>Invoices vs. time spent</h3>
+                <p>One point per case; hover or select a point to explore it.</p>
+              </div>
+            </div>
+            <div class="rd-chart-wrap"><canvas id="rd-case-invoice-chart" role="img" aria-label="Interactive scatter plot comparing invoice count and processing hours per case"></canvas></div>
+          </article>
+
+          <article class="rd-card rd-case-detail-card" aria-label="Selected case details">
+            <div class="rd-card-head">
+              <div>
+                <h3>Case details</h3>
+                <p>Inspect one case at a time; use the controls to move through the current results.</p>
+              </div>
+            </div>
+            <div class="rd-case-selected" id="rd-case-selected">
+              <i class="bx bx-pointer" aria-hidden="true"></i>
+              <p>Select a point in either chart or a case in the table to inspect its overlaps.</p>
+            </div>
+          </article>
+
+          <article class="rd-card rd-case-table-card rd-time-card--wide">
+            <div class="rd-card-head">
+              <div>
+                <h3>Every case, its invoices and its overlaps</h3>
+                <p>Invoice counts come from fQuantity. Source IDs and shipment references are not displayed.</p>
+              </div>
+            </div>
+            <div class="rd-table-wrap">
+              <table class="rd-table rd-case-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Case</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Start – end</th>
+                    <th scope="col">Elapsed</th>
+                    <th scope="col">Invoices</th>
+                    <th scope="col">Packing lists</th>
+                    <th scope="col">Overlaps with</th>
+                  </tr>
+                </thead>
+                <tbody id="rd-case-table-body"></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <article class="rd-card rd-privacy-note">
         <i class="bx bx-lock-alt" aria-hidden="true"></i>
         <div>
-          <h3>Shipment details are not published</h3>
-          <p>This public dashboard uses aggregated metrics only. Row IDs and shipment-level rankings are excluded from the generated cache.</p>
+          <h3>Case details are anonymized</h3>
+          <p>Time intervals, type, invoice and packing-list counts are shown with generated case labels. Source IDs, counterparties and shipment references are never included.</p>
         </div>
       </article>
 
