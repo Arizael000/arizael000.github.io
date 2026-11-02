@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
         cv.addEventListener("click", function(e){
             e.preventDefault();
             const link = document.createElement('a');
-            link.href = "https://drive.google.com/uc?export=download&id=1bs1t4SCVyeBYXhl8vJ9dcObLAS3L9yh9";
-            link.setAttribute('download', 'CV_ArizaelGC.pdf');
+            link.href = "https://drive.google.com/uc?export=download&id=1BcxryXFLpVIa15o7ncJeOCYZ5rJt0voO";
+            link.setAttribute('download', 'ESCV_ArizaelGC.pdf');
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
