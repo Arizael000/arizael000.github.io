@@ -53,7 +53,7 @@ class ReporteDocumentalCacheTests(unittest.TestCase):
         self.assertAlmostEqual(parse_time(0.5), 720)
         self.assertEqual(parse_time(0), 0)
 
-    def test_normalizes_early_sheet_times_to_afternoon_within_workday(self):
+    def test_uses_sheet_times_literally_across_the_full_day(self):
         values = [
             HEADERS,
             ["20/10/2026", "early-start", "Land", "1:43", "13:55", 0, 0, 1, 1, 0, 0, 0],
@@ -62,21 +62,53 @@ class ReporteDocumentalCacheTests(unittest.TestCase):
         ]
 
         cases = build_cache(values)["cases"]
-        self.assertEqual(cases[0]["startMinute"], 823)
-        self.assertEqual(cases[0]["durationMinutes"], 12)
-        self.assertEqual(cases[1]["startMinute"], 770)
-        self.assertEqual(cases[1]["durationMinutes"], 17)
-        self.assertEqual(cases[2]["startMinute"], 823)
-        self.assertAlmostEqual(cases[2]["durationMinutes"], 12)
+        self.assertEqual(cases[0]["startMinute"], 103)
+        self.assertEqual(cases[0]["endMinute"], 835)
+        self.assertEqual(cases[0]["durationMinutes"], 732)
+        self.assertEqual(cases[1]["startMinute"], 50)
+        self.assertEqual(cases[1]["endMinute"], 787)
+        self.assertEqual(cases[1]["durationMinutes"], 737)
+        self.assertAlmostEqual(cases[2]["startMinute"], 103)
+        self.assertAlmostEqual(cases[2]["endMinute"], 835)
+        self.assertAlmostEqual(cases[2]["durationMinutes"], 732)
 
-    def test_rejects_times_outside_expected_workday(self):
+    def test_accepts_overtime_and_overnight_hours(self):
         values = [
             HEADERS,
-            ["20/10/2026", "late-start", "Land", "18:01", "18:10", 0, 0, 1, 1, 0, 0, 0],
+            ["20/10/2026", "evening", "Land", "17:27", "18:06", 0, 0, 1, 1, 0, 0, 0],
+            ["20/10/2026", "late", "Land", "18:30", "20:15", 0, 0, 1, 1, 0, 0, 0],
+            ["21/10/2026", "overnight", "Sea", "22:00", "1:30", 0, 0, 1, 1, 0, 0, 0],
+            ["22/10/2026", "early", "Sea", "6:00", "7:00", 0, 0, 1, 1, 0, 0, 0],
+            ["22/10/2026", "midnight", "Sea", "23:59", "0:00", 0, 0, 1, 1, 0, 0, 0],
         ]
 
-        with self.assertRaisesRegex(ValueError, "outside the expected 08:00-18:00 workday"):
-            build_cache(values)
+        cache = build_cache(values)
+        self.assertEqual(cache["meta"]["recordCount"], 5)
+        cases = {case["caseNumber"]: case for case in cache["cases"]}
+        self.assertEqual(cases["Case 001"]["startMinute"], 17 * 60 + 27)
+        self.assertEqual(cases["Case 001"]["endMinute"], 18 * 60 + 6)
+        self.assertEqual(cases["Case 001"]["durationMinutes"], 39)
+        self.assertEqual(cases["Case 002"]["startMinute"], 18 * 60 + 30)
+        self.assertEqual(cases["Case 002"]["endMinute"], 20 * 60 + 15)
+        self.assertEqual(cases["Case 002"]["durationMinutes"], 105)
+        self.assertEqual(cases["Case 003"]["startMinute"], 22 * 60)
+        self.assertEqual(cases["Case 003"]["endMinute"], 90)
+        self.assertEqual(cases["Case 003"]["durationMinutes"], 210)
+        self.assertEqual(cases["Case 004"]["startMinute"], 6 * 60)
+        self.assertEqual(cases["Case 004"]["durationMinutes"], 60)
+        self.assertEqual(cases["Case 005"]["startMinute"], 23 * 60 + 59)
+        self.assertEqual(cases["Case 005"]["endMinute"], 0)
+        self.assertEqual(cases["Case 005"]["durationMinutes"], 1)
+
+    def test_rejects_invalid_time_values(self):
+        for invalid in ("24:00", "12:60"):
+            values = [
+                HEADERS,
+                ["20/10/2026", "bad-time", "Land", invalid, "13:00", 0, 0, 1, 1, 0, 0, 0],
+            ]
+
+            with self.assertRaisesRegex(ValueError, "invalid date, type, or time data"):
+                build_cache(values)
 
     def test_workday_durations_are_included(self):
         values = [

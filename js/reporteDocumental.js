@@ -115,7 +115,9 @@
 
   function formatCaseTime(value) {
     if (value === null || value === undefined) return '—';
-    var totalMinutes = Math.round(value) % 1440;
+    var numeric = Number(value);
+    if (!Number.isFinite(numeric)) return '—';
+    var totalMinutes = Math.floor(Math.round(numeric * 60) / 60) % 1440;
     var hours = Math.floor(totalMinutes / 60);
     var minutes = totalMinutes % 60;
     return String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0');
@@ -229,14 +231,14 @@
   function parseGvizTime(value) {
     if (value === null || value === undefined || value === '') return null;
     if (typeof value === 'number' && Number.isFinite(value)) {
-      return normalizeWorkingTime((value % 1) * 1440);
+      return normalizeTimeMinutes((value % 1) * 1440);
     }
     if (typeof value !== 'string') throw new Error('The live sheet returned an invalid time.');
     var match = value.match(/^Date\((\d{4}),(\d{1,2}),(\d{1,2})(?:,(\d{1,2}))?(?:,(\d{1,2}))?(?:,(\d{1,2}))?/);
     if (match) {
       if (Number(match[1]) === 1899 && Number(match[2]) === 11 && Number(match[3]) === 30 &&
           !match[4] && !match[5] && !match[6]) return null;
-      return normalizeWorkingTimeParts(
+      return normalizeTimeParts(
         Number(match[4] || 0),
         Number(match[5] || 0),
         Number(match[6] || 0)
@@ -244,7 +246,7 @@
     }
     match = value.match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
     if (match) {
-      return normalizeWorkingTimeParts(
+      return normalizeTimeParts(
         Number(match[1]),
         Number(match[2]),
         Number(match[3] || 0)
@@ -253,20 +255,16 @@
     throw new Error('The live sheet returned an unsupported time format.');
   }
 
-  function normalizeWorkingTimeParts(hours, minutes, seconds) {
+  function normalizeTimeParts(hours, minutes, seconds) {
     if (hours > 23 || minutes > 59 || seconds > 59) {
       throw new Error('The live sheet returned an invalid time value.');
     }
-    return normalizeWorkingTime(hours * 60 + minutes + seconds / 60);
+    return normalizeTimeMinutes(hours * 60 + minutes + seconds / 60);
   }
 
-  function normalizeWorkingTime(minutes) {
+  function normalizeTimeMinutes(minutes) {
     if (!Number.isFinite(minutes) || minutes < 0 || minutes >= 1440) {
       throw new Error('The live sheet returned an invalid time value.');
-    }
-    if (minutes < 8 * 60) minutes += 12 * 60;
-    if (minutes < 8 * 60 || minutes > 18 * 60) {
-      throw new Error('The live sheet returned a time outside the expected 08:00–18:00 workday.');
     }
     return minutes;
   }

@@ -58,11 +58,13 @@ Pages is not an appropriate hosting target.
 - Processing time is `endTime - startTime`; source and cache totals are stored
   in minutes, while averages in the dashboard are displayed in hours. Intervals
   crossing midnight are handled as overnight durations.
-- This operation's valid workday is 08:00–18:00. Imported times before 08:00
-  are normalized by adding 12 hours when that places them within the workday
-  (for example, `1:43` becomes `13:43`); values still outside that range are
-  rejected rather than silently treated as valid durations. Case intervals are
-  displayed in 24-hour time.
+- Every clock time from 00:00 to 23:59 is valid. Entries outside the usual
+  08:00–18:00 workday (for example overtime or early starts) are used exactly as
+  stored: they are not shifted, reclassified, or rejected because of their hour.
+  Case intervals are displayed in 24-hour time. Only malformed values (for
+  example `24:00` or `12:60`) are rejected. Because the dashboard no longer
+  guesses between AM and PM, the sheet must store ambiguous times in an
+  unambiguous way (24-hour input or an explicit AM/PM marker).
 - In the live Google Visualization response, a date-only `Date(1899,11,30)`
   value is an empty time cell, not midnight. Explicit midnight values include
   time components and remain valid. If there are no complete start/end pairs,

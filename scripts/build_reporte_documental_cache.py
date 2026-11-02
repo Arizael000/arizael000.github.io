@@ -16,8 +16,6 @@ from pathlib import Path
 SPREADSHEET_ID = "19TxYbxkkO-JB68yoxrBlBN567YLAUtpJynyyog49b0c"
 SHEET_RANGE = "hojaPublica!A:L"
 SHEET_EPOCH = datetime(1899, 12, 30)
-WORKDAY_START_MINUTES = 8 * 60
-WORKDAY_END_MINUTES = 18 * 60
 METRIC_FIELDS = (
     "lateCorrections",
     "lateErrors",
@@ -74,10 +72,8 @@ def time_minutes(value):
         minutes = parsed.hour * 60 + parsed.minute + parsed.second / 60
     else:
         minutes = parsed
-    if minutes < WORKDAY_START_MINUTES:
-        minutes += 12 * 60
-    if minutes < WORKDAY_START_MINUTES or minutes > WORKDAY_END_MINUTES:
-        raise ValueError("time is outside the expected 08:00-18:00 workday")
+    if not math.isfinite(minutes) or minutes < 0 or minutes >= 1440:
+        raise ValueError("invalid time value")
     return minutes
 
 
