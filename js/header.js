@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Scroll Spy — progressive underline based on scroll progress
+  if (window.location.pathname.toLowerCase().endsWith('reportedocumental.html')) return;
+
+  // Scroll spy follows the section with the largest visible area.
   const watchedLinks = document.querySelectorAll('.navlink[data-watch]');
   if (watchedLinks.length === 0) return;
 
@@ -37,26 +39,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const ids = link.getAttribute('data-watch').split(',');
     ids.forEach(id => {
       id = id.trim();
-      if (!id) return;
+      if (!id || !document.getElementById(id)) return;
       if (!sectionMap.has(id)) sectionMap.set(id, []);
       sectionMap.get(id).push(link);
     });
   });
 
   const sectionOrder = [...new Set(sectionMap.keys())];
+  const observedLinks = new Set([...sectionMap.values()].flat());
+  if (sectionOrder.length === 0) return;
 
-  function getSectionBounds(id) {
+  function getSectionVisibleArea(id, viewportTop, viewportBottom, viewportWidth) {
     const el = document.getElementById(id);
     if (!el) return null;
     const rect = el.getBoundingClientRect();
     return {
-      top: rect.top + window.scrollY,
-      bottom: rect.bottom + window.scrollY
+      area: Math.max(0, Math.min(rect.bottom, viewportBottom) - Math.max(rect.top, viewportTop)) *
+        Math.max(0, Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0)),
+      centerDistance: Math.abs((rect.top + rect.bottom) / 2 - (viewportTop + viewportBottom) / 2),
+      top: rect.top,
+      bottom: rect.bottom
     };
   }
 
   function setActive(sectionId, progress) {
-    watchedLinks.forEach(link => {
+    observedLinks.forEach(link => {
       link.classList.remove('active');
       link.style.removeProperty('--underline-progress');
     });
@@ -69,50 +76,57 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateActiveSection() {
-    const scrollY = window.scrollY;
-    const viewportH = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
-
-    // Bottom of page → last section, progress 1
-    const lastId = sectionOrder[sectionOrder.length - 1];
-    if (scrollY + viewportH >= docHeight - 1 && document.getElementById(lastId)) {
-      setActive(lastId, 1);
+    const header = document.querySelector('header');
+    const viewportTop = header ? header.getBoundingClientRect().bottom : 0;
+    const viewportBottom = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+    const pageBottom = document.documentElement.scrollHeight;
+    if (window.scrollY + viewportBottom >= pageBottom - 1) {
+      setActive(null, 0);
       return;
     }
 
-    // Find containing section and calculate progress
-    for (let i = 0; i < sectionOrder.length; i++) {
-      const bounds = getSectionBounds(sectionOrder[i]);
-      if (!bounds) continue;
+    let activeSection = null;
+    let largestVisibleArea = 0;
+    let activeCenterDistance = Infinity;
+    let nearestSection = null;
+    let nearestDistance = Infinity;
 
-      if (scrollY >= bounds.top && scrollY < bounds.bottom) {
-        const progress = (scrollY - bounds.top) / (bounds.bottom - bounds.top);
-        setActive(sectionOrder[i], Math.min(1, Math.max(0, progress)));
+    sectionOrder.forEach(sectionId => {
+      const bounds = getSectionVisibleArea(sectionId, viewportTop, viewportBottom, viewportWidth);
+      if (!bounds) return;
+
+      if (bounds.area > largestVisibleArea ||
+          (bounds.area === largestVisibleArea && bounds.area > 0 && bounds.centerDistance < activeCenterDistance)) {
+        activeSection = sectionId;
+        largestVisibleArea = bounds.area;
+        activeCenterDistance = bounds.centerDistance;
+      }
+
+      const distance = bounds.bottom < viewportTop
+        ? viewportTop - bounds.bottom
+        : bounds.top > viewportBottom
+          ? bounds.top - viewportBottom
+          : 0;
+      if (distance < nearestDistance || !nearestSection) {
+        nearestSection = sectionId;
+        nearestDistance = distance;
+      }
+    });
+
+    const footer = document.querySelector('footer');
+    if (footer) {
+      const rect = footer.getBoundingClientRect();
+      const footerVisibleArea =
+        Math.max(0, Math.min(rect.bottom, viewportBottom) - Math.max(rect.top, viewportTop)) *
+        Math.max(0, Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0));
+      if (footerVisibleArea > largestVisibleArea) {
+        setActive(null, 0);
         return;
       }
     }
 
-    // Between sections — find nearest (only if at least one section exists)
-    let nearest = null;
-    let nearestProgress = 0;
-    let nearestDist = Infinity;
-
-    for (let i = 0; i < sectionOrder.length; i++) {
-      const bounds = getSectionBounds(sectionOrder[i]);
-      if (!bounds) continue;
-
-      const dTop = Math.abs(scrollY - bounds.top);
-      const dBot = Math.abs(scrollY - bounds.bottom);
-      const dist = Math.min(dTop, dBot);
-
-      if (dist < nearestDist) {
-        nearestDist = dist;
-        nearest = sectionOrder[i];
-        nearestProgress = dTop < dBot ? 0 : 1;
-      }
-    }
-
-    if (nearest) setActive(nearest, nearestProgress);
+    setActive(activeSection || nearestSection, 1);
   }
 
   // Throttled scroll listener
@@ -126,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ticking = true;
     }
   });
+  window.addEventListener('resize', updateActiveSection);
 
   // Initial state
   updateActiveSection();
