@@ -12,14 +12,15 @@ commit the cache; a page reload returns to the latest scheduled cache. The live
 query uses `id` only in memory to apply the same last-row-wins rule as the cache
 builder, then discards it before producing anonymized case summaries and
 aggregates by date and type. A failed request leaves the currently displayed
-data intact and reports the error. This manual refresh requires the sheet to
-allow link-based viewing and a browser connection to Google.
+data intact and reports the error. Both refresh methods require the sheet to
+allow link-based viewing.
 
 ## Google Sheets source
 
 The refresh script reads the public, shipment-free sheet
 [hojaPublica](https://docs.google.com/spreadsheets/d/19TxYbxkkO-JB68yoxrBlBN567YLAUtpJynyyog49b0c/edit?usp=sharing)
-using the Google Sheets API v4 range `hojaPublica!A:L`. Required headers are:
+through Google's public Visualization endpoint for the `hojaPublica` tab.
+Required headers are:
 
 `date`, `id`, `type`, `startTime`, `endTime`, `lateCorrections`,
 `lateErrors`, `fQuantity`, `plQuantity`, `apportionmentQ`,
@@ -34,24 +35,19 @@ overlap. The original IDs, counterparties, and shipment references are
 excluded. Because the case-level counts and timing are served by GitHub Pages,
 those details are public.
 
-## One-time setup
+## Workflow setup
 
-1. In Google Cloud Console, enable **Google Sheets API** for a project and
-   create an API key. Restrict the key to the Google Sheets API. Do not put it
-   in HTML, JavaScript, the generated cache, or this repository.
-2. In the GitHub repository, add an Actions repository secret named
-   `GOOGLE_SHEETS_API_KEY` with that key.
-3. Ensure Actions are enabled and repository workflow permissions allow
-   write access to contents. The scheduled job commits the cache only when it
-   changes.
-4. Run the workflow manually once and check its result. The first run requires
-   the secret. If it is unavailable, the site continues serving the latest
-   committed cache rather than discarding the previously published data.
+The sheet is publicly readable, so the scheduled workflow uses Google's public
+Visualization endpoint and does not require an API key or GitHub secret.
+Ensure Actions are enabled and the workflow has permission to write repository
+contents; it commits the cache only when the data changes. Run the workflow
+manually from **Actions → Refresh operational dashboard cache → Run workflow**
+to publish an update immediately. If fetching or validating the sheet fails,
+the workflow fails and the previously committed cache remains available.
 
-The sheet is currently shared with anyone who has its link. The API key does
-not make a public sheet private. Do not add shipment details or confidential
-values to this source; if the aggregates themselves must be private, GitHub
-Pages is not an appropriate hosting target.
+The sheet is currently shared with anyone who has its link. Do not add
+shipment details or confidential values to this source; if the aggregates
+themselves must be private, GitHub Pages is not an appropriate hosting target.
 
 ## Metrics and filters
 
@@ -92,5 +88,5 @@ Pages is not an appropriate hosting target.
   this source omits shipment identifiers.
 
 The script validates the required headers and values before atomically replacing
-the cache. If the API request or validation fails, the workflow fails and the
+the cache. If the sheet request or validation fails, the workflow fails and the
 previous cache remains available.

@@ -1,7 +1,13 @@
 import json
 import unittest
 
-from scripts.build_reporte_documental_cache import build_cache, parse_date, parse_time
+from scripts.build_reporte_documental_cache import (
+    build_cache,
+    parse_date,
+    parse_gviz_response,
+    parse_time,
+    time_minutes,
+)
 
 
 HEADERS = [
@@ -52,6 +58,25 @@ class ReporteDocumentalCacheTests(unittest.TestCase):
         self.assertEqual(parse_date(46315), "2026-10-20")
         self.assertAlmostEqual(parse_time(0.5), 720)
         self.assertEqual(parse_time(0), 0)
+
+    def test_parses_gviz_dates_and_times(self):
+        self.assertEqual(parse_date("Date(2026,9,20)"), "2026-10-20")
+        self.assertIsNone(parse_time("Date(1899,11,30)"))
+        self.assertEqual(time_minutes("Date(1899,11,30,0,0,0)"), 0)
+        self.assertEqual(time_minutes("Date(1899,11,30,9,30,0)"), 570)
+
+    def test_parses_gviz_query_response(self):
+        response = (
+            'google.visualization.Query.setResponse({"status":"ok","table":{'
+            '"cols":[{"label":"date"},{"label":"id"}],'
+            '"rows":[{"c":[{"v":"Date(2026,9,20)"},{"v":"case-1"}]}]'
+            '}});'
+        )
+
+        self.assertEqual(
+            parse_gviz_response(response),
+            [["date", "id"], ["Date(2026,9,20)", "case-1"]],
+        )
 
     def test_uses_sheet_times_literally_across_the_full_day(self):
         values = [

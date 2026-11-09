@@ -3,7 +3,7 @@
 
 import json
 import math
-import os
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -36,6 +36,10 @@ def parse_date(value):
         return (SHEET_EPOCH + timedelta(days=float(value))).date().isoformat()
 
     text = str(value).strip()
+    gviz_date = re.match(r"^Date\((\d{4}),(\d{1,2}),(\d{1,2})", text)
+    if gviz_date:
+        year, month, day = (int(part) for part in gviz_date.groups())
+        return datetime(year, month + 1, day).date().isoformat()
     for pattern in ("%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y", "%d-%m-%Y"):
         try:
             return datetime.strptime(text, pattern).date().isoformat()
@@ -53,6 +57,21 @@ def parse_time(value):
         return (float(value) % 1) * 1440
 
     text = str(value).strip()
+    gviz_time = re.match(
+        r"^Date\((\d{4}),(\d{1,2}),(\d{1,2})(?:,(\d{1,2}))?(?:,(\d{1,2}))?(?:,(\d{1,2}))?\)",
+        text,
+    )
+    if gviz_time:
+        year, month, day = (int(part) for part in gviz_time.groups()[:3])
+        time_parts = gviz_time.groups()[3:]
+        if (year, month, day) == (1899, 11, 30) and not any(
+            part is not None for part in time_parts
+        ):
+            return None
+        hour, minute, second = (
+            int(part or 0) for part in gviz_time.groups()[3:]
+        )
+        return time(hour, minute, second)
     for pattern in ("%H:%M:%S", "%H:%M", "%I:%M:%S %p", "%I:%M %p"):
         try:
             return datetime.strptime(text, pattern).time()
@@ -284,25 +303,56 @@ def build_cache(values, generated_at=None):
     }
 
 
-def fetch_sheet_values(api_key):
-    quoted_range = urllib.parse.quote(SHEET_RANGE, safe="!")
+def parse_gviz_response(response_body):
+    json_start = response_body.find("{")
+    json_end = response_body.rfind("}")
+    if json_start < 0 or json_end <= json_start:
+        raise RuntimeError("Google Sheets returned an unreadable response.")
+    try:
+        payload = json.loads(response_body[json_start : json_end + 1])
+    except json.JSONDecodeError as error:
+        raise RuntimeError("Google Sheets returned invalid JSON.") from error
+
+    table = payload.get("table")
+    if payload.get("status") != "ok" or not isinstance(table, dict):
+        raise RuntimeError("Google Sheets could not return the public sheet data.")
+    columns = table.get("cols")
+    rows = table.get("rows")
+    if not isinstance(columns, list) or not isinstance(rows, list):
+        raise RuntimeError("Google Sheets returned an invalid table.")
+
+    headers = [str(column.get("label", "")).strip() for column in columns]
+    values = [headers]
+    for row in rows:
+        cells = row.get("c") or []
+        values.append([
+            cell.get("v", "") if cell and cell.get("v") is not None else ""
+            for cell in cells
+        ])
+    return values
+
+
+def fetch_sheet_values():
     query = urllib.parse.urlencode(
         {
-            "majorDimension": "ROWS",
-            "valueRenderOption": "UNFORMATTED_VALUE",
-            "key": api_key,
+            "tqx": "out:json",
+            "sheet": SHEET_RANGE.split("!", 1)[0],
+            "tq": "select A,B,C,D,E,F,G,H,I,J,K,L",
         }
     )
-    url = "https://sheets.googleapis.com/v4/spreadsheets/{}/values/{}?{}".format(
-        SPREADSHEET_ID, quoted_range, query
+    url = "https://docs.google.com/spreadsheets/d/{}/gviz/tq?{}".format(
+        SPREADSHEET_ID, query
     )
-    request = urllib.request.Request(url, headers={"Accept": "application/json"})
+    request = urllib.request.Request(
+        url,
+        headers={"Accept": "application/javascript"},
+    )
 
     for attempt in range(3):
         try:
             with urllib.request.urlopen(request, timeout=30) as response:
-                payload = json.load(response)
-            return payload.get("values", [])
+                response_body = response.read().decode("utf-8")
+            return parse_gviz_response(response_body)
         except urllib.error.HTTPError as error:
             if error.code in (429, 500, 502, 503, 504) and attempt < 2:
                 import time as time_module
@@ -310,8 +360,8 @@ def fetch_sheet_values(api_key):
                 time_module.sleep(2**attempt)
                 continue
             raise RuntimeError(
-                "Google Sheets API returned HTTP {}. Check API enablement, key restrictions, "
-                "and sheet access.".format(error.code)
+                "Google Sheets returned HTTP {}. Check that the sheet is publicly "
+                "accessible.".format(error.code)
             ) from None
         except (urllib.error.URLError, TimeoutError) as error:
             if attempt < 2:
@@ -320,19 +370,13 @@ def fetch_sheet_values(api_key):
                 time_module.sleep(2**attempt)
                 continue
             raise RuntimeError(
-                "Could not reach the Google Sheets API: {}.".format(error.reason)
+                "Could not reach Google Sheets: {}.".format(error.reason)
             ) from None
-        except json.JSONDecodeError as error:
-            raise RuntimeError("Google Sheets API returned invalid JSON.") from error
-    raise RuntimeError("Google Sheets API request failed after retries.")
+    raise RuntimeError("Google Sheets request failed after retries.")
 
 
 def main():
-    api_key = os.environ.get("GOOGLE_SHEETS_API_KEY", "").strip()
-    if not api_key:
-        raise RuntimeError("Set the GOOGLE_SHEETS_API_KEY environment variable.")
-
-    cache = build_cache(fetch_sheet_values(api_key))
+    cache = build_cache(fetch_sheet_values())
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     temporary_path = OUTPUT_PATH.with_suffix(".json.tmp")
     temporary_path.write_text(

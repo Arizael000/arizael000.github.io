@@ -415,6 +415,14 @@ main.rd-main {
   white-space: nowrap;
 }
 
+.rd-refresh-note {
+  flex-basis: 100%;
+  color: #6b7f82;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  text-align: right;
+}
+
 /* KPI cards */
 .rd-kpi-grid {
   display: grid;
@@ -1252,6 +1260,7 @@ main.rd-main {
 
 :is(.dark-mode) .rd-status,
 :is(.dark-mode) .rd-updated,
+:is(.dark-mode) .rd-refresh-note,
 :is(.dark-mode) .rd-kpi-label,
 :is(.dark-mode) .rd-flow-meta,
 :is(.dark-mode) .rd-table-date,

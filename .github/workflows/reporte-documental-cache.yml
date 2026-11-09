@@ -29,8 +29,6 @@ jobs:
         run: python -m unittest discover -s tests -t .
 
       - name: Fetch and aggregate public-sheet data
-        env:
-          GOOGLE_SHEETS_API_KEY: ${{ secrets.GOOGLE_SHEETS_API_KEY }}
         run: python scripts/build_reporte_documental_cache.py
 
       - name: Commit changed aggregate cache

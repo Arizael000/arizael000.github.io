@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
       group: 'Project',
       badge: 'Data Analysis',
       img: 'media/projects/medicalDevices.webp',
-      character: 'media/projects/medicalDevices2.png',
+      imgHover: 'media/projects/medicalDevices2.png',
       tags: ['Python', 'Pandas', 'Power BI'],
       link: 'https://github.com/Arizael000/faulty-mdevices',
       desc: 'Analysis of medical device failure reports with Pandas and Power BI'
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
       group: 'Project',
       badge: 'Data Science',
       img: 'media/projects/LogisticForecast.jpg',
-      character: 'media/projects/pronostic.jpg',
+      imgHover: 'media/projects/pronostic.jpg',
       tags: ['Python', 'Scikit-learn', 'Power BI'],
       link: 'https://github.com/Arizael000/logisticPrediction',
       desc: 'Time series forecasting using Scikit-learn with interactive dashboards that helped to avoid overstock and pronostic an 13% grow '
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
       group: 'Project',
       badge: 'Desktop solution',
       img: 'media/projects/proyecto-qr-generator-scan.webp',
-      character: 'media/projects/proyecto-qr-generator-icono.webp',
+      imgHover: 'media/projects/proyecto-qr-generator-icono.webp',
       tags: ['Python', 'Tkinter', 'Pillow'],
       link: 'https://github.com/Arizael000/QR-Generator',
       desc: 'Desktop application for QR code generation and scanning with Tkinter.Helped to avoid payments in another plataforms creating static QR'
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
       group: 'Project',
       badge: 'GIS / Analysis',
       img: 'media/projects/proyecto-qgis-params-fondo.webp',
-      character: 'media/projects/proyecto-qgis-params-icono-raster.webp',
+      imgHover: 'media/projects/proyecto-qgis-params-icono-raster.webp',
       tags: ['Python', 'QGIS', 'Raster'],
       link: 'https://github.com/Arizael000/Parameters-Extraction-in-QGIS',
       desc: 'Thesis work: Raster parameter extraction algorithms built for a QGIS plugin: HYDRO_PROCESS M-SALD. Automation of parameter extraction'
@@ -88,9 +88,40 @@ document.addEventListener('DOMContentLoaded', function () {
   var grid = document.getElementById('projectsGrid');
   if (!grid) return;
 
+  var imageTileColumns = 6;
+  var imageTileRows = 5;
   var modal = document.getElementById('dashModal');
   var modalImg = modal && modal.querySelector('img');
   var closeBtn = modal && modal.querySelector('.dash-modal-close');
+
+  function createImageTiles(imageUrl, layerClass) {
+    var layer = document.createElement('div');
+    layer.className = 'project-image-tiles ' + layerClass;
+    layer.setAttribute('aria-hidden', 'true');
+
+    for (var row = 0; row < imageTileRows; row += 1) {
+      for (var column = 0; column < imageTileColumns; column += 1) {
+        var tile = document.createElement('span');
+        var variation = (column * 7 + row * 11 + column * row * 3) % 23;
+        var scatterX = (column - (imageTileColumns - 1) / 2) * 5 + (row % 2 ? 7 : -7);
+        var scatterY = (row - (imageTileRows - 1) / 2) * 5 + (column % 2 ? 7 : -7);
+
+        tile.className = 'project-image-tile';
+        tile.style.backgroundImage = 'url("' + imageUrl + '")';
+        tile.style.backgroundSize = (imageTileColumns * 100) + '% ' + (imageTileRows * 100) + '%';
+        tile.style.backgroundPosition =
+          (column / (imageTileColumns - 1) * 100) + '% ' +
+          (row / (imageTileRows - 1) * 100) + '%';
+        tile.style.setProperty('--tile-delay', (variation * 0.025) + 's');
+        tile.style.setProperty('--scatter-x', scatterX + 'px');
+        tile.style.setProperty('--scatter-y', scatterY + 'px');
+        tile.style.setProperty('--scatter-rotation', ((variation % 7) - 3) * 9 + 'deg');
+        layer.appendChild(tile);
+      }
+    }
+
+    return layer;
+  }
 
   function render() {
     cards.forEach(function (card, idx) {
@@ -100,27 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var imgWrap = document.createElement('div');
       imgWrap.className = 'project-card-img';
 
-      if (card.character) {
-        col.classList.add('project-card--3d');
-
-        var wrapper = document.createElement('div');
-        wrapper.className = 'wrapper';
-
-        var cover = document.createElement('img');
-        cover.className = 'cover-image';
-        cover.src = card.img;
-        cover.alt = card.title;
-        cover.loading = idx < 4 ? 'eager' : 'lazy';
-        wrapper.appendChild(cover);
-        imgWrap.appendChild(wrapper);
-
-        var character = document.createElement('img');
-        character.className = 'character';
-        character.src = card.character;
-        character.alt = card.title + ' overlay';
-        character.loading = 'lazy';
-        imgWrap.appendChild(character);
-      } else if (card.imgHover) {
+      if (card.imgHover) {
         var primary = document.createElement('img');
         primary.className = 'img-primary';
         primary.src = card.img;
@@ -134,10 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
         hover.alt = card.title + ' (view 2)';
         hover.loading = 'lazy';
         imgWrap.appendChild(hover);
-
-        if (card.isDashboard) {
-          col.classList.add('project-card--dashboard');
-        }
+        col.classList.add('has-secondary-image');
+        imgWrap.appendChild(createImageTiles(card.img, 'project-image-tiles--primary'));
+        imgWrap.appendChild(createImageTiles(card.imgHover, 'project-image-tiles--secondary'));
       } else {
         var primary = document.createElement('img');
         primary.className = 'img-primary';
@@ -239,4 +249,11 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
   render();
+  if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.setInterval(function () {
+      Array.prototype.forEach.call(grid.children, function (card) {
+        card.classList.toggle('is-secondary');
+      });
+    }, 5000);
+  }
 });
