@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
   var cards = [
     {
+      title: 'BlinkEyeTracker',
+      group: 'Project',
+      badge: 'Desktop App',
+      img: 'media/projects/blink-eye-tracker.webp',
+      imgHover: 'media/projects/blink-eye-tracker-hover.webp',
+      tags: ['Python', 'OpenCV', 'MediaPipe', 'Tkinter', 'pyttsx3'],
+      link: 'https://github.com/Arizael000/BlinkEyeTracker',
+      desc: 'Windows desktop app that detects blinks and monitors screen time with a modern dark Nvidia-style UI. Tracks up to 5 faces simultaneously and alerts via voice when you go too long without blinking.'
+    },
+    {
       title: 'Faulty Medical Devices (In progress)',
       group: 'Project',
       badge: 'Data Analysis',
