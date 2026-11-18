@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
       previewDesc: 'Analysis of medical device failure reports using Pandas for data cleaning and Power BI for interactive visualization. Identifies failure patterns, manufacturer trends, and risk categories across thousands of FDA reports.',
       tags: ['Python', 'Pandas', 'Power BI'],
       link: 'https://github.com/Arizael000/faulty-mdevices',
-      desc: 'Analysis of medical device failure reports with Pandas and Power BI'
+      desc: 'Analysis of medical device failure reports with Pandas and Power BI',
+      className: 'project-card--medical-devices'
     },
     {
       title: 'Demand Forecasting',
@@ -126,52 +127,24 @@ document.addEventListener('DOMContentLoaded', function () {
   cardsScrollContainer.className = 'projects-cards-scroll-container';
   projectsLayout.appendChild(cardsScrollContainer);
   cardsScrollContainer.appendChild(grid);
-  var imageTileColumns = 6;
-  var imageTileRows = 5;
   var modal = document.getElementById('dashModal');
   var modalImg = modal && modal.querySelector('img');
   var modalCloseBtn = modal && modal.querySelector('.dash-modal-close');
+  var mobilePreviewQuery = window.matchMedia('(max-width: 760px)');
 
   // Preview panel state
   var previewState = {
     isOpen: false,
+    isModal: false,
     activeIndex: -1,        // DOM position (0 when reordered to top)
     activeArrayIndex: -1,   // Original cards array index for data lookup
     activeCard: null,
+    triggerElement: null,
     previewPanel: null
   };
 
   // Reduced motion check
   var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function createImageTiles(imageUrl, layerClass) {
-    var layer = document.createElement('div');
-    layer.className = 'project-image-tiles ' + layerClass;
-    layer.setAttribute('aria-hidden', 'true');
-
-    for (var row = 0; row < imageTileRows; row += 1) {
-      for (var column = 0; column < imageTileColumns; column += 1) {
-        var tile = document.createElement('span');
-        var variation = (column * 7 + row * 11 + column * row * 3) % 23;
-        var scatterX = (column - (imageTileColumns - 1) / 2) * 5 + (row % 2 ? 7 : -7);
-        var scatterY = (row - (imageTileRows - 1) / 2) * 5 + (column % 2 ? 7 : -7);
-
-        tile.className = 'project-image-tile';
-        tile.style.backgroundImage = 'url("' + imageUrl + '")';
-        tile.style.backgroundSize = (imageTileColumns * 100) + '% ' + (imageTileRows * 100) + '%';
-        tile.style.backgroundPosition =
-          (column / (imageTileColumns - 1) * 100) + '% ' +
-          (row / (imageTileRows - 1) * 100) + '%';
-        tile.style.setProperty('--tile-delay', (variation * 0.025) + 's');
-        tile.style.setProperty('--scatter-x', scatterX + 'px');
-        tile.style.setProperty('--scatter-y', scatterY + 'px');
-        tile.style.setProperty('--scatter-rotation', ((variation % 7) - 3) * 9 + 'deg');
-        layer.appendChild(tile);
-      }
-    }
-
-    return layer;
-  }
 
   function render() {
     cards.forEach(function (card, idx) {
@@ -189,24 +162,26 @@ document.addEventListener('DOMContentLoaded', function () {
         primary.className = 'img-primary';
         primary.src = card.img;
         primary.alt = card.title;
-        primary.loading = idx < 4 ? 'eager' : 'lazy';
+        primary.loading = 'lazy';
+        primary.decoding = 'async';
         imgWrap.appendChild(primary);
 
         var hover = document.createElement('img');
         hover.className = 'img-hover';
         hover.src = card.imgHover;
-        hover.alt = card.title + ' (view 2)';
+        hover.alt = '';
+        hover.setAttribute('aria-hidden', 'true');
         hover.loading = 'lazy';
+        hover.decoding = 'async';
         imgWrap.appendChild(hover);
         col.classList.add('has-secondary-image');
-        imgWrap.appendChild(createImageTiles(card.img, 'project-image-tiles--primary'));
-        imgWrap.appendChild(createImageTiles(card.imgHover, 'project-image-tiles--secondary'));
       } else {
         var primary = document.createElement('img');
         primary.className = 'img-primary';
         primary.src = card.img;
         primary.alt = card.title;
-        primary.loading = idx < 4 ? 'eager' : 'lazy';
+        primary.loading = 'lazy';
+        primary.decoding = 'async';
         imgWrap.appendChild(primary);
         col.classList.add('card--single');
       }
@@ -298,11 +273,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Preview panel functions
   function createPreviewPanel() {
-    var panel = document.createElement('div');
+    var panel = document.createElement('dialog');
     panel.className = 'project-preview-panel';
-    panel.setAttribute('role', 'region');
-    panel.setAttribute('aria-label', 'Project preview');
-    panel.setAttribute('aria-hidden', 'true');
+    panel.setAttribute('aria-labelledby', 'project-preview-title');
     panel.innerHTML = '\
       <div class="preview-content">\
         <button class="preview-close" aria-label="Close preview" type="button">\n\
@@ -312,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </svg>\n\
         </button>\
         <div class="preview-header">\
-          <h3 class="preview-title"></h3>\
+          <h3 class="preview-title" id="project-preview-title"></h3>\
           <span class="preview-badge"></span>\
         </div>\
         <div class="preview-body">\
@@ -326,6 +299,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var closeBtn = panel.querySelector('.preview-close');
     closeBtn.addEventListener('click', closePreview);
+    panel.addEventListener('close', function () {
+      if (previewState.isOpen) closePreview();
+    });
+
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      panel.addEventListener('click', function (e) {
+        if (!previewState.isModal || e.target !== panel) return;
+        var rect = panel.getBoundingClientRect();
+        var clickedOutside =
+          e.clientX < rect.left ||
+          e.clientX > rect.right ||
+          e.clientY < rect.top ||
+          e.clientY > rect.bottom;
+        if (clickedOutside) closePreview();
+      });
+    }
   }
 
   // FLIP animation helpers
@@ -399,12 +388,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var cardData = cards[originalArrayIndex];
     if (!cardData) return;
 
-    // Capture positions BEFORE any DOM changes (FLIP First)
-    var firstRects = captureCardPositions();
+    var isModal = mobilePreviewQuery.matches;
+    var firstRects = isModal ? null : captureCardPositions();
 
     if (previewState.activeCard && previewState.activeCard !== cardEl) {
       previewState.activeCard.classList.remove('is-preview-active', 'becoming-active');
       previewState.activeCard.removeAttribute('aria-expanded');
+      if (previewState.triggerElement) {
+        previewState.triggerElement.removeAttribute('aria-expanded');
+      }
       var previousButton = previewState.activeCard.querySelector('.card-btn--preview');
       if (previousButton) {
         previousButton.textContent = 'Preview';
@@ -413,39 +405,64 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    if (previewState.isOpen) restoreOriginalCardOrder();
+    if (previewState.isOpen) {
+      if (previewState.isModal !== isModal && previewState.previewPanel.open) {
+        previewState.previewPanel.close();
+      }
+      if (!previewState.isModal) restoreOriginalCardOrder();
+    }
 
-    var didReorder = grid.firstChild !== cardEl;
-    if (didReorder) grid.insertBefore(cardEl, grid.firstChild);
-    updateCardDomIndexes();
-    index = 0;
+    var didReorder = !isModal && grid.firstChild !== cardEl;
+    if (!isModal) {
+      if (didReorder) grid.insertBefore(cardEl, grid.firstChild);
+      updateCardDomIndexes();
+      index = 0;
+    }
 
-    if (didReorder && !prefersReducedMotion) {
+    if (didReorder && !prefersReducedMotion && firstRects) {
       applyFlipTransforms(firstRects);
     }
 
     previewState.isOpen = true;
+    previewState.isModal = isModal;
     previewState.activeIndex = index;
     previewState.activeArrayIndex = originalArrayIndex;
     previewState.activeCard = cardEl;
+    previewState.triggerElement = cardEl.querySelector('.card-btn--preview');
 
     pauseAutoToggle();
     populatePreview(cardData);
 
-    projectsLayout.classList.add('preview-open');
-    grid.classList.add('preview-open');
+    if (isModal) {
+      projectsLayout.classList.remove('preview-open');
+      grid.classList.remove('preview-open');
+    } else {
+      projectsLayout.classList.add('preview-open');
+      grid.classList.add('preview-open');
+    }
 
     if (didReorder && !prefersReducedMotion) {
       clearFlipTransforms();
     }
 
-    previewState.previewPanel.setAttribute('aria-hidden', 'false');
+    if (!previewState.previewPanel.open) {
+      if (isModal) {
+        previewState.previewPanel.setAttribute('closedby', 'any');
+        if (previewState.triggerElement) {
+          previewState.triggerElement.focus({ preventScroll: true });
+        }
+        previewState.previewPanel.showModal();
+      } else {
+        previewState.previewPanel.removeAttribute('closedby');
+        previewState.previewPanel.show();
+      }
+    }
     previewState.previewPanel.classList.add('is-open');
-    cardEl.classList.add('is-preview-active', 'becoming-active');
-    cardEl.setAttribute('aria-expanded', 'true');
+    if (!isModal) cardEl.classList.add('is-preview-active', 'becoming-active');
+    if (previewState.triggerElement) previewState.triggerElement.setAttribute('aria-expanded', 'true');
 
     var previewBtn = cardEl.querySelector('.card-btn--preview');
-    if (previewBtn) {
+    if (previewBtn && !isModal) {
       previewBtn.textContent = 'Cerrar Preview';
       previewBtn.setAttribute('aria-label', 'Cerrar preview de ' + cardData.title);
       previewBtn.classList.add('is-close');
@@ -459,6 +476,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var cardEl = previewState.activeCard;
     var previewBtn = cardEl && cardEl.querySelector('.card-btn--preview');
+    var triggerElement = previewState.triggerElement;
+    var wasModal = previewState.isModal;
     // Use activeArrayIndex for correct card data lookup from original array
     var cardData = cards[previewState.activeArrayIndex];
 
@@ -469,23 +488,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     previewState.previewPanel.classList.remove('is-open');
-    previewState.previewPanel.setAttribute('aria-hidden', 'true');
+    if (previewState.previewPanel.open) previewState.previewPanel.close();
 
     if (cardEl) {
       cardEl.classList.remove('is-preview-active', 'becoming-active');
       cardEl.removeAttribute('aria-expanded');
     }
+    if (triggerElement) triggerElement.removeAttribute('aria-expanded');
 
-    restoreOriginalCardOrder();
+    if (!wasModal) restoreOriginalCardOrder();
     projectsLayout.classList.remove('preview-open');
     grid.classList.remove('preview-open');
 
     previewState.isOpen = false;
+    previewState.isModal = false;
     previewState.activeIndex = -1;
     previewState.activeArrayIndex = -1;
     previewState.activeCard = null;
-    if (previewBtn) previewBtn.focus({ preventScroll: true });
+    previewState.triggerElement = null;
+    if (!wasModal && triggerElement && triggerElement.isConnected) {
+      triggerElement.focus({ preventScroll: true });
+    } else if (!wasModal && previewBtn) {
+      previewBtn.focus({ preventScroll: true });
+    }
     resumeAutoToggle();
+  }
+
+  function handlePreviewBreakpointChange() {
+    if (previewState.isOpen) closePreview();
+  }
+
+  if (mobilePreviewQuery.addEventListener) {
+    mobilePreviewQuery.addEventListener('change', handlePreviewBreakpointChange);
+  } else if (mobilePreviewQuery.addListener) {
+    mobilePreviewQuery.addListener(handlePreviewBreakpointChange);
   }
 
   function populatePreview(cardData) {
@@ -510,6 +546,7 @@ document.addEventListener('DOMContentLoaded', function () {
       img.src = imgSrc;
       img.alt = cardData.title + ' preview ' + (i + 1);
       img.loading = i === 0 ? 'eager' : 'lazy';
+      img.decoding = 'async';
       img.className = 'preview-image';
       imagesEl.appendChild(img);
     });
@@ -592,9 +629,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
-    if (previewState.isOpen) {
+    if (previewState.isOpen && !previewState.isModal) {
       closePreview();
-    } else {
+    } else if (!previewState.isOpen) {
       closeModal();
     }
   });

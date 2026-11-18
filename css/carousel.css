@@ -41,16 +41,6 @@
   100% { box-shadow: 0 4px 12px rgba(0,0,0,0.1), 0 0 0 2px var(--primary-color); border-color: var(--primary-color); }
 }
 
-@keyframes preview-slideDownPanel {
-  from { opacity: 0; transform: translateY(calc(-2 * var(--preview-panel-slide))); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes preview-slideUpCards {
-  from { opacity: 0; transform: translateY(var(--preview-panel-slide)); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* Dark mode adjustments for keyframes that use primary color */
 :is(.dark-mode) {
   @keyframes preview-becomeActive {
@@ -131,60 +121,53 @@
   background: #f5f5f5;
 }
 
+.project-card--medical-devices .project-card-img > img {
+  object-fit: cover;
+  object-position: center;
+}
+
 .project-card.has-secondary-image .project-card-img > img {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.project-image-tiles {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: repeat(5, minmax(0, 1fr));
-  pointer-events: none;
-}
-
-.project-image-tile {
-  background-repeat: no-repeat;
-  transform: scale(1.03);
   transition:
-    opacity 0.75s ease,
-    filter 0.75s ease,
-    transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
-  transition-delay: var(--tile-delay);
+    opacity 0.35s ease,
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.project-card:not(.is-secondary):hover .project-image-tiles--primary .project-image-tile,
-.project-card.is-secondary .project-image-tiles--primary .project-image-tile {
+.project-card.has-secondary-image .img-primary {
+  transform: translate3d(0, 0, 0) rotate(0) scale(1);
+}
+
+.project-card.has-secondary-image .img-hover {
   opacity: 0;
-  filter: blur(4px);
-  transform:
-    translate3d(var(--scatter-x), var(--scatter-y), 0)
-    rotate(var(--scatter-rotation))
-    scale(0.55);
+  transform: translate3d(12px, -10px, 0) rotate(4deg) scale(0.86);
+  transform-origin: 75% 25%;
 }
 
-.project-image-tiles--secondary .project-image-tile {
+.project-card.has-secondary-image:not(.is-secondary):hover .img-primary,
+.project-card.has-secondary-image.is-secondary .img-primary {
   opacity: 0;
-  filter: blur(5px);
-  transform:
-    translate3d(calc(var(--scatter-x) * -1), calc(var(--scatter-y) * -1), 0)
-    rotate(calc(var(--scatter-rotation) * -1))
-    scale(0.55);
+  transform: translate3d(-12px, 10px, 0) rotate(-4deg) scale(0.86);
+  transform-origin: 25% 75%;
 }
 
-.project-card:not(.is-secondary):hover .project-image-tiles--secondary .project-image-tile,
-.project-card.is-secondary:not(:hover) .project-image-tiles--secondary .project-image-tile {
+.project-card.has-secondary-image:not(.is-secondary):hover .img-hover,
+.project-card.has-secondary-image.is-secondary:not(:hover) .img-hover {
   opacity: 1;
-  filter: blur(0);
-  transform: translate3d(0, 0, 0) rotate(0) scale(1.03);
+  transform: translate3d(0, 0, 0) rotate(0) scale(1);
 }
 
-.project-card.is-secondary:hover .project-image-tiles--primary .project-image-tile {
+.project-card.has-secondary-image.is-secondary:hover .img-primary {
   opacity: 1;
-  filter: blur(0);
-  transform: translate3d(0, 0, 0) rotate(0) scale(1.03);
+  transform: translate3d(0, 0, 0) rotate(0) scale(1);
+}
+
+.project-card.has-secondary-image.is-secondary:hover .img-hover {
+  opacity: 0;
+  transform: translate3d(12px, -10px, 0) rotate(4deg) scale(0.86);
+  transform-origin: 75% 25%;
+}
+
+.project-card.has-secondary-image .img-hover {
+  pointer-events: none;
 }
 
 /* ── Single-image placeholder ── */
@@ -704,17 +687,6 @@
     min-width: auto;
   }
 
-  /* Mobile preview - full screen modal style */
-  .project-preview-panel {
-    max-width: 100%;
-    border-radius: 0;
-  }
-
-  .preview-content {
-    border-radius: 0;
-    max-height: 100vh;
-  }
-
   .preview-header {
     padding: 1.25rem 1rem 0.75rem;
     position: sticky;
@@ -798,31 +770,19 @@
   z-index: 1;
 }
 
-@media (max-width: 760px) {
-  /* Mobile: stacked layout - preview on top, cards below */
-  .projects-layout.preview-open .projects-cards-scroll-container {
-    grid-area: cards;
-  }
-
-  .projects-cards-scroll-container .project-card.is-preview-active {
-    box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.1),
-      0 0 0 2px var(--primary-color);
-  }
-
-  :is(.dark-mode) .projects-cards-scroll-container .project-card.is-preview-active {
-    box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.3),
-      0 0 0 2px var(--primary-light);
-  }
-}
-
 .project-preview-panel {
   position: absolute;
   top: 0;
   right: 0;
   width: 0;
   max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  overflow: visible;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -831,6 +791,16 @@
   transition: opacity var(--preview-duration) var(--preview-easing),
               transform var(--preview-duration) var(--preview-easing),
               visibility 0s var(--preview-duration);
+}
+
+.project-preview-panel:modal {
+  overscroll-behavior: contain;
+}
+
+.project-preview-panel::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: rgba(8, 18, 19, 0.62);
 }
 
 .project-preview-panel.is-open {
@@ -869,10 +839,6 @@
   animation-delay: calc(var(--preview-stagger) * 4);
 }
 
-.project-preview-panel .preview-backdrop {
-  display: none;
-}
-
 .preview-content {
   max-height: calc(100vh - 7.5rem);
   border: 1px solid rgba(69, 122, 126, 0.18);
@@ -903,35 +869,48 @@
 }
 
 @media (max-width: 760px) {
-  .projects-layout.preview-open {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "preview"
-      "cards";
-    transition: grid-template-rows var(--preview-duration) var(--preview-easing);
+  .project-card-body .card-btn {
+    min-block-size: 44px;
+    justify-content: center;
   }
 
-  /* Scroll container gets the grid-area since it wraps the grid */
-  .projects-layout.preview-open .projects-cards-scroll-container {
-    grid-area: cards;
+  .project-preview-panel {
+    position: fixed;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    width: min(92vw, 36rem);
+    max-width: calc(100vw - 2rem);
+    max-height: 82vh;
+    max-height: 82dvh;
+    overflow: auto;
+    transform: translate(-50%, -48%) scale(0.98);
   }
 
   .project-preview-panel.is-open {
-    position: relative;
-    top: auto;
-    grid-area: preview;
-    width: auto;
-    margin: 0 0 1rem;
-    animation: preview-slideDownPanel var(--preview-duration) var(--preview-easing) both;
+    position: fixed;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    width: min(92vw, 36rem);
+    max-width: calc(100vw - 2rem);
+    max-height: 82vh;
+    max-height: 82dvh;
+    margin: 0;
+    transform: translate(-50%, -50%) scale(1);
   }
 
-  .projects-layout.preview-open .projects-cards-scroll-container {
-    animation: preview-slideUpCards var(--preview-duration) var(--preview-easing) both;
-    animation-delay: calc(var(--preview-stagger) * 2);
+  .project-preview-panel::backdrop {
+    background: rgba(8, 18, 19, 0.62);
   }
 
   .preview-content {
-    max-height: none;
+    max-height: 82vh;
+    max-height: 82dvh;
+    overflow-y: auto;
+    border-radius: 14px;
   }
 }
 
@@ -961,6 +940,10 @@
   .project-card.becoming-active {
     transition: none !important;
     animation: none !important;
+  }
+
+  .project-card.has-secondary-image .project-card-img > img {
+    transition: none;
   }
 }
 
