@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-11-15T05:42:23.912817+00:00",
+    "generatedAt": "2026-11-17T07:19:46.289831+00:00",
     "source": "Google Sheets API",
-    "recordCount": 95
+    "recordCount": 99
   },
   "records": [
     {
@@ -323,9 +323,9 @@
     {
       "date": "2026-11-12",
       "type": "Land",
-      "recordCount": 4,
-      "timedRecordCount": 2,
-      "processingMinutes": 71.0,
+      "recordCount": 3,
+      "timedRecordCount": 3,
+      "processingMinutes": 108.0,
       "overlappingStartCount": 0,
       "lateCorrections": 0.0,
       "lateErrors": 0.0,
@@ -333,7 +333,37 @@
       "plQuantity": 8.0,
       "apportionmentQ": 0.0,
       "lateApportionment": 0.0,
-      "changesPkgsWeightFreight": 35.0
+      "changesPkgsWeightFreight": 23.0
+    },
+    {
+      "date": "2026-11-13",
+      "type": "Land",
+      "recordCount": 2,
+      "timedRecordCount": 2,
+      "processingMinutes": 1077.0,
+      "overlappingStartCount": 0,
+      "lateCorrections": 1.0,
+      "lateErrors": 0.0,
+      "fQuantity": 12.0,
+      "plQuantity": 6.0,
+      "apportionmentQ": 0.0,
+      "lateApportionment": 0.0,
+      "changesPkgsWeightFreight": 8.0
+    },
+    {
+      "date": "2026-11-16",
+      "type": "Land",
+      "recordCount": 3,
+      "timedRecordCount": 3,
+      "processingMinutes": 113.0,
+      "overlappingStartCount": 0,
+      "lateCorrections": 0.0,
+      "lateErrors": 0.0,
+      "fQuantity": 35.0,
+      "plQuantity": 15.0,
+      "apportionmentQ": 3.0,
+      "lateApportionment": 0.0,
+      "changesPkgsWeightFreight": 31.0
     }
   ],
   "cases": [
@@ -1418,26 +1448,15 @@
       "caseNumber": "Case 092",
       "date": "2026-11-12",
       "type": "Land",
-      "startMinute": 160.0,
-      "endMinute": null,
-      "durationMinutes": null,
+      "startMinute": 260.0,
+      "endMinute": 297.0,
+      "durationMinutes": 37.0,
       "invoiceCount": 0.0,
       "packingListCount": 0.0,
       "overlapsWith": []
     },
     {
       "caseNumber": "Case 093",
-      "date": "2026-11-12",
-      "type": "Land",
-      "startMinute": 260.0,
-      "endMinute": null,
-      "durationMinutes": null,
-      "invoiceCount": 0.0,
-      "packingListCount": 0.0,
-      "overlapsWith": []
-    },
-    {
-      "caseNumber": "Case 094",
       "date": "2026-11-12",
       "type": "Land",
       "startMinute": 490.0,
@@ -1448,7 +1467,7 @@
       "overlapsWith": []
     },
     {
-      "caseNumber": "Case 095",
+      "caseNumber": "Case 094",
       "date": "2026-11-12",
       "type": "Land",
       "startMinute": 530.0,
@@ -1456,6 +1475,61 @@
       "durationMinutes": 35.0,
       "invoiceCount": 13.0,
       "packingListCount": 7.0,
+      "overlapsWith": []
+    },
+    {
+      "caseNumber": "Case 095",
+      "date": "2026-11-13",
+      "type": "Land",
+      "startMinute": 250.0,
+      "endMinute": 287.0,
+      "durationMinutes": 37.0,
+      "invoiceCount": 4.0,
+      "packingListCount": 2.0,
+      "overlapsWith": []
+    },
+    {
+      "caseNumber": "Case 096",
+      "date": "2026-11-13",
+      "type": "Land",
+      "startMinute": 710.0,
+      "endMinute": 310.0,
+      "durationMinutes": 1040.0,
+      "invoiceCount": 8.0,
+      "packingListCount": 4.0,
+      "overlapsWith": []
+    },
+    {
+      "caseNumber": "Case 097",
+      "date": "2026-11-16",
+      "type": "Land",
+      "startMinute": 90.0,
+      "endMinute": 120.0,
+      "durationMinutes": 30.0,
+      "invoiceCount": 5.0,
+      "packingListCount": 3.0,
+      "overlapsWith": []
+    },
+    {
+      "caseNumber": "Case 098",
+      "date": "2026-11-16",
+      "type": "Land",
+      "startMinute": 520.0,
+      "endMinute": 595.0,
+      "durationMinutes": 75.0,
+      "invoiceCount": 29.0,
+      "packingListCount": 11.0,
+      "overlapsWith": []
+    },
+    {
+      "caseNumber": "Case 099",
+      "date": "2026-11-16",
+      "type": "Land",
+      "startMinute": 608.0,
+      "endMinute": 616.0,
+      "durationMinutes": 8.0,
+      "invoiceCount": 1.0,
+      "packingListCount": 1.0,
       "overlapsWith": []
     }
   ]
