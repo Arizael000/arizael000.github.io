@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-11-17T07:19:46.289831+00:00",
+    "generatedAt": "2026-11-21T06:25:57.354840+00:00",
     "source": "Google Sheets API",
-    "recordCount": 99
+    "recordCount": 105
   },
   "records": [
     {
@@ -323,9 +323,9 @@
     {
       "date": "2026-11-12",
       "type": "Land",
-      "recordCount": 3,
-      "timedRecordCount": 3,
-      "processingMinutes": 108.0,
+      "recordCount": 2,
+      "timedRecordCount": 2,
+      "processingMinutes": 71.0,
       "overlappingStartCount": 0,
       "lateCorrections": 0.0,
       "lateErrors": 0.0,
@@ -353,17 +353,62 @@
     {
       "date": "2026-11-16",
       "type": "Land",
-      "recordCount": 3,
-      "timedRecordCount": 3,
-      "processingMinutes": 113.0,
+      "recordCount": 4,
+      "timedRecordCount": 4,
+      "processingMinutes": 139.0,
+      "overlappingStartCount": 2,
+      "lateCorrections": 0.0,
+      "lateErrors": 0.0,
+      "fQuantity": 36.0,
+      "plQuantity": 16.0,
+      "apportionmentQ": 4.0,
+      "lateApportionment": 0.0,
+      "changesPkgsWeightFreight": 35.0
+    },
+    {
+      "date": "2026-11-17",
+      "type": "Land",
+      "recordCount": 2,
+      "timedRecordCount": 2,
+      "processingMinutes": 69.0,
       "overlappingStartCount": 0,
       "lateCorrections": 0.0,
       "lateErrors": 0.0,
-      "fQuantity": 35.0,
-      "plQuantity": 15.0,
-      "apportionmentQ": 3.0,
+      "fQuantity": 8.0,
+      "plQuantity": 4.0,
+      "apportionmentQ": 0.0,
       "lateApportionment": 0.0,
-      "changesPkgsWeightFreight": 31.0
+      "changesPkgsWeightFreight": 17.0
+    },
+    {
+      "date": "2026-11-18",
+      "type": "Land",
+      "recordCount": 2,
+      "timedRecordCount": 1,
+      "processingMinutes": 10.0,
+      "overlappingStartCount": 0,
+      "lateCorrections": 0.0,
+      "lateErrors": 0.0,
+      "fQuantity": 8.0,
+      "plQuantity": 5.0,
+      "apportionmentQ": 0.0,
+      "lateApportionment": 0.0,
+      "changesPkgsWeightFreight": 14.0
+    },
+    {
+      "date": "2026-11-18",
+      "type": "Sea",
+      "recordCount": 2,
+      "timedRecordCount": 2,
+      "processingMinutes": 88.0,
+      "overlappingStartCount": 2,
+      "lateCorrections": 0.0,
+      "lateErrors": 0.0,
+      "fQuantity": 9.0,
+      "plQuantity": 6.0,
+      "apportionmentQ": 0.0,
+      "lateApportionment": 0.0,
+      "changesPkgsWeightFreight": 12.0
     }
   ],
   "cases": [
@@ -1448,17 +1493,6 @@
       "caseNumber": "Case 092",
       "date": "2026-11-12",
       "type": "Land",
-      "startMinute": 260.0,
-      "endMinute": 297.0,
-      "durationMinutes": 37.0,
-      "invoiceCount": 0.0,
-      "packingListCount": 0.0,
-      "overlapsWith": []
-    },
-    {
-      "caseNumber": "Case 093",
-      "date": "2026-11-12",
-      "type": "Land",
       "startMinute": 490.0,
       "endMinute": 526.0,
       "durationMinutes": 36.0,
@@ -1467,7 +1501,7 @@
       "overlapsWith": []
     },
     {
-      "caseNumber": "Case 094",
+      "caseNumber": "Case 093",
       "date": "2026-11-12",
       "type": "Land",
       "startMinute": 530.0,
@@ -1478,7 +1512,7 @@
       "overlapsWith": []
     },
     {
-      "caseNumber": "Case 095",
+      "caseNumber": "Case 094",
       "date": "2026-11-13",
       "type": "Land",
       "startMinute": 250.0,
@@ -1489,7 +1523,7 @@
       "overlapsWith": []
     },
     {
-      "caseNumber": "Case 096",
+      "caseNumber": "Case 095",
       "date": "2026-11-13",
       "type": "Land",
       "startMinute": 710.0,
@@ -1500,7 +1534,7 @@
       "overlapsWith": []
     },
     {
-      "caseNumber": "Case 097",
+      "caseNumber": "Case 096",
       "date": "2026-11-16",
       "type": "Land",
       "startMinute": 90.0,
@@ -1511,7 +1545,7 @@
       "overlapsWith": []
     },
     {
-      "caseNumber": "Case 098",
+      "caseNumber": "Case 097",
       "date": "2026-11-16",
       "type": "Land",
       "startMinute": 520.0,
@@ -1519,7 +1553,23 @@
       "durationMinutes": 75.0,
       "invoiceCount": 29.0,
       "packingListCount": 11.0,
-      "overlapsWith": []
+      "overlapsWith": [
+        "Case 098"
+      ]
+    },
+    {
+      "caseNumber": "Case 098",
+      "date": "2026-11-16",
+      "type": "Land",
+      "startMinute": 590.0,
+      "endMinute": 616.0,
+      "durationMinutes": 26.0,
+      "invoiceCount": 1.0,
+      "packingListCount": 1.0,
+      "overlapsWith": [
+        "Case 097",
+        "Case 099"
+      ]
     },
     {
       "caseNumber": "Case 099",
@@ -1530,6 +1580,78 @@
       "durationMinutes": 8.0,
       "invoiceCount": 1.0,
       "packingListCount": 1.0,
+      "overlapsWith": [
+        "Case 098"
+      ]
+    },
+    {
+      "caseNumber": "Case 100",
+      "date": "2026-11-17",
+      "type": "Land",
+      "startMinute": 490.0,
+      "endMinute": 503.0,
+      "durationMinutes": 13.0,
+      "invoiceCount": 5.0,
+      "packingListCount": 3.0,
+      "overlapsWith": []
+    },
+    {
+      "caseNumber": "Case 101",
+      "date": "2026-11-17",
+      "type": "Land",
+      "startMinute": 506.0,
+      "endMinute": 562.0,
+      "durationMinutes": 56.0,
+      "invoiceCount": 3.0,
+      "packingListCount": 1.0,
+      "overlapsWith": []
+    },
+    {
+      "caseNumber": "Case 102",
+      "date": "2026-11-18",
+      "type": "Sea",
+      "startMinute": 490.0,
+      "endMinute": 534.0,
+      "durationMinutes": 44.0,
+      "invoiceCount": 2.0,
+      "packingListCount": 1.0,
+      "overlapsWith": [
+        "Case 103"
+      ]
+    },
+    {
+      "caseNumber": "Case 103",
+      "date": "2026-11-18",
+      "type": "Sea",
+      "startMinute": 490.0,
+      "endMinute": 534.0,
+      "durationMinutes": 44.0,
+      "invoiceCount": 7.0,
+      "packingListCount": 5.0,
+      "overlapsWith": [
+        "Case 102"
+      ]
+    },
+    {
+      "caseNumber": "Case 104",
+      "date": "2026-11-18",
+      "type": "Land",
+      "startMinute": 537.0,
+      "endMinute": 547.0,
+      "durationMinutes": 10.0,
+      "invoiceCount": 5.0,
+      "packingListCount": 2.0,
+      "overlapsWith": []
+    },
+    {
+      "caseNumber": "Case 105",
+      "date": "2026-11-18",
+      "type": "Land",
+      "startMinute": 700.0,
+      "endMinute": null,
+      "durationMinutes": null,
+      "invoiceCount": 3.0,
+      "packingListCount": 3.0,
       "overlapsWith": []
     }
   ]
