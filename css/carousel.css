@@ -399,12 +399,60 @@
 }
 
 .projects-layout.preview-open .projects-cards-scroll-container {
-  overflow: visible;
-  max-height: none;
+  height: clamp(28rem, 68vh, 36rem);
+  max-height: calc(100vh - 7.5rem);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y proximity;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(69, 122, 126, 0.45) transparent;
+  border-radius: 14px;
+  overflow-anchor: none;
+}
+
+.projects-cards-scroll-container {
+  view-transition-name: project-cards;
+  view-transition-group: contain;
+  isolation: isolate;
+}
+
+.projects-cards-scroll-container.is-transitioning {
+  overflow: hidden !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: none;
+  pointer-events: none;
+}
+
+::view-transition-group-children(project-cards) {
+  overflow: clip;
 }
 
 .projects-layout.preview-open .projects-grid {
   grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  overflow-anchor: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(*) {
+    animation-duration: var(--preview-duration);
+    animation-timing-function: var(--preview-easing);
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: var(--preview-duration);
+    animation-timing-function: var(--preview-easing);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }
 
 /* The .projects-grid styles are defined above (lines 64-69) and handle responsive breakpoints */
@@ -748,6 +796,10 @@
   position: relative;
   z-index: 5;
   transform: none;
+  position: sticky;
+  top: 0;
+  min-height: 0;
+  scroll-snap-align: start;
   /* Visual indicator it's the active/selected card */
   border-color: var(--primary-color);
   box-shadow:
@@ -808,6 +860,7 @@
   top: 6rem;
   grid-column: 2;
   width: auto;
+  view-transition-name: project-preview-panel;
   visibility: visible;
   opacity: 1;
   pointer-events: auto;

@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
       group: 'Dashboard',
       badge: 'Export Operations',
       img: 'media/dashboards/thumbs/reporte-documental.webp',
-      previewImages: ['media/dashboards/thumbs/reporte-documental.webp'],
+      imgHover: 'media/projects/reporteDocumental2.jpeg',
+      previewImages: ['media/dashboards/thumbs/reporte-documental.webp', 'media/projects/reporteDocumental2.jpeg'],
       previewDesc: 'Workflow dashboard for analyzing, reconciling and reviewing Packing List and invoice PDFs before export procedures. Automates document validation, flags discrepancies, and generates compliance reports for customs clearance.',
       tags: ['Document Control', 'Packing List', 'Invoices'],
       href: 'reporteDocumental.html',
@@ -153,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
       col.dataset.cardIndex = idx;
       // Store original array index (never changes, even after DOM reordering)
       col.dataset.arrayIndex = idx;
+      col.style.viewTransitionName = 'project-card-' + idx;
 
       var imgWrap = document.createElement('div');
       imgWrap.className = 'project-card-img';
@@ -368,6 +370,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  function updatePreviewCardsHeight() {
+    if (!previewState.isOpen || previewState.isModal) {
+      cardsScrollContainer.style.height = '';
+      return;
+    }
+
+    var activeCard = previewState.activeCard;
+    if (!activeCard) return;
+
+    var cardChildren = Array.prototype.slice.call(grid.children);
+    var activePosition = cardChildren.indexOf(activeCard);
+    var visibleCards = cardChildren.slice(activePosition, activePosition + 3);
+    var gap = parseFloat(window.getComputedStyle(grid).rowGap) || 0;
+    var cardsHeight = visibleCards.reduce(function (total, card) {
+      return total + card.getBoundingClientRect().height;
+    }, 0);
+    var desiredHeight = cardsHeight + (Math.max(visibleCards.length - 1, 0) * gap);
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    var minimumHeight = Math.min(448, viewportHeight - 120);
+    var maximumHeight = Math.max(minimumHeight, viewportHeight - 120);
+
+    cardsScrollContainer.style.height =
+      Math.max(minimumHeight, Math.min(desiredHeight, maximumHeight)) + 'px';
+  }
+
   function restoreOriginalCardOrder() {
     var originalOrder = Array.prototype.slice.call(grid.children).sort(function (a, b) {
       return parseInt(a.dataset.arrayIndex, 10) - parseInt(b.dataset.arrayIndex, 10);
@@ -379,6 +406,33 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function openPreview(index) {
+    cardsScrollContainer.classList.add('is-transitioning');
+
+    function finishTransition() {
+      window.setTimeout(function () {
+        cardsScrollContainer.classList.remove('is-transitioning');
+      }, 650);
+    }
+
+    if (typeof cardsScrollContainer.startViewTransition === 'function' && !prefersReducedMotion) {
+      cardsScrollContainer.startViewTransition(function () {
+        performOpenPreview(index, true);
+      }).finished.finally(finishTransition);
+      return;
+    }
+
+    if (prefersReducedMotion || typeof document.startViewTransition !== 'function') {
+      performOpenPreview(index);
+      finishTransition();
+      return;
+    }
+
+    document.startViewTransition(function () {
+      performOpenPreview(index, true);
+    }).finished.finally(finishTransition);
+  }
+
+  function performOpenPreview(index, useViewTransition) {
     // index parameter is DOM position (from dataset.previewIndex)
     var cardEl = grid.children[index];
     if (!cardEl) return;
@@ -389,6 +443,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!cardData) return;
 
     var isModal = mobilePreviewQuery.matches;
+    var pageScrollX = window.scrollX;
+    var pageScrollY = window.scrollY;
     var firstRects = isModal ? null : captureCardPositions();
 
     if (previewState.activeCard && previewState.activeCard !== cardEl) {
@@ -419,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function () {
       index = 0;
     }
 
-    if (didReorder && !prefersReducedMotion && firstRects) {
+    if (!useViewTransition && didReorder && !prefersReducedMotion && firstRects) {
       applyFlipTransforms(firstRects);
     }
 
@@ -439,9 +495,10 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       projectsLayout.classList.add('preview-open');
       grid.classList.add('preview-open');
+      updatePreviewCardsHeight();
     }
 
-    if (didReorder && !prefersReducedMotion) {
+    if (!useViewTransition && didReorder && !prefersReducedMotion) {
       clearFlipTransforms();
     }
 
@@ -468,16 +525,53 @@ document.addEventListener('DOMContentLoaded', function () {
       previewBtn.classList.add('is-close');
     }
 
+    if (!isModal) {
+      cardsScrollContainer.scrollTop = 0;
+      requestAnimationFrame(function () {
+        window.scrollTo(pageScrollX, pageScrollY);
+        cardsScrollContainer.scrollTop = 0;
+      });
+    }
+
     previewState.previewPanel.querySelector('.preview-close').focus({ preventScroll: true });
   }
 
   function closePreview() {
+    cardsScrollContainer.classList.add('is-transitioning');
+
+    function finishTransition() {
+      window.setTimeout(function () {
+        cardsScrollContainer.classList.remove('is-transitioning');
+      }, 650);
+    }
+
+    if (typeof cardsScrollContainer.startViewTransition === 'function' && !prefersReducedMotion) {
+      cardsScrollContainer.startViewTransition(function () {
+        performClosePreview();
+      }).finished.finally(finishTransition);
+      return;
+    }
+
+    if (prefersReducedMotion || typeof document.startViewTransition !== 'function') {
+      performClosePreview();
+      finishTransition();
+      return;
+    }
+
+    document.startViewTransition(function () {
+      performClosePreview();
+    }).finished.finally(finishTransition);
+  }
+
+  function performClosePreview() {
     if (!previewState.isOpen) return;
 
     var cardEl = previewState.activeCard;
     var previewBtn = cardEl && cardEl.querySelector('.card-btn--preview');
     var triggerElement = previewState.triggerElement;
     var wasModal = previewState.isModal;
+    var pageScrollX = window.scrollX;
+    var pageScrollY = window.scrollY;
     // Use activeArrayIndex for correct card data lookup from original array
     var cardData = cards[previewState.activeArrayIndex];
 
@@ -506,6 +600,13 @@ document.addEventListener('DOMContentLoaded', function () {
     previewState.activeArrayIndex = -1;
     previewState.activeCard = null;
     previewState.triggerElement = null;
+    if (!wasModal) {
+      cardsScrollContainer.scrollTop = 0;
+      cardsScrollContainer.style.height = '';
+      requestAnimationFrame(function () {
+        window.scrollTo(pageScrollX, pageScrollY);
+      });
+    }
     if (!wasModal && triggerElement && triggerElement.isConnected) {
       triggerElement.focus({ preventScroll: true });
     } else if (!wasModal && previewBtn) {
@@ -517,6 +618,10 @@ document.addEventListener('DOMContentLoaded', function () {
   function handlePreviewBreakpointChange() {
     if (previewState.isOpen) closePreview();
   }
+
+  window.addEventListener('resize', function () {
+    if (previewState.isOpen) updatePreviewCardsHeight();
+  });
 
   if (mobilePreviewQuery.addEventListener) {
     mobilePreviewQuery.addEventListener('change', handlePreviewBreakpointChange);
