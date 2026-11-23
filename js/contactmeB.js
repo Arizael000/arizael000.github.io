@@ -1,28 +1,36 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const modal = document.getElementById('myModal');
+  const modal = document.getElementById('contactModal');
   const openBtn = document.getElementById('scrollUp');
-  const closeBtn = document.querySelector('.close');
+  const closeBtn = modal?.querySelector('.modal-close');
   const cancelBtn = document.getElementById('cancelBtn');
-  const forms = document.querySelectorAll('#contactForm, .portfolio-contact-form');
+  const forms = document.querySelectorAll('#contactForm, .portfolio-contact-form, [data-service-quote-form]');
 
   // Reuse the configured endpoint for the existing footer contact modal.
   const FORM_ENDPOINT = "https://formspree.io/f/mnqejopy";
 
   // === MODAL ===
   function openModal() {
-    if (modal) modal.style.display = 'block';
+    if (modal) modal.hidden = false;
   }
 
   function closeModal() {
-    if (modal) modal.style.display = 'none';
+    if (modal) modal.hidden = true;
   }
 
   openBtn?.addEventListener('click', openModal);
   closeBtn?.addEventListener('click', closeModal);
   cancelBtn?.addEventListener('click', closeModal);
 
-  window.addEventListener('click', function (event) {
-    if (event.target === modal) {
+  // Close on backdrop click
+  modal?.addEventListener('click', function (event) {
+    if (event.target === modal || event.target.classList.contains('modal-backdrop')) {
+      closeModal();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && modal && !modal.hidden) {
       closeModal();
     }
   });
@@ -33,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
       event.preventDefault();
 
       const inlineForm = form.classList.contains('portfolio-contact-form');
-      const status = inlineForm ? form.querySelector('.contact-form-status') : null;
+      const quoteForm = form.hasAttribute('data-service-quote-form');
+      const status = inlineForm || quoteForm ? form.querySelector('.contact-form-status') : null;
       const submitButton = form.querySelector('button[type="submit"]');
       const buttonLabel = submitButton?.querySelector('span');
       const originalLabel = buttonLabel?.textContent;
@@ -64,7 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (inlineForm) {
           if (status) status.textContent = successMessage;
         } else {
-          closeModal();
+          if (quoteForm) {
+            form.closest('dialog')?.close();
+          } else {
+            closeModal();
+          }
           showSuccessMessage(successMessage);
         }
       } catch (error) {

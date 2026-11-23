@@ -17,6 +17,7 @@
     <!-- CSS -->
     <link href="css/header.css" rel='stylesheet'>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/particle-background.css">
     <link href="css/footer.css" rel='stylesheet'>
     <link href="css/darkmode.css" rel='stylesheet'>
     <link href="css/tooltips.css" rel='stylesheet'>
@@ -196,27 +197,46 @@
     </main>
 
         <footer>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <form id="contactForm" method="POST">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-
-                        <label for="email">Your email:</label>
-                        <input type="email" id="email" name="email" required>
-
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" required></textarea>
-
-                        <div id="buttons">
-                            <button type="submit" id="submitBtn">Send</button>
-
-                            <button type="button" id="cancelBtn">Cancel</button>
-                        </div>
-                    </form>
-
-                </div>
+            <div id="contactModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+              <div class="modal-backdrop"></div>
+              <div class="modal-container">
+                <button class="modal-close" aria-label="Close contact form" type="button">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+                <form id="contactForm" class="modal-form" method="POST">
+                  <h2 id="modal-title" class="modal-title">Contact Me</h2>
+                  <p class="modal-subtitle">Send me a message and I'll get back to you</p>
+                  
+                  <div class="modal-field">
+                    <label for="name" class="modal-label">Name</label>
+                    <input type="text" id="name" name="name" class="modal-input" placeholder="Your name" required autocomplete="name">
+                  </div>
+                  
+                  <div class="modal-field">
+                    <label for="email" class="modal-label">Email</label>
+                    <input type="email" id="email" name="email" class="modal-input" placeholder="you@email.com" required autocomplete="email">
+                  </div>
+                  
+                  <div class="modal-field">
+                    <label for="message" class="modal-label">Message</label>
+                    <textarea id="message" name="message" class="modal-textarea" placeholder="Tell me about your project..." required rows="4"></textarea>
+                  </div>
+                  
+                  <div class="modal-actions">
+                    <button type="button" class="modal-btn modal-btn--cancel" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="modal-btn modal-btn--submit" id="submitBtn">
+                      <span>Send Message</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
             <div class="footer-inner">
                 <div class="footer-col footer-tagline">
@@ -289,6 +309,7 @@
         <script src="js/contactmeB.js"></script>
         <script src="js/burguermenu.js"></script>
         <script src="js/scrollReveal.js"></script>
+        <script src="js/particle-background.js"></script>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4a8656c19415498c9c5e637bb06bc267"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 

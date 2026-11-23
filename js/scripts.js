@@ -24,22 +24,7 @@ function scrollToSection(id) {
     behavior: 'smooth'
   });
 }
-// Funciones para abrir y cerrar el modal
-function openModal() {
-  document.getElementById('myModal').style.display = 'block';
-}
 
-function closeModal() {
-  document.getElementById('myModal').style.display = 'none';
-}
-
-// Close modal if clicked outside
-window.onclick = function (event) {
-  var modal = document.getElementById('myModal');
-  if (event.target == modal) {
-    modal.style.display = 'none';
-  }
-}
 document.addEventListener('DOMContentLoaded', function () {
   // Get all input elements inside the gallery class
   var inputs = document.querySelectorAll('.galleryInputs');

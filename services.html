@@ -18,12 +18,14 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/particle-background.css">
   <link rel="stylesheet" href="css/section1.css">
   <link rel="stylesheet" href="css/experience.css">
   <link rel="stylesheet" href="css/learningpath.css">
   <link rel="stylesheet" href="css/dashboards.css">
   <link rel="stylesheet" href="css/dashboard-chart.css">
   <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/service-quote.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/darkmode.css">
   <link rel="stylesheet" href="css/tooltips.css">
@@ -121,7 +123,7 @@
             <a href="projects.html" class="cta-button secondary-cta">View success stories</a>
         </div>
 
-        <p class="disclaimer">No commitment. We'll review your needs and identify opportunities.</p>
+        <p class="disclaimer">We'll review your needs and identify opportunities.</p>
     </div>
 
     <!-- Interactive Mini Dashboard Visual -->
@@ -217,7 +219,7 @@
           <!-- Card: Sales Dashboard -->
           <div class="service-card">
             <div class="service-icon">
-              <img src="media/services/dashboard.jpg" alt="Sales dashboard" class="service-img">
+              <img src="media/services/dashboard.webp" alt="Sales dashboard" class="service-img">
             </div>
             <h3>Sales Dashboard</h3>
             <p>Interactive sales performance dashboards with real-time KPI tracking, regional breakdowns, and trend analysis for a complete view of your business.</p>
@@ -256,14 +258,16 @@
             <div class="package-number" aria-hidden="true">01</div>
             <div class="package-content">
               <span class="package-level">Essentials</span>
-              <h3>Basic Analysis + Dashboard</h3>
-              <p>Organize your data and understand what's happening in your business with an initial analysis and an interactive dashboard.</p>
+              <h3>Data Cleaning &amp; Report Automation</h3>
+              <p>Clean and organize spreadsheets, then automate reports your team prepares regularly.</p>
+            <p class="package-price">Estimated investment <strong>$250–$450 USD</strong></p>
+            <p class="package-delivery">Standard delivery: 3–5 business days</p>
               <ul>
-                <li>Basic data review and cleaning</li>
-                <li>Key metrics and Power BI visualizations</li>
-                <li>Summary of findings and initial recommendations</li>
+                <li>Excel/CSV cleaning and standardization</li>
+                <li>Reusable Python scripts to reduce manual work</li>
+                <li>Clean dataset with practical handoff documentation</li>
               </ul>
-              <a class="package-cta" href="https://wa.me/50670528947?text=Hello%2C%20I%27m%20interested%20in%20the%20basic%20analysis%20and%20dashboard%20package." target="_blank" rel="noopener noreferrer">Request this package <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+            <button class="package-cta" type="button" data-quote-package="pkg-1">Get a detailed quote <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></button>
             </div>
           </li>
 
@@ -271,14 +275,16 @@
             <div class="package-number" aria-hidden="true">02</div>
             <div class="package-content">
               <span class="package-level">Growth</span>
-              <h3>Business Intelligence &amp; Performance Analysis</h3>
-              <p>Connect multiple data sources and turn your metrics into an ongoing tool for tracking business performance.</p>
+              <h3>Business Intelligence &amp; Interactive Dashboards</h3>
+              <p>Bring information from different sources together in interactive dashboards to track business performance.</p>
+              <p class="package-price">Estimated investment <strong>$500–$950 USD</strong></p>
+              <p class="package-delivery">Standard delivery: 5–10 business days</p>
               <ul>
-                <li>Integration and preparation of multiple data sources</li>
+                <li>Connect and prepare information from multiple sources</li>
                 <li>Dashboard with filters, metrics, and trend analysis</li>
                 <li>Identification of improvement opportunities</li>
               </ul>
-              <a class="package-cta" href="https://wa.me/50670528947?text=Hello%2C%20I%27m%20interested%20in%20the%20Business%20Intelligence%20and%20performance%20analysis%20package." target="_blank" rel="noopener noreferrer">Request this package <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              <button class="package-cta" type="button" data-quote-package="pkg-2">Get a detailed quote <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></button>
             </div>
           </li>
 
@@ -286,14 +292,16 @@
             <div class="package-number" aria-hidden="true">03</div>
             <div class="package-content">
               <span class="package-level">Advanced</span>
-              <h3>Statistical Analysis &amp; Segmentation</h3>
-              <p>Explore your data in depth to understand patterns, customer segments, and the factors influencing your results.</p>
+              <h3>Statistical Analysis &amp; Customer/Product Segmentation</h3>
+              <p>Use statistical analysis to find patterns, group similar customers or products, and understand what may affect results.</p>
+              <p class="package-price">Estimated investment <strong>$850–$1,500 USD</strong></p>
+              <p class="package-delivery">Standard delivery: 10–15 business days</p>
               <ul>
-                <li>Exploratory and statistical analysis with Python</li>
+                <li>Explore data and run statistical analysis with Python</li>
                 <li>Segmentation and detection of meaningful patterns</li>
                 <li>Results report with actionable conclusions</li>
               </ul>
-              <a class="package-cta" href="https://wa.me/50670528947?text=Hello%2C%20I%27m%20interested%20in%20the%20statistical%20analysis%20and%20segmentation%20package." target="_blank" rel="noopener noreferrer">Request this package <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              <button class="package-cta" type="button" data-quote-package="pkg-3">Get a detailed quote <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></button>
             </div>
           </li>
 
@@ -301,20 +309,137 @@
             <div class="package-number" aria-hidden="true">04</div>
             <div class="package-content">
               <span class="package-level">Data Science</span>
-              <h3>Predictive Analytics &amp; Machine Learning</h3>
-              <p>Anticipate future scenarios with predictive models built around your data and business needs.</p>
+              <h3>Predictive Analytics, Machine Learning &amp; AI</h3>
+              <p>Use machine learning models to estimate future outcomes based on your data and business needs.</p>
+              <p class="package-price">Estimated investment <strong>$1,400–$2,800 USD</strong></p>
+              <p class="package-delivery">Standard delivery: 15–25 business days</p>
               <ul>
                 <li>Data assessment and definition of the prediction objective</li>
-                <li>Machine learning model development and validation</li>
+                <li>Build and test machine learning models</li>
                 <li>Presentation of predictions, limitations, and next steps</li>
               </ul>
-              <a class="package-cta" href="https://wa.me/50670528947?text=Hello%2C%20I%27m%20interested%20in%20predictive%20analytics%20and%20machine%20learning%20services." target="_blank" rel="noopener noreferrer">Request a consultation <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              <button class="package-cta" type="button" data-quote-package="pkg-4">Get a detailed quote <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></button>
             </div>
           </li>
         </ol>
 
-        <p class="packages-footer-note">Each project is quoted based on your data, goals, and scope. <a href="mailto:gurdian2411@gmail.com?subject=Data%20services%20inquiry">Tell me what you need</a>.</p>
+        <p class="packages-footer-note">Estimates depend on project scope. Seasonal promotions and discounts may apply. <a href="mailto:gurdian2411@gmail.com?subject=Data%20services%20inquiry">Tell me what you need</a>.</p>
       </section>
+
+      <dialog id="serviceQuoteDialog" class="service-quote-dialog" aria-labelledby="quote-form-title" aria-describedby="quote-form-intro">
+        <button class="quote-close" type="button" aria-label="Close quote form" data-quote-close>
+          <i class="bx bx-x" aria-hidden="true"></i>
+        </button>
+        <div class="quote-dialog-main">
+          <header class="quote-dialog-heading">
+            <span class="packages-eyebrow">Project estimate</span>
+              <h2 id="quote-form-title">Your project estimate</h2>
+              <p id="quote-form-intro">Choose options to see an estimate. We’ll confirm your final price after reviewing your project.</p>
+          </header>
+          <form id="serviceQuoteForm" class="service-quote-form" data-service-quote-form method="POST" action="https://formspree.io/f/mnqejopy"
+            data-success-message="Your quote request has been sent. I’ll be in touch soon."
+            data-error-message="Your request could not be sent. Please try again or email me directly.">
+            <input type="hidden" name="quote_package" id="quotePackage">
+            <input type="hidden" name="estimated_range" id="quoteRange">
+            <input type="hidden" name="_subject" id="quoteSubject">
+            <textarea name="message" id="quoteMessage" hidden></textarea>
+
+            <fieldset class="quote-fieldset">
+              <legend>Your contact details</legend>
+              <div class="quote-fields-grid">
+                <div class="quote-field">
+                  <label for="quoteName">Your name <span aria-hidden="true">*</span></label>
+                  <input id="quoteName" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="quote-field">
+                  <label for="quoteEmail">Email address <span aria-hidden="true">*</span></label>
+                  <input id="quoteEmail" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="quote-field">
+                  <label for="quoteCompany">Company or organization</label>
+                  <input id="quoteCompany" name="company" type="text" autocomplete="organization">
+                </div>
+                <div class="quote-field">
+                  <label for="quoteRole">Your role</label>
+                  <input id="quoteRole" name="role" type="text" autocomplete="organization-title">
+                </div>
+                <div class="quote-field">
+                  <fieldset class="quote-fieldset quote-radio-group">
+                    <legend>What would you like to improve in your business? <span aria-hidden="true">*</span></legend>
+                    <label class="quote-radio-option" for="quoteGoal1">
+                      <input id="quoteGoal1" name="project_goal" type="radio" value="clean_and_automate" data-option-label="Organize spreadsheets and automate routine reports" required>
+                      <span>Organize spreadsheets and automate routine reports</span>
+                    </label>
+                    <label class="quote-radio-option" for="quoteGoal2">
+                      <input id="quoteGoal2" name="project_goal" type="radio" value="track_performance" data-option-label="Track results with KPIs (key performance indicators) and dashboards" required>
+                      <span>Track results with KPIs (key performance indicators) and dashboards</span>
+                    </label>
+                    <label class="quote-radio-option" for="quoteGoal3">
+                      <input id="quoteGoal3" name="project_goal" type="radio" value="find_patterns" data-option-label="Find patterns in customers, products, or operations" required>
+                      <span>Find patterns in customers, products, or operations</span>
+                    </label>
+                    <label class="quote-radio-option" for="quoteGoal4">
+                      <input id="quoteGoal4" name="project_goal" type="radio" value="plan_ahead" data-option-label="Forecast likely results and plan ahead" required>
+                      <span>Forecast likely results and plan ahead</span>
+                    </label>
+                    <label class="quote-radio-option" for="quoteGoal5">
+                      <input id="quoteGoal5" name="project_goal" type="radio" value="advanced_ai" data-option-label="Develop advanced solutions using machine learning, AI, or automation" required>
+                      <span>Develop advanced solutions using machine learning, AI, or automation</span>
+                    </label>
+                  </fieldset>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="quote-dynamic-fields" id="quoteDynamicFields"></div>
+            <section class="quote-project-summary" aria-labelledby="quote-summary-title">
+              <h3 id="quote-summary-title">Project summary</h3>
+              <ul id="quoteProjectSummary" class="quote-summary-list"></ul>
+            </section>
+            <p class="contact-form-status quote-form-status" role="status" aria-live="polite"></p>
+            <div class="quote-form-actions">
+              <button class="quote-cancel" type="button" data-quote-close>Cancel</button>
+              <button class="contact-submit quote-submit" type="submit">
+                <span>Send quote request</span><i class="bx bx-send" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <aside class="quote-estimate-panel" aria-label="Estimated price and budget options">
+          <div class="quote-estimate-fixed">
+            <span class="quote-estimate-label">Estimated investment (USD)</span>
+            <output id="quoteEstimate" class="quote-estimate-amount" aria-live="polite"></output>
+            <p class="quote-price-description">USD · Approximate project price range.</p>
+            <p class="quote-disclaimer">Approximate only. Final price depends on scope; seasonal offers or discounts may apply.</p>
+            <p class="quote-timeline"><i class="bx bx-time-five" aria-hidden="true"></i><span id="quoteTimeline"></span></p>
+          </div>
+          <div class="quote-estimate-details">
+            <fieldset class="quote-budget-section quote-fieldset" data-completion-any>
+              <legend><span>Budget &amp; pricing options</span><span class="quote-optional-tag">Optional</span></legend>
+              <div class="quote-field">
+                <label for="quoteBudget">Budget available for this project (USD)</label>
+                <input id="quoteBudget" name="available_budget" form="serviceQuoteForm" type="number" min="0" step="1" inputmode="decimal" autocomplete="off" placeholder="For example, 2,500" aria-describedby="quoteBudgetHelp">
+                <span id="quoteBudgetHelp" class="quote-budget-help">Share a target budget if you have one. This does not change the estimate automatically.</span>
+              </div>
+              <fieldset class="quote-fieldset quote-radio-group" data-completion-any>
+                <legend>How should we explore a price that works for you?</legend>
+                <label class="quote-radio-option">
+                  <input type="radio" name="price_adjustment" form="serviceQuoteForm" value="prioritize_essentials" data-option-label="Prioritize essentials or reduce project scope">
+                  <span class="quote-option-text">Prioritize essentials or reduce project scope</span>
+                </label>
+                <label class="quote-radio-option">
+                  <input type="radio" name="price_adjustment" form="serviceQuoteForm" value="split_phases" data-option-label="Split the work into smaller phases">
+                  <span class="quote-option-text">Split the work into smaller phases</span>
+                </label>
+                <label class="quote-radio-option">
+                  <input type="radio" name="price_adjustment" form="serviceQuoteForm" value="discuss_options" data-option-label="Discuss a custom price or payment schedule">
+                  <span class="quote-option-text">Discuss a custom price or payment schedule</span>
+                </label>
+              </fieldset>
+            </fieldset>
+          </div>
+        </aside>
+      </dialog>
 
       <section id="contact" class="portfolio-contact reveal" aria-labelledby="services-contact-title">
         <div class="contact-heading">
@@ -375,22 +500,43 @@
 
       <!-- ═══════════════ FOOTER ═══════════════ -->
       <footer id="contacto">
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <form id="contactForm" method="POST">
-              <label for="name">Name:</label>
-              <input type="text" id="name" name="name" required>
-
-              <label for="email">Your email:</label>
-              <input type="email" id="email" name="email" required>
-
-              <label for="message">Message:</label>
-              <textarea id="message" name="message" required></textarea>
-
-              <div id="buttons">
-                <button type="submit" id="submitBtn">Send</button>
-                <button type="button" id="cancelBtn">Cancel</button>
+        <div id="contactModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+          <div class="modal-backdrop"></div>
+          <div class="modal-container">
+            <button class="modal-close" aria-label="Close contact form" type="button">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            <form id="contactForm" class="modal-form" method="POST">
+              <h2 id="modal-title" class="modal-title">Contact Me</h2>
+              <p class="modal-subtitle">Send me a message and I'll get back to you</p>
+              
+              <div class="modal-field">
+                <label for="name" class="modal-label">Name</label>
+                <input type="text" id="name" name="name" class="modal-input" placeholder="Your name" required autocomplete="name">
+              </div>
+              
+              <div class="modal-field">
+                <label for="email" class="modal-label">Email</label>
+                <input type="email" id="email" name="email" class="modal-input" placeholder="you@email.com" required autocomplete="email">
+              </div>
+              
+              <div class="modal-field">
+                <label for="message" class="modal-label">Message</label>
+                <textarea id="message" name="message" class="modal-textarea" placeholder="Tell me about your project..." required rows="4"></textarea>
+              </div>
+              
+              <div class="modal-actions">
+                <button type="button" class="modal-btn modal-btn--cancel" id="cancelBtn">Cancel</button>
+                <button type="submit" class="modal-btn modal-btn--submit" id="submitBtn">
+                  <span>Send Message</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
               </div>
             </form>
           </div>
@@ -471,7 +617,9 @@
     <script src="js/scrollReveal.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/service-quotes.js"></script>
     <script src="js/dashboard-chart.js" defer></script>
+    <script src="js/particle-background.js"></script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4a8656c19415498c9c5e637bb06bc267"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

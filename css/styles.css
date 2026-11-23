@@ -253,10 +253,6 @@ html.dark-mode body {
         font-size: large;
     }
 
-    .modal-content {
-        width: 70%;
-    }
-
     .container {
         padding: 0 4.4rem;
     }
@@ -265,10 +261,6 @@ html.dark-mode body {
 @media screen and (max-width: 1010px) {
     form {
         font-size: large;
-    }
-
-    .modal-content {
-        width: 70%;
     }
 
     .container {
@@ -289,10 +281,6 @@ html.dark-mode body {
         backdrop-filter: blur(0px);
     }
 
-    .modal-content {
-        width: 70%;
-    }
-
     .container {
         padding: 0 1.9rem;
     }
@@ -301,10 +289,6 @@ html.dark-mode body {
 @media screen and (max-width: 768px) {
 #smallTitles {
         margin-top: 150px;
-    }
-
-    .modal-content {
-        width: 70%;
     }
 
     footer input,
@@ -351,10 +335,6 @@ html.dark-mode body {
 }
 
 @media screen and (max-width: 600px) {
-    .modal-content {
-        width: 90%;
-    }
-
     input,
     textarea {
         width: 100%;
