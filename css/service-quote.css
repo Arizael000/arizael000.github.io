@@ -321,6 +321,12 @@
     line-height: 1.4;
 }
 
+.quote-field-help {
+    color: #587478;
+    font-size: 0.78rem;
+    line-height: 1.35;
+}
+
 .quote-form-status {
     margin: 0;
 }
@@ -707,6 +713,31 @@
     .quote-dialog-heading p {
         font-size: 0.95rem;
         line-height: 1.4;
+    }
+
+    .quote-radio-option,
+    .quote-checkbox-option {
+        min-height: 52px;
+        align-items: flex-start;
+    }
+
+    .quote-radio-option input,
+    .quote-checkbox-option input {
+        margin-top: 0.12rem;
+    }
+
+    .quote-option-price {
+        margin-inline-start: auto;
+        text-align: right;
+        white-space: normal;
+    }
+
+    .quote-summary-list li {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .quote-summary-price {
+        justify-self: start;
     }
 }
 

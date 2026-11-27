@@ -631,6 +631,8 @@
   line-height: 1.6;
   color: #4a6062;
   padding-top: 0.25rem;
+  text-align: left;
+  white-space: pre-line;
 }
 
 :is(.dark-mode) .preview-description {
@@ -893,9 +895,19 @@
 }
 
 .preview-content {
+  position: relative;
   max-height: calc(100vh - 7.5rem);
   border: 1px solid rgba(69, 122, 126, 0.18);
   border-radius: 14px;
+  background: #fff;
+  color: #1c2e30;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+:is(.dark-mode) .preview-content {
+  border-color: rgba(127, 204, 208, 0.24);
+  background: #1e3235;
+  color: #e2f0f1;
 }
 
 .preview-body {

@@ -355,6 +355,112 @@ html.dark-mode body {
     }
 }
 
+@media screen and (max-width: 480px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    .container,
+    main.container {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 0.75rem;
+    }
+
+    main.container {
+        margin-top: 1rem;
+    }
+
+    section,
+    .reveal {
+        min-width: 0;
+    }
+
+    .section-title {
+        font-size: clamp(1.55rem, 8vw, 2rem);
+        line-height: 1.15;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .hero-section {
+        width: 100%;
+        padding: 1.25rem 0.75rem 2rem;
+    }
+
+    .hero-content {
+        gap: 1.25rem;
+    }
+
+    .hero-name {
+        font-size: clamp(2.7rem, 14vw, 3.7rem);
+    }
+
+    .hero-role {
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .hero-bio {
+        font-size: 1rem;
+    }
+
+    .hero-cta {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .hero-cta a {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .hero-avatar-ring {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-verse {
+        width: min(100%, 21rem);
+        margin-inline: auto;
+    }
+
+    .tools-grid,
+    .projects-grid {
+        width: 100%;
+    }
+
+    .project-card,
+    .tool-card,
+    .service-card,
+    .contact-layout,
+    .portfolio-contact-form {
+        min-width: 0;
+    }
+
+    .portfolio-contact {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .contact-detail {
+        width: 100%;
+    }
+
+    .contact-detail strong {
+        overflow-wrap: anywhere;
+    }
+}
+
 /* Gallery */
 .gallery {
     padding: 20px 10px 20px;

@@ -265,6 +265,12 @@ document.addEventListener('DOMContentLoaded', function () {
     input.required = true;
     input.inputMode = 'numeric';
     wrapper.append(label, input);
+    if (question.included !== undefined && question.unit) {
+      const help = document.createElement('span');
+      help.className = 'quote-field-help';
+      help.textContent = `${question.included} included; +${formatCurrency(question.unit)} per additional unit, up to +${formatCurrency(question.cap)}.`;
+      wrapper.append(help);
+    }
     return wrapper;
   }
 
@@ -548,7 +554,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateProjectSummary(selectedPackage, expressExtra) {
     projectSummary.replaceChildren();
-    appendSummaryRow('Package', selectedPackage.title);
+    appendSummaryRow('Package', selectedPackage.title, selectedPackage.base);
     appendSummaryRow('Business goal', getSelectedLabel('project_goal'));
     appendSummaryRow('Data source', getSelectedLabel('data_source'), getSourceBaseExtra());
 

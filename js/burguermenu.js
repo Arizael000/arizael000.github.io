@@ -5,8 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const menu4 = document.querySelector(".menu4");
   const menu5 = document.querySelector(".menu5");
   const eventWrapper = document.querySelector(".event-wrapper");
-  const eventWrapperInp = document.querySelector(".event-wrapper-inp");
   const cvLink = document.getElementById("cv");
+  const menuContainer = document.querySelector(".menu-container");
+  const supportsPopover = "popover" in HTMLElement.prototype;
 
   // ── Overlay for hamburger menu ──
   const overlay = document.createElement("div");
@@ -17,12 +18,35 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.classList.toggle("active", open);
   }
 
-  // Watch checkbox changes to toggle overlay
-  if (eventWrapperInp) {
-    eventWrapperInp.addEventListener("change", function () {
-      toggleOverlay(!this.checked);
+  function syncMenuState(open) {
+    if (eventWrapper) {
+      eventWrapper.setAttribute("aria-expanded", open ? "true" : "false");
+      eventWrapper.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    }
+    toggleOverlay(open);
+  }
+
+  if (menuContainer) {
+    menuContainer.addEventListener("toggle", function () {
+      syncMenuState(menuContainer.matches(":popover-open"));
     });
   }
+
+  if (!supportsPopover && menuContainer) {
+    eventWrapper?.addEventListener("click", function (event) {
+      event.preventDefault();
+      const open = !menuContainer.classList.contains("fallback-open");
+      menuContainer.classList.toggle("fallback-open", open);
+      syncMenuState(open);
+    });
+  }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeAllMenus();
+      eventWrapper?.focus();
+    }
+  });
 
   // Click overlay closes menu
   overlay.addEventListener("click", function () {
@@ -66,21 +90,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Services → scroll to the services section on the current page
   if (menu4) {
     menu4.addEventListener("click", function (event) {
-      var servicesAnchor = menu4.querySelector('a[href="#services"]');
-      if (servicesAnchor) {
-        event.preventDefault();
-        var target = document.getElementById('services');
-        if (target) {
-          history.pushState(null, '', '#services');
-          target.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.location.href = './#services';
-        }
-        closeAllMenus();
-        return;
+      event.preventDefault();
+      var target = document.getElementById('services');
+      if (target) {
+        history.pushState(null, '', '#services');
+        target.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = './#services';
       }
-
-      window.location.href = 'learningpath.html';
+      closeAllMenus();
     });
   }
 
@@ -120,10 +138,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Close menu
   function closeAllMenus() {
-    if (eventWrapperInp && !eventWrapperInp.checked) {
-      eventWrapperInp.checked = true;
+    if (menuContainer && typeof menuContainer.hidePopover === "function" && menuContainer.matches(":popover-open")) {
+      menuContainer.hidePopover();
+    } else if (menuContainer) {
+      menuContainer.removeAttribute("open");
+      if (!supportsPopover) {
+        menuContainer.classList.remove("fallback-open");
+      }
     }
-    toggleOverlay(false);
+    syncMenuState(false);
   }
 
   // Close menus when clicking outside

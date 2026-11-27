@@ -504,15 +504,6 @@ nav:focus-visible,
 
 /* ═══════════════ HAMBURGER ═══════════════ */
 
-/* Hide checkbox visually */
-.event-wrapper>.event-wrapper-inp {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-}
-
 .event-wrapper {
   display: none !important;
   align-items: center;
@@ -522,6 +513,10 @@ nav:focus-visible,
   user-select: none;
   width: 40px;
   height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
   border-radius: 10px;
   flex-shrink: 0;
   transition: background 0.3s ease;
@@ -559,25 +554,35 @@ nav:focus-visible,
 }
 
 /* X animation */
-.event-wrapper-inp:not(:checked) ~ .bar > .top {
+.event-wrapper[aria-expanded="true"] > .bar > .top {
   transform: translateY(7.5px) rotate(45deg);
 }
 
-.event-wrapper-inp:not(:checked) ~ .bar > .middle {
+.event-wrapper[aria-expanded="true"] > .bar > .middle {
   opacity: 0;
   transform: scaleX(0);
 }
 
-.event-wrapper-inp:not(:checked) ~ .bar > .bottom {
+.event-wrapper[aria-expanded="true"] > .bar > .bottom {
   transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* ── Menu Container ── */
 .menu-container {
-  position: absolute;
-  top: calc(100% + 12px);
-  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  position: fixed;
+  inset: auto;
+  inset-block-start: 4.75rem;
+  inset-inline-end: 1rem;
   min-width: 220px;
+  box-sizing: border-box;
+  margin: 0;
+  inline-size: min(280px, calc(100dvw - 2rem));
+  max-block-size: calc(100dvh - 6rem);
+  overflow-y: auto;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -601,7 +606,7 @@ nav:focus-visible,
 }
 
 /* Open state */
-.event-wrapper-inp:not(:checked) ~ .menu-container {
+.menu-container:is(:popover-open, .\:popover-open, .fallback-open) {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
@@ -611,9 +616,14 @@ nav:focus-visible,
 /* ── Menu Items ── */
 .menu-list {
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 500;
@@ -628,7 +638,7 @@ nav:focus-visible,
 }
 
 /* Open state with staggered delays */
-.event-wrapper-inp:not(:checked) ~ .menu-container .menu-list {
+.menu-container:is(:popover-open, .\:popover-open, .fallback-open) .menu-list {
   opacity: 1;
   transform: translateX(0);
   transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
@@ -637,13 +647,13 @@ nav:focus-visible,
               color 0.25s ease;
 }
 
-.event-wrapper-inp:not(:checked) ~ .menu-container .menu-list:nth-child(1) { transition-delay: 0.05s; }
-.event-wrapper-inp:not(:checked) ~ .menu-container .menu-list:nth-child(2) { transition-delay: 0.1s; }
-.event-wrapper-inp:not(:checked) ~ .menu-container .menu-list:nth-child(3) { transition-delay: 0.15s; }
-.event-wrapper-inp:not(:checked) ~ .menu-container .menu-list:nth-child(4) { transition-delay: 0.2s; }
-.event-wrapper-inp:not(:checked) ~ .menu-container .menu-list:nth-child(5) { transition-delay: 0.25s; }
-.event-wrapper-inp:not(:checked) ~ .menu-container .menu-list:nth-child(6) { transition-delay: 0.3s; }
-.event-wrapper-inp:not(:checked) ~ .menu-container .menu-list:nth-child(7) { transition-delay: 0.35s; }
+.menu-container:is(:popover-open, .\:popover-open, .fallback-open) .menu-list:nth-child(1) { transition-delay: 0.05s; }
+.menu-container:is(:popover-open, .\:popover-open, .fallback-open) .menu-list:nth-child(2) { transition-delay: 0.1s; }
+.menu-container:is(:popover-open, .\:popover-open, .fallback-open) .menu-list:nth-child(3) { transition-delay: 0.15s; }
+.menu-container:is(:popover-open, .\:popover-open, .fallback-open) .menu-list:nth-child(4) { transition-delay: 0.2s; }
+.menu-container:is(:popover-open, .\:popover-open, .fallback-open) .menu-list:nth-child(5) { transition-delay: 0.25s; }
+.menu-container:is(:popover-open, .\:popover-open, .fallback-open) .menu-list:nth-child(6) { transition-delay: 0.3s; }
+.menu-container:is(:popover-open, .\:popover-open, .fallback-open) .menu-list:nth-child(7) { transition-delay: 0.35s; }
 
 .menu-list:hover {
   background: rgba(69, 122, 126, 0.1);

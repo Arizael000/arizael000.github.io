@@ -78,24 +78,24 @@
         <div class="header-right">
 
           <!-- Hamburger menu button -->
-          <label class="event-wrapper">
-            <input type="checkbox" checked="" class="event-wrapper-inp" />
+          <button class="event-wrapper" type="button" popovertarget="mobile-menu" popovertargetaction="toggle"
+            aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation menu">
             <div class="bar">
               <span class="top bar-list"></span>
               <span class="middle bar-list"></span>
               <span class="bottom bar-list"></span>
             </div>
-          <section class="menu-container">
-            <div class="menu-list"><i class="fas fa-house"></i><a href="index.html" style="text-decoration: none; color: inherit;">Home</a></div>
-            <div class="menu-list menu1"><i class="fas fa-envelope"></i>Contact me</div>
-            <div class="menu-list menu2"><i class="fas fa-folder-open"></i>Projects</div>
-            <div class="menu-list menu3"><i class="fas fa-wrench"></i>Tools</div>
-            <div class="menu-list menu4"><i class="fas fa-chart-line"></i><a href="#services" style="text-decoration: none; color: inherit;">Services</a></div>
-            <div class="menu-list menu5"><i class="fas fa-graduation-cap"></i>Learning Path</div>
-            <div class="menu-list menu6" id="cv-mobile"><i class="fas fa-download"></i>Download CV</div>
-            <div class="menu-list menu-darkmode"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span class="dm-label-light">Dark Mode</span><span class="dm-label-dark">Light Mode</span></div>
-          </section>
-        </label>
+          </button>
+          <nav class="menu-container" id="mobile-menu" aria-label="Mobile navigation" popover="auto">
+            <a class="menu-list" href="index.html"><i class="fas fa-house"></i>Home</a>
+            <button class="menu-list menu1" type="button"><i class="fas fa-envelope"></i>Contact me</button>
+            <button class="menu-list menu2" type="button"><i class="fas fa-folder-open"></i>Projects</button>
+            <button class="menu-list menu3" type="button"><i class="fas fa-wrench"></i>Tools</button>
+            <a class="menu-list menu4" href="#services"><i class="fas fa-chart-line"></i>Services</a>
+            <button class="menu-list menu5" type="button"><i class="fas fa-graduation-cap"></i>Learning Path</button>
+            <button class="menu-list menu6" id="cv-mobile" type="button"><i class="fas fa-download"></i>Download CV</button>
+            <button class="menu-list menu-darkmode" type="button"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span class="dm-label-light">Dark Mode</span><span class="dm-label-dark">Light Mode</span></button>
+          </nav>
 
       </div>
     </header>
@@ -227,23 +227,6 @@
         <p>Explore how analytics, dashboards, and predictive modeling can turn your data into clearer decisions.</p>
       </div>
 
-      <div class="home-services-copy">
-        <span class="home-services-eyebrow"><i class="bx bx-globe" aria-hidden="true"></i> Remote services worldwide</span>
-        <h3>Make your data work for you</h3>
-        <p class="home-services-intro">From clear, interactive dashboards to predictive data science, turn complex information into your next business decision.</p>
-
-        <ul class="home-services-list">
-          <li><i class="bx bx-check" aria-hidden="true"></i> Business intelligence &amp; dashboards</li>
-          <li><i class="bx bx-check" aria-hidden="true"></i> Statistical analysis &amp; segmentation</li>
-          <li><i class="bx bx-check" aria-hidden="true"></i> Predictive analytics &amp; machine learning</li>
-        </ul>
-
-        <a class="home-services-cta" href="services.html">
-          <span>Explore all services</span>
-          <i class="bx bx-right-arrow-alt" aria-hidden="true"></i>
-        </a>
-      </div>
-
       <div class="home-services-chart-card">
         <div class="home-services-chart-heading">
           <div>
@@ -281,6 +264,17 @@
           <output id="histogram-bin-value" for="histogram-bin-control">6 bins</output>
         </div>
         <p class="histogram-note">Illustrative sample data for demonstration only.</p>
+      </div>
+
+      <div class="home-services-copy">
+        <span class="home-services-eyebrow"><i class="bx bx-globe" aria-hidden="true"></i> Remote services worldwide</span>
+        <h3>Ready to turn your data into action?</h3>
+        <p class="home-services-intro">Explore dashboards, statistical analysis, and predictive solutions designed around your next business decision.</p>
+
+        <a class="home-services-cta" href="services.html">
+          <span>View services</span>
+          <i class="bx bx-right-arrow-alt" aria-hidden="true"></i>
+        </a>
       </div>
     </section>
 
